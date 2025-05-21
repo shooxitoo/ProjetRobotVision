@@ -1,0 +1,261 @@
+.MODULE_BEGIN Exercice3
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM ExerciceB
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    locc PosA, PosB, PosC, PosD
+    real Decalage = -20
+    int i
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+M3D_DisplayPosClear()
+
+UtilInitRobotMan("Tool_MOD_Teach", 10) // Mise en place de l'outil ainsi que la vitesse du robot.
+
+PosA=gcPosCoinTableA+trans(0,0,Decalage)
+PosB=gcPosCoinTableB+trans(0,0,Decalage)
+PosC=gcPosCoinTableC+trans(0,0,Decalage)
+PosD=gcPosCoinTableD+trans(0,-0,Decalage)
+
+for (i = gNbTours; i > 0 ; i-=1)
+move(PosA)
+move(PosB)
+move(PosC)
+move(PosD)
+move(PosA)
+end
+
+for (i = gNbTours ; i > 0 ; i-=1)
+moves(PosA)
+moves(PosB)
+moves(PosC)
+moves(PosD)
+moves(PosA)
+end
+.END
+
+.PROGRAM InitEnv3DD
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    int i
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+// Effacement objets de la 3D
+M3D_DisplayPosClear()
+
+// Affichage des Jengas
+for (i = 0  ;i < gNbTours ; i+=1)
+    M3D_AsmObjectAdd("Jeton",i, gcPosCoinTableB+trans(-JengaLength()/2,JengaWidth()/2,-JengaHeight()-JengaHeight()*i))
+end
+
+return
+.END
+
+.PROGRAM MouvementsEx03
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    real DecalageZ = 100
+    locc PA, PB, PC, PD, PE
+    real JetonHeight = 2
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+// ***Simulation***
+//PA=gcPosCoinTableA+trans(-DecalageXY,-DecalageXY,-JetonHeight)
+//PE=gcPosCoinTableB+trans(-DecalageXY,DecalageXY,-JetonHeight)
+//PD=gcPosCoinTableC+trans(DecalageXY,DecalageXY,-JetonHeight)
+//PB=gcPosCoinTableD+trans(DecalageXY,-DecalageXY,-JetonHeight)
+//PC=gcPosCentreTable+trans(0,0,DecalageZ,180)
+
+// ***Realité***
+PA=gcPosCoinTableAReel+trans(-DecalageXY,-DecalageXY,-JetonHeight)
+PE=gcPosCoinTableEReel+trans(-DecalageXY,DecalageXY,-JetonHeight)
+PD=gcPosCoinTableDReel+trans(DecalageXY,DecalageXY,-JetonHeight)
+PB=gcPosCoinTableBReel+trans(DecalageXY,-DecalageXY,-JetonHeight)
+PC=gcPosCentreTableReel+trans(0,0,-DecalageZ)
+
+waitEndMove()
+setSynchronizedMove(gSynchMode)
+moves(PA,DecalageZ1)
+PriseDeposeEx03(PA)
+moves(PB,DecalageZ1)
+PriseDeposeEx03(PB)
+move(PC,0.0,false)
+moves(PD,DecalageZ1)
+PriseDeposeEx03(PD)
+moves(PE,DecalageZ1)
+PriseDeposeEx03(PE)
+move(PC,0.0,false)
+moves(PA,DecalageZ1)
+setSynchronizedMove(TRUE)
+
+return
+.END
+
+.PROGRAM PriseDeposeEx03
+
+.DESCRIPTION
+
+.INPUTS
+
+    locc Position
+
+.VARIABLES
+
+    real DecalageZ2 = 2
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+WaitEndMove()
+UtilVacuum(TRUE)
+
+//moves(Position,DecalageZ1)
+moves(Position)
+moves(Position,DecalageZ2)
+Delay(0.5)
+moves(Position)
+waitEndMove()
+UtilVacuum(FALSE)
+moves(Position,DecalageZ1)
+
+return
+.END
+
+.PROGRAM TrajectoireEx03
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    int i
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+M3D_DisplayPosClear()
+UtilInitRobotMan("Tool_MOD_Vacuum", 5) // Mise en place de l'outil ainsi que la vitesse du robot.
+
+setBlending(40, 40)
+switch(mcpAlert("Choix du mode","Blending","No blending"))
+    case 0
+    gSynchMode = FALSE
+
+    case 1
+    gSynchMode = TRUE
+end
+
+for (i = NbCycles; i > 0 ; i-=1)    //Boucle for qui permet la sélection du nombre de Jengas
+
+MouvementsEx03()
+
+end
+
+movej(gjPosReady)
+
+return
+.END
+
+.PROGRAM Exercice5D
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+UtilInitRobotMan("Tool_MOD_Vacuum", 10) // Mise en place de l'outil ainsi que la vitesse du robot.
+
+//setSpeed(100) Vitesse générale tout est a 100% de vitesse
+setSpeedLinear(100,50)
+
+move(gcPosCoinTableAReel+trans(0,0,-20))
+setSpeed(100)
+
+move(gcPosCoinTableEReel+trans(0,0,-20))
+setSpeedLinear(100,100)
+
+movej(gcPosCoinTableAReelJ)
+
+setSpeed(50)
+
+moves(gcPosCoinTableEReel+trans(0,0,-20))
+
+return
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+
+.MODULE_GLOBAL_CONSTANTS
+
+    int gNbTours = 3
+    locc gcPosCoinTableC = {750, -250, -163, -180, 0, -180}, gcPosCoinTableD = {750, 250, -163, -180, 0, -180}
+    real DecalageXY = 14
+    int NbCycles = 1
+    real DecalageZ1 = 10
+    locc gcPosCoinTableAReel = {399.226, 247.974, -170.954, 179.892, -7.74e-01, 178.9240000}, gcPosCoinTableBReel = {798.242, 252.555, -171.958, 179.893, -7.73e-01, 178.9240000}, gcPosCoinTableDReel = {804.337, -246.791, -174.422, 179.892, -7.72e-01, 178.9240000}, gcPosCoinTableEReel = {404.676, -251.065, -174.4, 179.892, -7.73e-01, 178.9240000}, gcPosCentreTableReel = {602.108, -2.9e-02, -171.9150000, 179.8920000, -7.74e-01, 178.9240000}
+    bool gSynchMode = true
+    locj gcPosCoinTableAReelJ = {30.9097, 23.214, 110.9315, 4.198e-01, 46.5747000, 29.5439000}
+
+.MODULE_END

@@ -1,0 +1,339 @@
+.MODULE_BEGIN Exercice2
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM MainTestInt
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+// Mise en place de l'outil et de la vitesse du robot
+UtilInitRobotMan("Tool_MOD_Vacuum", 5)
+
+movej(gjPosReady) //Déplacemnt en mouvement joint sur la position de rangement
+
+
+return
+.END
+
+.PROGRAM InitEnv3D
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    int i
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+// Effacement objets de la 3D
+M3D_DisplayPosClear()
+
+// Affichage de la palette
+M3D_AsmObjectAdd("PointeUsinage",0,gcPosCentreTable)
+// Affichage des Jengas
+for (i = 0  ;i < gNbJenga ; i+=1)
+    M3D_AsmObjectAdd("Jenga",i, gcPosCoinTableB+trans(-JengaLength()/2,JengaWidth()/2,-JengaHeight()-JengaHeight()*i))
+end
+
+return
+.END
+
+.PROGRAM MainEx2
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    int i
+    locc PosB, PosA
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+// Auteur: Da Silva Lucas
+// Date: 02.09.2024
+// Module: Pick and Place V1
+// Description: Pick and Place de Jengas en passant
+//              par une position au centre de la table
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+
+UtilInitRobotMan("Tool_MOD_Vacuum", 5) // Mise en place de l'outil ainsi que la vitesse du robot.
+InitEnv3D()                            // Initialisation de l'environnement 3D
+
+for (i = gNbJenga; i > 0 ; i-=1)    //Boucle for qui permet la sélection du nombre de Jengas
+
+    PosB=gcPosCoinTableB+trans(-JengaLength()/2,JengaWidth()/2,-JengaHeight()*i)
+    PosA=gcPosCoinTableA+trans(-JengaLength()/2,-JengaWidth()/2,-JengaHeight()*(gNbJenga+1-i))
+
+    move(PosB,gAppro)     // Mouvement en position d'approche du point B
+    moves(PosB)           // Mouvement en position B
+    JengaGripp(i-1, TRUE) // Actionnement de l'outil d'agrippage
+    move(PosB,gAppro)     // Mouvement en position d'approche du point B
+
+    move(gcPosCentreTable+trans(0,0,gToolLenght-gMillingDepht,180),gAppro)    // Mouvement en position d'approche du point d'usinage
+    moves(gcPosCentreTable+trans(0,0,gToolLenght-gMillingDepht,180))          // Mouvement en position du point d'usinage
+    moves(gcPosCentreTable+trans(0,0,gToolLenght-gMillingDepht,180),gAppro)   // Mouvement en position d'approche du point d'usinage
+
+    move(PosA,gAppro)      // Mouvement en position d'approche du point A
+    moves(PosA)            // Mouvement en position A
+    JengaGripp(i-1, FALSE) // Libération de l'outil d'agrippage
+    move(PosA,gAppro)      // Mouvement en position d'approche du point A
+
+end
+    movej(gjPosReady)      //Déplacement en mouvement joint sur la position de rangement
+return
+.END
+
+.PROGRAM MainEx2V2
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    int i
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+// Auteur: Da Silva Lucas
+// Date: 02.09.2024
+// Module: Pick and Place V2
+// Description: Pick and Place de Jengas en passant par
+//              une position au centre de la table,
+//              Les Jengas sont positionnés sur le côté latéral.
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+
+UtilInitRobotMan("Tool_MOD_Vacuum", 5) // Mise en place de l'outil ainsi que la vitesse du robot.
+InitEnv3D()                            // Initialisation de l'environnement 3D
+
+for (i = gNbJenga; i > 0 ; i-=1)    //Boucle for qui permet la sélection du nombre de Jengas
+
+    PickJenga(i)        //Sous-programme qui effectue le Pick du Jenga
+    PosOutil()          //Sous-programme qui effectue le mouvement au centre de la table
+    PlaceJenga(i)       //Sous-programme qui effectue le Place du Jenga
+
+end
+    movej(gjPosReady) //Déplacement en mouvement joint sur la position de rangement
+return
+
+.END
+
+.PROGRAM MainEX2V3
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    int i
+    real Rayon = 10
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+// Auteur: Da Silva Lucas
+// Date: 02.09.2024
+// Module: Pick and Place V3
+// Description: Pick and Place de Jengas en passant par
+//              l'usinage d'un cercle au centre de la table.
+//              Les Jengas sont positionnés sur le côté latéral.
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+
+UtilInitRobotMan("Tool_MOD_Vacuum", 2000) // Mise en place de l'outil ainsi que la vitesse du robot.
+InitEnv3D()                            // Initialisation de l'environnement 3D
+
+for (i = gNbJenga; i > 0 ; i-=1) //Boucle for qui permet la sélection du nombre de Jengas
+
+    PickJenga(i)            //Sous-programme qui effectue le Pick du Jenga
+    MouvCirculaire(Rayon)   //Sous-programme qui effectue l'usinage au centre de la table
+    PlaceJenga(i)           //Sous-programme qui effecture le Place du Jenga
+
+end
+
+movej(gjPosReady) //Déplacement en mouvement joint sur la position de rangement
+return
+
+
+.END
+
+.PROGRAM MouvCirculaire
+
+.DESCRIPTION
+
+.INPUTS
+
+    real Rayon
+
+.VARIABLES
+
+    locc posCentreCercle, posCercleInit, posCercleInterm1, posCercleFinal, posCercleInterm2
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+// Auteur: Da Silva Lucas
+// Date: 02.09.2024
+// Module: Sous-programme mouvement cirulaire
+// Description: Permet de faire le mouvement
+//              circulaire pour effectuer l'usinage
+//              d'un cercle de rayon "Rayon"
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+
+gR = Rayon
+posCentreCercle = gcPosCentreTable + trans(0, 0, gToolLenght - gMillingDepht, 180)
+posCercleInit = posCentreCercle + trans(gR, 0)
+posCercleInterm1 = posCentreCercle + trans(0, gR)
+posCercleFinal = posCentreCercle + trans(-gR, 0)
+posCercleInterm2 = posCentreCercle + trans(0, -gR)
+
+move(posCercleInit, gAppro)
+moves(posCercleInit)
+movec(posCercleInterm1, posCercleFinal)
+movec(posCercleInterm2, posCercleInit)
+moves(posCercleInit, gAppro)
+
+return
+.END
+
+.PROGRAM PlaceJenga
+
+.DESCRIPTION
+
+.INPUTS
+
+    int i
+
+.VARIABLES
+
+    locc PosA, PosApprocheY
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+// Auteur: Da Silva Lucas
+// Date: 02.09.2024
+// Module: Sous-programme Place du Jenga
+// Description: Permet de faire le mouvement vers
+//              la position A de la table et de
+//              lacher un Jenga.
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+
+PosA=gcPosCoinTableA+trans(-JengaLength()/2,0,-JengaWidth()*((gNbJenga-i)+0.5),90)
+PosApprocheY=PosA+trans(0,-25,0)
+
+move(PosApprocheY)
+moves(PosA)
+JengaGripp(i-1, FALSE)
+move(PosA,gAppro)
+movej(gjPosTable)
+
+return
+.END
+
+.PROGRAM PickJenga
+
+.DESCRIPTION
+
+.INPUTS
+
+    int i
+
+.VARIABLES
+
+    locc PosB
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+// Auteur: Da Silva Lucas
+// Date: 02.09.2024
+// Module: Sous-programme Pick du Jenga
+// Description: Permet de faire le mouvement vers
+//              la position B de la table et de
+//              prendre un Jenga.
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+
+PosB=gcPosCoinTableB+trans(-JengaLength()/2,JengaWidth()/2,-JengaHeight()*i)
+
+move(PosB,gAppro)     // Mouvement en position d'approche du point B
+moves(PosB)           // Mouvement en position B
+JengaGripp(i-1, TRUE) // Actionnement de l'outil d'agrippage
+move(PosB,gAppro)     // Mouvement en position d'approche du point B
+
+return
+.END
+
+.PROGRAM PosOutil
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+// Auteur: Da Silva Lucas
+// Date: 02.09.2024
+// Module: Sous-programme position de l'outil d'usinage
+// Description: Permet le mouvement vers la position
+//              au centre de la table sur la pointe
+//              d'usinage.
+// * * * * * * * * * * * * * * * * * * * * * * * * *
+
+move(gcPosCentreTable+trans(0,0,gToolLenght-gMillingDepht,180),gAppro)
+moves(gcPosCentreTable+trans(0,0,gToolLenght-gMillingDepht,180))
+moves(gcPosCentreTable+trans(0,0,gToolLenght-gMillingDepht,180),gAppro)
+
+return
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+
+.MODULE_GLOBAL_CONSTANTS
+
+    locc gcPosCoinTableA = {350, 250, -163, -180, 0, -180}, gcPosCoinTableB = {350, -250, -163, -180, 0, -180}
+    real gAppro = 20.4
+    locc gcPosCentreTable = {550, 0, -163, -0, 0, -0}
+    int gNbJenga = 5
+    real gR = 10, gToolLenght = 100, gMillingDepht = 2
+
+.MODULE_END

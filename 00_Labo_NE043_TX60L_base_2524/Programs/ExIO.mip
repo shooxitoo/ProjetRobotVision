@@ -1,0 +1,152 @@
+.MODULE_BEGIN ExIO
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM Main
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string gSpyRobot, gSpyIO
+    real randomize
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+gSpyRobot="TRob"
+gSpyIO="TIO"
+
+gArret=False
+taskExecute Robot(), gSpyRobot
+taskExecute IO(), gSpyIO
+
+switch(Alert("Choix de l'arret","Choix d'arret","Arret programmé","Arret"))
+    case 0
+    gArret = TRUE
+
+    case 1
+    if (taskExists(gSpyRobot))
+        taskStop(gSpyRobot)
+    end
+    if (taskExists(gSpyIO))
+        taskStop(gSpyIO)
+    end
+end
+
+return
+.END
+
+.PROGRAM IO
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    real time = 5e-01
+    int time2b = 3
+    locc PosActuelle
+    real dist
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+//*** POINT A
+//while(!gArret)
+//ioWrite("LED", TRUE)
+//delay(time)
+//ioWrite("LED", FALSE)
+//delay(time)
+//end
+
+//*** POINT B
+deviceSelect()
+
+PA=gcPosCoinTableAReel+trans(-DecalageXY,-DecalageXY,-JetonHeight)
+PE=gcPosCoinTableEReel+trans(-DecalageXY,DecalageXY,-JetonHeight)
+PD=gcPosCoinTableDReel+trans(DecalageXY,DecalageXY,-JetonHeight)
+PB=gcPosCoinTableBReel+trans(DecalageXY,-DecalageXY,-JetonHeight)
+PC=gcPosCentreTableReel+trans(0,0,-DecalageZ)
+
+while(!gArret)
+PosActuelle= here()
+dist = distanceTo(PosActuelle, PD)
+    IF (dist < 1)
+        ioWrite ("LED", TRUE)
+        delay(time2b)
+        ioWrite ("LED", FALSE)
+        grResult=random()*100
+    end
+end
+
+
+return
+.END
+
+.PROGRAM Robot
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+UtilInitRobotMan("Tool_MOD_Teach", 10) // Mise en place de l'outil ainsi que la vitesse du robot.
+
+PA=gcPosCoinTableAReel+trans(-DecalageXY,-DecalageXY,-JetonHeight)
+PE=gcPosCoinTableEReel+trans(-DecalageXY,DecalageXY,-JetonHeight)
+PD=gcPosCoinTableDReel+trans(DecalageXY,DecalageXY,-JetonHeight)
+PB=gcPosCoinTableBReel+trans(DecalageXY,-DecalageXY,-JetonHeight)
+PC=gcPosCentreTableReel+trans(0,0,-DecalageZ)
+
+while(!gArret)
+    moves(PC)
+    moves(PA)
+    moves(PB)
+    moves(PD)
+    moves(PE)
+    moves(PA)
+    moves(PC)
+    Alert("Valeur de grResult",grResult,"OK")
+    ioWrite("BackLight", grResult)
+end
+
+return
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+    bool gArret
+    real grResult
+
+.MODULE_GLOBAL_CONSTANTS
+
+    bool Arret = true
+    locc PA = {413.512148, 234.2428005, -169.1209327, 179.892, -7.74e-01, 178.9240000}, PB = {784.5356015, 238.2986733, -169.7462607, 179.893, -7.73e-01, 178.9240000}, PC = {603.4588438, 1.5947825e-01, -71.9243019, 179.8920000, -7.74e-01, 178.9240000}, PD = {790.1048093, -233.0522623, -172.2559362, 179.892, -7.72e-01, 178.9240000}, PE = {418.4363624, -236.8011728, -172.6123592, 179.892, -7.73e-01, 178.9240000}
+
+.MODULE_END

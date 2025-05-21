@@ -1,0 +1,158 @@
+.MODULE_BEGIN Exercice1
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM MainEx1
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    locc p1, p2, pInter
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+RobotInit()
+
+Init3D()
+
+COR_PI_Reset(gcPaletteRouge)
+
+while(!COR_PI_IsDone(gcPaletteRouge))
+
+    p1 = COR_PI_Next(gcPaletteRouge)+gcPick
+    p2 = COR_PI_Next(gcPaletteVerte)+gcPick
+    pInter=deltaTo(p1,p2)
+
+    PriseDepose(p1,TRUE,"Cylindre",gcPaletteRouge.INDEX-1)
+    //Ajout point intermédiaire:
+    pInter=p1+ deltaTo(p1,p2)*0.75
+    move(pInter,300)
+
+    PriseDepose(p2,FALSE,"Cylindre",gcPaletteVerte.INDEX-1)
+    move(pInter,300)
+end
+return
+.END
+
+.PROGRAM Init3D
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+UtilInitRobotMan("Tool_MOD_Vacuum", 20)
+
+// Init environnement 3D
+M3D_AsmClear()
+M3D_AsmObjectAdd("Palette5x4", 0, trans(500,0,-165))
+M3D_AsmObjectAdd("Palette10x8",0,trans(200,300,-365,0,0,45))
+
+// Création des palette
+gcPaletteRouge = COR_PR_CreatePaletteReguliere(4,5,42,42,trans(500,0,-165),gcOffset)
+gcPaletteVerte = COR_PR_CreatePaletteReguliere(8,10,42,42,trans(200,300,-365,0,0,45),gcOffset)
+
+// Remplissage palette rouge
+while(!COR_PI_IsDone(gcPaletteRouge))
+
+    M3D_AsmObjectAdd("Cylindre",gcPaletteRouge.INDEX-0,COR_PI_Next(gcPaletteRouge))
+
+end
+
+return
+.END
+
+.PROGRAM PriseDepose
+
+.DESCRIPTION
+
+.INPUTS
+
+    locc Position
+    bool Prise
+    string PartName
+    int Index
+
+.VARIABLES
+
+    real DecalageZ2 = 60
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+move(Position,DecalageZ2)
+moves(Position)
+waitEndMove()
+UtilVacuum(Prise)
+
+if (PartName!="")
+    M3D_AsmObjectToggle(PartName,Index,Prise)
+end
+
+moves(Position,DecalageZ2)
+
+return
+.END
+
+.PROGRAM RobotInit
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+deviceattach()
+ensure(true)
+setSpeed(100)
+setTool(machineTool("Tool_Vacuum"))
+
+movej (gjPosTable)
+
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+    class gcPaletteRouge, gcPaletteVerte
+
+.MODULE_GLOBAL_CONSTANTS
+
+    locc gcOffset = {25.27, 25.27, 3, -0, 0, -0}, gcPick = {0, 0, 40, -180, 0, -0}
+    locj gcPosSecu = {41.5692, 30.3075, 75.9146, 0, 73.7778, -138.4308}
+
+.MODULE_END

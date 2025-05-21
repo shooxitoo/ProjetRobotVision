@@ -1,0 +1,343 @@
+.MODULE_BEGIN Base3D
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM M3D_AsmObjectAdd
+
+.DESCRIPTION
+
+.INPUTS
+
+    string objName
+    int objId
+    locc pos
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+
+if (!simEnabled())
+    return
+end
+
+// par defaut, les pieces sont ajoutee sur le asmFrame, jamais sur le robot
+simAsmObjectAdd(gAsmFramePart, gAsmLibPath+objName, objName+objId, pos)
+
+.END
+
+.PROGRAM M3D_AsmObjectToggle
+
+.DESCRIPTION
+
+.INPUTS
+
+    string objName
+    int objId
+    bool frameToTool
+
+.VARIABLES
+
+    string asmDest, asmSource, asmParent
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Application:     Cours Robotique I
+// Module :         Exercices_Base
+//
+// creation:        09.11.2012, JMa
+// modification:    09.11.2012, JMa
+//
+// description:     fait passer un object de l'assemblage frame à tool
+// inputs:          /
+// return:          /
+//
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+if (!simEnabled() or objName == "")
+    return
+end
+
+asmParent = gAsmFramePart
+if (frameToTool)
+    asmDest = gAsmToolPart
+    asmSource = gAsmFramePart
+else
+    asmDest = gAsmFramePart
+    asmSource = gAsmToolPart
+end
+
+simObjectSetLink(asmParent + "/"+ objName+objId, asmSource, false)
+simObjectSetLink(asmParent + "/" + objName+objId, asmDest, true)
+return
+.END
+
+.PROGRAM M3D_AsmClear
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Application:     Cours Robotique I
+// Module :         Exercices_Base
+//
+// creation:        09.11.2012, JMa
+// modification:    09.11.2012, JMa
+//
+// description:     efface les composants ajoutes au ASM_FRAME (jetons, etc..)
+// inputs:          /
+// return:          /
+//
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+if (!simEnabled())
+    return
+end
+
+simAsmClear(gAsmFramePart)
+simAsmClear(gAsmToolPart)
+return
+.END
+
+.PROGRAM M3D_DisplayPosJoint
+
+.DESCRIPTION
+
+.INPUTS
+
+    locj posj
+    string name
+
+.VARIABLES
+
+    locc posc
+    array pointArray
+    bool showParent, showTrace, showNames
+    real markSize
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Application:     Cours Robotique I
+// Module :         Exercices_Base
+//
+// creation:        23.10.2013, JMa
+// modification:    23.10.2013, JMa
+//
+// description:     affiche une position cartésienne dans l'environnement 3D
+// inputs:          /
+// return:          /
+//
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+if (!simEnabled())
+    return
+end
+
+deviceSelect()
+posc = solveJointToCartesian(posj, trans(0))
+
+arrayAdd(pointArray, posc)
+showParent = false
+showTrace = false
+showNames = true
+markSize = 8
+simAddPointGroup(name, gAsmFramePoint, pointArray, trans(0), showParent, showTrace, showNames, markSize)
+return
+.END
+
+.PROGRAM M3D_DisplayPosCartesianAbs
+
+.DESCRIPTION
+
+.INPUTS
+
+    locc pos
+    string name
+
+.VARIABLES
+
+    array pointArray
+    bool showParent, showTrace, showNames
+    real markSize
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Application:     Cours Robotique I
+// Module :         Exercices_Base
+//
+// creation:        23.10.2013, JMa
+// modification:    23.10.2013, JMa
+//
+// description:     affiche une position cartésienne dans l'environnement 3D
+// inputs:          /
+// return:          /
+//
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+if (!simEnabled())
+    return
+end
+
+arrayAdd(pointArray, pos)
+showParent = false
+showTrace = true
+showNames = true
+markSize = 6
+
+simAddPointGroup(name, gAsmFramePoint, pointArray, trans(0), showParent, showTrace, showNames, markSize)
+return
+.END
+
+.PROGRAM M3D_DisplayPosCartesianRel
+
+.DESCRIPTION
+
+.INPUTS
+
+    locc pos, parentPos
+    string name
+
+.VARIABLES
+
+    array pointArray
+    bool showParent, showTrace, showNames
+    real markSize
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Application:     Cours Robotique I
+// Module :         Exercices_Base
+//
+// creation:        23.10.2013, JMa
+// modification:    23.10.2013, JMa
+//
+// description:     affiche une position cartésienne dans l'environnement 3D
+// inputs:          /
+// return:          /
+//
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+if (!simEnabled())
+    return
+end
+
+arrayAdd(pointArray, pos)
+showParent = parentPos != gAsmLastParentPos
+showTrace = true
+showNames = true
+markSize = 6
+
+simAddPointGroup(name, gAsmFramePoint, pointArray, parentPos, showParent, showTrace, showNames, markSize)
+gAsmLastParentPos = parentPos
+return
+.END
+
+.PROGRAM M3D_DisplayPosCartesianRels
+
+.DESCRIPTION
+
+.INPUTS
+
+    array positions
+    locc parentPos
+    string name
+
+.VARIABLES
+
+    bool showParent, showTrace, showNames
+    real markSize
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Application:     Cours Robotique I
+// Module :         Exercices_Base
+//
+// creation:        23.10.2013, JMa
+// modification:    23.10.2013, JMa
+//
+// description:     affiche une position cartésienne dans l'environnement 3D
+// inputs:          /
+// return:          /
+//
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+if (!simEnabled())
+    return
+end
+
+showParent = parentPos != gAsmLastParentPos
+showTrace = true
+showNames = true
+markSize = 3
+
+simAddPointGroup(name, gAsmFramePoint, positions, parentPos, showParent, showTrace, showNames, markSize)
+gAsmLastParentPos = parentPos
+return
+.END
+
+.PROGRAM M3D_DisplayPosClear
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Application:     Cours Robotique I
+// Module :         Exercices_Base
+//
+// creation:        23.10.2013, JMa
+// modification:    23.10.2013, JMa
+//
+// description:     affiche une position cartésienne dans l'environnement 3D
+// inputs:          /
+// return:          /
+//
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+if (!simEnabled())
+    return
+end
+//return
+simAsmClear(gAsmFramePoint, true)
+//simAsmClear(gAsmFramePoint)
+
+M3D_AsmClear()
+
+return
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+    locc gAsmLastParentPos
+
+.MODULE_GLOBAL_CONSTANTS
+
+    string gAsmToolPart = "Cellule/ASM_TOOL_PART", gAsmFramePart = "Cellule/ASM_FRAME_PART", gAsmFramePoint = "Cellule/ASM_FRAME_POINT", gAsmLibPath = "Internal/comp/"
+
+.MODULE_END

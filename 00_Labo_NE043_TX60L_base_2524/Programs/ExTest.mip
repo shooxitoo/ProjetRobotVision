@@ -1,0 +1,177 @@
+.MODULE_BEGIN ExTest
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM ExDemoSim
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    real hPiece
+    locc frame
+
+.RETURN_TYPE none
+
+.BODY
+// Effacement objets de la 3D
+M3D_AsmClear()
+
+// position de la palette : absolue
+frame = gFrameTest
+
+// Affichage de la position d'approche (joint)
+M3D_DisplayPosJoint(gStartTest, "#Start")
+
+// Affichage de la palette
+M3D_AsmObjectAdd("Palet", 0, frame)
+
+// Affichage d'un jeton
+hPiece = 2
+M3D_AsmObjectAdd("Jeton", 0, frame+trans(30, 30, -hPiece))
+
+// Affichage d'un jeton plus épais
+hPiece = 40
+M3D_AsmObjectAdd("JetonTricolorDia38Long40", 0, frame+trans(30, 100, -hPiece))
+
+
+// Affichage d'un Jenga
+hPiece = 8
+M3D_AsmObjectAdd("Jenga", 0, frame+trans(160, 90, -hPiece, 0, 0, 45))
+
+.END
+
+.PROGRAM ExTestMove
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    locj ready, table = {4e-04, 2e-04, 90.0000000, -1e-04, 90.0000000, 2e-04}
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+simEnable(true)
+deviceAttach()
+ensure(true)
+setTool(machineTool("Tool_Vacuum"))
+setSpeed(10)
+
+movej(table)
+movej(ready)
+
+return
+.END
+
+.PROGRAM ExTestProg
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+print("test", dateTimeString(dateTimeCurrent()))
+return
+.END
+
+.PROGRAM ExTestMoveObjSim
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    locc l_pLoc, l_pOffset
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+deviceAttach()
+ensure(true)
+setTool(machineTool("Tool_Vacuum"))
+setSpeed(10)
+
+movej(gStartTest)
+setSpeed(100)
+
+// Affichage des objets test en simulation (et effacement assemblage simulation)
+ExDemoSim()
+
+l_pLoc = gFrameTest+trans(30, 100, -40)  // Création d'une position cartésienne où se trouve le jeton
+
+move(l_pLoc) // Déplacement du robot au point
+
+M3D_AsmObjectToggle("JetonTricolorDia38Long40", 0, true) // Changement d'assemblage: FRAME -> TOOL
+
+// Déplacements robot
+l_pOffset = trans(100, -75)
+moves(l_pLoc, 100)
+move(l_pLoc+l_pOffset, 100)
+moves(l_pLoc+l_pOffset)
+
+M3D_AsmObjectToggle("JetonTricolorDia38Long40", 0, false) // Changement d'assemblage: TOOL -> FRAME
+
+move(l_pLoc+l_pOffset, 100) // Remonté du robot
+
+return
+.END
+
+.PROGRAM ExLaunchTestMoveObjSim
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+taskExecute ExTestMoveObjSim(), "FloatingTask"
+
+
+return
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+
+.MODULE_GLOBAL_CONSTANTS
+
+    string gStringTest = "mrj"
+    locc gFrameTest = {650, -50, -143, -180, 0, -180}
+    locj gStartTest = {-1.279e-01, 18.7693000, 107.1197000, 0.0000000, 54.1110000, 179.8721000}
+
+.MODULE_END

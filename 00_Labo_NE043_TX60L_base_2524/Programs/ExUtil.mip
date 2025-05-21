@@ -1,0 +1,114 @@
+.MODULE_BEGIN ExUtil
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM UtilVacuum
+
+.DESCRIPTION
+
+.INPUTS
+
+    bool state
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:        ExUtil
+// Description:   Activation/désactivation du vacuum avec temporisation
+// * * * * * * * * * * * * * * *
+
+ioWrite("brasValve1", state)
+delay(state ? 0.3:0.4)
+return
+.END
+
+.PROGRAM UtilVacuumToggle
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:        ExUtil
+// Description:   Activation/désactivation du vacuum avec temporisation
+// * * * * * * * * * * * * * * *
+
+ioToggle("brasValve1")
+return
+.END
+
+.PROGRAM UtilInitRobotMan
+
+.DESCRIPTION
+
+.INPUTS
+
+    string userToolName
+    real userSpeed
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+gExToolName = userToolName //Mise en place de l'outil
+ExInitMan() // Initialisation du robot en mode manuel.
+setSpeed(userSpeed)
+
+movej (gjPosTable) // Déplacement en mouvement Joint sur la position initiale.
+
+return
+.END
+
+.PROGRAM UtilInitRobotAuto
+
+.DESCRIPTION
+
+.INPUTS
+
+    string userToolName
+    real userSpeed
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+gExToolName = userToolName //Mise en place de l'outil
+ExInitAuto() // Initialisation du robot en mode manuel.
+setSpeed(userSpeed)
+
+movej (gjPosTable) // Déplacement en mouvement Joint sur la position initiale.
+
+return
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+
+.MODULE_GLOBAL_CONSTANTS
+
+
+.MODULE_END

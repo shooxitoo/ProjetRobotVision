@@ -1,0 +1,356 @@
+.MODULE_BEGIN RobotMotionSpy
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM MainSpyJ
+
+.DESCRIPTION
+
+.INPUTS
+
+    string filePath
+
+.VARIABLES
+
+    array LogPositionArray
+    string position
+    real clockVal, oldClockVal, deltaMax, delta
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+taskSetPriority(999) //High priority allow less delay in execution
+
+deviceSelect(gRobotName) //Allow to read info from the robot, but the mouvement are commanded by another task
+
+arrayClear(LogPositionArray)
+arrayAdd(LogPositionArray,  "J1,J2,J3,J4,J5,J6,empty")
+oldClockVal = 0
+deltaMax = 0
+while(!gFlagSpyStop)
+    clockVal = clock()*1000
+    if (clockVal - oldClockVal > 0)
+        position = UtilLocjToString(3, ",",false, herej(),clockVal)
+        arrayAdd(LogPositionArray, position)
+        oldClockVal = clockVal
+    end
+end
+
+fileWrite(filePath,  LogPositionArray) //Write all the file in one shot
+print(deltaMax)
+
+return
+.END
+
+.PROGRAM UtilLocjToString
+
+.DESCRIPTION
+
+.INPUTS
+
+    int decimale
+    string separator
+    bool addAxeName
+    locj locj
+    real clockVal
+
+.VARIABLES
+
+    string outStr
+    int i, count = 6
+    real value
+    string axeName
+
+.RETURN_TYPE string
+
+.BODY
+
+outStr=""
+for (i=-1; i<count ; i+=1)
+    switch(i)
+        case -1
+            value=clockVal
+        case 0
+            value=jointValue(locj,0)
+            axeName="J1 "
+        case 1
+            value=jointValue(locj,1)
+            axeName="J2 "
+        case 2
+            value=jointValue(locj,2)
+            axeName="J3 "
+        case 3
+            value=jointValue(locj,3)
+            axeName="J4 "
+        case 4
+            value=jointValue(locj,4)
+            axeName="J5 "
+        case 5
+            value=jointValue(locj,5)
+            axeName="J6 "
+    end
+    if (addAxeName)
+        outStr += axeName
+    end
+    outStr+=UtilRealToString(value, decimale)+separator
+end
+
+return outStr
+
+
+
+.END
+
+.PROGRAM UtilRealToString
+
+.DESCRIPTION
+
+.INPUTS
+
+    real value
+    int decimale
+
+.VARIABLES
+
+    string outStr
+    int intValue, pos, zeroAdd, decimaleCount
+
+.RETURN_TYPE string
+
+.BODY
+
+if (decimale<=0)
+    outStr=integer(value)
+    return outStr
+end
+
+outStr=value
+pos=strPos(outStr,".")
+if(pos>=0)
+    // Il y a un point
+    // Calcul des zéros à ajouté
+    decimaleCount=strLen(outStr)-pos-1
+    if (decimaleCount >= decimale)
+        zeroAdd=0
+        // Trunc
+        outStr=strMid(outStr, 0,  pos+1+decimale)
+    else
+        zeroAdd=decimale-decimaleCount
+    end
+
+else
+    // No point, add It!
+    outStr+="."
+    zeroAdd=decimale
+end
+
+while(zeroAdd>0)
+    outStr+="0"
+    zeroAdd-=1
+end
+
+return outStr
+
+
+
+.END
+
+.PROGRAM StartSpyJ
+
+.DESCRIPTION
+
+.INPUTS
+
+    string fileName
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+//  variable  globale  initialisée  avec
+//  le  nom  de  la  nouvelle  tâche
+gSpyJTaskName  =  "mainSpyJTask"
+gFlagSpyStop = false
+
+//  lancement  de  la  nouvelle  tâche,
+//  avec  comme  programme  principal  mainProgram
+taskExecute  MainSpyJ(directoryWorkspace()+ "\" + fileName),  gSpyJTaskName
+
+return
+.END
+
+.PROGRAM StopSpy
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+gFlagSpyStop = true
+while  (taskExists(gSpyJTaskName) or taskExists(gSpyCTaskName) )
+end
+print("SpyStopped")
+return
+.END
+
+.PROGRAM StartSpyC
+
+.DESCRIPTION
+
+.INPUTS
+
+    string fileName
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+//  variable  globale  initialisée  avec
+//  le  nom  de  la  nouvelle  tâche
+gSpyCTaskName  =  "mainSpyCTask"
+gFlagSpyStop = false
+
+//  lancement  de  la  nouvelle  tâche
+taskExecute  MainSpyC(directoryWorkspace()+ "\" + fileName),  gSpyCTaskName
+
+return
+.END
+
+.PROGRAM MainSpyC
+
+.DESCRIPTION
+
+.INPUTS
+
+    string filePath
+
+.VARIABLES
+
+    array LogPositionArray
+    string position
+    real clockVal, oldClockVal, deltaMax, delta
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+taskSetPriority(999) //High priority allow less delay in execution
+
+deviceSelect(gRobotName) //Allow to read info from the robot, but the mouvement are commanded by another task
+
+arrayClear(LogPositionArray)
+arrayAdd(LogPositionArray,  "X,Y,Z,rX,rY,rZ,empty")
+oldClockVal = 0
+deltaMax = 0
+while(!gFlagSpyStop)
+    clockVal = clock()*1000
+    if (clockVal - oldClockVal > 0)
+        position = UtilLoccToString(3, ",",false, here(),clockVal)
+        arrayAdd(LogPositionArray, position)
+        oldClockVal = clockVal
+    end
+end
+
+fileWrite(filePath,  LogPositionArray) //Write all the file in one shot
+print(deltaMax)
+
+return
+.END
+
+.PROGRAM UtilLoccToString
+
+.DESCRIPTION
+
+.INPUTS
+
+    int decimale
+    string separator
+    bool addAxeName
+    locc locc
+    real clockVal
+
+.VARIABLES
+
+    string outStr
+    int i, count = 6
+    real value
+    string axeName
+
+.RETURN_TYPE string
+
+.BODY
+
+outStr=""
+for (i=-1; i<count ; i+=1)
+    switch(i)
+        case -1
+            value=clockVal
+        case 0
+            value=dx(locc)
+            axeName="X "
+        case 1
+            value=dy(locc)
+            axeName="Y "
+        case 2
+            value=dz(locc)
+            axeName="Z "
+        case 3
+            value=dRx(locc)
+            axeName="Rx  "
+        case 4
+            value=dRy(locc)
+            axeName="Ry  "
+        case 5
+            value=dRy(locc)
+            axeName="Rz "
+    end
+    if (addAxeName)
+        outStr += axeName
+    end
+    outStr+=UtilRealToString(value, decimale)+separator
+end
+
+return outStr
+
+
+
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+
+.MODULE_GLOBAL_CONSTANTS
+
+    bool gFlagSpyStop = true
+    string gSpyCTaskName = "mainSpyCTask", gSpyJTaskName = "mainSpyJTask"
+
+.MODULE_END

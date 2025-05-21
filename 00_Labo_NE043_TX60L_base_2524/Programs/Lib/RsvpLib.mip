@@ -1,0 +1,1344 @@
+.MODULE_BEGIN RSVPLib
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM RsInfo
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+//******************************************************************//
+// Librairie    : RSVP
+// Version      : 2.0.0
+// Creation     : 05.02.2020, YLO, FMA
+// Modification : 20.02.2025, FMA
+//
+// Description  : Librairie de comunication avec le protocole RSVP
+//
+//                --> RsExemple() montre le fonctionnement de la librairie --> A executer
+//
+//******************************************************************//
+//
+// Historique des modifications :
+//
+//******************************************************************//
+// v2.0.0, 20.02.2025, FMA
+// Simplification des fonctions, le string (answer/request) n'est plus passé en paramètre mais stocké dans une
+// globale -> cela permet de correspondre au fonctionnement du custom step de MatroxDA fait par Yuri
+// Certaines fonctions seront renommées et/ou supprimées
+// Ajout fonction RsSetDevice(name:string) permettant d'afficher le nom liée à la connexion lors du debug (print)
+// Modification RsReadLocc() -> s'il n'y a pas assez de valeur d'entrée, les autres champs sont initialisées à 0
+//
+// v1.0.3, 20.04.2020, FMA
+// Correction dans la fonction RsParseParamValuePair()
+// Les valeurs DBL des types VECD (sans sous-type) etaient traitées comme des string
+//
+// v1.0.2, 12.03.2020, FMA
+// Ajout des fonctions RsAddParam...() et RsAddCommand() pour l'écriture de paramètres
+// Suppression ancien programmes
+// Refactorisation
+//
+// v1.0.1, 05.03.2020, FMA
+// Ajout de la fonction RsReadCommand()
+//
+// v1.0.0, 05.02.2020, FMA
+// Version initiale
+//
+
+
+return
+.END
+
+.PROGRAM RsExemple
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string input
+    int i, l_iArgCount
+    string l_sAnswer
+    locj jHome = {1.25, -8, 54, -5.879, -90, 125.254}
+    array l_sValue = [<string> "A", "B", "C", "Hello", "D", "E"], l_rValue = [<real> 12.5400000, 85.9000000, -12.8700000]
+
+.RETURN_TYPE none
+
+.BODY
+//******************************************************************//
+// Librairie    : RSVP
+//
+// Description  : Example of using RSVP lib
+// return       :
+//******************************************************************//
+
+print("")
+print("")
+print("*** Exemple d'emploi de la lib RSVP ***")
+
+// Exemple 1:
+print("")
+print("1: Creation d'une requete avec des variables de type simple")
+// Effacement des anciennes variables et ajout des nouveaux
+RsClear()
+RsAddVariableBool("Result", true)
+RsAddVariableInt("Index", -1)
+RsAddVariableDouble("Temp", 37.5)
+RsAddVariableString("Message", "Hello")
+print("Requete generee:", RsCreateRequest("TRIG"))
+
+// Exemple 2:
+print("")
+print("2: Creation d'une requete avec une locc et un point joint (avec et sans label)")
+// Effacement des anciennes variables et ajout des nouveaux
+// Version sans labels
+RsClear()
+RsAddVariableLocc("P0", trans(2.3, 12.3, -4, -175,84,45), false)
+RsAddVariableLocj("jHome", jHome, false)
+print("Requete sans labels:", RsCreateRequest("SEND"))
+// Version avec labels
+RsClear()
+RsAddVariableLocc("P0", trans(2.3, 12.3, -4, -175,84,45), true)
+RsAddVariableLocj("jHome", jHome, true)
+print("Requete avec labels:", RsCreateRequest("SEND"))
+
+// Exemple 3:
+print("")
+print("3: Creation d'une requete avec un vecteur string")
+// Effacement des anciennes variables et ajout des nouveaux
+RsClear()
+RsAddVariableStringVector("Message", l_sValue)
+print("Requete generee:", RsCreateRequest("VALUES"))
+
+// Exemple 4:
+print("")
+print("4: Lecture d'une reponse (START) contenant des variables")
+input = "REPLY-START=ACK;STATUS=PASS;T(DBL)=4.5;COUNT(INT)=3;USER(STR)=JEAN"
+l_iArgCount = RsParse(input)
+print("Message recu:", input)
+print("Il y a: " + l_iArgCount + " arguments dans la chaine d'entree")
+print("Entete de la reponse:", RsReadReplyDescriptor())
+print("Resultat de la reponse:", RsReadReplyResult())
+print("La valeur du status vaut:", RsReadString("STATUS"))
+print("La valeur de la temp vaut:", RsReadDouble("T"))
+print("La valeur du count vaut:", RsReadInt("COUNT"))
+print("La valeur de user vaut:", RsReadString("USER"))
+print("")
+
+
+// Exemple 5:
+print("")
+print("5: Lecture d'une reponse (GETPOS) contenant une locc")
+input = "REPLY-GETPOS=ACK;POS(VECD)=[1.2, 3.4,-4]"
+l_iArgCount = RsParse(input)
+print("Message recu:", input)
+print("Il y a: " + l_iArgCount + " arguments dans la chaine d'entree")
+print("Entete de la reponse:", RsReadReplyDescriptor())
+print("Resultat de la reponse:", RsReadReplyResult())
+print("La valeur de la pos vaut:", RsReadLocc("POS"))
+print("")
+
+// Exemple 6:
+print("")
+print("6: Lecture d'une reponse (GETPOS) contenant une locc avec labels")
+input = "REPLY-GETPOS=ACK;POS(VECD)=[x=1.2, y=3.4,z=-4, rx=90, ry=-45, rz=14.4]"
+l_iArgCount = RsParse(input)
+print("Message recu:", input)
+print("Il y a: " + l_iArgCount + " arguments dans la chaine d'entree")
+print("Entete de la reponse:", RsReadReplyDescriptor())
+print("Resultat de la reponse:", RsReadReplyResult())
+print("La valeur de la pos vaut:", RsReadLocc("POS"))
+print("")
+
+// Exemple 7:
+print("")
+print("7: Lecture d'une reponse (GETPOSJ) contenant une locj")
+input = "REPLY-GETPOS=ACK;POSJ(VECD)=[1.2, 3.4,-4, 5, -23, 25]"
+l_iArgCount = RsParse(input)
+print("Message recu:", input)
+print("Il y a: " + l_iArgCount + " arguments dans la chaine d'entree")
+print("Entete de la reponse:", RsReadReplyDescriptor())
+print("Resultat de la reponse:", RsReadReplyResult())
+print("La valeur de la pos vaut:", RsReadLocj("POSJ"))
+print("")
+
+// Exemple 8:
+print("")
+print("8: Lecture d'une reponse (TRIG) avec un message d'erreur")
+input = "REPLY-TRIG=NACK;ERROR=Camera is not online"
+l_iArgCount = RsParse(input)
+print("Message recu:", input)
+print("Il y a: " + l_iArgCount + " arguments dans la chaine d'entree")
+print("Resultat de la reponse:", RsReadReplyResult())
+print("Message d'erreur:", RsReadString("ERROR"))
+print("")
+.END
+
+.PROGRAM RsPrint
+
+.DESCRIPTION
+
+.INPUTS
+
+    string str
+    int x_iLogLevel
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+if ((iRsLogLevel & x_iLogLevel) > 0)
+    //taskCallStack(x_sStack) // stack of current task
+    //return "<" + x_sStack[arraySize(x_sStack)-2] + "> "
+    print("RSVPLib<"+gsRsDevice+"> " + str)
+end
+
+
+.END
+
+.PROGRAM RsError
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sError
+    bool x_bStop
+
+.VARIABLES
+
+    array l_sStack
+    string l_sStr, l_sErr
+
+.RETURN_TYPE none
+
+.BODY
+RsPrint(x_sError, iRsLogLevelError)
+
+if (x_bStop)
+    taskCallStack(l_sStack)
+    l_sStr = l_sStack[arraySize(l_sStack)-1] + ">> (" + x_sError + ") "
+    //print(l_sStr)
+    alert("Erreur d'exécution de la librairie RSVPLib", l_sStr)
+    taskStop()
+end
+.END
+
+.PROGRAM RsClear
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+//******************************************************************//
+// Librairie    : RSVP
+//
+// Description  : Clear internal buffers for message
+//******************************************************************//
+
+arrayClear(gcRsVariables)
+
+.END
+
+.PROGRAM RsParse
+
+.DESCRIPTION
+
+.INPUTS
+
+    string message
+
+.VARIABLES
+
+    int l_iArgCount
+
+.RETURN_TYPE int
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:Parses a string
+// * * * * * * * * * * * * * * *
+
+arrayClear(cRsParseResult)
+RsParseArg(message,gsRsSeparator,0,"", cRsParseResult) // Start with parsing arguments
+
+l_iArgCount = arraySize(cRsParseResult)
+
+return l_iArgCount
+
+.END
+
+.PROGRAM RsParseArg
+
+.DESCRIPTION
+
+.INPUTS
+
+    string message, sep
+    int level
+    string l_sType
+    array decoded_message
+
+.VARIABLES
+
+    array sTab
+    int i
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:Parses a string
+// * * * * * * * * * * * * * * *
+
+RsPrint("Parse level "+level+": separator:"+ sep+" message:"+message, iRsLogLevelTraffic)
+// Blocs
+RsSplitString(message,sep, 0, sTab) // split with first separator
+for (i=0;i<arraySize(sTab);i+=1)
+    RsPrint("Parse level "+level+": sTab ("+ i+ "):"+ sTab[i],iRsLogLevelTraffic)
+    RsParseParamValuePair(sTab[i], "=", level+1, l_sType, decoded_message)
+end
+.END
+
+.PROGRAM RsParseParamValuePair
+
+.DESCRIPTION
+
+.INPUTS
+
+    string message, sep
+    int level
+    string l_sType
+    array decoded_message
+
+.VARIABLES
+
+    array sTab
+    class KeyValue
+    string l_sParamName, l_sParamType
+    array l_sEmptyArray
+    string l_sParamValue
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:Parses a string
+// * * * * * * * * * * * * * * *
+
+
+RsPrint("Parse level "+level+": separator:"+ sep+" message:"+message,iRsLogLevelTraffic)
+
+// Couple Paramètre-Valeur
+RsSplitString(message,sep, 1, sTab) // One split = 2 Arguments
+if (arraySize(sTab) > 2)
+    RsError("Nombre de paramètres Param-Value trop grand (>2)", true)
+end
+
+// Check for typedValue
+if (!RsIsTyped(sTab[0], l_sParamName, l_sParamType) and l_sType!="")
+    // Affectation du type parent
+    l_sParamType = l_sType
+end
+
+KeyValue.Descriptor = l_sParamName
+KeyValue.Type = l_sParamType
+KeyValue.Level = level
+
+if (arraySize(sTab) == 1)
+    // Cas où la valeur est seule, la valeur est le nom du paramètre
+    l_sParamValue = l_sParamName
+//    KeyValue.Value = l_sParamName
+//    arrayAdd(decoded_message,KeyValue)
+//    print("Toto")
+else
+    // Cas général, la valeur est contenu dans le deuxième argument
+    l_sParamValue = sTab[1]
+end
+
+
+//print("STab 1,2", sTab[0],sTab[1])
+
+
+switch(l_sParamType)
+    case sRsBoolType
+        if (l_sParamValue=="TRUE" or l_sParamValue=="true")
+            KeyValue.Value = true
+        else
+            KeyValue.Value = false
+        end
+
+    case sRsIntType
+        KeyValue.Value = strToInt(l_sParamValue)
+
+    case sRsDoubleType
+        KeyValue.Value = strToReal(l_sParamValue)
+
+    case sRsStringType
+        KeyValue.Value = l_sParamValue
+
+    case sRsVectDType
+        KeyValue.Value = l_sEmptyArray
+        if (!RsIsVector(l_sParamValue, true)) // Remove Brackets
+            RsError("Vector mal formé (il manque les []", true)
+        end
+        RsParseArg(l_sParamValue,",",level, "DBL", KeyValue.Value) // Start with parsing arguments
+
+    case sRsVectStringType
+        KeyValue.Value = l_sEmptyArray
+        // Pas de parenthèse pour le type VECS, les chaînes sont séparées par \t
+        RsParseArg(l_sParamValue, char(giRsVectStringSeparator) ,level, "STR", KeyValue.Value) // Start with parsing arguments
+
+    default
+        RsError("Le type: <"+l_sParamType+"> n'est pas defini dans la librairie", true)
+end
+
+arrayAdd(decoded_message,KeyValue)
+
+return
+.END
+
+.PROGRAM RsSplitString
+
+.DESCRIPTION
+
+.INPUTS
+
+    string message, separator
+    int x_iSplitCount
+    array x_sRes
+
+.VARIABLES
+
+    int pos, prev, i
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description: x_iSplitCount: if 0 all string is splitted, otherwise only count
+// Supposes separator is a 1 char
+// * * * * * * * * * * * * * * *
+
+
+
+arrayClear(x_sRes)
+
+i = 0
+pos = -strLen(separator) // start position so that first one is 0
+do
+    prev = pos+strLen(separator)
+    pos = strPos(message,separator,prev)
+    if (pos>0)
+        ArrayAdd(x_sRes,strMid(message,prev,pos-prev))
+        i+=1
+        if (x_iSplitCount != 0 and x_iSplitCount==1)
+            prev = pos+strLen(separator)
+            ArrayAdd(x_sRes,strMid(message,prev,strLen(message)-prev)) // Add remaining string
+            return
+        end
+    else
+        ArrayAdd(x_sRes,strMid(message,prev,strLen(message)-prev)) // Add remaining string
+    end
+until (pos<0)
+
+.END
+
+.PROGRAM RsIsTyped
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sParam, x_sOutParamName, x_sOutType
+
+.VARIABLES
+
+    int l_iPosA, l_iPosB
+
+.RETURN_TYPE bool
+
+.BODY
+// Retourne true si la chaîne d'entrée contient le type de la variable
+// Exemple: "T(DBL)", "FOUND(BOOL)"
+// x_sOutParamName: Nom du paramètre sans son type
+
+l_iPosA = strPos(x_sParam, "(")
+l_iPosB = strPos(x_sParam, ")")
+if (l_iPosA>=0 and l_iPosB>=0 and l_iPosB>l_iPosA)
+    x_sOutType = strMid(x_sParam, l_iPosA+1, l_iPosB-l_iPosA-1)
+    x_sOutParamName = strMid(x_sParam, 0, l_iPosA)
+    return true
+else
+    x_sOutParamName = x_sParam
+    x_sOutType = "STR"
+end
+
+return false
+
+.END
+
+.PROGRAM RsIsVector
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sParam
+    bool x_bRemoveBrackets
+
+.VARIABLES
+
+    int l_iPosA, l_iPosB
+
+.RETURN_TYPE bool
+
+.BODY
+// Retourne true si la chaîne d'entrée contient des parenthèses carrées
+// Supprime les parenthèses si flag = true
+
+l_iPosA = strPos(x_sParam, "[")
+l_iPosB = strPos(x_sParam, "]")
+if (l_iPosA>=0 and l_iPosB>=0 and l_iPosB>l_iPosA)
+    if (x_bRemoveBrackets)
+        x_sParam = strMid(x_sParam, l_iPosA+1, l_iPosB-l_iPosA-1)
+    end
+    return true
+end
+
+return false
+
+.END
+
+.PROGRAM RsCreateReply
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sCmd
+    bool x_bSuccess
+    string x_sErrorMessage
+
+.VARIABLES
+
+    string l_sReply
+
+.RETURN_TYPE string
+
+.BODY
+//******************************************************************//
+// Librairie    : RSVP
+//
+// Description  : Generate a reply with variables in gcRsVariables array
+// return       : string
+//******************************************************************//
+
+l_sReply = "REPLY-"+x_sCmd+"="+(x_bSuccess?"ACK":"NACK")
+if (!x_bSuccess and x_sErrorMessage != "")
+    // Add error message in first position
+    l_sReply += gsRsSeparator + RsVariableToString("ERROR", sRsStringType, x_sErrorMessage, false)
+end
+
+// Concat variable
+RsVariableConcat(l_sReply)
+return l_sReply
+
+
+.END
+
+.PROGRAM RsCreateRequest
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sCommand
+
+.VARIABLES
+
+    string l_sRequest
+
+.RETURN_TYPE string
+
+.BODY
+//******************************************************************//
+// Librairie    : RSVP
+//
+// Description  : Generate a request with variables in gcRsVariables array
+//                Descriptor must be null ("") in order to avoid the equal sign "="
+//                The commande is the value
+// return       : string
+//******************************************************************//
+
+l_sRequest = RsVariableToString("", sRsStringType, x_sCommand, false)
+RsVariableConcat(l_sRequest)
+return l_sRequest
+.END
+
+.PROGRAM RsVariableConcat
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sMessage
+
+.VARIABLES
+
+    int i, l_iCount
+
+.RETURN_TYPE none
+
+.BODY
+//******************************************************************//
+// Librairie    : RSVP
+//
+// Description  : Generate a request with variables in gcRsVariables array
+//                Descriptor must be null ("") in order to avoid the equal sign "="
+//                The commande is the value
+// return       : string
+//******************************************************************//
+
+l_iCount = arraySize(gcRsVariables)
+for (i=0; i<l_iCount; i+=1)
+    x_sMessage += gsRsSeparator + gcRsVariables[i]
+end
+.END
+
+.PROGRAM RsAddVariableBool
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sDescriptor
+    bool x_bValue
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// Ecriture d'un couple descriptor + value
+arrayAdd(gcRsVariables, RsVariableToString(x_sDescriptor, sRsBoolType, x_bValue, true))
+.END
+
+.PROGRAM RsAddVariableInt
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sDescriptor
+    int x_iValue
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// Ecriture d'un couple descriptor + value
+arrayAdd(gcRsVariables, RsVariableToString(x_sDescriptor, sRsIntType, x_iValue, true))
+.END
+
+.PROGRAM RsAddVariableDouble
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sDescriptor
+    real x_rValue
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// Ecriture d'un couple descriptor + value
+arrayAdd(gcRsVariables, RsVariableToString(x_sDescriptor, sRsDoubleType, x_rValue, true))
+.END
+
+.PROGRAM RsAddVariableString
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sDescriptor, x_sValue
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// Ecriture d'un couple descriptor + value
+arrayAdd(gcRsVariables, RsVariableToString(x_sDescriptor, sRsStringType, x_sValue, false)) // No type
+.END
+
+.PROGRAM RsAddVariableStringVector
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sDescriptor
+    array x_sValue
+
+.VARIABLES
+
+    array l_sValue
+
+.RETURN_TYPE none
+
+.BODY
+// Ecriture d'un couple descriptor + value
+// Besoin d'un tableau deux dim
+arrayAdd(l_sValue, x_sValue)
+arrayAdd(gcRsVariables, RsVariableToString(x_sDescriptor, sRsVectStringType, l_sValue, true))
+.END
+
+.PROGRAM RsAddVariableDoubleVector
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sDescriptor
+    array x_rValue
+
+.VARIABLES
+
+    array l_rValue
+
+.RETURN_TYPE none
+
+.BODY
+// Ecriture d'un couple descriptor + value
+arrayAdd(l_rValue, x_rValue)
+arrayAdd(gcRsVariables, RsVariableToString(x_sDescriptor, sRsVectDType, l_rValue, true))
+.END
+
+.PROGRAM RsAddVariableDoubleVectorLabeled
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sDescriptor
+    array x_rValue, x_sLabelValue
+
+.VARIABLES
+
+    array l_rValue
+
+.RETURN_TYPE none
+
+.BODY
+// Ecriture d'un couple descriptor + value avec label
+arrayAdd(l_rValue, x_rValue)
+arrayAdd(l_rValue, x_sLabelValue)
+arrayAdd(gcRsVariables, RsVariableToString(x_sDescriptor, sRsVectDType, l_rValue, true))
+.END
+
+.PROGRAM RsAddVariableLocc
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sDescriptor
+    locc x_pValue
+    bool x_bAddLabels
+
+.VARIABLES
+
+    array l_rValue, l_sLabel
+
+.RETURN_TYPE none
+
+.BODY
+// Ecriture d'un couple descriptor + value
+arrayAdd(l_rValue, dx(x_pValue))
+arrayAdd(l_rValue, dy(x_pValue))
+arrayAdd(l_rValue, dz(x_pValue))
+arrayAdd(l_rValue, drx(x_pValue))
+arrayAdd(l_rValue, dry(x_pValue))
+arrayAdd(l_rValue, drz(x_pValue))
+
+if (x_bAddLabels)
+    arrayAdd(l_sLabel, "x")
+    arrayAdd(l_sLabel, "y")
+    arrayAdd(l_sLabel, "z")
+    arrayAdd(l_sLabel, "rx")
+    arrayAdd(l_sLabel, "ry")
+    arrayAdd(l_sLabel, "rz")
+    RsAddVariableDoubleVectorLabeled(x_sDescriptor, l_rValue, l_sLabel)
+else
+    RsAddVariableDoubleVector(x_sDescriptor, l_rValue)
+end
+.END
+
+.PROGRAM RsAddVariableLocj
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sDescriptor
+    locj x_jValue
+    bool x_bAddLabels
+
+.VARIABLES
+
+    int i
+    array l_rValue, l_sLabel
+
+.RETURN_TYPE none
+
+.BODY
+// Ecriture d'un couple descriptor + value
+for (i=0 ; i<6 ; i+=1)
+    arrayAdd(l_rValue, jointValue(x_jValue, i))
+    arrayAdd(l_sLabel, "j"+(i+1))
+end
+if (x_bAddLabels)
+    RsAddVariableDoubleVectorLabeled(x_sDescriptor, l_rValue, l_sLabel)
+else
+    RsAddVariableDoubleVector(x_sDescriptor, l_rValue)
+end
+.END
+
+.PROGRAM RsVariableToString
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sDescriptor, x_sValueType
+    all x_aValue
+    bool x_bWriteType
+
+.VARIABLES
+
+    string l_sType, l_sValue
+    int i
+    string l_sVariable
+
+.RETURN_TYPE string
+
+.BODY
+//******************************************************************//
+// Librairie    : RSVP
+//
+// Description  : Ecriture d'un couple descriptor + value
+//               POS(VECD)=[X=1.0,Y=2.127,Z=3.0];ROBOTPOS(VECD)=[X=1.0,Y=2.0,Z=3.0,RX=4.0,RY=5.0,RZ=6.0]"
+//               AGE(INT)=12
+// return       : string
+//******************************************************************//
+
+switch(x_sValueType)
+    case sRsBoolType
+        l_sValue = x_aValue ? "TRUE" : "FALSE"
+
+     case sRsIntType, sRsDoubleType
+        l_sValue = x_aValue // Implicite conversion
+
+    case sRsStringType
+        l_sValue = x_aValue
+
+    case sRsVectDType, sRsVectStringType
+        l_sValue = "[" // Start of vector
+
+    default
+        RsError("Le type: <"+x_sValueType+"> n'est pas autorisé dans cette fonction", true)
+end
+
+if (x_sDescriptor == "")
+    l_sVariable += l_sValue
+else
+    if (x_bWriteType)
+        l_sType = "("+x_sValueType+")"
+    end
+    l_sVariable += x_sDescriptor+l_sType+gsRsValueSeparator+l_sValue
+end
+
+switch(x_sValueType)
+    case sRsVectDType
+        // Vecteur: tableau 2 dim: 0=Valeur, 1=Descripteur(facultatif)
+        for (i=0 ; i<arraySize(x_aValue[0]) ; i+=1)
+            l_sVariable += RsVariableToString(arraySize(x_aValue)>1 ? x_aValue[1][i]:"", sRsDoubleType, x_aValue[0][i], false) + (i<(arraySize(x_aValue[0])-1) ? gsRsVectDSeparator : "]")
+        end
+
+    case sRsVectStringType
+        // Vecteur: tableau 2 dim: 0=Valeur, 1=Descripteur(facultatif)
+        for (i=0 ; i<arraySize(x_aValue[0]) ; i+=1)
+            // Pas de descripteur pour le type string
+            l_sVariable += RsVariableToString("", sRsStringType, x_aValue[0][i], false) + (i<(arraySize(x_aValue[0])-1) ? char(giRsVectStringSeparator) : "]")
+            //RsAddParam("", sRsStringType, x_aValue[0][i], false, i==0 ? "[": char(giRsVectStringSeparator), x_sAnswer)
+        end
+
+end
+
+return l_sVariable
+
+.END
+
+.PROGRAM RsFindTagIndex
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sTag
+    array x_sParseResult
+
+.VARIABLES
+
+    int i
+
+.RETURN_TYPE int
+
+.BODY
+// Recherche le mot clé dans le tableau des résultats
+
+for (i=0; i<arraySize(x_sParseResult); i+=1)
+    if (x_sParseResult[i].Descriptor == x_sTag)
+        return i
+    end
+end
+
+return -1
+.END
+
+.PROGRAM RsRead
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sTag, x_sValueType
+    array x_cParseResult
+    all x_value
+
+.VARIABLES
+
+    int l_iIndex, i
+
+.RETURN_TYPE none
+
+.BODY
+// Lecture d'une valeur
+
+l_iIndex = RsFindTagIndex(x_sTag, x_cParseResult)
+if (l_iIndex<0)
+    RsError("Le tag: "+x_sTag+" est introuvable", true)
+end
+
+// Check type
+if(x_cParseResult[l_iIndex].Type != x_sValueType)
+    RsError("Erreur de type, attendu("+x_sValueType+") actuel("+x_cParseResult[l_iIndex].Type+")", true)
+end
+
+switch(x_sValueType)
+    case sRsVectDType, sRsVectStringType
+        arrayClear(x_value)
+        for (i=0 ; i<arraySize(x_cParseResult[l_iIndex].Value); i+=1)
+            arrayAdd(x_value, x_cParseResult[l_iIndex].Value[i].Value)
+        end
+
+    default
+        x_value = x_cParseResult[l_iIndex].Value
+end
+
+
+.END
+
+.PROGRAM RsReadReplyDescriptor
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string l_sValue
+
+.RETURN_TYPE string
+
+.BODY
+// Retourne le descripteur de la réponse: REPLY-xxx
+// C'est la première valeur qui est retournée
+// Ex: input = "REPLY-GO=ACK;LOCATION=TEXT;INDEX=3" --> Retourne REPLY-GO
+//
+
+
+if (arraySize(cRsParseResult) > 0)
+    l_sValue = cRsParseResult[0].Descriptor
+else
+    RsError("Le tableau des valeurs d'entrées est vide!", true)
+end
+
+return l_sValue
+.END
+
+.PROGRAM RsReadReplyResult
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string l_sValue
+
+.RETURN_TYPE string
+
+.BODY
+// Retourne la valeur de la réponse de la chaîne d'entrée: ACK ou NACK
+// C'est la première valeur qui est retournée
+// Ex: input = "REPLY-GO=ACK;LOCATION=TEXT;INDEX=3"
+//
+
+
+if (arraySize(cRsParseResult) > 0)
+    l_sValue = cRsParseResult[0].Value
+else
+    RsError("Le tableau des valeurs d'entrées est vide!", true)
+end
+
+return l_sValue
+.END
+
+.PROGRAM RsReadBool
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sTag
+
+.VARIABLES
+
+    bool l_bValue
+
+.RETURN_TYPE bool
+
+.BODY
+// Retourne la valeur bool du tag d'entrée
+
+RsRead(x_sTag, sRsBoolType, cRsParseResult, l_bValue)
+
+return l_bValue
+.END
+
+.PROGRAM RsReadInt
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sTag
+
+.VARIABLES
+
+    int l_iValue
+
+.RETURN_TYPE int
+
+.BODY
+// Retourne la valeur int du tag d'entrée
+
+RsRead(x_sTag, sRsIntType, cRsParseResult, l_iValue)
+
+return l_iValue
+.END
+
+.PROGRAM RsReadDouble
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sTag
+
+.VARIABLES
+
+    real l_rValue
+
+.RETURN_TYPE real
+
+.BODY
+// Retourne la valeur double du tag d'entrée
+
+RsRead(x_sTag, sRsDoubleType, cRsParseResult, l_rValue)
+
+return l_rValue
+.END
+
+.PROGRAM RsReadString
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sTag
+
+.VARIABLES
+
+    string l_sValue
+
+.RETURN_TYPE string
+
+.BODY
+// Retourne la valeur string du tag d'entrée
+
+RsRead(x_sTag, sRsStringType, cRsParseResult, l_sValue)
+
+return l_sValue
+.END
+
+.PROGRAM RsReadStringVector
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sTag
+    array x_sValue
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// Rempli le tableau d'entrée avec la valeur du tag d'entrée
+
+RsRead(x_sTag, sRsVectStringType, cRsParseResult, x_sValue)
+
+.END
+
+.PROGRAM RsReadDoubleVector
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sTag
+    array x_rValue
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// Rempli le tableau d'entrée avec la valeur du tag d'entrée
+
+RsRead(x_sTag, sRsVectDType, cRsParseResult, x_rValue)
+
+.END
+
+.PROGRAM RsReadLocc
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sTag
+
+.VARIABLES
+
+    array l_rValue
+    locc l_pValue
+    int l_iCount
+
+.RETURN_TYPE locc
+
+.BODY
+// Retourne la valeur locc du tag d'entrée
+// Besoin d'au moins X, Y, Z -> les autres valeurs peuvent être absentes
+
+RsReadDoubleVector(x_sTag, l_rValue)
+l_iCount = arraySize(l_rValue)
+if (l_iCount < 3)
+    RsError("Read locc, nb de valeurs insuffisante, min. 3 --> actuel "+arraySize(l_rValue), true)
+end
+if (l_iCount > 6)
+    RsError("Read locc, trop de valeur pour une locc --> actuel "+arraySize(l_rValue), true)
+end
+
+
+l_pValue = trans(l_rValue[0], l_rValue[1], l_rValue[2], l_iCount > 3 ? l_rValue[3]:0, l_iCount > 4 ? l_rValue[4]:0, l_iCount > 5 ? l_rValue[5]:0)
+
+return l_pValue
+.END
+
+.PROGRAM RsReadLocj
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sTag
+
+.VARIABLES
+
+    array l_rValue
+    locj l_jValue
+    int i, l_iCount
+
+.RETURN_TYPE locj
+
+.BODY
+// Retourne la valeur locj du tag d'entrée
+// Il faut 4 valeurs (SCARA) ou 6 valeurs (6 axes)
+
+RsReadDoubleVector(x_sTag, l_rValue)
+l_iCount = arraySize(l_rValue)
+if (l_iCount != 4 and l_iCount != 6)
+    RsError("RsReadLocj: Nb de valeurs insuffisantes, 4 ou 6 requises --> actuel "+arraySize(l_rValue), true)
+end
+
+for(i=0 ; i<6 ; i+=1)
+    jointSetValue(l_jValue, i, i<l_iCount ? l_rValue[i]:0)
+end
+
+return l_jValue
+.END
+
+.PROGRAM RsSetDeviceName
+
+.DESCRIPTION
+
+.INPUTS
+
+    string x_sDeviceName
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+//******************************************************************//
+// Librairie    : RSVP
+//
+// Description  : Set global variable gsRsDevice
+//******************************************************************//
+
+gsRsDevice = x_sDeviceName
+.END
+
+.PROGRAM RsTest
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string input
+    int i
+
+.RETURN_TYPE none
+
+.BODY
+
+//input = "X=1.0,Y=2.0,Z=3.0;X=4.0,Y=5.0,Z=6.0"
+//input = "START=ACK"
+//input = "START;STATUS=PASS;T(DBL)=4.5;COUNT(INT)=3;USER(STR)=JEAN"
+//input = "CALIBRATE;POS(VECD)=[X=1.0,Y=2.127,Z=3.0];ROBOTPOS(VECD)=[X=1.0,Y=2.0,Z=3.0,RX=4.0,RY=5.0,RZ=6.0]"
+//input = "IDREAD=PASS;TEXT(VECS)=LINE1\tLINE2\tIl fait beau auj...\tC'est vrai;FOUND(BOOL)=TRUE"
+//input = "GO;LOCATION=TEXT;INDEX=3"
+// Correction bug remonté Piazza, 20.04.2020
+input = "REPLY-Correct=ACK;Correction(VECD)=[ 9.719, 7.626, 0.000, 0.000, 0.000, 0.000 ]"
+
+
+
+print("")
+print("input: "+ input)
+
+RsParse(input)
+
+
+for (i=0;i<arraySize(cRsParseResult);i+=1)
+    print("res("+i+"): Lvl"+cRsParseResult[i].Level+", Descriptor="+ cRsParseResult[i].Descriptor+", Value="+ cRsParseResult[i].Value)
+end
+
+RETURN
+
+//print("Value_STR", RsReadString("IDREAD"))
+//print("Value_STR", RsReadDoubleArray("ROBOTPOS", sTestArray))
+
+//RsReadDoubleArray("POS", sTestArray)
+RsReadDoubleVector("ROBOTPOS", sTestArray)
+
+print("Value_LOcc", RsReadLocc("ROBOTPOS"))
+
+.END
+
+.PROGRAM RsTestType
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string input
+    int i
+    string name, type
+
+.RETURN_TYPE none
+
+.BODY
+
+input = "START"
+input = "T(DBL)=4.5"
+input = "POS(VECD)=[X=1.0,Y=2.0,Z=3.0]"
+input = "TEXT(VECS)=LINE1\tLINE2"
+
+print("")
+print("input: "+ input)
+
+print(RsIsTyped(input, name, type))
+print(name, type)
+
+
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+    string gsRsDevice
+    int iRsLogLevel
+    array cRsParseResult, sTestArray, gcRsVariables
+
+.MODULE_GLOBAL_CONSTANTS
+
+    int iRsLogLevelTraffic = 2, iRsLogLevelError = 3, iRsLogLevelInfo = 1
+    string gsRsSeparator = ";", gsRsValueSeparator = "=", gsRsVectDSeparator = ","
+    int giRsVectStringSeparator = 9
+    string sRsBoolType = "BOOL", sRsIntType = "INT", sRsDoubleType = "DBL", sRsStringType = "STR", sRsVectDType = "VECD", sRsVectStringType = "VECS"
+
+.MODULE_END

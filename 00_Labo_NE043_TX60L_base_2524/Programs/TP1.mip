@@ -1,0 +1,532 @@
+.MODULE_BEGIN TP1
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM ComputeOrigin
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    locc frame
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: ComputeOrigin
+// Description: Décalage de l'origine au niveau de l'origine de la pièce.
+// * * * * * * * * * * * * * * *
+
+//Décale l'origine sur la pièce et condition si en simulation ou reel.
+if (!gSimu)
+    frame=frameCompose(OrigineFrame,PtxFrame,PtyFrame)+trans(45,20,0)
+    gpOrigin=frame
+else
+    gpOrigin=gcPosCentreTable+gSupport+gPiece+gpOriginePiece
+end
+
+return
+.END
+
+.PROGRAM InitTP1
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: InitTP1
+// Description: Initialise le TP complet : origine, trajectoire, robot, affichage de trajectoire
+// * * * * * * * * * * * * * * *
+
+//Appel de tous les sous-programmes pour effectuer l'init
+ComputeOrigin()
+LoadTrajectory()
+InitSimu()
+InitRobot()
+ChoixOrientation()
+SetOrientation()
+ShowTraj()
+
+return
+.END
+
+.PROGRAM InitRobot
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: InitRobot
+// Description: Initialise le robot avec vitesse, outil et position
+// * * * * * * * * * * * * * * *
+
+deviceattach()
+ensure(true)
+setSpeed(10)
+setTool(machineTool("Tool_MOD_Teach"))
+
+movej (gjPosTable)
+
+return
+.END
+
+.PROGRAM LoadTrajectory
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: LoadTrajectory
+// Description: Remplit un tableau de classes avec des points, les rayons et le type de trajectoire.
+// * * * * * * * * * * * * * * *
+
+ArrayClear(ArrayClass)
+ArrayADD(ArrayClass,TrajectoryFactoryLigne(trans(60,-30)))
+ArrayADD(ArrayClass,TrajectoryFactoryLigne(trans(0,-30)))
+ArrayADD(ArrayClass,TrajectoryFactoryCircu(trans(0,-30),trans(-60,-30),trans(-30,21.96),60))
+ArrayADD(ArrayClass,TrajectoryFactoryLigne(trans(-50,0)))
+ArrayADD(ArrayClass,TrajectoryFactoryLigne(trans(-60,30)))
+ArrayADD(ArrayClass,TrajectoryFactoryLigne(trans(-25,41.95)))
+ArrayADD(ArrayClass,TrajectoryFactoryLigne(trans(60,30)))
+ArrayADD(ArrayClass,TrajectoryFactoryCircu(trans(60,30),trans(68.4,0),trans(39.51,8.09),30))
+
+return
+
+
+
+
+
+.END
+
+.PROGRAM SetOrientation
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    real Angle
+    locc pFollowTan, l_pNext, l_pOrientation, l_pPrev
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: SetOrientation
+// Description: Calcule et applique une orientation, tangentielle ou fixe, et un offset à tous les points
+// * * * * * * * * * * * * * * *
+
+//Boucle pour définir l'orientation des points
+for (j = 0; j < ArraySize(ArrayClass) ; j+=1)
+    if (gSuiviTan)
+        //Insère la position du point suivant dans l_pNext
+        l_pNext = ArrayClass[(j+1)%ArraySize(ArrayClass)].Position
+        if (ArrayClass[(j+1)%ArraySize(ArrayClass)].Circulaire)
+            l_pNext=ArrayClass[(j+1)%ArraySize(ArrayClass)].PositionInt
+        end
+        //Calcul du frame orienté dans la nouvelle position en fonction du l_pNext
+        pFollowTan = FrameCompose(ArrayClass[j].Position,l_pNext,trans(0))+trans(0,0,0,180)
+        l_pOrientation = pFollowTan
+    else
+    //Sinon il prend l'orientation de la pièce
+        l_pOrientation = gOrientation
+    end
+    //Insère les orientations pour ous les types de mouvements
+    ArrayClass[j].Position=trans(dx(ArrayClass[j].Position),dy(ArrayClass[j].Position),dz(ArrayClass[j].Position),drx(l_pOrientation),dry(l_pOrientation),drz(l_pOrientation))
+    if (ArrayClass[j].Circulaire==true)
+        ArrayClass[j].PositionInt=trans(dx(ArrayClass[j].PositionInt),dy(ArrayClass[j].PositionInt),dz(ArrayClass[j].PositionInt),drx(l_pOrientation),dry(l_pOrientation),drz(l_pOrientation))
+        ArrayClass[j].PositionFin=trans(dx(ArrayClass[j].PositionFin),dy(ArrayClass[j].PositionFin),dz(ArrayClass[j].PositionFin),drx(l_pOrientation),dry(l_pOrientation),drz(l_pOrientation))
+    end
+end
+
+//Boucle pour définir l'offset des points
+for (j = 0; j < ArraySize(ArrayClass) ; j+=1)
+    //Insère les décalages pour tous les types de mouvements
+    ArrayClass[j].Position+=trans(dx(gOrientation),dy(gOrientation),dz(gOrientation))
+    if (ArrayClass[j].Circulaire==true)
+        ArrayClass[j].PositionInt+=trans(dx(gOrientation),dy(gOrientation),dz(gOrientation))
+        ArrayClass[j].PositionFin+=trans(dx(gOrientation),dy(gOrientation),dz(gOrientation))
+    end
+end
+
+return
+.END
+
+.PROGRAM ShowTraj
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    int j
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: ShowTraj
+// Description: Affiche chaque point et point intermédiaire de la trajectoire dans l’environnement 3D
+// * * * * * * * * * * * * * * *
+
+for (j = 0; j < ArraySize(ArrayClass) ; j+=1)
+    if (ArrayClass[j].Circulaire==false)
+        M3D_DisplayPosCartesianRel(ArrayClass[j].Position,gpOrigin,"Pos"+j)
+    else
+        M3D_DisplayPosCartesianRel(ArrayClass[j].PositionInt,gpOrigin,"PosInt"+j)
+        M3D_DisplayPosCartesianRel(ArrayClass[j].PositionFin,gpOrigin,"PosFin"+j)
+    end
+end
+
+return
+.END
+
+.PROGRAM TP1_Readme
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: README TP1
+// Description:
+// Ce projet intègre l’ajout d’une pièce dans un environnement 3D, génère une trajectoire ,
+// applique une orientation ainsi que les décalages (manuelle ou tangente),
+// affiche les points dans la scène, et fait exécuter la trajectoire au robot.
+// * * * * * * * * * * * * * * *
+//
+// -----------------------------------
+// Fonction InitTP1()
+// -----------------------------------
+// Initialise toutes les données nécessaires au TP1 :
+// - Origine, trajectoire, robot, environnement, orientation et affichage
+//
+// -----------------------------------
+// Fonction InitSimu()
+// -----------------------------------
+// Initialise l’environnement 3D :
+// - Vide la scène
+// - Ajoute le support
+// - Ajoute la pièce sur le support
+//
+// -----------------------------------
+// Fonction InitRobot()
+// -----------------------------------
+// Initialise le robot :
+// - Connexion
+// - Vitesse
+// - Outil utilisé
+// - Positionnement initial
+//
+// -----------------------------------
+// Fonction ComputeOrigin()
+// -----------------------------------
+// Calcule l’origine de la pièce 3D
+//
+// -----------------------------------
+// Fonction LoadTrajectory()
+// -----------------------------------
+// Remplit la trajectoire avec des segments (lignes et arcs)
+//
+// -----------------------------------
+// Fonction TrajectoryFactoryLigne()
+// -----------------------------------
+// Retourne une classe de trajectoire ligne avec:
+// - Position
+// - Non circulaire
+//
+// -----------------------------------
+// Fonction TrajectoryFactoryCircu()
+// -----------------------------------
+// Retourne une classe de trajectoire circulaire (arc) avec :
+// - Départ, arrivée, point de référence et rayon
+// - Circulaire
+// - Calcule le point intermédiaire via CircularMouv()
+//
+// -----------------------------------
+// Fonction ChoixOrientation()
+// -----------------------------------
+// Si on suit la tangente aucun paramètre à rentrer
+// Sinon, demande à l’utilisateur de définir manuellement l’orientation et offset
+//
+// -----------------------------------
+// Fonction SetOrientation()
+// -----------------------------------
+// Applique l’orientation à chaque point :
+// - Si gSuiviTan = true -> suit la tangente
+// - Sinon -> orientation constante définie par gOrientation
+// Applique ensuite un offset global à tous les points
+//
+// -----------------------------------
+// Fonction ShowTraj()
+// -----------------------------------
+// Affiche tous les points de la trajectoire dans la scène 3D :
+// - Points simples pour les lignes
+// - Points intermédiaires + finaux pour les arcs
+//
+// -----------------------------------
+// Fonction TrajectoryExec()
+// -----------------------------------
+// Exécute la trajectoire complète :
+// - moves pour les lignes
+// - movec pour les arcs
+// - Retour au point initial à la fin
+//
+// -----------------------------------
+// Fonction MainTP1()
+// -----------------------------------
+// Point d’entrée principal du TP1 :
+// - Initialise tout
+// - Exécute chaque segment de la trajectoire
+// - Retourne à la position de départ
+//
+// -----------------------------------
+// Fonction CircularMouv()
+// -----------------------------------
+// Calcule une position intermédiaire d'un arc de cercle
+//
+return
+.END
+
+.PROGRAM MainTP1
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: MainTP1
+// Description: Lance l’initialisation et l’exécution du TP1.
+// * * * * * * * * * * * * * * *
+
+InitTP1()
+
+for (j = 0; j < ArraySize(ArrayClass) ; j+=1)
+    TrajectoryExec()
+end
+
+movej (gjPosTable)
+
+return
+.END
+
+.PROGRAM InitSimu
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: InitSimu
+// Description: Initialise l’environnement 3D avec le support et la pièce
+// * * * * * * * * * * * * * * *
+
+// Init environnement 3D
+M3D_AsmClear()
+M3D_AsmObjectAdd("SupportPlexi",0,gcPosCentreTable+gSupport)
+M3D_AsmObjectAdd("PiecePlexi",1,gcPosCentreTable+gSupport+gPiece)
+
+return
+.END
+
+.PROGRAM TrajectoryExec
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: TrajectoryExec
+// Description: Parcoure la liste des points et regarde si le mouvement est
+//              linéaires ou circulaires et execute les mouvement
+// * * * * * * * * * * * * * * *
+
+for (j = 0; j < ArraySize(ArrayClass) ; j+=1)
+    if (ArrayClass[j].Circulaire==FALSE)
+        moves(gpOrigin+ArrayClass[j].Position)
+    else
+        movec(gpOrigin+ArrayClass[j].PositionInt,gpOrigin+ArrayClass[j].PositionFin)
+    end
+end
+
+moves(gpOrigin+ArrayClass[0].Position)
+.END
+
+.PROGRAM TrajectoryFactoryLigne
+
+.DESCRIPTION
+
+.INPUTS
+
+    locc x_Position
+
+.VARIABLES
+
+    class Trajectory
+
+.RETURN_TYPE class
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: TrajectoryFactoryLigne
+// Description: Retourne une classe de trajectoire linéaire
+// * * * * * * * * * * * * * * *
+
+Trajectory.Position = x_Position
+Trajectory.Circulaire = false
+
+return Trajectory
+.END
+
+.PROGRAM CircularMouv
+
+.DESCRIPTION
+
+.INPUTS
+
+    locc PosDebut, PosFin, PosRayon
+    real Rayon
+
+.VARIABLES
+
+    locc Int, Pii, Frame, PosInt
+
+.RETURN_TYPE locc
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: CircularMouv
+// Description: Calcule le point intermédiaire (PositionInt) d’un arc de cercle,
+// en utilisant la position de début, de fin, de centre du rayon et la valeur du rayon.
+// * * * * * * * * * * * * * * *
+
+Pii=deltaTo(PosDebut,PosFin)*0.5
+Int=PosDebut+Pii
+Frame=framecompose(PosRayon,Int,trans(0))
+PosInt=Frame+trans(Rayon)
+
+return PosInt
+.END
+
+.PROGRAM ChoixOrientation
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: ChoixOrientation
+// Description: Active l’édition manuelle de l’orientation si gSuiviTan est désactivé
+// * * * * * * * * * * * * * * *
+
+if (gSuiviTan)
+    return
+else
+    if (!edit(gOrientation, "Orientation"))
+        print("Edition annulée")
+        return
+    end
+end
+
+
+
+.END
+
+.PROGRAM TrajectoryFactoryCircu
+
+.DESCRIPTION
+
+.INPUTS
+
+    locc x_Position, x_PositionFin, x_PositionR
+    real x_Rayon
+
+.VARIABLES
+
+    class Trajectory
+
+.RETURN_TYPE class
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: TrajectoryFactoryCircu
+// Description: Retourne une classe de trajectoire circulaire avec les positions de début, de fin,
+// de centre du rayon et la valeur du rayon. Calcule aussi la position intermédiaire via CircularMouv().
+// * * * * * * * * * * * * * * *
+
+Trajectory.Position = x_Position
+Trajectory.PositionFin = x_PositionFin
+Trajectory.PositionR = x_PositionR
+Trajectory.Rayon = x_Rayon
+Trajectory.Circulaire = true
+
+Trajectory.PositionInt = CircularMouv(x_Position,x_PositionFin,x_PositionR,x_Rayon)
+
+return Trajectory
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+    locc gpOrigin
+    array ArrayClass
+    int j
+
+.MODULE_GLOBAL_CONSTANTS
+
+    locc gSupport, gPiece = {5, 0, 80, -0, 0, -0}, gpOriginePiece = {0, 0, 6, -180, 0, -90}, gOrientation
+    bool gSuiviTan = true, gSimu = true
+    locc OrigineFrame = {687.212, -4.106, -87.317, -179.08, -1.11e-01, -178.7120000}, PtxFrame = {687.068, 85.935, -86.14, -179.08, -1.12e-01, -178.7140000}, PtyFrame = {727.083, -4.059, -87.037, -179.08, -1.11e-01, -178.7130000}
+
+.MODULE_END

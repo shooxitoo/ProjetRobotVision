@@ -1,0 +1,1278 @@
+.MODULE_BEGIN ModeTestP2
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM ComMatrox
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    bool x = true
+    string l_sDataReceived, Request
+    int Input
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+tcpDisconnect(gsMatrox)
+
+if (tcpConnect(gsMatrox))
+    print("Client connected", gsMatrox)
+else
+    print("Erreur connexion", gsMatrox)
+    taskStop()
+end
+
+while (x)
+    RsClear()
+    Request=RsCreateRequest("INSPECT")
+    print("Envoie",Request)
+
+    if (tcpSendAndWait(gsMatrox,Request,l_sDataReceived,10))
+        print("Réponse",l_sDataReceived)
+        Input=RsParse(l_sDataReceived)
+        print(RsReadReplyResult())
+        print(RsReadDouble("DiametreCercle2"))
+    else
+        print("Erreur d'envoie")
+        taskStop()
+    end
+end
+
+if (!tcpDisconnect(gsMatrox))
+    print("Erreur déconnexion", gsMatrox)
+    taskStop()
+end
+return
+
+.END
+
+.PROGRAM TestDB
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string l_sErrorMessage, l_sQuery
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+//print("  ")
+//dbcDisconnect(gsSqlServer)
+
+//if (!dbcConnect(gsSqlServer, l_sErrorMessage))
+//  print("Erreur connexion", l_sErrorMessage)
+//  taskStop()
+//end
+
+//print("Connexion OK!")
+
+//l_sQuery= "SELECT * FROM Groupe1DBTest;"
+
+//if (dbcQuery(gsSqlServer, l_sQuery, QueryResult, l_sErrorMessage))
+//  print("Query Success")
+
+//  if (arraySize(QueryResult.ROWS[0]>0))
+//      print(QueryResult.ROWS[0].PosX)
+//  else
+//      print("Aucune entrée, table vide")
+//  end
+
+//else
+//  print("Query error",l_sErrorMessage)
+//end
+
+
+//if (!dbcDisconnect(gsSqlServer, l_sErrorMessage))
+//  print("Erreur déconnexion", l_sErrorMessage)
+//  taskStop()
+//end
+
+//print("Déconnecté OK")
+
+//return
+
+
+//POSITION=trans(RsReadDoulbe("x"), RsRealDouble("y"), RsRealDouble ("z"))
+
+
+DBReadGamme(5)
+.END
+
+.PROGRAM MainP2
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    array TaskRobotRun = [<bool> false, false]
+    real Timer
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+print("Task Main Start")
+
+
+//init var
+gState=0
+Timer = -1.0
+
+TaskRobotSTART()
+
+
+while (true)
+    TaskRobotRun[0]=TaskExists(gTaskRobotName)
+
+//Test si tâche arrêtée
+    if (TaskRobotRun[0]==false and TaskRobotRun[0]!=TaskRobotRun[1])
+        Timer = Clock()
+    end
+
+
+    if (Timer > 0 and Clock()-Timer>2.0)
+    //Redemarrage tache robot
+        Timer = -1.0
+        TaskRobotSTART()
+    end
+
+    TaskRobotRun[1]=TaskRobotRun[0]
+
+end
+    return
+.END
+
+.PROGRAM Mouvements
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    int Index, ii, NombreEngr, NbCycle, LotSize, Gamme
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+INDEX.OF=0
+INDEX.GAMME=0
+print(" ")
+print(" ")
+InitCom()
+//Remplir le tableau
+DBReadOF()
+//Boucle OFs
+while (INDEX.OF<arraySize(gcQueryResultOF.ROWS))
+    LotSize=strToint(gcQueryResultOF.ROWS[INDEX.OF].LotSize)
+    Gamme=strToint(gcQueryResultOF.ROWS[INDEX.OF].Gamme)
+    DBReadGamme(Gamme)
+
+    INDEX.GAMME=0
+    while(INDEX.GAMME<arraySize(gcQueryResultGamme.ROWS)) //Boucle sur le nombre de Gammes (Etapes à réaliser)
+        ExecuteAssembly(gcQueryResultGamme.ROWS[INDEX.GAMME])
+        INDEX.GAMME+=1
+    end
+    INDEX.OF+=1
+end
+print("Fin d'assemblage")
+
+
+
+//move(PosReglette)
+//InspectionReglette()
+
+//while (NbCycle<gcQueryResultOF.ROWS[0].LotSize)
+//  if (gNombreEngr<=3)
+//      Index = 3
+//      print("Tableau rempli donc Index(Phase) = 3")
+//  //lecture nbr dents engrenage correspondant à la phase 3 et 4
+//  // send demande pos a la vision avec le Inspect G M en fonction du nbr de dents
+//  else
+//      Index = 1
+//      print("Tableau vide donc Index(Phase) = 1")
+//  end
+
+//  for (ii = Index  ; ii < Index+2 ; ii+=1)
+
+
+//  end
+//end
+
+return
+.END
+
+.PROGRAM InitCom
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string l_sErrorMessage
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+//print("Connexion Matrox")
+//if (tcpConnect(gsMatrox))
+//  print("Client connected", gsMatrox)
+//else
+//  print("Erreur connexion", gsMatrox)
+//  Erreur()
+//end
+
+print("Connexion base de donnee")
+dbcDisconnect(gsSqlServer)
+
+if (!dbcConnect(gsSqlServer, l_sErrorMessage))
+    print("Erreur connexion", l_sErrorMessage)
+    Erreur()
+end
+
+return
+.END
+
+.PROGRAM Init
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+print("Init")
+InitCom()
+InitRob()
+gStatusRobot = CTE.STATUS.INITIALIZED
+
+delay(1)
+print("Init done.")
+return
+.END
+
+.PROGRAM InitRob
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    int j
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+UtilInitRobotMan("Tool_MOD_Teach", 10)
+ioWrite("brasValve1", FALSE)
+ioWrite("brasValve2", FALSE)
+
+movej (gjPosTable)
+
+return
+.END
+
+.PROGRAM Deinit
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string l_sErrorMessage
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+if (!tcpDisconnect(gsMatrox))
+    print("Erreur déconnexion", gsMatrox)
+end
+
+if (!dbcDisconnect(gsSqlServer, l_sErrorMessage))
+    print("Erreur déconnexion",gsSqlServer, l_sErrorMessage)
+end
+
+return
+.END
+
+.PROGRAM Erreur
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+gStateRobot = 0
+gStatusRobot = CTE.STATUS.ERROR
+Deinit()
+taskstop()
+
+return
+.END
+
+.PROGRAM DBQuery
+
+.DESCRIPTION
+
+.INPUTS
+
+    string Query
+    class QueryResult
+
+.VARIABLES
+
+    string l_sErrorMessage
+    bool xResult
+
+.RETURN_TYPE bool
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+if (dbcQuery(gsSqlServer, Query, QueryResult, l_sErrorMessage))
+    print("Query Success")
+
+    if (arraySize(QueryResult.ROWS)>0)
+        print(QueryResult.ROWS[0][COL_NAME])
+        xResult = TRUE
+    else
+        print("Aucune entrée, table vide")
+        xResult = FALSE
+    end
+
+else
+    print("Query error",l_sErrorMessage)
+    Erreur()
+end
+
+return xResult
+.END
+
+.PROGRAM DBExecute
+
+.DESCRIPTION
+
+.INPUTS
+
+    string Query
+
+.VARIABLES
+
+    string l_sErrorMessage
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+if (dbcExecute(gsSqlServer, Query, l_sErrorMessage))
+    print("Execute Success")
+else
+    print("Query error",l_sErrorMessage)
+end
+
+return
+.END
+
+.PROGRAM DBReadGamme
+
+.DESCRIPTION
+
+.INPUTS
+
+    int GammeID
+
+.VARIABLES
+
+    string ls_Query
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+if(GammeID>=0)
+    ls_Query="SELECT Gamme,Gammes.Nom AS NomGamme,Phase,PosX,PosY,Alpha,Part,Engrenages.Nom AS NomPiece,"
+    ls_Query+="Engrenages.Dents,Engrenages.DiamInt,Engrenages.Marquage "
+    ls_Query+="FROM dbo.Gammes,dbo.Operations,dbo.Engrenages "
+    ls_Query+="WHERE Operations.Gamme=Gammes.Id AND Operations.Part=Engrenages.NumPiece AND Gammes.Id="+GammeID+" "
+else
+//Si GammeID=-1 on prend tout!
+    ls_Query="SELECT Gamme,Gammes.Nom AS NomGamme,Phase,PosX,PosY,Alpha,Part,Engrenages.Nom AS NomPiece,"
+    ls_Query+="Engrenages.Dents,Engrenages.DiamInt,Engrenages.Marquage "
+    ls_Query+="FROM dbo.Gammes,dbo.Operations,dbo.Engrenages "
+    ls_Query+="WHERE Operations.Gamme=Gammes.Id AND Operations.Part=Engrenages.NumPiece "
+end
+ls_Query+="ORDER BY Gamme,Phase;"
+DBQuery(ls_Query,gcQueryResultGamme)
+LogGamme(gcQueryResultGamme)
+return
+.END
+
+.PROGRAM DBReadOF
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string ls_Query
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+ls_Query="SELECT * FROM OFs"
+
+if(!DBQuery(ls_Query,gcQueryResultOF))
+    print("Erreur lecture OF")
+    Erreur()
+end
+
+LogOF(gcQueryResultOF)
+
+return
+.END
+
+.PROGRAM DBWriteJournal
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string ls_WriteQuery
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+ls_WriteQuery="INSERT INTO Journal"
+
+DBExecute(ls_WriteQuery)
+
+return
+.END
+
+.PROGRAM SendMatrox
+
+.DESCRIPTION
+
+.INPUTS
+
+    string Request
+
+.VARIABLES
+
+    string l_sDataReceived
+    real DiamCercle2
+    string l_input
+
+.RETURN_TYPE bool
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+print("Envoie",Request)
+
+if (tcpSendAndWait(gsMatrox,Request,l_sDataReceived,10))
+    print("Réponse",l_sDataReceived)
+    RsParse(l_sDataReceived)
+    print(RsReadReplyResult())
+    return RsReadReplyResult() == "ACK"
+else
+    print("Erreur d'envoie")
+    Deinit()
+end
+
+return false
+.END
+
+.PROGRAM InspectionDM
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string Request, l_sDataReceived
+    int Input
+    real DiamCercle2
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+RsClear()
+Request=RsCreateRequest("INSPECT_DM")
+
+if (SendMatrox(Request))
+    print(RsReadDouble("DiametreCercle2"))
+    DiamCercle2 = RsReadDouble("DiametreCercle2")
+end
+
+return
+.END
+
+.PROGRAM InspectionENGRP
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string Request, l_sDataReceived
+    int Input
+    real DiamCercle2
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+RsClear()
+Request=RsCreateRequest("INSPECT_ENGRP")
+
+if (SendMatrox(Request))
+    print(RsReadDouble("DiametreCercle2"))
+    DiamCercle2 = RsReadDouble("DiametreCercle2")
+end
+
+return
+.END
+
+.PROGRAM InspectionENGRM
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string Request, l_sDataReceived
+    int Input
+    real DiamCercle2
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+RsClear()
+Request=RsCreateRequest("INSPECT_ENGRM")
+
+if (SendMatrox(Request))
+    print(RsReadDouble("DiametreCercle2"))
+    DiamCercle2 = RsReadDouble("DiametreCercle2")
+end
+
+return
+.END
+
+.PROGRAM InspectionENGRG
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string Request, l_sDataReceived
+    int Input
+    real DiamCercle2
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+RsClear()
+Request=RsCreateRequest("INSPECT_ENGRG")
+
+if (SendMatrox(Request))
+    print(RsReadDouble("DiametreCercle2"))
+    DiamCercle2 = RsReadDouble("DiametreCercle2")
+end
+
+return
+.END
+
+.PROGRAM InspectionReglette
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string Request, l_sDataReceived
+    int Input
+
+.RETURN_TYPE int
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+//RsClear()
+Request=RsCreateRequest("INSPECT_NBENGR")
+
+if (SendMatrox(Request))
+    print(RsReadInt("NombreEngr"))
+    gNombreEngr = RsReadInt("NombreEngr")
+end
+return gNombreEngr
+.END
+
+.PROGRAM MachineDEtat
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+print("Task Robot Start")
+
+//Tache mouvements
+gStatusRobot = 0
+gStopFin = FALSE
+gStateRobot=0
+
+while(true)
+    switch (gState)
+
+        case CTE.STATE.INIT
+            gStateRobot=CTE.STATE.INIT
+            Init()
+            gStateRobot=0 //Reset
+
+        case CTE.STATE.RUN
+            gStateRobot=CTE.STATE.RUN
+            Mouvements()
+            if (gStopFin)
+                gStateRobot=0
+                gState=0
+                print("Stop")
+            end
+        //default
+          //     print("Erreur état")
+    end
+    delay(0.05)
+end
+
+return
+.END
+
+.PROGRAM CMDInit
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+
+if (!taskExists(gTaskRobotName))
+    print("Erreur la tache robot n'existe pas")
+    return
+end
+
+if (gStateRobot != 0)
+    print("Erreur le robot n'est pas en IDLE")
+    return
+end
+
+//Envoi de l'ordre
+gState=CTE.STATE.INIT
+
+
+while (gStateRobot==0) //Attente que la tache robot aie vue l'ordre
+    delay(0)
+end
+
+gState=0
+
+return
+.END
+
+.PROGRAM CMDRun
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+
+if (!taskExists(gTaskRobotName))
+    print("Erreur la tache robot n'existe pas")
+    return
+end
+
+if (gStateRobot != 0)
+    print("Erreur le robot n'est pas en IDLE")
+    return
+end
+
+if (gStatusRobot != CTE.STATUS.INITIALIZED)
+    print("Le robot n'est pas initialisé ou en erreur")
+    return
+end
+
+//Envoi de l'ordre
+gState=CTE.STATE.RUN
+
+
+while (gStateRobot==0) //Attente que la tache robot aie vue l'ordre
+    delay(0)
+end
+
+gState=0
+
+return
+.END
+
+.PROGRAM CMDStop
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+if (!taskExists(gTaskRobotName))
+    print("Erreur la tache robot n'existe pas")
+    return
+end
+
+if (gStateRobot != CTE.STATE.RUN)
+    print("Erreur le robot n'est pas en RUN")
+    return
+end
+
+//Envoi de l'ordre
+gStopFin = TRUE
+
+return
+.END
+
+.PROGRAM STARTUP
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+TaskMainSTART()
+
+return
+
+.END
+
+.PROGRAM SHUTDOWN
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+TaskRobotSTOP()
+TaskMainSTOP()
+
+return
+.END
+
+.PROGRAM TaskRobotSTART
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+if (!taskExists(gTaskRobotName))
+    taskExecute MachineDEtat(), gTaskRobotName
+end
+
+return
+.END
+
+.PROGRAM TaskRobotSTOP
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+if (taskExists(gTaskRobotName))
+    taskStop(gTaskRobotName)
+end
+
+return
+.END
+
+.PROGRAM TaskMainSTART
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+if (!taskExists(gTaskMainName))
+    taskExecute MainP2(), gTaskMainName
+end
+
+return
+
+.END
+
+.PROGRAM TaskMainSTOP
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+if (taskExists(gTaskMainName))
+    taskStop(gTaskMainName)
+end
+
+return
+.END
+
+.PROGRAM ReadDistance
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    real resultat
+
+.RETURN_TYPE real
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: Module prise mesure
+// Description: Il sufit d'appeler une fois le programme et il retourne la mesure
+// * * * * * * * * * * * * * * *
+resultat = ioRead("Distance")
+return resultat
+.END
+
+.PROGRAM PriseDeposeEngr
+
+.DESCRIPTION
+
+.INPUTS
+
+    locc Position
+    bool Prise
+    string PartName
+    int Index
+
+.VARIABLES
+
+    real DecalageZ2 = 60
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+move(Position,DecalageZ2)
+moves(Position)
+waitEndMove()
+ioWrite("brasValve2", Prise)
+
+if (PartName!="")
+    M3D_AsmObjectToggle(PartName,Index,Prise)
+end
+
+moves(Position,DecalageZ2)
+
+return
+.END
+
+.PROGRAM PriseDeposeGoupRond
+
+.DESCRIPTION
+
+.INPUTS
+
+    locc Position
+    bool Prise
+    string PartName
+    int Index
+
+.VARIABLES
+
+    real DecalageZ2 = 60
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+move(Position,DecalageZ2)
+moves(Position)
+waitEndMove()
+ioWrite("brasValve1", Prise)
+
+if (PartName!="")
+    M3D_AsmObjectToggle(PartName,Index,Prise)
+end
+
+moves(Position,DecalageZ2)
+
+return
+.END
+
+.PROGRAM LogOF
+
+.DESCRIPTION
+
+.INPUTS
+
+    class OF
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+print("Nombre d'OFs",arraySize(OF.ROWS))
+
+for (i = 0  ; i < arraySize(OF.ROWS) ; i+=1)
+    print("ID",OF.ROWS[i].Id,"Gamme",OF.ROWS[i].Gamme,"LotSize",OF.ROWS[i].LotSize)
+end
+
+return
+.END
+
+.PROGRAM LogGamme
+
+.DESCRIPTION
+
+.INPUTS
+
+    class Gamme
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+print("Nombre de lignes dans Gamme",arraySize(Gamme.ROWS))
+
+for (i = 0  ; i < arraySize(Gamme.ROWS) ; i+=1)
+    print("Gamme",Gamme.ROWS[i].Gamme,"Nom gamme",Gamme.ROWS[i].NomGamme,"Phase",Gamme.ROWS[i].Phase,"Pos X",Gamme.ROWS[i].PosX,"Pos Y",Gamme.ROWS[i].PosY,"Alpha",Gamme.ROWS[i].Alpha,"Part",Gamme.ROWS[i].Part,"Nom Piece",Gamme.ROWS[i].NomPiece,"Dents",Gamme.ROWS[i].Dents,"Diam Int",Gamme.ROWS[i].DiamInt,"Marquage",Gamme.ROWS[i].Marquage)
+end
+
+return
+.END
+
+.PROGRAM ExecuteAssembly
+
+.DESCRIPTION
+
+.INPUTS
+
+    class Operation
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+print("Execute Assembly",Operation.Gamme)
+
+CycleEngrenage(Operation)
+CycleGoupille(Operation)
+CycleRondelle(Operation)
+
+return
+.END
+
+.PROGRAM CycleEngrenage
+
+.DESCRIPTION
+
+.INPUTS
+
+    class Operation
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+print("Cycle d'engrenage")
+
+print("Prise Engrenage",Operation.Dents)
+
+print("Dépose Engrenage",Operation.Dents)
+return
+.END
+
+.PROGRAM CycleGoupille
+
+.DESCRIPTION
+
+.INPUTS
+
+    class Operation
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+print("Cycle goupille")
+
+
+return
+.END
+
+.PROGRAM CycleRondelle
+
+.DESCRIPTION
+
+.INPUTS
+
+    class Operation
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+print("Cycle rondelle")
+
+
+return
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+    int gStateRobot, gState, gStatusRobot
+    bool gStopFin
+    int gNombreEngr
+    class gcQueryResultOF, gcQueryResultGamme, INDEX
+
+.MODULE_GLOBAL_CONSTANTS
+
+    string gsMatrox = "Matrox", COL_NAME = "Nom", gTaskRobotName = "Robot", gTaskMainName = "Main"
+    locc PosReglette = {707.298, -69.267, -328.118, -178.558, 4.82e-01, 179.7360000}
+
+.MODULE_END

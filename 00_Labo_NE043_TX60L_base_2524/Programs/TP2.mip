@@ -1,0 +1,164 @@
+.MODULE_BEGIN TP2
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM InitSimTP2
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: InitSimu
+// Description: Initialise l’environnement 3D avec le support et la pièce
+// * * * * * * * * * * * * * * *
+//Init environnement
+UtilInitRobotMan("Tool_MOD_Vacuum", 20)
+
+framePalette=frameCompose(PosOriginePalette, PosXPalette, PosYPalette)
+gcPaletteEngr = COR_PR_CreatePaletteReguliere(1,5,32,30,framePalette,gcPaletteOffset)
+
+// Init environnement 3D
+M3D_AsmClear()
+M3D_AsmObjectAdd("PlaqueTP2",0,gcPosCentreTable+gcPosPalette)
+M3D_DisplayPosCartesianRel(gcPosPiece1,gcPosCentreTable+gcPosPalette,"Pos 1")
+
+while(!COR_PI_IsDone(gcPaletteEngr))
+
+    M3D_AsmObjectAdd("Engr",gcPaletteEngr.INDEX-0,COR_PI_Next(gcPaletteEngr))
+
+end
+return
+.END
+
+.PROGRAM Inspect
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string Request, l_sDataReceived
+
+.RETURN_TYPE bool
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+RsClear()
+Request=RsCreateRequest("INSPECT")
+
+if (SendMatroxTP2(Request))
+    //PosCentreCercle = RsReadLocc("PosCentreCercle")
+    DiametreInt = RsReadDouble("DiametreInt")
+    DiametreExt = RsReadDouble("DiametreExt")
+    NombreDents = RsReadInt("NombreDents")
+    return TRUE
+else
+    print("Erreur d'aquisition")
+    return FALSE
+end
+.END
+
+.PROGRAM MainTP2
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+InitSimTP2()
+
+while(!COR_PI_IsDone(gcPaletteEngr))
+    gcPosPick = COR_PI_Next(gcPaletteEngr)+gcPick
+    // prise pal
+    PriseDepose(gcPosPick,TRUE,"Engr",gcPaletteEngr.INDEX-1)
+    //depose sous vision
+    PriseDepose(gcPosCam,FALSE,"Engr",gcPaletteEngr.INDEX)
+    //Déplacement en position de sécu
+    movej(gjPosTable)
+
+    if (Inspect())
+        PriseDepose(gcPosCam,TRUE,0,gcPaletteEngr.INDEX)
+        print(DiametreInt,DiametreExt,NombreDents)
+    else
+        print("Pas de données récoltés")
+        movej(gjPosTable)
+        return
+    end
+    PriseDepose(gcPosPick,TRUE,0,gcPaletteEngr.INDEX-1)
+end
+
+return
+.END
+
+.PROGRAM SendMatroxTP2
+
+.DESCRIPTION
+
+.INPUTS
+
+    string Request
+
+.VARIABLES
+
+    string l_sDataReceived
+    real DiamCercle2
+    string l_input
+
+.RETURN_TYPE bool
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+print("Envoie",Request)
+
+if (tcpSendAndWait(gsMatrox,Request,l_sDataReceived,10))
+    print("Réponse",l_sDataReceived)
+    RsParse(l_sDataReceived)
+    print(RsReadReplyResult())
+    return RsReadReplyResult() == "ACK"
+else
+    print("Erreur d'envoie")
+    Deinit()
+end
+
+return false
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+    real DiametreInt, DiametreExt
+    int NombreDents
+    locc PosCentreCercle
+    class gcPaletteEngr
+
+.MODULE_GLOBAL_CONSTANTS
+
+    locc gcPosPalette = {0, 0, 100, -45, 0, -180}, gcPosPiece1 = {-75, 48, 0, -0, 0, -0}, gcPaletteOffset = {24, 7, 0, -0, 0, -0}, gcPosCam, framePalette = {742.202, -174.457, -68.552, 135.1216377, 4.9547634e-01, 179.4704097}, PosOriginePalette = {742.202, -174.457, -68.552, 134.563, -1.071, -178.68}, PosXPalette = {544.449, -176.959, -68.474, 134.563, -1.072, -178.681}, PosYPalette = {740.993, -96.393, -146.3, 134.563, -1.071, -178.681}, gcPosPick = {717.0723095, -187.2122397, -116.8422507, -44.8783623, -4.9547634e-01, -179.4704097}
+
+.MODULE_END

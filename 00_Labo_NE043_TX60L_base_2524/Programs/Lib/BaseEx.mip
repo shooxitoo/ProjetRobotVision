@@ -1,0 +1,505 @@
+.MODULE_BEGIN BaseEx
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM ExMainStop
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+gExRun = false
+
+return
+.END
+
+.PROGRAM ExInitAuto
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+ExInitDo(true)
+
+return
+.END
+
+.PROGRAM ExInitMan
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+if (simEnabled()) // le robot virtuel ne supporte pas le mode manuel
+    ExInitDo(true)
+else
+    ExInitDo(false)
+end
+
+return
+.END
+
+.PROGRAM ExInitDo
+
+.DESCRIPTION
+
+.INPUTS
+
+    bool autoOrMan
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:        BaseEx
+// Description:   Initialise le robot
+// * * * * * * * * * * * * * * *
+
+// Attach, Communication
+ExInitCom()
+
+// Mode manuel ou automatique
+ExSelectModeMan(!autoOrMan)
+
+// Puissance/Reset
+if (autoOrMan)
+    ensure(true)            // sélection du mode de marche déporté, mise en puissance du robot
+else
+    moveReset()
+end
+
+// Speed Default
+setSpeed(gSpeedMedium)      // vitesse par défaut
+
+// gestion du tool
+ExInitTool()
+
+return
+.END
+
+.PROGRAM ExInitCom
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+// Attach Robot and MCP
+if (deviceSelected("ROBOT", true) != gRobotName)
+    deviceAttach(gRobotName)    // sélection du robot CS8 pour la tâche courante
+    deviceAttach(gMcpName)      // sélection du MCP_CS8 pour la tâche courante
+end
+
+// Check Connexion
+if (!isConnected())
+    ExError("Robot non connecté")
+end
+
+return
+.END
+
+.PROGRAM ExInitTool
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+
+if (gExToolName == "")
+    switch(mcpAlert("Tool non-défini ! Sélectionner le tool à utiliser:", "Vacuum", "Teach (pointe)", "STOP"))
+        case 0
+            gExToolName = "Tool_Vacuum"
+        case 1
+            gExToolName = "Tool_Teach"
+        default
+            ExError("Arrêt processus - gestion du tool")
+    end
+end
+
+setTool(machineTool(gExToolName))    // affectation du tool au robot
+
+return
+.END
+
+.PROGRAM ExSelectModeMan
+
+.DESCRIPTION
+
+.INPUTS
+
+    bool modeMan
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+if (modeMan)
+    while (!manualMode())
+        if (mcpAlert("Sélectionner le mode manuel", "OK", "Annuler") != 0)
+            taskStop()
+        end
+    end
+    setPendantMode(true)
+else
+    while (!remoteMode())
+        if (mcpAlert("Sélectionner le mode déporté", "OK", "Annuler") != 0)
+            taskStop()
+        end
+    end
+    setPendantMode(false)
+end
+return
+.END
+
+.PROGRAM ExValidation
+
+.DESCRIPTION
+
+.INPUTS
+
+    string title
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:        BaseEx
+// Description:   Validation au MCP
+// * * * * * * * * * * * * * * *
+
+if (mcpAlert(title, "OK", "STOP") != 0)
+    taskStop()
+end
+
+return
+.END
+
+.PROGRAM ExError
+
+.DESCRIPTION
+
+.INPUTS
+
+    string errorDescr
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:        BaseEx
+// Description:   Gestion des erreurs (affichage + arrêt tâche)
+// * * * * * * * * * * * * * * *
+
+alert("Erreur !", errorDescr)
+taskStop()
+
+return
+.END
+
+.PROGRAM ExRobotReady
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    locc actualPos
+    real departDist = 100
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:        BaseEx
+// Description:   Rangement du robot en position 0 (ready)
+// * * * * * * * * * * * * * * *
+
+ExInitMan()
+
+switch(mcpAlert("Déplacement en position ready?", "Direct", "Departs 100", "STOP"))
+    case 0
+        setSpeed(gSpeedMedium)
+    case 1
+        actualPos = here()
+        setSpeed(gSpeedSlow)
+        moves(actualPos, departDist)
+        setSpeed(gSpeedMedium)
+
+    default
+        taskStop()
+end
+
+
+movej(gjPosReady)
+power(false)
+
+return
+.END
+
+.PROGRAM ExRobotReadyLaunch
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:        BaseEx
+// Description:   Lancement de la tâche de rangement du robot
+// * * * * * * * * * * * * * * *
+
+if (!taskExists(gTaskMain))
+    taskExecute ExRobotReady(), gTaskMain
+end
+
+return
+.END
+
+.PROGRAM ExTeachPoints
+
+.DESCRIPTION
+
+.INPUTS
+
+    locj jSecu
+    locc frameRel
+    array points, names
+    string dataModule
+
+.VARIABLES
+
+    int idx, ptCount
+    array pointNames
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Application:     Cours Robotique I
+// Module :         Exercices_Base
+//
+// creation:        09.11.2012, JMa
+// modification:    09.11.2012, JMa
+//
+// description:     -
+// inputs:          /
+// return:          /
+//
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+ptCount = arraySize(points)
+
+if (arraySize(names) != ptCount)
+    alert("Erreur", "nombre de points/noms différents")
+    taskStop()
+end
+
+pointNames = names // copie des noms
+arrayAdd(pointNames, "-- End --")
+
+while(true)
+    idx = mcpAlertN("Teach point:", pointNames)
+    if (idx >= ptCount)
+        exit
+    else
+        ExTeachPoint(jSecu, frameRel, points[idx], names[idx])
+    end
+end
+
+if (mcpAlert("Enregistrer le module " + dataModule + " ?", "Oui", "Non") == 0)
+    moduleSave(dataModule)
+end
+
+return
+.END
+
+.PROGRAM ExTeachPoint
+
+.DESCRIPTION
+
+.INPUTS
+
+    locj jSecu
+    locc frameRel, pos
+    string name
+
+.VARIABLES
+
+    bool done, nullPoint
+    array mcpMenu
+    int hit
+    real approch
+    bool run, first
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// Application:     Cours Robotique I
+// Module :         Exercices_Base
+//
+// creation:        09.11.2012, JMa
+// modification:    09.11.2012, JMa
+//
+// description:     programme pour l'apprentissage d'un points au MCP
+// inputs:          pos: position à apprendre; frameRel: frame par rapport auquel
+//                     pos est appris; name: nom du point; jSecu: position d'approche
+// return:          done: indique si le programme a été interrompu ou non
+//
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+nullPoint = (distanceTo(pos, trans(0)) < 0.1)
+
+// initialisation du menu MCP
+arrayAdd(mcpMenu, "Secu")
+arrayAdd(mcpMenu, "Here")
+arrayAdd(mcpMenu, "Vacuum")
+arrayAdd(mcpMenu, "End")
+
+if (nullPoint)
+    first = true
+else
+    first = false
+    arrayAdd(mcpMenu, "Appro 100")
+    arrayAdd(mcpMenu, "Appro 10")
+    arrayAdd(mcpMenu, "Go to")
+end
+
+// process
+
+while(!manualMode())
+    mcpAlert("Select manual mode")
+end
+
+setPendantMode(true)
+
+while(true)
+    hit = mcpAlertN("teaching point " + name, mcpMenu)
+    approch = -1
+    switch(hit)
+        case 0
+            moveReset()
+            movej(jSecu)
+        case 1
+            if (mcpAlert("teach pos HERE ? TOOL = " + tool(), "OK", "CANCEL") == 0)
+                pos = deltaTo(frameRel, here())
+                if (first)
+                    first = false
+                    arrayAdd(mcpMenu, "Appro 100")
+                    arrayAdd(mcpMenu, "Appro 10")
+                    arrayAdd(mcpMenu, "Go to")
+                end
+            end
+        case 2
+            UtilVacuumToggle()
+        case 3
+            exit
+        case 4
+            approch = 100
+        case 5
+            approch = 10
+        case 6
+            approch = 0
+
+    end
+
+    if (approch > -1)
+        moveReset()
+        if (mcpAlert("move straight ?", "normal", "straight") == 0)
+            move(frameRel+pos, approch)
+        else
+            moves(frameRel+pos, approch)
+        end
+    end
+end
+
+setPendantMode(false)
+
+return
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+    real gExId
+    string gExToolName, gExPartName_
+    real gExPartHeight_
+    bool gExRun
+
+.MODULE_GLOBAL_CONSTANTS
+
+    string gTaskMain = "mainTask"
+    locj gjPosReady, gjPosTable = {21.4398, -5, 80, 5.53e-02, 70.8722000, -6.6456000}
+    real gExPaletDx = 32.5, gExPaletDy = 32.5, gHeightJeton = 2, gHeightJenga = 12
+
+.MODULE_END

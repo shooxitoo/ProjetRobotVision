@@ -1,0 +1,121 @@
+.MODULE_BEGIN ModeTestP2
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM PrendreGoupilleRondelle
+
+.DESCRIPTION
+
+.INPUTS
+
+    bool xPrendre
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: PrendreGoupilleRondelle
+// Description: Active la sortie pneumatique pour
+// prendre La goupille ou la rondelle
+// * * * * * * * * * * * * * * *
+ioWrite("brasValve1", TRUE)
+return
+.END
+
+.PROGRAM DeposGoupilleRondelle
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: DeposGoupilleRondelle
+// Description:Active la sortie pneumatique pour
+// relâcher La goupille ou la rondelle
+// * * * * * * * * * * * * * * *
+ioWrite("brasValve1", FALSE)
+return
+.END
+
+.PROGRAM PrendreEngrenage
+
+.DESCRIPTION
+
+.INPUTS
+
+    bool xPrendre
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: PrendreEngrenage
+// Description: Active la sortie pneumatique pour
+// prendre L'engrenage
+// * * * * * * * * * * * * * * *
+ioWrite("brasValve2", TRUE)
+return
+.END
+
+.PROGRAM DeposEngrenage
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: DeposEngrenage
+// Description: Active la sortie pneumatique pour
+// relâcher l'engrenage
+// * * * * * * * * * * * * * * *
+ioWrite("brasValve2", FALSE)
+return
+.END
+
+.PROGRAM LireDistance
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    real resultat
+
+.RETURN_TYPE real
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: Module prise mesure
+// Description: Il sufit d'appeler une fois le programme et il retourne la mesure
+// * * * * * * * * * * * * * * *
+resultat = ioRead("Distance")
+return resultat
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+
+.MODULE_GLOBAL_CONSTANTS
+
+    string gsMatrox = "Matrox"
+
+.MODULE_END

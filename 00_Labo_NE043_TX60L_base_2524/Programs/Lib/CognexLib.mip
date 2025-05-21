@@ -1,0 +1,923 @@
+.MODULE_BEGIN CognexLib
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM CogInfo
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+//******************************************************************//
+// Librairie    : Cognex
+// Version      : 1.2.5
+// Creation     : Juin 2009, FMA
+// Modification : 27.08.2015, FMA
+//
+// Description  : Librairie d'interfaçage des caméras Cognex Insight
+//******************************************************************//
+//
+// Historique des modifications :
+//
+//******************************************************************//
+// v1.2.5, 27.08.2015, FMa
+// CogReadString() Ajout d'une gestion d'erreur si le string lu == "#ERR"
+//                 Cela posait problème pour les fonctions appelantes (readInt) à la conversion strToInt()
+//
+//
+//******************************************************************//
+// v1.2.4, 25.02.2014, FMa
+// CogLogin() with userName and password
+// CogSendCommand() Minor bug correction with userTimeout
+// Gen: 	Set global timeout to 2s. instead of 10s.
+//			Reorganize programs
+//
+//******************************************************************//
+// v1.2.3, 27.01.2014, JMa
+// new: CogEvent, CogSaveJob, CogGetActiveJob
+//
+//******************************************************************//
+// v1.0.3
+// : Affichage des erreurs dans le logger même lorsque la variable gCogPrintEnabled==false
+// : Ajout de fonctionnalités plus pratique dans la fonction CogStoreFile (Nouveau nom: CogSaveJob)
+//
+//******************************************************************//
+// v1.0.2
+// ...
+return
+.END
+
+.PROGRAM CogInit
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, x_sUserName, x_sPassword
+
+.VARIABLES
+
+    bool success
+    string dev
+    array emptyArr
+
+.RETURN_TYPE bool
+
+.BODY
+if (arraySize(gCogData) == 0)
+    arrayAdd(gCogData, emptyArr) // device     (string)        idx 0 (gCogIdxDevice)
+    arrayAdd(gCogData, emptyArr) // connected  (bool)          idx 1 (gCogIdxConnected)
+    arrayAdd(gCogData, emptyArr) // usr timeout enabled (bool) idx 2 (gCogIdxUsrTimeOutEnabled)
+    arrayAdd(gCogData, emptyArr) // usr timeout value (real)   idx 3 (gCogIdxUsrTimeOutValue)
+end
+
+if (CogDeviceIndex(device) < 0)
+    arrayAdd(gCogData[gCogIdxDevice], device)
+    arrayAdd(gCogData[gCogIdxConnected], false)
+    arrayAdd(gCogData[gCogIdxUsrTimeOutEnabled], false)
+    arrayAdd(gCogData[gCogIdxUsrTimeOutValue], gCogTCPTimeOut)
+end
+
+if (!CogConnect(device, true))
+    return false
+end
+
+if (!CogLogin(device, x_sUserName, x_sPassword))
+    return false
+end
+
+if (!CogOnLine(device))
+    if (!CogSetOnlineSoft(device, true))
+        return false
+    end
+end
+
+return true
+.END
+
+.PROGRAM CogConnect
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+    bool flag
+
+.VARIABLES
+
+    bool success
+
+.RETURN_TYPE bool
+
+.BODY
+if (flag)
+    success = tcpConnect(device)
+    success = tcpIsConnected(device) and success
+    if (success)
+        CogPrint(device, "CognexConnect: success -", false)
+        gCogData[gCogIdxConnected][CogDeviceIndex(device)] = true
+    else
+        CogPrint(device, "CognexConnect: error", true)
+        gCogData[gCogIdxConnected][CogDeviceIndex(device)] = false
+    end
+else
+    success = tcpDisconnect(device)
+    success = !tcpIsConnected(device) and success
+    if (success)
+        CogPrint(device, "CognexDisconnect: success", false)
+    else
+        CogPrint(device, "CognexDisconnect: error", true)
+    end
+end
+
+return success
+
+
+
+
+
+
+
+.END
+
+.PROGRAM CogLogin
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, x_sUserName, x_sPassword
+
+.VARIABLES
+
+    string strAnswer
+    bool success
+
+.RETURN_TYPE bool
+
+.BODY
+
+if (x_sUserName == "")
+    success = CogSendCommand(device, "admin", strAnswer) // Default login
+else
+    success = CogSendCommand(device, x_sUserName, strAnswer)
+end
+
+if (success)
+    success = CogSendCommand(device, x_sPassword, strAnswer)
+end
+
+return success
+
+
+
+.END
+
+.PROGRAM CogOnLine
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+
+.VARIABLES
+
+    string strAnswer
+    bool success
+
+.RETURN_TYPE bool
+
+.BODY
+
+success = CogSendCommand(device, "go", strAnswer)
+if (success and CogAnswerProcess(device, strAnswer))
+    return true
+end
+
+CogPrint(device, "CognexOnLine: Camera not online", true)
+return false
+
+.END
+
+.PROGRAM CogSetOnlineSoft
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+    bool state
+
+.VARIABLES
+
+    string strAnswer
+    bool success
+    string cmd
+
+.RETURN_TYPE bool
+
+.BODY
+
+cmd = "SO"
+cmd += state ? "1" : "0"
+
+success = CogSendCommand(device, cmd, strAnswer)
+if (success and CogAnswerProcess(device, strAnswer))
+    return true
+end
+
+return false
+
+
+.END
+
+.PROGRAM CogEvent
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+    int eventId
+
+.VARIABLES
+
+    string strAnswer
+    bool success
+    string command
+
+.RETURN_TYPE bool
+
+.BODY
+command = "sw"
+command += eventId
+if(CogSendCommand(device, command, strAnswer))
+    if (CogAnswerProcess(device, strAnswer))
+        return true
+    end
+end
+
+CogPrint(device, "CognexEvent: error for event:" +  eventId, true)
+return false
+.END
+
+.PROGRAM CogTrigger
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+
+.VARIABLES
+
+    string strAnswer
+    bool success
+    string command
+
+.RETURN_TYPE bool
+
+.BODY
+return CogEvent(device, 8) // 8 = trigger event
+.END
+
+.PROGRAM CogReadInt
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+    int intValue
+    string cellName
+
+.VARIABLES
+
+    string command
+    bool success
+    string strAnswer
+
+.RETURN_TYPE bool
+
+.BODY
+success = CogReadString(device, strAnswer, cellName)
+if (success)
+    intValue = strToInt(strAnswer)
+    CogPrint(device, "CognexReadInt: " + intValue, false)
+else
+    CogPrint(device, "CognexReadInt: error", true)
+end
+
+return success
+.END
+
+.PROGRAM CogReadFloat
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+    real floatValue
+    string cellName
+
+.VARIABLES
+
+    string command
+    bool success
+    string strAnswer
+
+.RETURN_TYPE bool
+
+.BODY
+success = CogReadString(device, strAnswer, cellName)
+if (success)
+    floatValue = strToReal(strAnswer)
+    CogPrint(device, "CognexReadFloat: " + floatValue, false)
+else
+    CogPrint(device, "CognexReadFloat: error", true)
+end
+
+return success
+.END
+
+.PROGRAM CogReadString
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, stringValue, cellName
+
+.VARIABLES
+
+    string command
+
+.RETURN_TYPE bool
+
+.BODY
+command = "gv"
+command += cellName
+if(CogSendCommand(device, command, stringValue))
+    if (CogAnswerProcess(device, stringValue))
+        if (strPos(stringValue, gCogStringError) >= 0)
+            CogPrint(device, "CognexReadString: cell value is invalid ("+stringValue+")", true)
+            return false
+        else
+            return true
+        end
+    end
+end
+
+CogPrint(device, "CognexReadString: error", true)
+return false
+.END
+
+.PROGRAM CogReadIntCell
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+    int intValue, column, row
+
+.VARIABLES
+
+    string command
+    bool success
+    string strAnswer
+
+.RETURN_TYPE bool
+
+.BODY
+return CogReadInt(device, intValue, CogCoordToCell(column, row))
+.END
+
+.PROGRAM CogReadFloatCell
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+    real floatValue
+    int column, row
+
+.VARIABLES
+
+    string command
+    bool success
+    string strAnswer
+
+.RETURN_TYPE bool
+
+.BODY
+return CogReadFloat(device, floatValue, CogCoordToCell(column, row))
+.END
+
+.PROGRAM CogReadStringCell
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, stringValue
+    int column, row
+
+.VARIABLES
+
+    string command
+
+.RETURN_TYPE bool
+
+.BODY
+return CogReadString(device, stringValue, CogCoordToCell(column, row))
+.END
+
+.PROGRAM CogWriteInt
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+    int intValue
+    string cellName
+
+.VARIABLES
+
+    string command
+    bool success
+    string strAnswer
+
+.RETURN_TYPE bool
+
+.BODY
+
+command = "si"
+command += cellName
+command += intValue
+if (CogSendCommand(device, command, strAnswer))
+    if (CogAnswerProcess(device, strAnswer))
+        return true
+    end
+end
+
+CogPrint(device, "CognexWriteInt: error", true)
+return false
+.END
+
+.PROGRAM CogWriteFloat
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+    real realValue
+    string cellName
+
+.VARIABLES
+
+    string command
+    bool success
+    string strAnswer
+
+.RETURN_TYPE bool
+
+.BODY
+command = "sf"
+command += cellName
+command += realValue
+if(CogSendCommand(device, command, strAnswer))
+   if (CogAnswerProcess(device, strAnswer))
+       return true
+   end
+end
+
+CogPrint(device, "CognexWriteFloat: error", true)
+
+return false
+.END
+
+.PROGRAM CogWriteString
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, stringValue, cellName
+
+.VARIABLES
+
+    string command
+    bool success
+    string strAnswer
+
+.RETURN_TYPE bool
+
+.BODY
+command = "ss"
+command += cellName
+command += stringValue
+if(CogSendCommand(device, command, strAnswer))
+   if (CogAnswerProcess(device, strAnswer))
+       return true
+   end
+end
+
+CogPrint(device, "CognexWriteString: error", true)
+
+return false
+.END
+
+.PROGRAM CogWriteIntCell
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+    int intValue, column, row
+
+.VARIABLES
+
+    string command
+    bool success
+    string strAnswer
+
+.RETURN_TYPE bool
+
+.BODY
+return CogWriteInt(device, intValue, CogCoordToCell(column, row))
+.END
+
+.PROGRAM CogWriteFloatCell
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+    real realValue
+    int column, row
+
+.VARIABLES
+
+    string command
+    bool success
+    string strAnswer
+
+.RETURN_TYPE bool
+
+.BODY
+return CogWriteFloat(device, realValue, CogCoordToCell(column, row))
+.END
+
+.PROGRAM CogWriteStringCell
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, stringValue
+    int column, row
+
+.VARIABLES
+
+    string command
+    bool success
+    string strAnswer
+
+.RETURN_TYPE bool
+
+.BODY
+return CogWriteString(device, stringValue, CogCoordToCell(column, row))
+.END
+
+.PROGRAM CogLoadJob
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, jobName
+    real timeout
+
+.VARIABLES
+
+    string strAnswer
+    bool success
+    string cmd
+    real time
+
+.RETURN_TYPE bool
+
+.BODY
+
+if (!CogSetOnlineSoft(device, false))
+    CogPrint(device, "CogLoadJob: Erreur SetOnlineSoft OFF", true)
+    return false
+end
+
+// Chargement du job
+cmd = "LF" + jobName
+
+CogPrint(device, "CogLoadJob: Chargement du job: " + cmd, false)
+
+time = clock()
+success = CogSendCommandWithTimeout(device, cmd, strAnswer, timeout)
+if (!success)
+    CogPrint(device, "CogLoadJob: Erreur chargement du job: "+jobName, true)
+else
+    time = clock()-time
+    CogPrint(device, "CogLoadJob: Job charge en " + time + "s.", false)
+    success = CogAnswerProcess(device, strAnswer)
+end
+
+if (!CogSetOnlineSoft(device, true))
+    CogPrint(device, "CogLoadJob: Erreur SetOnlineSoft ON", true)
+    return false
+end
+
+return success
+
+
+.END
+
+.PROGRAM CogSaveJob
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, jobName
+    real timeout
+
+.VARIABLES
+
+    string strAnswer
+    bool success
+    string cmd
+    real time
+
+.RETURN_TYPE bool
+
+.BODY
+
+if (!CogSetOnlineSoft(device, false))
+    CogPrint(device, "CogSaveJob: Erreur SetOnlineSoft OFF", true)
+    return false
+end
+
+// Sauvegarde du job
+cmd = "TF" + jobName
+
+CogPrint(device, "CogSaveJob: enregistrement du job: " + jobName, false)
+
+time = clock()
+success = CogSendCommandWithTimeout(device, cmd, strAnswer, timeout)
+if (!success)
+    CogPrint(device, "CogSaveJob: Erreur enregistrement du job", true)
+else
+    time = clock()-time
+    CogPrint(device, "CogSaveJob: Job saved en " + time + "s.", false)
+    success = CogAnswerProcess(device, strAnswer)
+end
+
+// Always try to set online
+if (!CogSetOnlineSoft(device, true))
+    CogPrint(device, "CogSaveJob: Erreur SetOnlineSoft ON", true)
+    return false
+end
+
+return success
+
+
+.END
+
+.PROGRAM CogGetActiveJob
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, activeFileName
+
+.VARIABLES
+
+    string command
+
+.RETURN_TYPE bool
+
+.BODY
+command = "gf"
+if(CogSendCommand(device, command, activeFileName))
+    if (CogAnswerProcess(device, activeFileName))
+        // Format de la forme: "Test.job<SPACE><CR>"
+        activeFileName = strMid(activeFileName, 0, strLen(activeFileName)-2) // return a supprimer
+        CogPrint(device, "Active file name is: " + activeFileName, false)
+        return true
+    end
+end
+
+CogPrint(device, "CognexGetActiveJob: error", true)
+return false
+.END
+
+.PROGRAM CogSendCommand
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, strCommand, strAnswer
+
+.VARIABLES
+
+    bool success
+    real l_nTimeout
+    int l_iIndex
+
+.RETURN_TYPE bool
+
+.BODY
+l_iIndex = CogDeviceIndex(device)
+if (!(gCogData[gCogIdxConnected][l_iIndex]))
+    return false
+end
+
+// User timeout (if modified in CogSendCommandWithTimeout)
+l_nTimeout = gCogData[gCogIdxUsrTimeOutValue][l_iIndex]
+gCogData[gCogIdxUsrTimeOutValue][l_iIndex] = gCogTCPTimeOut // Raz timeout if modified in CogSendCommandWithTimeout
+
+CogPrint(device, "CognexCommandSend->: -" + strCommand + "-", false)
+
+success = tcpSendAndWait(device, strCommand, strAnswer, l_nTimeout)
+if (success)
+    CogPrint(device, "CognexCommandSend<-: -" + strAnswer + "-", false)
+else
+    CogPrint(device, "CognexCommandSend<-: " + "error", true)
+end
+
+return success
+
+.END
+
+.PROGRAM CogSendCommandWithTimeout
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, strCommand, strAnswer
+    real timeout
+
+.VARIABLES
+
+    bool success
+    int deviceIndex
+
+.RETURN_TYPE bool
+
+.BODY
+deviceIndex = CogDeviceIndex(device)
+gCogData[gCogIdxUsrTimeOutEnabled][deviceIndex] = true
+gCogData[gCogIdxUsrTimeOutValue][deviceIndex] = timeout
+
+return CogSendCommand(device, strCommand, strAnswer)
+
+.END
+
+.PROGRAM CogAnswerProcess
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, strAnswer
+
+.VARIABLES
+
+    int len
+    string strError
+
+.RETURN_TYPE bool
+
+.BODY
+len = strLen(strAnswer)
+if (len>0)
+    strError = strMid(strAnswer,0,1)
+    if (strToInt(strError) == 1)
+        strAnswer = strMid(strAnswer, 1, len-1)
+        return true
+    else
+        CogPrint(device, "CognexError: " + strToInt(strError), true)
+    end
+end
+return false
+
+.END
+
+.PROGRAM CogPrint
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device, str
+    bool caseOfError
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+if (gCogPrintEnabled or (caseOfError and gCogPrintErrorEnabled))
+    print("<"+device+"> " + str)
+end
+.END
+
+.PROGRAM CogDeviceIndex
+
+.DESCRIPTION
+
+.INPUTS
+
+    string device
+
+.VARIABLES
+
+    int i, n
+
+.RETURN_TYPE int
+
+.BODY
+if (arraySize(gCogData) < 1)
+    return -1
+end
+
+n = arraySize(gCogData[gCogIdxDevice])
+for (i = 0; i < n; i+=1)
+    if (gCogData[gCogIdxDevice][i] == device)
+        return i
+    end
+end
+return -1
+.END
+
+.PROGRAM CogCoordToCell
+
+.DESCRIPTION
+
+.INPUTS
+
+    int column, row
+
+.VARIABLES
+
+    string strCol, strRow
+
+.RETURN_TYPE string
+
+.BODY
+// transform row and column number to cell address string of camera
+// f.i. row = 2, col = 3 returns "C002"
+
+strRow = row
+if (row < 10)
+    strRow = "0" + strRow
+end
+if (row < 100)
+    strRow = "0" + strRow
+end
+
+strCol = char(column+97)
+
+return (strCol + strRow)
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+    array gCogData
+
+.MODULE_GLOBAL_CONSTANTS
+
+    bool gCogPrintEnabled, gCogPrintErrorEnabled = true
+    real gCogTCPTimeOut = 2
+    int gCogIdxDevice, gCogIdxConnected = 1, gCogIdxUsrTimeOutEnabled = 2, gCogIdxUsrTimeOutValue = 3
+    string gCogStringError = "#ERR"
+
+.MODULE_END
