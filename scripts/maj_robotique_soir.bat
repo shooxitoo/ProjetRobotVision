@@ -1,11 +1,12 @@
 @echo off
 echo === Sauvegarde du workspace robotique ===
 
-cd ProjetRobotVision
-
+cd ..
 git pull
 
-git add 00_Labo_NE043_TX60L_base_2524
+:: Ajouter tous les fichiers modifiés existants (sans inclure de nouveaux fichiers inconnus)
+git add -u
+
 git commit -m "Mise à jour robotique du soir"
 git push
 
