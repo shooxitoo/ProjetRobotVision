@@ -1,10 +1,9 @@
 @echo off
 echo === Mise à jour du projet RobotVision pour commencer la journée ===
 
-cd ProjetRobotVision
-
+cd ..
 git checkout main
 git pull
 
-echo === Projet a jour. Bon travail ! ===
+echo === Projet à jour. Bon travail ! ===
 pause

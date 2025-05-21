@@ -1,11 +1,9 @@
 @echo off
 echo === Sauvegarde du workspace vision industrielle ===
 
-cd ProjetRobotVision
-
+cd ..
 git pull
-
-git add vision_industrielle_workspace
+git add -u
 git commit -m "Mise à jour vision industrielle du soir"
 git push
 
