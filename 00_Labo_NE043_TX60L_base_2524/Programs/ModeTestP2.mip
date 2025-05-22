@@ -473,7 +473,8 @@ else
     ls_Query+="FROM dbo.Gammes,dbo.Operations,dbo.Engrenages "
     ls_Query+="WHERE Operations.Gamme=Gammes.Id AND Operations.Part=Engrenages.NumPiece "
 end
-ls_Query+="ORDER BY Gamme,Phase;"
+ls_Query+="ORDER BY Gamme,Phase;"
+
 DBQuery(ls_Query,gcQueryResultGamme)
 LogGamme(gcQueryResultGamme)
 return
