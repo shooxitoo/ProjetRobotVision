@@ -5,5 +5,5 @@ cd ..
 git checkout main
 git pull
 
-echo === Projet à jour. Bon travail ! ===
+echo === Projet a jour. Bon travail ! ===
 pause
