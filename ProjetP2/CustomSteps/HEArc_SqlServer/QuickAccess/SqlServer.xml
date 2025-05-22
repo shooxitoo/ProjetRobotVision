@@ -1,0 +1,34 @@
+﻿<?xml version="1.0"?>
+<quick-access xsi:noNamespaceSchemaLocation="../../QuickAccess/DesignAssistantQA.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<section collapsable="true" name="mandatory" text="Client for Microsoft SQL server" default="expanded">
+		<title/>
+		<paragraph>The SQL server communication step allows to connect/disconnect and query a Microsoft SQL server the database.</paragraph>
+		<paragraph>In case of "ThrowStepExecutionException" input use DA Status step to catch errors, otherwise use the SqlServer outputs "Status" and "Message" to retrieve execution errors.</paragraph>
+		<enumerated-list>
+			<item><paragraph>
+				Action - Connect : Specify the "Data source" (ex : localhost\\myServer), the "Database name" (ex : MyDataBase), your credentials or use Windows credentials. Use "Trust server certificate", actually it's not possible to specify a certificate. 
+			</paragraph>
+			</item>
+			<item><paragraph>
+				Action - Disconnect : Disconnect from the DataBase.
+			</paragraph>
+			</item>
+			<item><paragraph>
+				Action - Query : Specify your query as string and the "Columns separator" to separate columns in case of 2D table query result.
+			</paragraph>
+			</item>
+			<item><paragraph>
+				Output - Results : 1D or 2D array containing the querry result. Each raw of the string array is a table raw and columns are separated by the specified "Columns separator". Use Matrox string and array functions to retrieve desired value(s).
+			</paragraph>
+			</item>
+			<item><paragraph>
+				Output - ResultColumnsNames : 1D array with columns headers from the "Results" array columns.
+			</paragraph>
+			</item>
+			<item><paragraph>
+				Output - ResultColumnsTypesNames : 1D array with columns types names from the "Results" array columns.
+			</paragraph>
+			</item>
+		</enumerated-list>
+	</section>
+</quick-access>

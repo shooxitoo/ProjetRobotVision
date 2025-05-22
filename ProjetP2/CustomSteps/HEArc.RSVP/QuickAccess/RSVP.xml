@@ -1,0 +1,138 @@
+﻿<?xml version="1.0"?>
+<quick-access xsi:noNamespaceSchemaLocation="../../QuickAccess/DesignAssistantQA.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<section collapsable="true" name="mandatory" text="Request-and-Stream Variable Protocol" default="expanded">
+		<title/>
+		<paragraph>
+			The RSVP step allows you to parse, retrieve or encode variables in a string, according to the RSVP format.
+			This step is commonly used with network steps to manage strings received or to send via TCP/IP.
+			RSVP messages are composed of multiple elements separated by ';' and each element has the format
+		</paragraph>
+		<paragraph>NAME[(TYPE)][=VALUE]</paragraph>
+		<paragraph>		where [ ] indicates an optional subelement. Two examples would be: </paragraph>
+		<paragraph>START;STATUS=PASS;T(DBL)=4.5;COUNT(INT)=3;USER(STR)=JEAN</paragraph>
+		<paragraph>CALIBRATE;POS(VECD)=[X=1.0,Y=2.0,Z=3.0];ROBOTPOS(VECD)=[X=1.0,Y=2.0,Z=3.0,RX=4.0,RY=5.0,RZ=6.0]</paragraph>
+		<paragraph>It is customary, but not obligatory, to start the message with a simple string (no type indicated) that is called the Command tag.</paragraph>
+		<bulleted-list>
+			<item><paragraph>NAME is an alphanumeric string made of characters A-Za-z0-9_- that corresponds to the name of a command or variable.</paragraph>
+			</item>
+			<item><paragraph>TYPE indicates the variable type, which can be DBL, INT, STR, VECD, VECS or BOOL. These 
+		stand for double, integer, string, vector of doubles, vector of strings and boolean. Notice that in Matrox
+		DA integers and doubles are both numeric.</paragraph>
+	        </item>
+			<item>
+				<paragraph>VALUE is the variable value as a string, with '.' decimal separator and no "" for strings. Vectors are
+				encompassed in [ ] brackets and the individual elements of the vectors can have name tags.</paragraph>
+			</item>
+		</bulleted-list>
+		
+		<paragraph>The RSVP protocol is documented in a separate pdf named "RSVP.pdf".</paragraph>
+	</section>
+	<section collapsable="true" name="Parameters" text="RSVP step parameters" default="expanded">
+		<title/>
+		<paragraph>The parameters of the RSVP step are:</paragraph>
+		<bulleted-list>
+			<item>
+				<paragraph>
+					<input-link target="Action">Action</input-link>: Defines the step operation and can be one of the following:</paragraph>
+				<enumerated-list>
+					<item>
+						<paragraph>
+							Clear : clear the step memory.
+						</paragraph>
+					</item>
+					<item>
+						<paragraph>
+							ParseAndRetrieve : parse a specified string according to RSVP protocol. Use "Message to parse" to specify the string (ex: NetworkReaderStep.ReceivedData). You can then retrive the command received in the "CommandTag" output. All the
+							other elements received will be available under the output called 'Retrieved', which provides different arrays for each data type.							
+						</paragraph>
+					</item>					
+					<item>
+						<paragraph>
+							AddVariable : is used to contruct the reply message list. Specify the variable name "Variable name", the variable value "Variable to add" and optionnaly the numercial format "Numeric Format" and vector tags "Vectors tags" (ex : [X, Y, Z]).
+						</paragraph>
+					</item>
+					<item>
+						<paragraph>
+							CreateReply : when all results variables values are added use this action to terminate the reply message. You have to specify the command status (Pass/Fail).
+						</paragraph>
+					</item>
+					<item>
+						<paragraph>
+							CreateRequest : add a command "Request Command" at the begining of the message.
+						</paragraph>
+					</item>
+
+				</enumerated-list>
+			</item>
+			<item>
+				<paragraph>
+					<input-link target="Message">Message</input-link>: The message received from a communication step which is to be parsed.
+				</paragraph>
+			</item>
+			<item>
+				<paragraph>
+					<input-link target="Variable">Variable</input-link>: A link to the variable to be sent.
+				</paragraph>
+			</item>
+			<item>
+				<paragraph>
+					<input-link target="VariableName">Variable name</input-link> The name of the variable to be retrieved or added.
+				</paragraph>
+			</item>
+			<item>
+				<paragraph>
+					<input-link target="Format">Numeric format</input-link>: the format of doubles, of the type F3
+				</paragraph>
+			</item>
+			<item>
+				<paragraph>
+					<input-link target="VectorTags">Vector tags</input-link>: the tags or names of the components of a vector. It must 
+					be a vector of strings of the same size as the vector to be sent.
+				</paragraph>
+			</item>
+			<item>
+				<paragraph>
+					<input-link target="Ack">ACK Reply</input-link>: A boolean indicating if the reply is ACKed or NACKed.
+				</paragraph>
+			</item>
+			<item>
+				<paragraph>
+					<input-link target="Command">Request command</input-link>: The command to be sent ou in a request message (client side).
+				</paragraph>
+			</item>
+		</bulleted-list>
+		
+	</section>
+	<section collapsable="true" name="Results" text="RSVP step results" default="expanded">
+		<title/>
+		<paragraph>The results of the RSVP step are:</paragraph>
+		<enumerated-list>
+			<item>
+				<paragraph>
+					CommandTag : get the received command tag after "Parse" action.
+				</paragraph>
+			</item>
+			<item>
+				<paragraph>
+					Retrieved : get the received variables per type, with their properties 'Name' and 'Value' (i.e. contents). 
+					For example, SELECT(FILTER(RSVP.Retrieved.Numeric,Item.Name="COUNT"),Item.Value) retrieves the value corresponding to a numeric named COUNT.
+				</paragraph>
+			</item>
+			<item>
+				<paragraph>
+					Message : get the constructed reply message after CreateReply. You can send this message with a NetworkWriter step.
+				</paragraph>
+			</item>
+			<item>
+				<paragraph>
+					TotalInputFields : get the number of inputs fields after parse action.
+				</paragraph>
+			</item>
+			<item>
+				<paragraph>
+					TotalOutputFields : get the number of output fields in the list.
+				</paragraph>
+			</item>
+		</enumerated-list>
+	</section>
+</quick-access>

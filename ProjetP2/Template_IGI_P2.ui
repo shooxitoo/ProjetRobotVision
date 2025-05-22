@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="yes"?>
+<UIConfiguration>
+  <QuickEvaluate version="10.0.454.0">
+    <Items>
+      <Item text="SqlServerConnect.Status" />
+      <Item text="SqlServerConnect.Message" />
+      <Item text="HEArc_SqlServer_Read_Query.ResultColumnsNames" />
+      <Item text="HEArc_SqlServer_Read_Query.ResultColumnsTypesNames" />
+      <Item text="HEArc_SqlServer_Read_Query.Result" />
+      <Item text="SPLITSTRING(ELEMENTAT(HEArc_SqlServer_Read_Query.Result, 1), &quot;;&quot;)" />
+      <Item text="STRINGTONUMERIC(ELEMENTAT(SPLITSTRING(ELEMENTAT(HEArc_SqlServer_Read_Query.Result, 1), &quot;;&quot;), 2))" />
+      <Item text="Variables.Sql_DB_User" />
+      <Item text="NetworkReader.ReceivedData" />
+      <Item text="RSVP_Parse.CommandTag" />
+      <Item text="RSVP_CreateReply.Message" />
+      <Item text="Variables.Sql_DB_Pssw" />
+      <Item text="Variables.UnkwnownCommand" />
+      <Item text="RSVP_CreateReply.ExecutionTime" />
+    </Items>
+  </QuickEvaluate>
+  <project-switching>
+    <project-path name="measurementexample" path="c:\workclean\setup\matrox.designassistant.setup\publicuserfiles\example projects\measurementexample" />
+  </project-switching>
+  <QuickRunMode isQuickRun="False" />
+  <Debugger version="10.0.454.0" stopAtInspectionEnd="False" />
+  <OperatorViewUIControllers version="10.0.454.0">
+    <OperatorView name="OperatorView" id="8a9a4a30-ef7a-41fd-aea4-da5eeeef4588">
+    </OperatorView>
+  </OperatorViewUIControllers>
+  <printing>
+    <margins units="Millimeters" left="10" right="10" top="10" bottom="10" />
+    <scaling mode="None" scale="1" horizontalpages="1" verticalpages="1" allowenlarge="False" />
+    <flowcharts outline="False">
+      <flowchart id="9b77b042-dee4-46d2-80cc-f950f19e6e80" />
+    </flowcharts>
+  </printing>
+</UIConfiguration>

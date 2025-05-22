@@ -1,0 +1,1892 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentSettingsCache>
+  <inspectionSites>
+    <inspectionSite name="DefaultSite" id="319a1577-59c8-4858-9acb-6450d4e82aaf">
+      <ioCollection />
+      <systemCollection>
+        <system name="SystemHost" id="b99f8fa8-93e0-4128-96de-9d9a545af1b2">
+          <rotaryEncoderCollection>
+            <rotaryEncoder name="RotaryEncoder1" id="59ada501-d49c-4a62-b3fd-2900ee841d60">
+              <settings-state>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Bit0Source]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Bit1Source]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[OutputMode]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[PositionTrigger]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[ResetSource]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[ResetActivation]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+              </settings-state>
+            </rotaryEncoder>
+            <rotaryEncoder name="RotaryEncoder2" id="9d0c954e-023a-463f-8386-ed69a6167141">
+              <settings-state>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Bit0Source]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Bit1Source]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[OutputMode]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[PositionTrigger]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[ResetSource]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[ResetActivation]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+              </settings-state>
+            </rotaryEncoder>
+          </rotaryEncoderCollection>
+          <ioCommandListCollection>
+            <ioCommandList name="IOCommandList1" id="1c9d5588-52eb-4f3e-ad45-641e6c3e727e">
+              <settings-state>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[CounterSource]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+              </settings-state>
+              <latchCollection>
+                <latch name="Latch1" id="819e734c-bba9-4b10-86a4-3e873e202464">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch2" id="fa6c475b-9ce2-4b4f-8158-ddecbaf03f84">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch3" id="06407b21-385e-496f-857d-bc7bedefa635">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch4" id="f9722ed4-1a89-497e-9484-7078810ad7d0">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+              </latchCollection>
+            </ioCommandList>
+            <ioCommandList name="IOCommandList2" id="d392330e-3d3a-4142-a39a-d6bd7e284b96">
+              <settings-state>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[CounterSource]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+              </settings-state>
+              <latchCollection>
+                <latch name="Latch1" id="432f70c6-723d-440b-97ea-4161301a93be">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch2" id="81054882-cb40-46a4-8db2-5322c7edb709">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch3" id="0c847b60-b42c-4d6e-96e0-0d28cc93b439">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch4" id="dbf68330-dbac-43e4-8d5e-dda341be3eb8">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+              </latchCollection>
+            </ioCommandList>
+          </ioCommandListCollection>
+          <timerCollection />
+        </system>
+        <system name="System1" id="fa4dce7a-639a-4fc0-a7e0-7fd9bf6f85f3">
+          <rotaryEncoderCollection>
+            <rotaryEncoder name="RotaryEncoder1" id="7aa44d1c-de3d-429f-95be-3628d14d8c81">
+              <settings-state>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Bit0Source]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Bit1Source]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[OutputMode]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[PositionTrigger]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[ResetSource]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[ResetActivation]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+              </settings-state>
+            </rotaryEncoder>
+            <rotaryEncoder name="RotaryEncoder2" id="baae33e7-9016-426b-86c3-544751eba3a8">
+              <settings-state>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Bit0Source]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Bit1Source]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[OutputMode]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[PositionTrigger]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[ResetSource]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[ResetActivation]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+              </settings-state>
+            </rotaryEncoder>
+          </rotaryEncoderCollection>
+          <ioCommandListCollection>
+            <ioCommandList name="IOCommandList1" id="88be9679-be90-43ca-b9da-41569cba3031">
+              <settings-state>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[CounterSource]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+              </settings-state>
+              <latchCollection>
+                <latch name="Latch1" id="5103305e-132f-4495-8c1c-b43c34f19f8f">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch2" id="c63c4e98-9514-4692-b2e9-6a0f143297ab">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch3" id="fbae6c11-2860-4ed1-b024-031131204705">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch4" id="831651c1-3513-437e-b529-c5be12908f19">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+              </latchCollection>
+            </ioCommandList>
+            <ioCommandList name="IOCommandList2" id="fb718a70-7a6f-468e-98bd-7935426d37f8">
+              <settings-state>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+                <object serializationType="Full">
+                  <property name="Name">
+                    <object serializationType="Full" base64="False"><![CDATA[CounterSource]]></object>
+                  </property>
+                  <property name="AccessMode">
+                    <object serializationType="Full">
+                      <field name="value__">
+                        <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                      </field>
+                    </object>
+                  </property>
+                  <property name="IsAvailable">
+                    <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                  </property>
+                  <property name="IsValid">
+                    <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                  </property>
+                  <property name="ErrorMessage">
+                    <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                  </property>
+                </object>
+              </settings-state>
+              <latchCollection>
+                <latch name="Latch1" id="d45bd5a7-f1e3-49d1-9390-3650e6477f84">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch2" id="77c03dcc-a427-4ed2-ad47-dabeab9e4b0f">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch3" id="72e07805-673c-4a20-80ac-361c5748b411">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+                <latch name="Latch4" id="d4d41c46-ea75-47de-b590-93e7bd532901">
+                  <settings-state>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Enabled]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[TriggerSource]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                    <object serializationType="Full">
+                      <property name="Name">
+                        <object serializationType="Full" base64="False"><![CDATA[Activation]]></object>
+                      </property>
+                      <property name="AccessMode">
+                        <object serializationType="Full">
+                          <field name="value__">
+                            <object serializationType="Full" base64="False"><![CDATA[0]]></object>
+                          </field>
+                        </object>
+                      </property>
+                      <property name="IsAvailable">
+                        <object serializationType="Full" base64="False"><![CDATA[False]]></object>
+                      </property>
+                      <property name="IsValid">
+                        <object serializationType="Full" base64="False"><![CDATA[True]]></object>
+                      </property>
+                      <property name="ErrorMessage">
+                        <object serializationType="Full" base64="False"><![CDATA[]]></object>
+                      </property>
+                    </object>
+                  </settings-state>
+                </latch>
+              </latchCollection>
+            </ioCommandList>
+          </ioCommandListCollection>
+          <timerCollection />
+        </system>
+      </systemCollection>
+    </inspectionSite>
+  </inspectionSites>
+</componentSettingsCache>

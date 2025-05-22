@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<UIConfiguration>
+  <QuickEvaluate version="10.0.454.0">
+    <Items>
+      <Item text="LectureBD.Result" />
+    </Items>
+  </QuickEvaluate>
+  <QuickRunMode isQuickRun="False" />
+  <Debugger version="10.0.454.0" stopAtInspectionEnd="True" />
+  <OperatorViewUIControllers version="10.0.454.0">
+    <OperatorView name="OperatorView" id="8a9a4a30-ef7a-41fd-aea4-da5eeeef4588">
+    </OperatorView>
+  </OperatorViewUIControllers>
+  <printing>
+    <margins units="Millimeters" left="10" right="10" top="10" bottom="10" />
+    <scaling mode="None" scale="1" horizontalpages="1" verticalpages="1" allowenlarge="False" />
+    <flowcharts outline="False">
+      <flowchart id="9b77b042-dee4-46d2-80cc-f950f19e6e80" />
+    </flowcharts>
+  </printing>
+</UIConfiguration>

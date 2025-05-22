@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<persistence>
+  <persistentitem id="648ba173-a818-4511-96b4-5e783603306e">
+    <Variable name="Sql_DB_User" persistentState="Global" type="Matrox.DesignAssistant.Core.Flowcharts.Variable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" linkedAssemblies="Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" description="" typeName="String" id="648ba173-a818-4511-96b4-5e783603306e" Version="10.0.454.0">
+      <inputs>
+        <input name="InitialValue">
+          <expression>
+            <expression-string>StoredValue</expression-string>
+          </expression>
+        </input>
+        <input name="ResetPoint">
+          <expression available="False">
+            <expression-string>NeverReset</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </Variable>
+    <CurrentValue valueHasNotBeenSet="False" currentValue="DA10_runtime" />
+  </persistentitem>
+  <persistentitem id="79f1150c-020c-488a-9771-4951243df4d3" milstreamsdirname="MILStreams\MainFlowchart" milstreamfilenameprefix="Status2">
+    <step name="Status2" persistentState="Global" type="Matrox.DesignAssistant.Core.Flowcharts.StatusStep.Status, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="79f1150c-020c-488a-9771-4951243df4d3" Version="10.0.454.0">
+      <inputs>
+        <input name="AssociatedStatusStep">
+          <expression>
+            <expression-string>None</expression-string>
+          </expression>
+        </input>
+        <input name="Comment">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+        </input>
+        <objectCollection name="Conditions" type="Matrox.DesignAssistant.Core.Flowcharts.StatusStep.StatusConditionsCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a5585761-2012-46c6-9001-ec9b0fc1de27" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems />
+          <userXML />
+        </objectCollection>
+        <input name="CreateAutomaticLabels">
+          <expression>
+            <expression-string>True</expression-string>
+          </expression>
+        </input>
+        <subObject name="ErrorCaughtInspectionLabel" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="be61825d-518c-4d56-956b-3e6edf5ed562" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <inputs>
+            <input name="Background">
+              <expression>
+                <expression-string>-65536</expression-string>
+              </expression>
+            </input>
+            <input name="Condition">
+              <expression available="False">
+                <expression-string need-link-container="True">Status2.ErrorCaught=True</expression-string>
+              </expression>
+            </input>
+            <input name="DesignTimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Foreground">
+              <expression>
+                <expression-string>-1</expression-string>
+              </expression>
+            </input>
+            <input name="RuntimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Type">
+              <expression available="False">
+                <expression-string>StatusCondition</expression-string>
+              </expression>
+            </input>
+            <input name="Value">
+              <expression>
+                <expression-string>None</expression-string>
+              </expression>
+            </input>
+          </inputs>
+          <userXML>
+            <AutomaticName>Status2_ErrorCaught</AutomaticName>
+          </userXML>
+        </subObject>
+        <subObject name="FailInspectionLabel" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="02af9961-f1b1-43f2-b211-7df6d2a6ec3d" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <inputs>
+            <input name="Background">
+              <expression>
+                <expression-string>-65536</expression-string>
+              </expression>
+            </input>
+            <input name="Condition">
+              <expression available="False">
+                <expression-string need-link-container="True">Status2.Result=Fail</expression-string>
+              </expression>
+            </input>
+            <input name="DesignTimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Foreground">
+              <expression>
+                <expression-string>-1</expression-string>
+              </expression>
+            </input>
+            <input name="RuntimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Type">
+              <expression available="False">
+                <expression-string>StatusCondition</expression-string>
+              </expression>
+            </input>
+            <input name="Value">
+              <expression>
+                <expression-string>None</expression-string>
+              </expression>
+            </input>
+          </inputs>
+          <userXML>
+            <AutomaticName>Status2_Fail</AutomaticName>
+          </userXML>
+        </subObject>
+        <subObject name="PassInspectionLabel" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="d95b133f-518d-4412-907c-e20879d11555" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <inputs>
+            <input name="Background">
+              <expression>
+                <expression-string>-16744448</expression-string>
+              </expression>
+            </input>
+            <input name="Condition">
+              <expression available="False">
+                <expression-string need-link-container="True">Status2.Result=Pass</expression-string>
+              </expression>
+            </input>
+            <input name="DesignTimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Foreground">
+              <expression>
+                <expression-string>-1</expression-string>
+              </expression>
+            </input>
+            <input name="RuntimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Type">
+              <expression available="False">
+                <expression-string>StatusCondition</expression-string>
+              </expression>
+            </input>
+            <input name="Value">
+              <expression>
+                <expression-string>None</expression-string>
+              </expression>
+            </input>
+          </inputs>
+          <userXML>
+            <AutomaticName>Status2_Pass</AutomaticName>
+          </userXML>
+        </subObject>
+        <input name="ResetPoint">
+          <expression available="False">
+            <expression-string>InspectionStart</expression-string>
+          </expression>
+        </input>
+        <input name="Suspended">
+          <expression>
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </step>
+  </persistentitem>
+  <persistentitem id="4bba7190-ddf4-499c-a3f7-a250c7b70a62" milstreamsdirname="MILStreams\MainFlowchart" milstreamfilenameprefix="Status">
+    <step name="Status" persistentState="Global" type="Matrox.DesignAssistant.Core.Flowcharts.StatusStep.Status, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="4bba7190-ddf4-499c-a3f7-a250c7b70a62" Version="10.0.454.0">
+      <inputs>
+        <input name="AssociatedStatusStep">
+          <expression>
+            <expression-string>None</expression-string>
+          </expression>
+        </input>
+        <input name="Comment">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+        </input>
+        <objectCollection name="Conditions" type="Matrox.DesignAssistant.Core.Flowcharts.StatusStep.StatusConditionsCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="2cd81a0e-93ee-4eb3-bad6-28a4233b3842" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems />
+          <userXML />
+        </objectCollection>
+        <input name="CreateAutomaticLabels">
+          <expression>
+            <expression-string>True</expression-string>
+          </expression>
+        </input>
+        <subObject name="ErrorCaughtInspectionLabel" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f9296928-60c7-4a35-b3b4-10aa8cc394b0" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <inputs>
+            <input name="Background">
+              <expression>
+                <expression-string>-65536</expression-string>
+              </expression>
+            </input>
+            <input name="Condition">
+              <expression available="False">
+                <expression-string need-link-container="True">Status.ErrorCaught=True</expression-string>
+              </expression>
+            </input>
+            <input name="DesignTimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Foreground">
+              <expression>
+                <expression-string>-1</expression-string>
+              </expression>
+            </input>
+            <input name="RuntimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Type">
+              <expression available="False">
+                <expression-string>StatusCondition</expression-string>
+              </expression>
+            </input>
+            <input name="Value">
+              <expression>
+                <expression-string>None</expression-string>
+              </expression>
+            </input>
+          </inputs>
+          <userXML>
+            <AutomaticName>ErrorCaught</AutomaticName>
+          </userXML>
+        </subObject>
+        <subObject name="FailInspectionLabel" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="d5d5e1c7-ec23-4311-80b9-a6581134e3a3" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <inputs>
+            <input name="Background">
+              <expression>
+                <expression-string>-65536</expression-string>
+              </expression>
+            </input>
+            <input name="Condition">
+              <expression available="False">
+                <expression-string need-link-container="True">Status.Result=Fail</expression-string>
+              </expression>
+            </input>
+            <input name="DesignTimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Foreground">
+              <expression>
+                <expression-string>-1</expression-string>
+              </expression>
+            </input>
+            <input name="RuntimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Type">
+              <expression available="False">
+                <expression-string>StatusCondition</expression-string>
+              </expression>
+            </input>
+            <input name="Value">
+              <expression>
+                <expression-string>None</expression-string>
+              </expression>
+            </input>
+          </inputs>
+          <userXML>
+            <AutomaticName>Fail</AutomaticName>
+          </userXML>
+        </subObject>
+        <subObject name="PassInspectionLabel" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="3cf62447-2ccd-4cb7-bde1-bbca5c2c5b22" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <inputs>
+            <input name="Background">
+              <expression>
+                <expression-string>-16744448</expression-string>
+              </expression>
+            </input>
+            <input name="Condition">
+              <expression available="False">
+                <expression-string need-link-container="True">Status.Result=Pass</expression-string>
+              </expression>
+            </input>
+            <input name="DesignTimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Foreground">
+              <expression>
+                <expression-string>-1</expression-string>
+              </expression>
+            </input>
+            <input name="RuntimeVisible">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+            <input name="Type">
+              <expression available="False">
+                <expression-string>StatusCondition</expression-string>
+              </expression>
+            </input>
+            <input name="Value">
+              <expression>
+                <expression-string>None</expression-string>
+              </expression>
+            </input>
+          </inputs>
+          <userXML>
+            <AutomaticName>Pass</AutomaticName>
+          </userXML>
+        </subObject>
+        <input name="ResetPoint">
+          <expression available="False">
+            <expression-string>NeverReset</expression-string>
+          </expression>
+        </input>
+        <input name="Suspended">
+          <expression>
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </step>
+  </persistentitem>
+</persistence>

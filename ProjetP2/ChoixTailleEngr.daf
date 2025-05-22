@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<flowchart id="acd84bbb-f4bb-4796-8545-af7035982bd9" version="10.0.454.0" description="">
+  <Variables id="de27bcd2-7bdc-43f8-ad4c-d2108bb430b8" name="Variables" />
+  <StaticImages />
+  <flowchartElements>
+    <step name="FlowchartEnd" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Core.Flowcharts.FlowchartEnd, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="80750283-6ade-49df-83b9-4bf4ef6c4a06" Version="10.0.454.0">
+      <inputs>
+        <input name="Comment">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+        </input>
+        <objectCollection name="Outputs" type="Matrox.DesignAssistant.Core.Flowcharts.FlowchartOutputCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="69073858-4312-4f39-8e08-00eb73a1c59f" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems />
+          <userXML />
+        </objectCollection>
+        <input name="ResetPoint">
+          <expression available="False">
+            <expression-string>InspectionStart</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </step>
+  </flowchartElements>
+</flowchart>
