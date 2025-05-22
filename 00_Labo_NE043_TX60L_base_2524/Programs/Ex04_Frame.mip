@@ -1,0 +1,248 @@
+.MODULE_BEGIN Ex04_Frame
+
+.MODULE_VERSION 1.0
+
+.MODULE_DESCRIPTION
+
+.MODULE_PROGRAMS
+
+.PROGRAM getFrameStoragePosition
+
+.DESCRIPTION
+
+.INPUTS
+
+    locc frame
+    real distBetweenPosX, distBetweenPosY
+    int NbrOfPosX, NbrOfPosY, StoragePosDepth, StoragePosIndex
+
+.VARIABLES
+
+    int rowNbr, lineNbr
+
+.RETURN_TYPE locc
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module: Ex04_Frame
+// Description: Permet de connaitre la position d'un emplaçement de stockage particulier sur un frame de type palette
+// * * * * * * * * * * * * * * *
+
+//Calcul du numéro de ligne
+lineNbr = integer(StoragePosIndex / NbrOfPosX)
+
+//Calcul du numéro de colonne
+rowNbr = StoragePosIndex % NbrOfPosX
+
+//Contrôle de la capacité de la palette
+if (lineNbr > (NbrOfPosY-1) or rowNbr > (NbrOfPosX-1))
+
+    return trans(0,0,0)
+
+end
+
+//Calcul de la position de la poche dans le frame
+return frame + trans(rowNbr * distBetweenPosX, lineNbr * distBetweenPosY, StoragePosDepth)
+
+
+
+.END
+
+.PROGRAM Ex04_Main
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    locc Palette
+    real EntreAxeX = 32.34
+    int ProfondeurTrou = 16
+    real EntreAxeY = 32.34, DecalageOrigine = 28.73
+    locc posCorrFrameX
+    bool gMode
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+// * * * *Corrections* * * * * *
+posCorrFrameX = trans(0,0.7) + gcPosFrameX
+
+// * * * * * * * * * * * * * * *
+
+UtilInitRobotMan("Tool_MOD_Vacuum", 20) // Mise en place de l'outil ainsi que la vitesse du robot.
+
+// Définit une palette composée à partir de paramètres pour positionner les jetons
+Palette=frameCompose(gcPosOrigineFrame, gcPosFrameX, gcPosFrameY)
+// Initialisation du compteur à zéro
+NbIndex=0
+
+// Première boucle : ajoute les nouveaux jetons jusqu'à atteindre le nombre voulu
+for (i = NbJetons; i < JetonsVoulu ; i+=1)
+    // Calcule la position de stockage pour un nouveau jeton sur la palette
+    PickJeton=getFrameStoragePosition(Palette,EntreAxeX,EntreAxeY,5,8,ProfondeurTrou-JetonHeight,i)+trans(DecalageOrigine,DecalageOrigine)
+
+    // Prend un jeton à cette position
+    Pick()
+
+    // Place le jeton à la destination prévue
+    Place()
+end
+
+//Ecran d'affichage sur le TeachBox pour le choix du mode
+switch(mcpAlert("Choix du mode","Ordre","Désordre"))
+    case 0
+    gMode = TRUE
+
+    case 1
+    gMode = FALSE
+end
+
+if (gMode) //Condition pour choisir le mode de palettisation
+    for (i = JetonsVoulu-1; i>=0; i-=1)
+    // Calcule la position de stockage pour retirer un jeton
+    PickJeton=getFrameStoragePosition(Palette,EntreAxeX,EntreAxeY,5,8,0,i)+trans(DecalageOrigine,DecalageOrigine)
+
+    // Prend un jeton à cette position
+    Pick2()
+
+    // Place le jeton à une nouvelle destination
+    Place2()
+    end
+else
+    for (i = JetonsVoulu-1; i>=0; i-=1)
+    // Calcule la position de stockage pour retirer un jeton
+    PickJeton=getFrameStoragePosition(Palette,EntreAxeX,EntreAxeY,5,8,0,i)+trans(DecalageOrigine,DecalageOrigine)
+
+    // Prend un jeton sur la pile
+    Pick2()
+
+    // Incrémente l'index pour le prochain placement
+    NbIndex=NbIndex+1
+
+    // Calcule la nouvelle position pour replacer le jeton
+    PickJeton=getFrameStoragePosition(Palette,EntreAxeX,EntreAxeY,5,8,0,NbIndex-1)+trans(DecalageOrigine,DecalageOrigine)
+
+    // Place le jeton à la nouvelle position
+    Place2()
+    end
+end
+return
+
+.END
+
+.PROGRAM Pick
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+move(PickJeton+trans(0,0,-DecalageZ))
+UtilVacuum(TRUE)
+moves(PickJeton)
+waitEndMove()
+moves(PickJeton+trans(0,0,-DecalageZ))
+
+return
+.END
+
+.PROGRAM Place
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+move(gcPosCoinTableEReel+trans(RayonJeton,-RayonJeton,-DecalageZ))
+moves(gcPosCoinTableEReel+trans(RayonJeton,-RayonJeton,-JetonHeight*(i+1)))
+UtilVacuum(FALSE)
+moves(gcPosCoinTableEReel+trans(RayonJeton,-RayonJeton,-DecalageZ))
+return
+.END
+
+.PROGRAM Pick2
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+moves(gcPosCoinTableEReel+trans(RayonJeton,-RayonJeton,-DecalageZ))
+moves(gcPosCoinTableEReel+trans(RayonJeton,-RayonJeton,-JetonHeight*(i+1)))
+setSpeed(2)
+UtilVacuum(TRUE)
+moves(gcPosCoinTableEReel+trans(RayonJeton,-RayonJeton,-DecalageZ))
+setSpeed(20)
+return
+.END
+
+.PROGRAM Place2
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+move(PickJeton+trans(0,0,-DecalageZ))
+moves(PickJeton)
+UtilVacuum(FALSE)
+waitEndMove()
+moves(PickJeton+trans(0,0,-DecalageZ))
+
+return
+.END
+
+.MODULE_GLOBAL_VARIABLES
+
+
+.MODULE_GLOBAL_CONSTANTS
+
+    locc gcPosFrameX = {712.582, 112.041, -151.197, -179.68, 7.2e-02, 3.6920000}, gcPosOrigineFrame = {526.34, 123.662, -151.485, -179.679, 7.2e-02, 3.6920000}, gcPosFrameY = {508.74, -159.638, -153.514, -179.68, 7.2e-02, 3.6920000}
+    int DecalageZ = 100
+    locc PickJeton = {579.461741, -5.6439958, -152.2896648, -179.5967208, 1.1376175e-01, 3.5697572}
+    int i = 16, RayonJeton = 14, NbJetons, JetonHeight = 2, JetonsVoulu = 40, NbIndex = 23
+
+.MODULE_END

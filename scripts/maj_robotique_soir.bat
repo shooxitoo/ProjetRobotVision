@@ -3,7 +3,7 @@ echo === Sauvegarde du workspace robotique ===
 
 cd ..
 git pull
-git add -u
+git add .
 git commit -m "Mise a jour robotique du soir"
 git push
 
