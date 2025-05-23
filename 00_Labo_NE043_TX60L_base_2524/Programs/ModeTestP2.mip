@@ -185,6 +185,8 @@ end
 // * * * * * * * * * * * * * * *
 INDEX.OF=0
 INDEX.GAMME=0
+INDEX.UNITE=0
+
 print(" ")
 print(" ")
 InitCom()
@@ -195,11 +197,16 @@ while (INDEX.OF<arraySize(gcQueryResultOF.ROWS))
     LotSize=strToint(gcQueryResultOF.ROWS[INDEX.OF].LotSize)
     Gamme=strToint(gcQueryResultOF.ROWS[INDEX.OF].Gamme)
     DBReadGamme(Gamme)
-
-    INDEX.GAMME=0
-    while(INDEX.GAMME<arraySize(gcQueryResultGamme.ROWS)) //Boucle sur le nombre de Gammes (Etapes à réaliser)
-        ExecuteAssembly(gcQueryResultGamme.ROWS[INDEX.GAMME])
-        INDEX.GAMME+=1
+    INDEX.UNITE = 0
+    //Boucle taille de lot
+    while (INDEX.UNITE < LotSize)
+        INDEX.GAMME=0
+        //Boucle Gamme
+        while(INDEX.GAMME<arraySize(gcQueryResultGamme.ROWS)) //Boucle sur le nombre de Gammes (Etapes à réaliser)
+            ExecuteAssembly(gcQueryResultGamme.ROWS[INDEX.GAMME])
+            INDEX.GAMME+=1
+        end
+        INDEX.UNITE += 1
     end
     INDEX.OF+=1
 end
@@ -601,7 +608,7 @@ end
 return
 .END
 
-.PROGRAM InspectionENGRP
+.PROGRAM InspectionENGR15
 
 .DESCRIPTION
 
@@ -622,7 +629,7 @@ return
 // * * * * * * * * * * * * * * *
 
 RsClear()
-Request=RsCreateRequest("INSPECT_ENGRP")
+Request=RsCreateRequest("INSPECT_ENGR15")
 
 if (SendMatrox(Request))
     print(RsReadDouble("DiametreCercle2"))
@@ -632,7 +639,7 @@ end
 return
 .END
 
-.PROGRAM InspectionENGRM
+.PROGRAM InspectionENGR18
 
 .DESCRIPTION
 
@@ -653,7 +660,7 @@ return
 // * * * * * * * * * * * * * * *
 
 RsClear()
-Request=RsCreateRequest("INSPECT_ENGRM")
+Request=RsCreateRequest("INSPECT_ENGR18")
 
 if (SendMatrox(Request))
     print(RsReadDouble("DiametreCercle2"))
@@ -663,7 +670,7 @@ end
 return
 .END
 
-.PROGRAM InspectionENGRG
+.PROGRAM InspectionENGR25
 
 .DESCRIPTION
 
@@ -684,7 +691,38 @@ return
 // * * * * * * * * * * * * * * *
 
 RsClear()
-Request=RsCreateRequest("INSPECT_ENGRG")
+Request=RsCreateRequest("INSPECT_ENGR25")
+
+if (SendMatrox(Request))
+    print(RsReadDouble("DiametreCercle2"))
+    DiamCercle2 = RsReadDouble("DiametreCercle2")
+end
+
+return
+.END
+
+.PROGRAM InspectionENGR30
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string Request, l_sDataReceived
+    int Input
+    real DiamCercle2
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+RsClear()
+Request=RsCreateRequest("INSPECT_ENGR30")
 
 if (SendMatrox(Request))
     print(RsReadDouble("DiametreCercle2"))
@@ -1049,8 +1087,6 @@ return resultat
 
     locc Position
     bool Prise
-    string PartName
-    int Index
 
 .VARIABLES
 
@@ -1068,11 +1104,6 @@ move(Position,DecalageZ2)
 moves(Position)
 waitEndMove()
 ioWrite("brasValve2", Prise)
-
-if (PartName!="")
-    M3D_AsmObjectToggle(PartName,Index,Prise)
-end
-
 moves(Position,DecalageZ2)
 
 return
@@ -1086,8 +1117,6 @@ return
 
     locc Position
     bool Prise
-    string PartName
-    int Index
 
 .VARIABLES
 
@@ -1211,10 +1240,20 @@ return
 // Description:
 // * * * * * * * * * * * * * * *
 print("Cycle d'engrenage")
-
 print("Prise Engrenage",Operation.Dents)
-
 print("Dépose Engrenage",Operation.Dents)
+
+switch (Operation.Dents)
+case 15
+    InspectionENGR15()
+case 18
+    InspectionENGR18()
+case 25
+    InspectionENGR25()
+case 30
+    InspectionENGR30()
+end
+
 return
 .END
 
@@ -1228,6 +1267,8 @@ return
 
 .VARIABLES
 
+    locc PositionDepose
+
 .RETURN_TYPE none
 
 .BODY
@@ -1237,6 +1278,11 @@ return
 // * * * * * * * * * * * * * * *
 print("Cycle goupille")
 
+PositionDepose=trans(Operation.PosX,Operation.PosY)
+
+PriseDeposeGoupRond(PositionGoup,TRUE)
+
+PriseDeposeGoupRond(PositionDepose,FALSE)
 
 return
 .END
@@ -1248,6 +1294,8 @@ return
 .INPUTS
 
     class Operation
+    locc Position
+    bool Prise
 
 .VARIABLES
 
@@ -1260,6 +1308,8 @@ return
 // * * * * * * * * * * * * * * *
 print("Cycle rondelle")
 
+PriseDeposeGoupRond(PositionRond,TRUE)
+PriseDeposeGoupRond(PositionRond,FALSE)
 
 return
 .END
