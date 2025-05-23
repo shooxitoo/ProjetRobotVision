@@ -599,6 +599,7 @@ return false
 
 RsClear()
 Request=RsCreateRequest("INSPECT_GOUP")
+//ToolChange("Tool_MOD_P2Cam")
 
 if (SendMatrox(Request))
     print("Lecture position goupille")
@@ -631,6 +632,7 @@ return
 
 RsClear()
 Request=RsCreateRequest("INSPECT_ROND")
+//ToolChange("Tool_MOD_P2Cam")
 
 if (SendMatrox(Request))
     print("Lecture position rondelle")
@@ -662,6 +664,7 @@ return
 
 RsClear()
 Request=RsCreateRequest("INSPECT_DM")
+//ToolChange("Tool_MOD_P2Cam")
 
 if (SendMatrox(Request))
     print(RsReadDouble("DiametreCercle2"))
@@ -693,6 +696,7 @@ return
 
 RsClear()
 Request=RsCreateRequest("INSPECT_ENGR15")
+//ToolChange("Tool_MOD_P2Cam")
 
 if (SendMatrox(Request))
     print("Lecture position Engr15")
@@ -724,6 +728,7 @@ return
 
 RsClear()
 Request=RsCreateRequest("INSPECT_ENGR18")
+//ToolChange("Tool_MOD_P2Cam")
 
 if (SendMatrox(Request))
     print("Lecture position Engr18")
@@ -755,6 +760,7 @@ return
 
 RsClear()
 Request=RsCreateRequest("INSPECT_ENGR25")
+//ToolChange("Tool_MOD_P2Cam")
 
 if (SendMatrox(Request))
     print("Lecture position Engr25")
@@ -786,6 +792,7 @@ return
 
 RsClear()
 Request=RsCreateRequest("INSPECT_ENGR30")
+//ToolChange("Tool_MOD_P2Cam")
 
 if (SendMatrox(Request))
     print("Lecture position Engr30")
@@ -816,6 +823,7 @@ return
 
 //RsClear()
 Request=RsCreateRequest("INSPECT_NBENGR")
+//ToolChange("Tool_MOD_P2Cam")
 
 if (SendMatrox(Request))
     print(RsReadInt("NombreEngr"))
@@ -1312,6 +1320,7 @@ return
 // * * * * * * * * * * * * * * *
 print("Cycle d'engrenage")
 PositionDepose=trans(Operation.PosX,Operation.PosY)
+//ToolChange("Tool_MOD_P2Vacuum")
 
 switch (Operation.Dents)
 case 15
@@ -1368,6 +1377,7 @@ return
 // * * * * * * * * * * * * * * *
 print("Cycle goupille")
 PositionDepose=trans(Operation.PosX,Operation.PosY)
+//ToolChange("Tool_MOD_P2Pince")
 
 print("Prise goupille")
 PriseDeposeGoupRond(gcPositionPickGoup,TRUE)
@@ -1399,12 +1409,37 @@ return
 // * * * * * * * * * * * * * * *
 print("Cycle rondelle")
 PositionDepose=trans(Operation.PosX,Operation.PosY)
+//ToolChange("Tool_MOD_P2Pince")
 
 print("Prise rondelle")
 PriseDeposeGoupRond(gcPositionPickRond,TRUE)
 
 print("Depose rondelle")
 PriseDeposeGoupRond(PositionDepose,FALSE)
+
+return
+.END
+
+.PROGRAM ToolChange
+
+.DESCRIPTION
+
+.INPUTS
+
+    string Outil
+
+.VARIABLES
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+//Position dégagée
+//move(gcPosToolChange)
+setTool(machineTool(Outil))
 
 return
 .END
