@@ -1,190 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <operatorView id="8a9a4a30-ef7a-41fd-aea4-da5eeeef4588" name="OperatorView" version="10.0.454.0" auth-enabled="False" type="normal">
   <htmlAnnotators>
-    <HTMLAnnotator name="Display" type="Matrox.DesignAssistant.Core.OperatorViews.Display, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a9b2cd29-3045-4763-824c-6331f4ceeb14" Version="10.0.454.0">
-      <inputs>
-        <objectCollection name="AnnotationGroups" type="Matrox.DesignAssistant.Core.Annotations.Groups.AnnotationGroupCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f87dbecc-5a22-4b4b-8ab3-6a4f11053163" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <collectionItems />
-          <userXML />
-        </objectCollection>
-        <input name="Image">
-          <expression>
-            <expression-string>ImageActuelle.Image</expression-string>
-          </expression>
-        </input>
-        <input name="Width">
-          <expression>
-            <expression-string>640</expression-string>
-          </expression>
-        </input>
-        <input name="Height">
-          <expression>
-            <expression-string>480</expression-string>
-          </expression>
-        </input>
-        <input name="Region">
-          <expression>
-            <expression-string>WholeImage</expression-string>
-          </expression>
-        </input>
-        <input name="SelectionRadius">
-          <expression>
-            <expression-string>5</expression-string>
-          </expression>
-        </input>
-        <input name="ColorMode">
-          <expression>
-            <expression-string>Default</expression-string>
-          </expression>
-        </input>
-        <input name="ColorMap">
-          <expression>
-            <expression-string>Default</expression-string>
-          </expression>
-        </input>
-        <input name="ScaleImage">
-          <expression>
-            <expression-string>Enabled</expression-string>
-          </expression>
-        </input>
-        <input name="ImageAlignment">
-          <expression>
-            <expression-string>Center</expression-string>
-          </expression>
-        </input>
-        <input name="Zoom">
-          <expression available="False">
-            <expression-string>1</expression-string>
-          </expression>
-        </input>
-        <input name="MouseZoomAndPan">
-          <expression>
-            <expression-string>Enabled</expression-string>
-          </expression>
-        </input>
-        <input name="KeyboardZoomAndPan">
-          <expression>
-            <expression-string>Enabled</expression-string>
-          </expression>
-        </input>
-        <input name="BackgroundColor">
-          <expression>
-            <expression-string>Default</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </HTMLAnnotator>
-    <HTMLAnnotator name="Button" type="Matrox.DesignAssistant.Core.OperatorViews.Button, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="aee3d225-4ce8-464e-9af4-50b5090b6cc1" Version="10.0.454.0">
-      <inputs>
-        <input name="AuthorizationEnabled">
-          <expression>
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="AuthorizationScope">
-          <expression available="False">
-            <expression-string>OV_Operator</expression-string>
-          </expression>
-        </input>
-        <input name="ButtonMode">
-          <expression>
-            <expression-string>Text</expression-string>
-          </expression>
-        </input>
-        <input name="Enabled">
-          <expression>
-            <expression-string>Always</expression-string>
-          </expression>
-        </input>
-        <input name="ImagePath">
-          <expression available="False">
-            <expression-string></expression-string>
-          </expression>
-        </input>
-        <input name="Label">
-          <expression>
-            <expression-string>Reset Counters</expression-string>
-          </expression>
-        </input>
-        <input name="CameraSettings">
-          <expression>
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <input name="ChangeCommunicationSettingsAction">
-          <expression>
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <input name="ExecuteFlowchartAction">
-          <expression>
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <input name="ExecutionControl">
-          <expression>
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <input name="ImageSetSettings">
-          <expression>
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <input name="Navigate">
-          <expression>
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <objectCollection name="ResetCountersCollection" type="Matrox.DesignAssistant.Core.OperatorViews.ResetCountersCommandCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b9bea719-45f3-41d0-bd42-d4e89e7e3419" Version="10.0.454.0">
-          <expression>
-            <expression-string>Enabled</expression-string>
-          </expression>
-          <collectionItems />
-          <userXML />
-        </objectCollection>
-        <input name="ResetFilmstrip">
-          <expression>
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <input name="SetCameraSource">
-          <expression>
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <input name="SetVariableCollection">
-          <expression>
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <input name="SoftwareTrigger">
-          <expression>
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <input name="ZoomPan">
-          <expression>
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <input name="DecrementTextBox">
-          <expression available="False">
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-        <input name="IncrementTextBox">
-          <expression available="False">
-            <expression-string>Disabled</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </HTMLAnnotator>
     <HTMLAnnotator name="AnalysisTimeValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="35b6db5d-2713-417e-8331-1d1ee74d9c7d" Version="10.0.454.0">
       <inputs>
         <input name="BackgroundColor">
@@ -220,16 +36,16 @@
       </inputs>
       <userXML />
     </HTMLAnnotator>
-    <HTMLAnnotator name="TotalFailValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="1b1c469c-1afd-44a7-877c-d081ff3ddedf" Version="10.0.454.0">
+    <HTMLAnnotator name="FrameRateValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c270ed8d-3177-4955-8a74-84065df15e59" Version="10.0.454.0">
       <inputs>
         <input name="BackgroundColor">
           <expression>
-            <expression-string>COLOR("Red")</expression-string>
+            <expression-string>COLOR(211,211,211)</expression-string>
           </expression>
         </input>
         <input name="TextColor">
           <expression>
-            <expression-string>COLOR("White")</expression-string>
+            <expression-string>COLOR("Black")</expression-string>
           </expression>
         </input>
         <input name="LineHeight">
@@ -249,7 +65,7 @@
         </input>
         <input name="Text">
           <expression>
-            <expression-string need-link-container="True">{Status.FailCount}</expression-string>
+            <expression-string>{ImageActuelle.FrameRate:F1}</expression-string>
           </expression>
         </input>
       </inputs>
@@ -365,16 +181,123 @@
       </inputs>
       <userXML />
     </HTMLAnnotator>
-    <HTMLAnnotator name="FrameRateValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c270ed8d-3177-4955-8a74-84065df15e59" Version="10.0.454.0">
+    <HTMLAnnotator name="Button" type="Matrox.DesignAssistant.Core.OperatorViews.Button, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="aee3d225-4ce8-464e-9af4-50b5090b6cc1" Version="10.0.454.0">
+      <inputs>
+        <input name="AuthorizationEnabled">
+          <expression>
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+        <input name="AuthorizationScope">
+          <expression available="False">
+            <expression-string>OV_Operator</expression-string>
+          </expression>
+        </input>
+        <input name="ButtonMode">
+          <expression>
+            <expression-string>Text</expression-string>
+          </expression>
+        </input>
+        <input name="Enabled">
+          <expression>
+            <expression-string>Always</expression-string>
+          </expression>
+        </input>
+        <input name="ImagePath">
+          <expression available="False">
+            <expression-string></expression-string>
+          </expression>
+        </input>
+        <input name="Label">
+          <expression>
+            <expression-string>Reset Counters</expression-string>
+          </expression>
+        </input>
+        <input name="CameraSettings">
+          <expression>
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <input name="ChangeCommunicationSettingsAction">
+          <expression>
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <input name="ExecuteFlowchartAction">
+          <expression>
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <input name="ExecutionControl">
+          <expression>
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <input name="ImageSetSettings">
+          <expression>
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <input name="Navigate">
+          <expression>
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <objectCollection name="ResetCountersCollection" type="Matrox.DesignAssistant.Core.OperatorViews.ResetCountersCommandCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b9bea719-45f3-41d0-bd42-d4e89e7e3419" Version="10.0.454.0">
+          <expression>
+            <expression-string>Enabled</expression-string>
+          </expression>
+          <collectionItems />
+          <userXML />
+        </objectCollection>
+        <input name="ResetFilmstrip">
+          <expression>
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <input name="SetCameraSource">
+          <expression>
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <input name="SetVariableCollection">
+          <expression>
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <input name="SoftwareTrigger">
+          <expression>
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <input name="ZoomPan">
+          <expression>
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <input name="DecrementTextBox">
+          <expression available="False">
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+        <input name="IncrementTextBox">
+          <expression available="False">
+            <expression-string>Disabled</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </HTMLAnnotator>
+    <HTMLAnnotator name="TotalFailValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="1b1c469c-1afd-44a7-877c-d081ff3ddedf" Version="10.0.454.0">
       <inputs>
         <input name="BackgroundColor">
           <expression>
-            <expression-string>COLOR(211,211,211)</expression-string>
+            <expression-string>COLOR("Red")</expression-string>
           </expression>
         </input>
         <input name="TextColor">
           <expression>
-            <expression-string>COLOR("Black")</expression-string>
+            <expression-string>COLOR("White")</expression-string>
           </expression>
         </input>
         <input name="LineHeight">
@@ -394,7 +317,84 @@
         </input>
         <input name="Text">
           <expression>
-            <expression-string>{ImageActuelle.FrameRate:F1}</expression-string>
+            <expression-string need-link-container="True">{Status.FailCount}</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </HTMLAnnotator>
+    <HTMLAnnotator name="Display" type="Matrox.DesignAssistant.Core.OperatorViews.Display, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a9b2cd29-3045-4763-824c-6331f4ceeb14" Version="10.0.454.0">
+      <inputs>
+        <objectCollection name="AnnotationGroups" type="Matrox.DesignAssistant.Core.Annotations.Groups.AnnotationGroupCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f87dbecc-5a22-4b4b-8ab3-6a4f11053163" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems />
+          <userXML />
+        </objectCollection>
+        <input name="Image">
+          <expression>
+            <expression-string>ImageActuelle.Image</expression-string>
+          </expression>
+        </input>
+        <input name="Width">
+          <expression>
+            <expression-string>640</expression-string>
+          </expression>
+        </input>
+        <input name="Height">
+          <expression>
+            <expression-string>480</expression-string>
+          </expression>
+        </input>
+        <input name="Region">
+          <expression>
+            <expression-string>WholeImage</expression-string>
+          </expression>
+        </input>
+        <input name="SelectionRadius">
+          <expression>
+            <expression-string>5</expression-string>
+          </expression>
+        </input>
+        <input name="ColorMode">
+          <expression>
+            <expression-string>Default</expression-string>
+          </expression>
+        </input>
+        <input name="ColorMap">
+          <expression>
+            <expression-string>Default</expression-string>
+          </expression>
+        </input>
+        <input name="ScaleImage">
+          <expression>
+            <expression-string>Enabled</expression-string>
+          </expression>
+        </input>
+        <input name="ImageAlignment">
+          <expression>
+            <expression-string>Center</expression-string>
+          </expression>
+        </input>
+        <input name="Zoom">
+          <expression available="False">
+            <expression-string>1</expression-string>
+          </expression>
+        </input>
+        <input name="MouseZoomAndPan">
+          <expression>
+            <expression-string>Enabled</expression-string>
+          </expression>
+        </input>
+        <input name="KeyboardZoomAndPan">
+          <expression>
+            <expression-string>Enabled</expression-string>
+          </expression>
+        </input>
+        <input name="BackgroundColor">
+          <expression>
+            <expression-string>Default</expression-string>
           </expression>
         </input>
       </inputs>

@@ -8498,7 +8498,7 @@
                 </inputs>
                 <userXML />
               </step>
-              <step name="RenvoiePosGoup1" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="577f512c-5784-48fb-a249-3d966e86e83a" Version="10.0.454.0">
+              <step name="PosXGoup" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="57b5904a-1b9d-4549-b33b-2bd00be75eae" Version="10.0.454.0">
                 <inputs>
                   <input name="Ack">
                     <expression available="False">
@@ -8537,12 +8537,67 @@
                   </input>
                   <input name="Variable">
                     <expression>
-                      <expression-string></expression-string>
+                      <expression-string need-link-container="True">BlobGoupille.Positions(1).X</expression-string>
                     </expression>
                   </input>
                   <input name="VariableName">
                     <expression>
+                      <expression-string>PosGoupX</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VectorTags">
+                    <expression>
                       <expression-string></expression-string>
+                    </expression>
+                  </input>
+                </inputs>
+                <userXML />
+              </step>
+              <step name="PosYGoup" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="80ac1ced-0f41-469e-9d31-84258de45f56" Version="10.0.454.0">
+                <inputs>
+                  <input name="Ack">
+                    <expression available="False">
+                      <expression-string>False</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Action">
+                    <expression>
+                      <expression-string>AddVariable</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Command">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Comment">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Format">
+                    <expression>
+                      <expression-string>F3</expression-string>
+                    </expression>
+                  </input>
+                  <input name="InputMessage">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="ResetPoint">
+                    <expression available="False">
+                      <expression-string>InspectionStart</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Variable">
+                    <expression>
+                      <expression-string need-link-container="True">BlobGoupille.Positions(1).Y</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VariableName">
+                    <expression>
+                      <expression-string>PosGoupY</expression-string>
                     </expression>
                   </input>
                   <input name="VectorTags">
@@ -9517,7 +9572,7 @@
                 </inputs>
                 <userXML />
               </step>
-              <step name="RenvoiePosRond" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="c1df1251-e162-447d-8c61-61f3f9ddc782" Version="10.0.454.0">
+              <step name="PosXRond" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="bb6f8603-66c4-4d4f-8eb5-53431e14f56c" Version="10.0.454.0">
                 <inputs>
                   <input name="Ack">
                     <expression available="False">
@@ -9556,12 +9611,67 @@
                   </input>
                   <input name="Variable">
                     <expression>
-                      <expression-string></expression-string>
+                      <expression-string need-link-container="True">BlobRond.Positions(1).X</expression-string>
                     </expression>
                   </input>
                   <input name="VariableName">
                     <expression>
+                      <expression-string>PosRondX</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VectorTags">
+                    <expression>
                       <expression-string></expression-string>
+                    </expression>
+                  </input>
+                </inputs>
+                <userXML />
+              </step>
+              <step name="PosYRond" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="34264f1b-2ea4-4aeb-b240-38e2b8789f4b" Version="10.0.454.0">
+                <inputs>
+                  <input name="Ack">
+                    <expression available="False">
+                      <expression-string>False</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Action">
+                    <expression>
+                      <expression-string>AddVariable</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Command">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Comment">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Format">
+                    <expression>
+                      <expression-string>F3</expression-string>
+                    </expression>
+                  </input>
+                  <input name="InputMessage">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="ResetPoint">
+                    <expression available="False">
+                      <expression-string>InspectionStart</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Variable">
+                    <expression>
+                      <expression-string need-link-container="True">BlobRond.Positions(1).Y</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VariableName">
+                    <expression>
+                      <expression-string>PosRondY</expression-string>
                     </expression>
                   </input>
                   <input name="VectorTags">
