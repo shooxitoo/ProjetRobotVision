@@ -3,9 +3,11 @@
   <QuickEvaluate version="10.0.454.0">
     <Items>
       <Item text="LectureBD.Result" />
+      <Item text="BlobEngr15.Positions(1).X" />
+      <Item text="BlobEngr15.Positions(1).Y" />
     </Items>
   </QuickEvaluate>
-  <QuickRunMode isQuickRun="False" />
+  <QuickRunMode isQuickRun="True" />
   <Debugger version="10.0.454.0" stopAtInspectionEnd="True" />
   <OperatorViewUIControllers version="10.0.454.0">
     <OperatorView name="OperatorView" id="8a9a4a30-ef7a-41fd-aea4-da5eeeef4588">

@@ -1,186 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <operatorView id="8a9a4a30-ef7a-41fd-aea4-da5eeeef4588" name="OperatorView" version="10.0.454.0" auth-enabled="False" type="normal">
   <htmlAnnotators>
-    <HTMLAnnotator name="AnalysisTimeValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="35b6db5d-2713-417e-8331-1d1ee74d9c7d" Version="10.0.454.0">
-      <inputs>
-        <input name="BackgroundColor">
-          <expression>
-            <expression-string>COLOR(211,211,211)</expression-string>
-          </expression>
-        </input>
-        <input name="TextColor">
-          <expression>
-            <expression-string>COLOR("Black")</expression-string>
-          </expression>
-        </input>
-        <input name="LineHeight">
-          <expression>
-            <expression-string>1</expression-string>
-          </expression>
-        </input>
-        <input name="MultiLine">
-          <expression>
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="Overflow">
-          <expression>
-            <expression-string>Auto</expression-string>
-          </expression>
-        </input>
-        <input name="Text">
-          <expression>
-            <expression-string>{(Status.Time - ImageActuelle.Time)*1000:F0}</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </HTMLAnnotator>
-    <HTMLAnnotator name="FrameRateValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c270ed8d-3177-4955-8a74-84065df15e59" Version="10.0.454.0">
-      <inputs>
-        <input name="BackgroundColor">
-          <expression>
-            <expression-string>COLOR(211,211,211)</expression-string>
-          </expression>
-        </input>
-        <input name="TextColor">
-          <expression>
-            <expression-string>COLOR("Black")</expression-string>
-          </expression>
-        </input>
-        <input name="LineHeight">
-          <expression>
-            <expression-string>1</expression-string>
-          </expression>
-        </input>
-        <input name="MultiLine">
-          <expression>
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="Overflow">
-          <expression>
-            <expression-string>Auto</expression-string>
-          </expression>
-        </input>
-        <input name="Text">
-          <expression>
-            <expression-string>{ImageActuelle.FrameRate:F1}</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </HTMLAnnotator>
-    <HTMLAnnotator name="TotalPassValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="940e0aad-94b3-40f2-8b6a-c395b5a48cd4" Version="10.0.454.0">
-      <inputs>
-        <input name="BackgroundColor">
-          <expression>
-            <expression-string>COLOR("DarkGreen")</expression-string>
-          </expression>
-        </input>
-        <input name="TextColor">
-          <expression>
-            <expression-string>COLOR("White")</expression-string>
-          </expression>
-        </input>
-        <input name="LineHeight">
-          <expression>
-            <expression-string>1</expression-string>
-          </expression>
-        </input>
-        <input name="MultiLine">
-          <expression>
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="Overflow">
-          <expression>
-            <expression-string>Auto</expression-string>
-          </expression>
-        </input>
-        <input name="Text">
-          <expression>
-            <expression-string need-link-container="True">{Status.PassCount}</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </HTMLAnnotator>
-    <HTMLAnnotator name="PassFail" type="Matrox.DesignAssistant.Core.OperatorViews.PassFail, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="20a43451-c088-4972-ad7a-e4c36b984bd1" Version="10.0.454.0">
-      <inputs>
-        <input name="PassTextColor">
-          <expression>
-            <expression-string>-1</expression-string>
-          </expression>
-        </input>
-        <input name="PassBackgroundColor">
-          <expression>
-            <expression-string>-16744448</expression-string>
-          </expression>
-        </input>
-        <input name="WarnTextColor">
-          <expression>
-            <expression-string>-1</expression-string>
-          </expression>
-        </input>
-        <input name="WarnBackgroundColor">
-          <expression>
-            <expression-string>-23296</expression-string>
-          </expression>
-        </input>
-        <input name="FailTextColor">
-          <expression>
-            <expression-string>-1</expression-string>
-          </expression>
-        </input>
-        <input name="FailBackgroundColor">
-          <expression>
-            <expression-string>-65536</expression-string>
-          </expression>
-        </input>
-        <input name="NoResultTextColor">
-          <expression>
-            <expression-string>-1</expression-string>
-          </expression>
-        </input>
-        <input name="NoResultBackgroundColor">
-          <expression>
-            <expression-string>-8355712</expression-string>
-          </expression>
-        </input>
-        <input name="FontSize">
-          <expression>
-            <expression-string>16</expression-string>
-          </expression>
-        </input>
-        <input name="Condition">
-          <expression>
-            <expression-string need-link-container="True">Status.Result</expression-string>
-          </expression>
-        </input>
-        <input name="PassText">
-          <expression>
-            <expression-string>Pass</expression-string>
-          </expression>
-        </input>
-        <input name="WarnText">
-          <expression>
-            <expression-string>Warning</expression-string>
-          </expression>
-        </input>
-        <input name="FailText">
-          <expression>
-            <expression-string>Fail</expression-string>
-          </expression>
-        </input>
-        <input name="NoResultText">
-          <expression>
-            <expression-string>No Result</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </HTMLAnnotator>
     <HTMLAnnotator name="Button" type="Matrox.DesignAssistant.Core.OperatorViews.Button, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="aee3d225-4ce8-464e-9af4-50b5090b6cc1" Version="10.0.454.0">
       <inputs>
         <input name="AuthorizationEnabled">
@@ -288,6 +108,151 @@
       </inputs>
       <userXML />
     </HTMLAnnotator>
+    <HTMLAnnotator name="FrameRateValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c270ed8d-3177-4955-8a74-84065df15e59" Version="10.0.454.0">
+      <inputs>
+        <input name="BackgroundColor">
+          <expression>
+            <expression-string>COLOR(211,211,211)</expression-string>
+          </expression>
+        </input>
+        <input name="TextColor">
+          <expression>
+            <expression-string>COLOR("Black")</expression-string>
+          </expression>
+        </input>
+        <input name="LineHeight">
+          <expression>
+            <expression-string>1</expression-string>
+          </expression>
+        </input>
+        <input name="MultiLine">
+          <expression>
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+        <input name="Overflow">
+          <expression>
+            <expression-string>Auto</expression-string>
+          </expression>
+        </input>
+        <input name="Text">
+          <expression>
+            <expression-string need-link-container="True">{ImageActuelle.FrameRate:F1}</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </HTMLAnnotator>
+    <HTMLAnnotator name="PassFail" type="Matrox.DesignAssistant.Core.OperatorViews.PassFail, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="20a43451-c088-4972-ad7a-e4c36b984bd1" Version="10.0.454.0">
+      <inputs>
+        <input name="PassTextColor">
+          <expression>
+            <expression-string>-1</expression-string>
+          </expression>
+        </input>
+        <input name="PassBackgroundColor">
+          <expression>
+            <expression-string>-16744448</expression-string>
+          </expression>
+        </input>
+        <input name="WarnTextColor">
+          <expression>
+            <expression-string>-1</expression-string>
+          </expression>
+        </input>
+        <input name="WarnBackgroundColor">
+          <expression>
+            <expression-string>-23296</expression-string>
+          </expression>
+        </input>
+        <input name="FailTextColor">
+          <expression>
+            <expression-string>-1</expression-string>
+          </expression>
+        </input>
+        <input name="FailBackgroundColor">
+          <expression>
+            <expression-string>-65536</expression-string>
+          </expression>
+        </input>
+        <input name="NoResultTextColor">
+          <expression>
+            <expression-string>-1</expression-string>
+          </expression>
+        </input>
+        <input name="NoResultBackgroundColor">
+          <expression>
+            <expression-string>-8355712</expression-string>
+          </expression>
+        </input>
+        <input name="FontSize">
+          <expression>
+            <expression-string>16</expression-string>
+          </expression>
+        </input>
+        <input name="Condition">
+          <expression>
+            <expression-string need-link-container="True">Status.Result</expression-string>
+          </expression>
+        </input>
+        <input name="PassText">
+          <expression>
+            <expression-string>Pass</expression-string>
+          </expression>
+        </input>
+        <input name="WarnText">
+          <expression>
+            <expression-string>Warning</expression-string>
+          </expression>
+        </input>
+        <input name="FailText">
+          <expression>
+            <expression-string>Fail</expression-string>
+          </expression>
+        </input>
+        <input name="NoResultText">
+          <expression>
+            <expression-string>No Result</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </HTMLAnnotator>
+    <HTMLAnnotator name="AnalysisTimeValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="35b6db5d-2713-417e-8331-1d1ee74d9c7d" Version="10.0.454.0">
+      <inputs>
+        <input name="BackgroundColor">
+          <expression>
+            <expression-string>COLOR(211,211,211)</expression-string>
+          </expression>
+        </input>
+        <input name="TextColor">
+          <expression>
+            <expression-string>COLOR("Black")</expression-string>
+          </expression>
+        </input>
+        <input name="LineHeight">
+          <expression>
+            <expression-string>1</expression-string>
+          </expression>
+        </input>
+        <input name="MultiLine">
+          <expression>
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+        <input name="Overflow">
+          <expression>
+            <expression-string>Auto</expression-string>
+          </expression>
+        </input>
+        <input name="Text">
+          <expression>
+            <expression-string need-link-container="True">{(Status.Time - ImageActuelle.Time)*1000:F0}</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </HTMLAnnotator>
     <HTMLAnnotator name="TotalFailValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="1b1c469c-1afd-44a7-877c-d081ff3ddedf" Version="10.0.454.0">
       <inputs>
         <input name="BackgroundColor">
@@ -334,7 +299,7 @@
         </objectCollection>
         <input name="Image">
           <expression>
-            <expression-string>ImageActuelle.Image</expression-string>
+            <expression-string need-link-container="True">ImageActuelle.Image</expression-string>
           </expression>
         </input>
         <input name="Width">
@@ -395,6 +360,41 @@
         <input name="BackgroundColor">
           <expression>
             <expression-string>Default</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </HTMLAnnotator>
+    <HTMLAnnotator name="TotalPassValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="940e0aad-94b3-40f2-8b6a-c395b5a48cd4" Version="10.0.454.0">
+      <inputs>
+        <input name="BackgroundColor">
+          <expression>
+            <expression-string>COLOR("DarkGreen")</expression-string>
+          </expression>
+        </input>
+        <input name="TextColor">
+          <expression>
+            <expression-string>COLOR("White")</expression-string>
+          </expression>
+        </input>
+        <input name="LineHeight">
+          <expression>
+            <expression-string>1</expression-string>
+          </expression>
+        </input>
+        <input name="MultiLine">
+          <expression>
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+        <input name="Overflow">
+          <expression>
+            <expression-string>Auto</expression-string>
+          </expression>
+        </input>
+        <input name="Text">
+          <expression>
+            <expression-string need-link-container="True">{Status.PassCount}</expression-string>
           </expression>
         </input>
       </inputs>

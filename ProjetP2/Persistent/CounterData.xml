@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <counterdata>
-  <step name="Status2" id="79f1150c-020c-488a-9771-4951243df4d3">
-    <data name="CurrentPassCount">
-      <value>219</value>
-    </data>
-    <data name="CurrentFailCount">
-      <value>0</value>
-    </data>
-    <data name="CurrentTotalCount">
-      <value>219</value>
-    </data>
-    <data name="CurrentErrorCount">
-      <value>0</value>
-    </data>
-  </step>
   <step name="Status" id="4bba7190-ddf4-499c-a3f7-a250c7b70a62">
     <data name="CurrentPassCount">
-      <value>1180</value>
+      <value>1204</value>
     </data>
     <data name="CurrentFailCount">
-      <value>2046</value>
+      <value>2054</value>
     </data>
     <data name="CurrentTotalCount">
-      <value>3226</value>
+      <value>3258</value>
     </data>
     <data name="CurrentErrorCount">
-      <value>2029</value>
+      <value>2036</value>
+    </data>
+  </step>
+  <step name="Status2" id="79f1150c-020c-488a-9771-4951243df4d3">
+    <data name="CurrentPassCount">
+      <value>0</value>
+    </data>
+    <data name="CurrentFailCount">
+      <value>0</value>
+    </data>
+    <data name="CurrentTotalCount">
+      <value>0</value>
+    </data>
+    <data name="CurrentErrorCount">
+      <value>0</value>
     </data>
   </step>
 </counterdata>
