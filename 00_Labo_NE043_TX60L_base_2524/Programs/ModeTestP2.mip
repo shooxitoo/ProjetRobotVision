@@ -577,6 +577,69 @@ end
 return false
 .END
 
+.PROGRAM InspectionGoup
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string Request, l_sDataReceived
+    int Input
+    real DiamCercle2
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+RsClear()
+Request=RsCreateRequest("INSPECT_GOUP")
+
+if (SendMatrox(Request))
+    print("Lecture position goupille")
+    gcPositionPickGoup = trans(RsReadInt("PosGoupX"),RsReadInt("PosGoupY"))
+
+end
+
+return
+.END
+
+.PROGRAM InspectionRond
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    string Request, l_sDataReceived
+    int Input
+    real DiamCercle2
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+
+RsClear()
+Request=RsCreateRequest("INSPECT_ROND")
+
+if (SendMatrox(Request))
+    print("Lecture position rondelle")
+    gcPositionPickRond = trans(RsReadInt("PosRondX"),RsReadInt("PosRondY"))
+end
+
+return
+.END
+
 .PROGRAM InspectionDM
 
 .DESCRIPTION
@@ -632,8 +695,8 @@ RsClear()
 Request=RsCreateRequest("INSPECT_ENGR15")
 
 if (SendMatrox(Request))
-    print(RsReadDouble("DiametreCercle2"))
-    DiamCercle2 = RsReadDouble("DiametreCercle2")
+    print("Lecture position Engr15")
+    gcPositionEngr15 = trans(RsReadInt("PosEngr15X"),RsReadInt("PosEngr15Y"))
 end
 
 return
@@ -663,8 +726,8 @@ RsClear()
 Request=RsCreateRequest("INSPECT_ENGR18")
 
 if (SendMatrox(Request))
-    print(RsReadDouble("DiametreCercle2"))
-    DiamCercle2 = RsReadDouble("DiametreCercle2")
+    print("Lecture position Engr18")
+    gcPositionEngr18 = trans(RsReadInt("PosEngr18X"),RsReadInt("PosEngr18Y"))
 end
 
 return
@@ -694,8 +757,8 @@ RsClear()
 Request=RsCreateRequest("INSPECT_ENGR25")
 
 if (SendMatrox(Request))
-    print(RsReadDouble("DiametreCercle2"))
-    DiamCercle2 = RsReadDouble("DiametreCercle2")
+    print("Lecture position Engr25")
+    gcPositionEngr25 = trans(RsReadInt("PosEngr25X"),RsReadInt("PosEngr25Y"))
 end
 
 return
@@ -725,8 +788,8 @@ RsClear()
 Request=RsCreateRequest("INSPECT_ENGR30")
 
 if (SendMatrox(Request))
-    print(RsReadDouble("DiametreCercle2"))
-    DiamCercle2 = RsReadDouble("DiametreCercle2")
+    print("Lecture position Engr30")
+    gcPositionEngr30 = trans(RsReadInt("PosEngr30X"),RsReadInt("PosEngr30Y"))
 end
 
 return
@@ -1099,11 +1162,15 @@ return resultat
 // Module:
 // Description:
 // * * * * * * * * * * * * * * *
-
 move(Position,DecalageZ2)
 moves(Position)
 waitEndMove()
 ioWrite("brasValve2", Prise)
+
+//if (PartName!="")
+//  M3D_AsmObjectToggle(PartName,Index,Prise)
+//end
+
 moves(Position,DecalageZ2)
 
 return
@@ -1129,15 +1196,14 @@ return
 // Module:
 // Description:
 // * * * * * * * * * * * * * * *
-
 move(Position,DecalageZ2)
 moves(Position)
 waitEndMove()
 ioWrite("brasValve1", Prise)
 
-if (PartName!="")
-    M3D_AsmObjectToggle(PartName,Index,Prise)
-end
+//if (PartName!="")
+//  M3D_AsmObjectToggle(PartName,Index,Prise)
+//end
 
 moves(Position,DecalageZ2)
 
@@ -1215,6 +1281,9 @@ return
 // * * * * * * * * * * * * * * *
 print("Execute Assembly",Operation.Gamme)
 
+//gcOriginPalettePriseframeCompose(OriginPalettePrise,X,Y)
+//gcOriginPaletteDepose=frameCompose(OriginPaletteDepose,X,Y)
+
 CycleEngrenage(Operation)
 CycleGoupille(Operation)
 CycleRondelle(Operation)
@@ -1232,6 +1301,8 @@ return
 
 .VARIABLES
 
+    locc PositionDepose
+
 .RETURN_TYPE none
 
 .BODY
@@ -1240,18 +1311,37 @@ return
 // Description:
 // * * * * * * * * * * * * * * *
 print("Cycle d'engrenage")
-print("Prise Engrenage",Operation.Dents)
-print("Dépose Engrenage",Operation.Dents)
+PositionDepose=trans(Operation.PosX,Operation.PosY)
 
 switch (Operation.Dents)
 case 15
     InspectionENGR15()
+    print("Prise Engrenage 15",Operation.Dents)
+    PriseDeposeEngr(gcPositionEngr15,TRUE)
+
+    print("Dépose Engrenage 15",Operation.Dents)
+    PriseDeposeEngr(PositionDepose,FALSE)
 case 18
     InspectionENGR18()
+    print("Prise Engrenage 18",Operation.Dents)
+    PriseDeposeEngr(gcPositionEngr18,TRUE)
+
+    print("Dépose Engrenage 18",Operation.Dents)
+    PriseDeposeEngr(PositionDepose,FALSE)
 case 25
     InspectionENGR25()
+    print("Prise Engrenage 25",Operation.Dents)
+    PriseDeposeEngr(gcPositionEngr25,TRUE)
+
+    print("Dépose Engrenage 25",Operation.Dents)
+    PriseDeposeEngr(PositionDepose,FALSE)
 case 30
     InspectionENGR30()
+    print("Prise Engrenage 30",Operation.Dents)
+    PriseDeposeEngr(gcPositionEngr30,TRUE)
+
+    print("Dépose Engrenage 30",Operation.Dents)
+    PriseDeposeEngr(PositionDepose,FALSE)
 end
 
 return
@@ -1277,11 +1367,12 @@ return
 // Description:
 // * * * * * * * * * * * * * * *
 print("Cycle goupille")
-
 PositionDepose=trans(Operation.PosX,Operation.PosY)
 
-PriseDeposeGoupRond(PositionGoup,TRUE)
+print("Prise goupille")
+PriseDeposeGoupRond(gcPositionPickGoup,TRUE)
 
+print("Depose goupille")
 PriseDeposeGoupRond(PositionDepose,FALSE)
 
 return
@@ -1294,10 +1385,10 @@ return
 .INPUTS
 
     class Operation
-    locc Position
-    bool Prise
 
 .VARIABLES
+
+    locc PositionDepose
 
 .RETURN_TYPE none
 
@@ -1307,9 +1398,13 @@ return
 // Description:
 // * * * * * * * * * * * * * * *
 print("Cycle rondelle")
+PositionDepose=trans(Operation.PosX,Operation.PosY)
 
-PriseDeposeGoupRond(PositionRond,TRUE)
-PriseDeposeGoupRond(PositionRond,FALSE)
+print("Prise rondelle")
+PriseDeposeGoupRond(gcPositionPickRond,TRUE)
+
+print("Depose rondelle")
+PriseDeposeGoupRond(PositionDepose,FALSE)
 
 return
 .END
@@ -1324,6 +1419,6 @@ return
 .MODULE_GLOBAL_CONSTANTS
 
     string gsMatrox = "Matrox", COL_NAME = "Nom", gTaskRobotName = "Robot", gTaskMainName = "Main"
-    locc PosReglette = {707.298, -69.267, -328.118, -178.558, 4.82e-01, 179.7360000}
+    locc PosReglette = {707.298, -69.267, -328.118, -178.558, 4.82e-01, 179.7360000}, gcPositionEngr15, gcPositionEngr18, gcPositionEngr25, gcPositionEngr30, gcPositionPickGoup, gcPositionPickRond
 
 .MODULE_END
