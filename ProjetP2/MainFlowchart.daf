@@ -1299,7 +1299,7 @@
                     <expression-string></expression-string>
                   </expression>
                   <collectionItems>
-                    <subObject name="InspectG" type="Matrox.DesignAssistant.Core.Flowcharts.ConfigurableCase, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="17c3ad20-7fc9-468f-a2f7-b15b39f1d30b" Version="10.0.454.0">
+                    <subObject name="Inspect15" type="Matrox.DesignAssistant.Core.Flowcharts.ConfigurableCase, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="17c3ad20-7fc9-468f-a2f7-b15b39f1d30b" Version="10.0.454.0">
                       <inputs>
                         <input name="AdvancedMode">
                           <expression>
@@ -1323,7 +1323,7 @@
                         </input>
                         <input name="Value1">
                           <expression expression-type="System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-                            <expression-string>INSPECT_ENGRG</expression-string>
+                            <expression-string>INSPECT_ENGR15</expression-string>
                           </expression>
                         </input>
                         <input name="Value2">
@@ -1334,7 +1334,7 @@
                       </inputs>
                       <userXML />
                     </subObject>
-                    <subObject name="InspectM" type="Matrox.DesignAssistant.Core.Flowcharts.ConfigurableCase, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="99fab396-aad7-4860-9251-2f7e454b071b" Version="10.0.454.0">
+                    <subObject name="Inspect18" type="Matrox.DesignAssistant.Core.Flowcharts.ConfigurableCase, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="99fab396-aad7-4860-9251-2f7e454b071b" Version="10.0.454.0">
                       <inputs>
                         <input name="AdvancedMode">
                           <expression>
@@ -1358,7 +1358,7 @@
                         </input>
                         <input name="Value1">
                           <expression expression-type="System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-                            <expression-string>INSPECT_ENGRM</expression-string>
+                            <expression-string>INSPECT_ENGR18</expression-string>
                           </expression>
                         </input>
                         <input name="Value2">
@@ -1369,7 +1369,7 @@
                       </inputs>
                       <userXML />
                     </subObject>
-                    <subObject name="InspectP" type="Matrox.DesignAssistant.Core.Flowcharts.ConfigurableCase, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="fcf1c84d-dedd-4f47-887f-95b5181a4a5a" Version="10.0.454.0">
+                    <subObject name="Inspect25" type="Matrox.DesignAssistant.Core.Flowcharts.ConfigurableCase, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="fcf1c84d-dedd-4f47-887f-95b5181a4a5a" Version="10.0.454.0">
                       <inputs>
                         <input name="AdvancedMode">
                           <expression>
@@ -1393,7 +1393,42 @@
                         </input>
                         <input name="Value1">
                           <expression expression-type="System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-                            <expression-string>INSPECT_ENGRP</expression-string>
+                            <expression-string>INSPECT_ENGR25</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Value2">
+                          <expression available="False" expression-type="System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+                            <expression-string>2</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML />
+                    </subObject>
+                    <subObject name="InspectEngr30" type="Matrox.DesignAssistant.Core.Flowcharts.ConfigurableCase, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="77b2d679-8125-4c50-92f4-2029c72ecb41" Version="10.0.454.0">
+                      <inputs>
+                        <input name="AdvancedMode">
+                          <expression>
+                            <expression-string>False</expression-string>
+                          </expression>
+                        </input>
+                        <input name="AdvancedCondition">
+                          <expression available="False">
+                            <expression-string>False</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Link">
+                          <expression>
+                            <expression-string need-link-container="True">TOUPPER(RSVP_Parse.CommandTag)</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Operator">
+                          <expression>
+                            <expression-string>STRINGEQUAL</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Value1">
+                          <expression expression-type="System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+                            <expression-string>Inspect_ENGR30</expression-string>
                           </expression>
                         </input>
                         <input name="Value2">
@@ -1509,7 +1544,7 @@
                       </inputs>
                       <userXML />
                     </subObject>
-                    <subObject name="Case1" type="Matrox.DesignAssistant.Core.Flowcharts.ConfigurableCase, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c0d22f83-2598-46de-b49b-5228a49ec419" Version="10.0.454.0">
+                    <subObject name="InspectNBENGR" type="Matrox.DesignAssistant.Core.Flowcharts.ConfigurableCase, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c0d22f83-2598-46de-b49b-5228a49ec419" Version="10.0.454.0">
                       <inputs>
                         <input name="AdvancedMode">
                           <expression>
@@ -1566,7 +1601,7 @@
           </switchStep>
           <ifPath>
             <flowchartElements>
-              <step name="BlobEngrG" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.BlobAnalysis, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="428133f0-811a-4dbb-8eff-9c8944df964e" Version="10.0.454.0">
+              <step name="BlobEngr15" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.BlobAnalysis, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="428133f0-811a-4dbb-8eff-9c8944df964e" Version="10.0.454.0">
                 <inputs>
                   <input name="ForegroundValue">
                     <expression>
@@ -2494,7 +2529,7 @@
                           </input>
                           <input name="Link">
                             <expression>
-                              <expression-string need-link-container="True">BlobEngrG.NumberFound</expression-string>
+                              <expression-string need-link-container="True">BlobEngr15.NumberFound</expression-string>
                             </expression>
                           </input>
                           <input name="Operator">
@@ -2514,7 +2549,7 @@
                               </input>
                               <input name="Condition">
                                 <expression available="False">
-                                  <expression-string need-link-container="True">BlobEngrG.StatusConditions("FindOK").Result=Fail</expression-string>
+                                  <expression-string need-link-container="True">BlobEngr15.StatusConditions("FindOK").Result=Fail</expression-string>
                                 </expression>
                               </input>
                               <input name="DesignTimeVisible">
@@ -2544,7 +2579,7 @@
                               </input>
                             </inputs>
                             <userXML>
-                              <AutomaticName>BlobEngrG_FindOK</AutomaticName>
+                              <AutomaticName>BlobEngr15_FindOK</AutomaticName>
                             </userXML>
                           </subObject>
                           <input name="Value1">
@@ -2576,7 +2611,7 @@
                 </inputs>
                 <userXML />
               </step>
-              <step name="ModelFinder" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.ModelFinderPackage.ModelFinder, Matrox.DesignAssistant.Steps.ModelFinderPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ff31b252-2eb6-46b3-a573-78232bd46613" Version="10.0.454.0">
+              <step name="ModelFinderEngr15" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.ModelFinderPackage.ModelFinder, Matrox.DesignAssistant.Steps.ModelFinderPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ff31b252-2eb6-46b3-a573-78232bd46613" Version="10.0.454.0">
                 <inputs>
                   <input name="Mode">
                     <expression>
@@ -2839,7 +2874,7 @@
                           </input>
                           <input name="Link">
                             <expression>
-                              <expression-string need-link-container="True">ModelFinder.TotalNumberFound</expression-string>
+                              <expression-string need-link-container="True">ModelFinderEngr15.TotalNumberFound</expression-string>
                             </expression>
                           </input>
                           <input name="Operator">
@@ -2859,7 +2894,7 @@
                               </input>
                               <input name="Condition">
                                 <expression available="False">
-                                  <expression-string need-link-container="True">ModelFinder.StatusConditions("FindOK").Result=Fail</expression-string>
+                                  <expression-string need-link-container="True">ModelFinderEngr15.StatusConditions("FindOK").Result=Fail</expression-string>
                                 </expression>
                               </input>
                               <input name="DesignTimeVisible">
@@ -2889,7 +2924,7 @@
                               </input>
                             </inputs>
                             <userXML>
-                              <AutomaticName>ModelFinder_FindOK</AutomaticName>
+                              <AutomaticName>ModelFinderEngr15_FindOK</AutomaticName>
                             </userXML>
                           </subObject>
                           <input name="Value1">
@@ -2921,7 +2956,7 @@
                 </inputs>
                 <userXML streamhash="Mg+3wwG5DdBzOtGJFIEDdg==" />
               </step>
-              <step name="RenvoiePosEngG" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="22af3d76-d8de-4233-bf94-fc84d1c26ec7" Version="10.0.454.0">
+              <step name="PosXEng15" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="22af3d76-d8de-4233-bf94-fc84d1c26ec7" Version="10.0.454.0">
                 <inputs>
                   <input name="Ack">
                     <expression available="False">
@@ -2960,15 +2995,67 @@
                   </input>
                   <input name="Variable">
                     <expression>
-                      <expression-string>PositionEngrG</expression-string>
-                      <sub-expression name="PositionEngrG">
-                        <expression-string></expression-string>
-                      </sub-expression>
+                      <expression-string need-link-container="True">BlobEngr15.Positions(1).X</expression-string>
                     </expression>
                   </input>
                   <input name="VariableName">
                     <expression>
-                      <expression-string>PosEngrG</expression-string>
+                      <expression-string>PosEngr15X</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VectorTags">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                </inputs>
+                <userXML />
+              </step>
+              <step name="PosYEng15" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="0720531e-d77b-48e2-905d-028845141cec" Version="10.0.454.0">
+                <inputs>
+                  <input name="Ack">
+                    <expression available="False">
+                      <expression-string>False</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Action">
+                    <expression>
+                      <expression-string>AddVariable</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Command">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Comment">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Format">
+                    <expression>
+                      <expression-string>F3</expression-string>
+                    </expression>
+                  </input>
+                  <input name="InputMessage">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="ResetPoint">
+                    <expression available="False">
+                      <expression-string>InspectionStart</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Variable">
+                    <expression>
+                      <expression-string need-link-container="True">BlobEngr15.Positions(1).Y</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VariableName">
+                    <expression>
+                      <expression-string>PosEngr15Y</expression-string>
                     </expression>
                   </input>
                   <input name="VectorTags">
@@ -2983,7 +3070,7 @@
           </ifPath>
           <ifPath>
             <flowchartElements>
-              <step name="BlobEngrM" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.BlobAnalysis, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="5043973b-525a-40e7-bd58-f5231b295e4b" Version="10.0.454.0">
+              <step name="BlobEngr18" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.BlobAnalysis, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="5043973b-525a-40e7-bd58-f5231b295e4b" Version="10.0.454.0">
                 <inputs>
                   <input name="ForegroundValue">
                     <expression>
@@ -3861,7 +3948,7 @@
                           </input>
                           <input name="Link">
                             <expression>
-                              <expression-string need-link-container="True">BlobEngrM.NumberFound</expression-string>
+                              <expression-string need-link-container="True">BlobEngr18.NumberFound</expression-string>
                             </expression>
                           </input>
                           <input name="Operator">
@@ -3881,7 +3968,7 @@
                               </input>
                               <input name="Condition">
                                 <expression available="False">
-                                  <expression-string need-link-container="True">BlobEngrM.StatusConditions("FindOK").Result=Fail</expression-string>
+                                  <expression-string need-link-container="True">BlobEngr18.StatusConditions("FindOK").Result=Fail</expression-string>
                                 </expression>
                               </input>
                               <input name="DesignTimeVisible">
@@ -3911,7 +3998,7 @@
                               </input>
                             </inputs>
                             <userXML>
-                              <AutomaticName>BlobEngrM_FindOK</AutomaticName>
+                              <AutomaticName>BlobEngr18_FindOK</AutomaticName>
                             </userXML>
                           </subObject>
                           <input name="Value1">
@@ -3943,7 +4030,7 @@
                 </inputs>
                 <userXML />
               </step>
-              <step name="ModelFinder2" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.ModelFinderPackage.ModelFinder, Matrox.DesignAssistant.Steps.ModelFinderPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="3c69ee1c-0c75-46b4-9f41-8c4e3d016913" Version="10.0.454.0">
+              <step name="ModelFinderEngr18" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.ModelFinderPackage.ModelFinder, Matrox.DesignAssistant.Steps.ModelFinderPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="3c69ee1c-0c75-46b4-9f41-8c4e3d016913" Version="10.0.454.0">
                 <inputs>
                   <input name="Mode">
                     <expression>
@@ -4066,7 +4153,7 @@
                           </input>
                           <input name="Link">
                             <expression>
-                              <expression-string need-link-container="True">ModelFinder2.TotalNumberFound</expression-string>
+                              <expression-string need-link-container="True">ModelFinderEngr18.TotalNumberFound</expression-string>
                             </expression>
                           </input>
                           <input name="Operator">
@@ -4086,7 +4173,7 @@
                               </input>
                               <input name="Condition">
                                 <expression available="False">
-                                  <expression-string need-link-container="True">ModelFinder2.StatusConditions("FindOK").Result=Fail</expression-string>
+                                  <expression-string need-link-container="True">ModelFinderEngr18.StatusConditions("FindOK").Result=Fail</expression-string>
                                 </expression>
                               </input>
                               <input name="DesignTimeVisible">
@@ -4116,7 +4203,7 @@
                               </input>
                             </inputs>
                             <userXML>
-                              <AutomaticName>ModelFinder2_FindOK</AutomaticName>
+                              <AutomaticName>ModelFinderEngr18_FindOK</AutomaticName>
                             </userXML>
                           </subObject>
                           <input name="Value1">
@@ -4148,7 +4235,7 @@
                 </inputs>
                 <userXML streamhash="QWRzG0jIyR4+K8E+wfzTtQ==" />
               </step>
-              <step name="RenvoiePosEngM" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="1fc68b96-2daf-48fd-8868-a8bf6e809392" Version="10.0.454.0">
+              <step name="PosXEng18" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="204de6d9-ff5c-4222-a955-a55d1e05936d" Version="10.0.454.0">
                 <inputs>
                   <input name="Ack">
                     <expression available="False">
@@ -4187,15 +4274,67 @@
                   </input>
                   <input name="Variable">
                     <expression>
-                      <expression-string>PosEngrM</expression-string>
-                      <sub-expression name="PosEngrM">
-                        <expression-string></expression-string>
-                      </sub-expression>
+                      <expression-string need-link-container="True">BlobEngr18.Positions(1).X</expression-string>
                     </expression>
                   </input>
                   <input name="VariableName">
                     <expression>
-                      <expression-string>PosEngrM</expression-string>
+                      <expression-string>PosEngr18X</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VectorTags">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                </inputs>
+                <userXML />
+              </step>
+              <step name="PosYEng18" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="76bb391e-b121-4e6a-80e5-8225b1fc119d" Version="10.0.454.0">
+                <inputs>
+                  <input name="Ack">
+                    <expression available="False">
+                      <expression-string>False</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Action">
+                    <expression>
+                      <expression-string>AddVariable</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Command">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Comment">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Format">
+                    <expression>
+                      <expression-string>F3</expression-string>
+                    </expression>
+                  </input>
+                  <input name="InputMessage">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="ResetPoint">
+                    <expression available="False">
+                      <expression-string>InspectionStart</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Variable">
+                    <expression>
+                      <expression-string need-link-container="True">BlobEngr18.Positions(1).Y</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VariableName">
+                    <expression>
+                      <expression-string>PosEngr18Y</expression-string>
                     </expression>
                   </input>
                   <input name="VectorTags">
@@ -4210,7 +4349,7 @@
           </ifPath>
           <ifPath>
             <flowchartElements>
-              <step name="BlobEngrP" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.BlobAnalysis, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="6ea095e1-fb7a-400d-addd-cf84b5099ccc" Version="10.0.454.0">
+              <step name="BlobEngr25" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.BlobAnalysis, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="6ea095e1-fb7a-400d-addd-cf84b5099ccc" Version="10.0.454.0">
                 <inputs>
                   <input name="ForegroundValue">
                     <expression>
@@ -5138,7 +5277,7 @@
                           </input>
                           <input name="Link">
                             <expression>
-                              <expression-string need-link-container="True">BlobEngrP.NumberFound</expression-string>
+                              <expression-string need-link-container="True">BlobEngr25.NumberFound</expression-string>
                             </expression>
                           </input>
                           <input name="Operator">
@@ -5158,7 +5297,7 @@
                               </input>
                               <input name="Condition">
                                 <expression available="False">
-                                  <expression-string need-link-container="True">BlobEngrP.StatusConditions("FindOK").Result=Fail</expression-string>
+                                  <expression-string need-link-container="True">BlobEngr25.StatusConditions("FindOK").Result=Fail</expression-string>
                                 </expression>
                               </input>
                               <input name="DesignTimeVisible">
@@ -5188,7 +5327,7 @@
                               </input>
                             </inputs>
                             <userXML>
-                              <AutomaticName>BlobEngrP_FindOK</AutomaticName>
+                              <AutomaticName>BlobEngr25_FindOK</AutomaticName>
                             </userXML>
                           </subObject>
                           <input name="Value1">
@@ -5220,7 +5359,7 @@
                 </inputs>
                 <userXML />
               </step>
-              <step name="ModelFinder3" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.ModelFinderPackage.ModelFinder, Matrox.DesignAssistant.Steps.ModelFinderPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="89c044f3-f778-48f0-850d-f86d7006a4ad" Version="10.0.454.0">
+              <step name="ModelFinderEngr25" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.ModelFinderPackage.ModelFinder, Matrox.DesignAssistant.Steps.ModelFinderPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="89c044f3-f778-48f0-850d-f86d7006a4ad" Version="10.0.454.0">
                 <inputs>
                   <input name="Mode">
                     <expression>
@@ -5343,7 +5482,7 @@
                           </input>
                           <input name="Link">
                             <expression>
-                              <expression-string need-link-container="True">ModelFinder3.TotalNumberFound</expression-string>
+                              <expression-string need-link-container="True">ModelFinderEngr25.TotalNumberFound</expression-string>
                             </expression>
                           </input>
                           <input name="Operator">
@@ -5363,7 +5502,7 @@
                               </input>
                               <input name="Condition">
                                 <expression available="False">
-                                  <expression-string need-link-container="True">ModelFinder3.StatusConditions("FindOK").Result=Fail</expression-string>
+                                  <expression-string need-link-container="True">ModelFinderEngr25.StatusConditions("FindOK").Result=Fail</expression-string>
                                 </expression>
                               </input>
                               <input name="DesignTimeVisible">
@@ -5393,7 +5532,7 @@
                               </input>
                             </inputs>
                             <userXML>
-                              <AutomaticName>ModelFinder3_FindOK</AutomaticName>
+                              <AutomaticName>ModelFinderEngr25_FindOK</AutomaticName>
                             </userXML>
                           </subObject>
                           <input name="Value1">
@@ -5425,7 +5564,7 @@
                 </inputs>
                 <userXML streamhash="QWRzG0jIyR4+K8E+wfzTtQ==" />
               </step>
-              <step name="RenvoiePosEngP" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="48948a7d-620c-4a0e-ace0-7f7cbd044140" Version="10.0.454.0">
+              <step name="PosXEng25" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="02672e46-f561-4d31-8863-e8d6a0bfd0c1" Version="10.0.454.0">
                 <inputs>
                   <input name="Ack">
                     <expression available="False">
@@ -5454,7 +5593,7 @@
                   </input>
                   <input name="InputMessage">
                     <expression available="False">
-                      <expression-string>PositionEngrG</expression-string>
+                      <expression-string></expression-string>
                     </expression>
                   </input>
                   <input name="ResetPoint">
@@ -5464,15 +5603,1396 @@
                   </input>
                   <input name="Variable">
                     <expression>
-                      <expression-string></expression-string>
-                      <sub-expression name="PosEngrG">
-                        <expression-string></expression-string>
-                      </sub-expression>
+                      <expression-string need-link-container="True">BlobEngr25.Positions(1).X</expression-string>
                     </expression>
                   </input>
                   <input name="VariableName">
                     <expression>
-                      <expression-string>PosEngrG</expression-string>
+                      <expression-string>PosEngr25X</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VectorTags">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                </inputs>
+                <userXML />
+              </step>
+              <step name="PosYEng25" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="3207c605-bc8f-4cae-a824-cb76c996e315" Version="10.0.454.0">
+                <inputs>
+                  <input name="Ack">
+                    <expression available="False">
+                      <expression-string>False</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Action">
+                    <expression>
+                      <expression-string>AddVariable</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Command">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Comment">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Format">
+                    <expression>
+                      <expression-string>F3</expression-string>
+                    </expression>
+                  </input>
+                  <input name="InputMessage">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="ResetPoint">
+                    <expression available="False">
+                      <expression-string>InspectionStart</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Variable">
+                    <expression>
+                      <expression-string need-link-container="True">BlobEngr25.Positions(1).Y</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VariableName">
+                    <expression>
+                      <expression-string>PosEngr25Y</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VectorTags">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                </inputs>
+                <userXML />
+              </step>
+            </flowchartElements>
+          </ifPath>
+          <ifPath>
+            <flowchartElements>
+              <step name="BlobEngr30" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.BlobAnalysis, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="d9f92c0c-c4d9-4df8-9360-01d977a2542d" Version="10.0.454.0">
+                <inputs>
+                  <input name="ForegroundValue">
+                    <expression>
+                      <expression-string>Black</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Connectivity">
+                    <expression>
+                      <expression-string>EightConnected</expression-string>
+                    </expression>
+                  </input>
+                  <input name="IdentificationMode">
+                    <expression>
+                      <expression-string>Individual</expression-string>
+                    </expression>
+                  </input>
+                  <subObject name="Features" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.FeaturesInfo, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="889efab7-6152-4264-bce6-441f6cbbec42" Version="10.0.454.0">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                    <inputs>
+                      <input name="Area">
+                        <expression>
+                          <expression-string>Enabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="BoxMaximumX">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="BoxMaximumY">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="BoxMinimumX">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="BoxArea">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="BoxAspectRatio">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="BoxFillRatio">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="BoxMinimumY">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="ConvexHullArea">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="ConvexHullCOGX">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="ConvexHullCOGY">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="ConvexHullFillRatio">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxAngle">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxArea">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxCenterX">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxCenterY">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxHeight">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxPerimeter">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxWidth">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxX1">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxX2">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxX3">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxX4">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxY1">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxY2">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxY3">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinAreaBoxY4">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxAngle">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxArea">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxCenterX">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxCenterY">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxHeight">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxPerimeter">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxWidth">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxX1">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxX2">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxX3">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxX4">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxY1">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxY2">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxY3">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinPerimeterBoxY4">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Breadth">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Compactness">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="ConvexPerimeter">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="NumberOfConvexHullPoints">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Rectangularity">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Elongation">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="EulerNumber">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretElongation">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretMaximumAngle">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretMaximumDiameter">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretMaximumDiameterElongation">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretMinimumDiameterElongation">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretPerpendicularToMaxDiameter">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretPerpendicularToMinDiameter">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretMeanDiameter">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretMinimumAngle">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretMinimumDiameter">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretX">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretPrincipalAxis">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretPrincipalAxisElongation">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretSecondaryAxis">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FeretY">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FirstPointX">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="FirstPointY">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Intercept0">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Intercept45">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Intercept90">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Intercept135">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Length">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="NumberOfHoles">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="NumberOfRuns">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Perimeter">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Roughness">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="XAtYMaximum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="XAtYMinimum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="YAtXMaximum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="YAtXMinimum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="XMaximumAtYMaximum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="XMaximumAtYMinimum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="XMinimumAtYMaximum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="XMinimumAtYMinimum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="YMaximumAtXMaximum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="YMaximumAtXMinimum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="YMinimumAtXMaximum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="YMinimumAtXMinimum">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MaximumPixel">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MeanPixel">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MinimumPixel">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="StandardDeviationOfPixels">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="SumOfPixels">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="SumOfSquaresOfPixels">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="CenterOfGravityXGray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="CenterOfGravityYGray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentCentralX0Y2Gray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentCentralX1Y1Gray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentCentralX2Y0Gray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentX0Y1Gray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentX0Y2Gray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentX1Y0Gray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentX1Y1Gray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentX2Y0Gray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="PrincipalAxisAngleGray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="SecondaryAxisAngleGray">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="CenterOfGravityXBinary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="CenterOfGravityYBinary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentCentralX0Y2Binary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentCentralX1Y1Binary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentCentralX2Y0Binary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentX0Y1Binary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentX0Y2Binary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentX1Y0Binary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentX1Y1Binary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MomentX2Y0Binary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="PrincipalAxisAngleBinary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="SecondaryAxisAngleBinary">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="GeneralFeret">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                    </inputs>
+                    <userXML />
+                  </subObject>
+                  <objectCollection name="Filters" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.FiltersCollection, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="aa2bff3c-6378-4fe5-8de2-94d3b99bd95b" Version="10.0.454.0">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                    <collectionItems>
+                      <subObject name="Filter" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="649215fd-909b-49c3-9845-ebaa2dea5e55" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Enabled">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Operation">
+                            <expression>
+                              <expression-string>Exclude</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Criteria">
+                            <expression>
+                              <expression-string>Feature</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Edge">
+                            <expression available="False">
+                              <expression-string>AnyEdge</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Feature">
+                            <expression>
+                              <expression-string>Area</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Status">
+                            <expression available="False">
+                              <expression-string>AllBlobs</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Condition">
+                            <expression>
+                              <expression-string>Less</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Low">
+                            <expression>
+                              <expression-string>10000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="High">
+                            <expression available="False">
+                              <expression-string>0</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                      </subObject>
+                      <subObject name="Filter2" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="aaa0f466-e7ae-4fbe-a405-4ec283e40164" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Enabled">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Operation">
+                            <expression>
+                              <expression-string>Exclude</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Criteria">
+                            <expression>
+                              <expression-string>Feature</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Edge">
+                            <expression available="False">
+                              <expression-string>AnyEdge</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Feature">
+                            <expression>
+                              <expression-string>Area</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Status">
+                            <expression available="False">
+                              <expression-string>AllBlobs</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Condition">
+                            <expression>
+                              <expression-string>Greater</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Low">
+                            <expression>
+                              <expression-string>15000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="High">
+                            <expression available="False">
+                              <expression-string>0</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                      </subObject>
+                    </collectionItems>
+                    <userXML />
+                  </objectCollection>
+                  <subObject name="SortingKeys" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.SortingKeysInfo, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="1bb90a73-c00f-463f-b5ad-53492e8176f1" Version="10.0.454.0">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                    <inputs>
+                      <input name="Key1">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Key2">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Key3">
+                        <expression>
+                          <expression-string>Disabled</expression-string>
+                        </expression>
+                      </input>
+                    </inputs>
+                    <userXML />
+                  </subObject>
+                  <input name="NumberOfFerets">
+                    <expression>
+                      <expression-string>8</expression-string>
+                    </expression>
+                  </input>
+                  <input name="PostCalculationSource">
+                    <expression>
+                      <expression-string>None</expression-string>
+                    </expression>
+                  </input>
+                  <input name="MaximumBlobs">
+                    <expression>
+                      <expression-string>Disable</expression-string>
+                    </expression>
+                  </input>
+                  <input name="MaximumBlobsToDraw">
+                    <expression>
+                      <expression-string>2000</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Timeout">
+                    <expression>
+                      <expression-string>Disabled</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Comment">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="ResetPoint">
+                    <expression available="False">
+                      <expression-string>InspectionStart</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Image">
+                    <expression>
+                      <expression-string>ImageActuelle.Image</expression-string>
+                    </expression>
+                  </input>
+                  <input name="OutputCoordinateSystem">
+                    <expression>
+                      <expression-string>Absolute</expression-string>
+                    </expression>
+                  </input>
+                  <input name="SearchRegion">
+                    <expression>
+                      <expression-string>WholeImage</expression-string>
+                    </expression>
+                  </input>
+                  <subObject name="Threshold" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.ThresholdInfo, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="6c718fef-df02-4deb-b068-055872052353" Version="10.0.454.0">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                    <inputs>
+                      <input name="ThresholdMode">
+                        <expression>
+                          <expression-string>Simple</expression-string>
+                        </expression>
+                      </input>
+                      <input name="All">
+                        <expression available="False">
+                          <expression-string>True</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Automatic">
+                        <expression>
+                          <expression-string>False</expression-string>
+                        </expression>
+                      </input>
+                      <input name="ThresholdLow">
+                        <expression>
+                          <expression-string>163</expression-string>
+                        </expression>
+                      </input>
+                      <input name="ThresholdHigh">
+                        <expression available="False">
+                          <expression-string>170</expression-string>
+                        </expression>
+                      </input>
+                      <input name="LowOutputValue">
+                        <expression>
+                          <expression-string>Auto</expression-string>
+                        </expression>
+                      </input>
+                      <input name="MiddleOutputValue">
+                        <expression available="False">
+                          <expression-string>Auto</expression-string>
+                        </expression>
+                      </input>
+                      <input name="HighOutputValue">
+                        <expression>
+                          <expression-string>Auto</expression-string>
+                        </expression>
+                      </input>
+                      <input name="AutomaticMode">
+                        <expression available="False">
+                          <expression-string>Bimodal</expression-string>
+                        </expression>
+                      </input>
+                    </inputs>
+                    <userXML />
+                  </subObject>
+                  <input name="FillHoles">
+                    <expression>
+                      <expression-string>False</expression-string>
+                    </expression>
+                  </input>
+                  <input name="RemoveBorderBlobs">
+                    <expression>
+                      <expression-string>False</expression-string>
+                    </expression>
+                  </input>
+                  <input name="GrayImage">
+                    <expression available="False">
+                      <expression-string need-link-container="True">Camera.Image</expression-string>
+                    </expression>
+                  </input>
+                  <input name="GrayImageMode">
+                    <expression>
+                      <expression-string>NoGrayImage</expression-string>
+                    </expression>
+                  </input>
+                  <input name="IdentifierType">
+                    <expression>
+                      <expression-string>Grayscale</expression-string>
+                    </expression>
+                  </input>
+                  <input name="GenerateOutputImage">
+                    <expression>
+                      <expression-string>False</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Type">
+                    <expression available="False">
+                      <expression-string>Unsigned8Bits</expression-string>
+                    </expression>
+                  </input>
+                  <input name="ClearPrevious">
+                    <expression available="False">
+                      <expression-string>True</expression-string>
+                    </expression>
+                  </input>
+                  <input name="BackgroundValue">
+                    <expression available="False">
+                      <expression-string>0</expression-string>
+                    </expression>
+                  </input>
+                  <input name="BlobsToDraw">
+                    <expression available="False">
+                      <expression-string>DrawIncludedBlobs</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Value">
+                    <expression available="False">
+                      <expression-string>255</expression-string>
+                    </expression>
+                  </input>
+                  <objectCollection name="StatusConditions" type="Matrox.DesignAssistant.Core.Steps.StatusInStepConditionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b661f14b-6df6-4a80-8516-a2bdb68bf501" Version="10.0.454.0">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                    <collectionItems>
+                      <subObject name="FindOK" type="Matrox.DesignAssistant.Core.Steps.ConfigurableStatusCondition, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="df9fc828-4c96-4114-8ab6-7578cee6b7a5" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Enabled">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="AdvancedMode">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <input name="AdvancedCondition">
+                            <expression available="False">
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Link">
+                            <expression>
+                              <expression-string need-link-container="True">BlobEngr30.NumberFound</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Operator">
+                            <expression>
+                              <expression-string>&gt;=</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="InspectionLabel" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="e8be6d85-9551-4a42-a173-56f5243b716a" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Background">
+                                <expression>
+                                  <expression-string>-65536</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Condition">
+                                <expression available="False">
+                                  <expression-string need-link-container="True">BlobEngr30.StatusConditions("FindOK").Result=Fail</expression-string>
+                                </expression>
+                              </input>
+                              <input name="DesignTimeVisible">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Foreground">
+                                <expression>
+                                  <expression-string>-1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="RuntimeVisible">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Type">
+                                <expression available="False">
+                                  <expression-string>StatusCondition</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Value">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML>
+                              <AutomaticName>BlobEngr30_FindOK</AutomaticName>
+                            </userXML>
+                          </subObject>
+                          <input name="Value1">
+                            <expression expression-type="System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+                              <expression-string>1</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Value2">
+                            <expression available="False" expression-type="System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+                              <expression-string>2</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                      </subObject>
+                    </collectionItems>
+                    <userXML />
+                  </objectCollection>
+                  <input name="AssociatedStatusStep">
+                    <expression>
+                      <expression-string>Flowcharts("MainFlowchart").Status</expression-string>
+                    </expression>
+                  </input>
+                  <input name="CreateAutomaticLabels">
+                    <expression>
+                      <expression-string>True</expression-string>
+                    </expression>
+                  </input>
+                </inputs>
+                <userXML />
+              </step>
+              <step name="ModelFinderEngr30" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.ModelFinderPackage.ModelFinder, Matrox.DesignAssistant.Steps.ModelFinderPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="8ae31201-10cc-46b2-88b0-ef56540b1e29" Version="10.0.454.0">
+                <inputs>
+                  <input name="Mode">
+                    <expression>
+                      <expression-string>General</expression-string>
+                    </expression>
+                  </input>
+                  <input name="TotalNumber">
+                    <expression>
+                      <expression-string>Default</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Timeout">
+                    <expression>
+                      <expression-string>Default</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Speed">
+                    <expression>
+                      <expression-string>High</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Accuracy">
+                    <expression>
+                      <expression-string>Default</expression-string>
+                    </expression>
+                  </input>
+                  <input name="SearchScaleRange">
+                    <expression>
+                      <expression-string>Default</expression-string>
+                    </expression>
+                  </input>
+                  <input name="SearchPositionRange">
+                    <expression>
+                      <expression-string>Default</expression-string>
+                    </expression>
+                  </input>
+                  <input name="SearchAngleRange">
+                    <expression>
+                      <expression-string>Default</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Smoothness">
+                    <expression>
+                      <expression-string>Default</expression-string>
+                    </expression>
+                  </input>
+                  <input name="DetailLevel">
+                    <expression>
+                      <expression-string>Default</expression-string>
+                    </expression>
+                  </input>
+                  <input name="SharedEdges">
+                    <expression>
+                      <expression-string>Default</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Comment">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Image">
+                    <expression>
+                      <expression-string>ImageActuelle.Image</expression-string>
+                    </expression>
+                  </input>
+                  <objectCollection name="Models" type="Matrox.DesignAssistant.Steps.ModelFinderPackage.TheModels, Matrox.DesignAssistant.Steps.ModelFinderPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="589ff465-b3b7-4370-a6fc-2f2cf0b92f7a" Version="10.0.454.0">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                    <collectionItems />
+                    <userXML />
+                  </objectCollection>
+                  <input name="ResetPoint">
+                    <expression available="False">
+                      <expression-string>InspectionStart</expression-string>
+                    </expression>
+                  </input>
+                  <input name="First">
+                    <expression>
+                      <expression-string>Default</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Last">
+                    <expression>
+                      <expression-string>Default</expression-string>
+                    </expression>
+                  </input>
+                  <input name="SearchSpecificModels">
+                    <expression>
+                      <expression-string>False</expression-string>
+                    </expression>
+                  </input>
+                  <input name="ModelsToSearch">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <objectCollection name="StatusConditions" type="Matrox.DesignAssistant.Core.Steps.StatusInStepConditionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ec6e39db-0932-49b5-8a51-11fa59ff523a" Version="10.0.454.0">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                    <collectionItems>
+                      <subObject name="FindOK" type="Matrox.DesignAssistant.Core.Steps.ConfigurableStatusCondition, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="750f9b60-5cb4-4b3a-8570-b7dd5d9703b2" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Enabled">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="AdvancedMode">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <input name="AdvancedCondition">
+                            <expression available="False">
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Link">
+                            <expression>
+                              <expression-string need-link-container="True">ModelFinderEngr30.TotalNumberFound</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Operator">
+                            <expression>
+                              <expression-string>&gt;</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="InspectionLabel" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="4509fc19-3eae-471e-a267-15bb9ae94b63" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Background">
+                                <expression>
+                                  <expression-string>-65536</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Condition">
+                                <expression available="False">
+                                  <expression-string need-link-container="True">ModelFinderEngr30.StatusConditions("FindOK").Result=Fail</expression-string>
+                                </expression>
+                              </input>
+                              <input name="DesignTimeVisible">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Foreground">
+                                <expression>
+                                  <expression-string>-1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="RuntimeVisible">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Type">
+                                <expression available="False">
+                                  <expression-string>StatusCondition</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Value">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML>
+                              <AutomaticName>ModelFinderEngr30_FindOK</AutomaticName>
+                            </userXML>
+                          </subObject>
+                          <input name="Value1">
+                            <expression expression-type="System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+                              <expression-string>0</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Value2">
+                            <expression available="False" expression-type="System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+                              <expression-string>2</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                      </subObject>
+                    </collectionItems>
+                    <userXML />
+                  </objectCollection>
+                  <input name="AssociatedStatusStep">
+                    <expression>
+                      <expression-string>Flowcharts("MainFlowchart").Status</expression-string>
+                    </expression>
+                  </input>
+                  <input name="CreateAutomaticLabels">
+                    <expression>
+                      <expression-string>True</expression-string>
+                    </expression>
+                  </input>
+                </inputs>
+                <userXML streamhash="QWRzG0jIyR4+K8E+wfzTtQ==" />
+              </step>
+              <step name="PosXEng30" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="ad09d921-18d2-4313-93c5-2ba16b39d81b" Version="10.0.454.0">
+                <inputs>
+                  <input name="Ack">
+                    <expression available="False">
+                      <expression-string>False</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Action">
+                    <expression>
+                      <expression-string>AddVariable</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Command">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Comment">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Format">
+                    <expression>
+                      <expression-string>F3</expression-string>
+                    </expression>
+                  </input>
+                  <input name="InputMessage">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="ResetPoint">
+                    <expression available="False">
+                      <expression-string>InspectionStart</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Variable">
+                    <expression>
+                      <expression-string need-link-container="True">BlobEngr30.Positions(1).X</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VariableName">
+                    <expression>
+                      <expression-string>PosEngr30X</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VectorTags">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                </inputs>
+                <userXML />
+              </step>
+              <step name="PosYEng30" enabled="True" resettable="False" persistentState="NotPersistent" type="HEArc.RSVP.RSVP, HEArc.RSVP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e4483873b10992" id="5cfeef7a-bcc3-40b0-933a-e727d623f5d1" Version="10.0.454.0">
+                <inputs>
+                  <input name="Ack">
+                    <expression available="False">
+                      <expression-string>False</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Action">
+                    <expression>
+                      <expression-string>AddVariable</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Command">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Comment">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="Format">
+                    <expression>
+                      <expression-string>F3</expression-string>
+                    </expression>
+                  </input>
+                  <input name="InputMessage">
+                    <expression available="False">
+                      <expression-string></expression-string>
+                    </expression>
+                  </input>
+                  <input name="ResetPoint">
+                    <expression available="False">
+                      <expression-string>InspectionStart</expression-string>
+                    </expression>
+                  </input>
+                  <input name="Variable">
+                    <expression>
+                      <expression-string need-link-container="True">BlobEngr30.Positions(1).Y</expression-string>
+                    </expression>
+                  </input>
+                  <input name="VariableName">
+                    <expression>
+                      <expression-string>PosEngr30Y</expression-string>
                     </expression>
                   </input>
                   <input name="VectorTags">

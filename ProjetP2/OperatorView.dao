@@ -1,36 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <operatorView id="8a9a4a30-ef7a-41fd-aea4-da5eeeef4588" name="OperatorView" version="10.0.454.0" auth-enabled="False" type="normal">
   <htmlAnnotators>
-    <HTMLAnnotator name="TotalFailValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="1b1c469c-1afd-44a7-877c-d081ff3ddedf" Version="10.0.454.0">
+    <HTMLAnnotator name="Display" type="Matrox.DesignAssistant.Core.OperatorViews.Display, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a9b2cd29-3045-4763-824c-6331f4ceeb14" Version="10.0.454.0">
       <inputs>
-        <input name="BackgroundColor">
+        <objectCollection name="AnnotationGroups" type="Matrox.DesignAssistant.Core.Annotations.Groups.AnnotationGroupCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f87dbecc-5a22-4b4b-8ab3-6a4f11053163" Version="10.0.454.0">
           <expression>
-            <expression-string>COLOR("Red")</expression-string>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems />
+          <userXML />
+        </objectCollection>
+        <input name="Image">
+          <expression>
+            <expression-string>ImageActuelle.Image</expression-string>
           </expression>
         </input>
-        <input name="TextColor">
+        <input name="Width">
           <expression>
-            <expression-string>COLOR("White")</expression-string>
+            <expression-string>640</expression-string>
           </expression>
         </input>
-        <input name="LineHeight">
+        <input name="Height">
           <expression>
+            <expression-string>480</expression-string>
+          </expression>
+        </input>
+        <input name="Region">
+          <expression>
+            <expression-string>WholeImage</expression-string>
+          </expression>
+        </input>
+        <input name="SelectionRadius">
+          <expression>
+            <expression-string>5</expression-string>
+          </expression>
+        </input>
+        <input name="ColorMode">
+          <expression>
+            <expression-string>Default</expression-string>
+          </expression>
+        </input>
+        <input name="ColorMap">
+          <expression>
+            <expression-string>Default</expression-string>
+          </expression>
+        </input>
+        <input name="ScaleImage">
+          <expression>
+            <expression-string>Enabled</expression-string>
+          </expression>
+        </input>
+        <input name="ImageAlignment">
+          <expression>
+            <expression-string>Center</expression-string>
+          </expression>
+        </input>
+        <input name="Zoom">
+          <expression available="False">
             <expression-string>1</expression-string>
           </expression>
         </input>
-        <input name="MultiLine">
+        <input name="MouseZoomAndPan">
           <expression>
-            <expression-string>False</expression-string>
+            <expression-string>Enabled</expression-string>
           </expression>
         </input>
-        <input name="Overflow">
+        <input name="KeyboardZoomAndPan">
           <expression>
-            <expression-string>Auto</expression-string>
+            <expression-string>Enabled</expression-string>
           </expression>
         </input>
-        <input name="Text">
+        <input name="BackgroundColor">
           <expression>
-            <expression-string need-link-container="True">{Status.FailCount}</expression-string>
+            <expression-string>Default</expression-string>
           </expression>
         </input>
       </inputs>
@@ -143,83 +185,6 @@
       </inputs>
       <userXML />
     </HTMLAnnotator>
-    <HTMLAnnotator name="Display" type="Matrox.DesignAssistant.Core.OperatorViews.Display, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a9b2cd29-3045-4763-824c-6331f4ceeb14" Version="10.0.454.0">
-      <inputs>
-        <objectCollection name="AnnotationGroups" type="Matrox.DesignAssistant.Core.Annotations.Groups.AnnotationGroupCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f87dbecc-5a22-4b4b-8ab3-6a4f11053163" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <collectionItems />
-          <userXML />
-        </objectCollection>
-        <input name="Image">
-          <expression>
-            <expression-string>ImageActuelle.Image</expression-string>
-          </expression>
-        </input>
-        <input name="Width">
-          <expression>
-            <expression-string>640</expression-string>
-          </expression>
-        </input>
-        <input name="Height">
-          <expression>
-            <expression-string>480</expression-string>
-          </expression>
-        </input>
-        <input name="Region">
-          <expression>
-            <expression-string>WholeImage</expression-string>
-          </expression>
-        </input>
-        <input name="SelectionRadius">
-          <expression>
-            <expression-string>5</expression-string>
-          </expression>
-        </input>
-        <input name="ColorMode">
-          <expression>
-            <expression-string>Default</expression-string>
-          </expression>
-        </input>
-        <input name="ColorMap">
-          <expression>
-            <expression-string>Default</expression-string>
-          </expression>
-        </input>
-        <input name="ScaleImage">
-          <expression>
-            <expression-string>Enabled</expression-string>
-          </expression>
-        </input>
-        <input name="ImageAlignment">
-          <expression>
-            <expression-string>Center</expression-string>
-          </expression>
-        </input>
-        <input name="Zoom">
-          <expression available="False">
-            <expression-string>1</expression-string>
-          </expression>
-        </input>
-        <input name="MouseZoomAndPan">
-          <expression>
-            <expression-string>Enabled</expression-string>
-          </expression>
-        </input>
-        <input name="KeyboardZoomAndPan">
-          <expression>
-            <expression-string>Enabled</expression-string>
-          </expression>
-        </input>
-        <input name="BackgroundColor">
-          <expression>
-            <expression-string>Default</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </HTMLAnnotator>
     <HTMLAnnotator name="AnalysisTimeValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="35b6db5d-2713-417e-8331-1d1ee74d9c7d" Version="10.0.454.0">
       <inputs>
         <input name="BackgroundColor">
@@ -255,16 +220,16 @@
       </inputs>
       <userXML />
     </HTMLAnnotator>
-    <HTMLAnnotator name="FrameRateValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c270ed8d-3177-4955-8a74-84065df15e59" Version="10.0.454.0">
+    <HTMLAnnotator name="TotalFailValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="1b1c469c-1afd-44a7-877c-d081ff3ddedf" Version="10.0.454.0">
       <inputs>
         <input name="BackgroundColor">
           <expression>
-            <expression-string>COLOR(211,211,211)</expression-string>
+            <expression-string>COLOR("Red")</expression-string>
           </expression>
         </input>
         <input name="TextColor">
           <expression>
-            <expression-string>COLOR("Black")</expression-string>
+            <expression-string>COLOR("White")</expression-string>
           </expression>
         </input>
         <input name="LineHeight">
@@ -284,7 +249,42 @@
         </input>
         <input name="Text">
           <expression>
-            <expression-string>{ImageActuelle.FrameRate:F1}</expression-string>
+            <expression-string need-link-container="True">{Status.FailCount}</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </HTMLAnnotator>
+    <HTMLAnnotator name="TotalPassValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="940e0aad-94b3-40f2-8b6a-c395b5a48cd4" Version="10.0.454.0">
+      <inputs>
+        <input name="BackgroundColor">
+          <expression>
+            <expression-string>COLOR("DarkGreen")</expression-string>
+          </expression>
+        </input>
+        <input name="TextColor">
+          <expression>
+            <expression-string>COLOR("White")</expression-string>
+          </expression>
+        </input>
+        <input name="LineHeight">
+          <expression>
+            <expression-string>1</expression-string>
+          </expression>
+        </input>
+        <input name="MultiLine">
+          <expression>
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+        <input name="Overflow">
+          <expression>
+            <expression-string>Auto</expression-string>
+          </expression>
+        </input>
+        <input name="Text">
+          <expression>
+            <expression-string need-link-container="True">{Status.PassCount}</expression-string>
           </expression>
         </input>
       </inputs>
@@ -365,16 +365,16 @@
       </inputs>
       <userXML />
     </HTMLAnnotator>
-    <HTMLAnnotator name="TotalPassValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="940e0aad-94b3-40f2-8b6a-c395b5a48cd4" Version="10.0.454.0">
+    <HTMLAnnotator name="FrameRateValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c270ed8d-3177-4955-8a74-84065df15e59" Version="10.0.454.0">
       <inputs>
         <input name="BackgroundColor">
           <expression>
-            <expression-string>COLOR("DarkGreen")</expression-string>
+            <expression-string>COLOR(211,211,211)</expression-string>
           </expression>
         </input>
         <input name="TextColor">
           <expression>
-            <expression-string>COLOR("White")</expression-string>
+            <expression-string>COLOR("Black")</expression-string>
           </expression>
         </input>
         <input name="LineHeight">
@@ -394,7 +394,7 @@
         </input>
         <input name="Text">
           <expression>
-            <expression-string need-link-container="True">{Status.PassCount}</expression-string>
+            <expression-string>{ImageActuelle.FrameRate:F1}</expression-string>
           </expression>
         </input>
       </inputs>

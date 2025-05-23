@@ -749,166 +749,6 @@
     </opcua-project-collection>
   </opcua-container>
   <project-settings id="7068dffe-361b-4823-bc25-8d97e0c053eb" name="ProjectSettings">
-    <setting name="InspectionSettings" type="Matrox.DesignAssistant.Core.Events.InspectionEventsSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="272275e1-7ea9-4827-991c-f1fd3b746766" Version="10.0.454.0">
-      <inputs>
-        <input name="EndEvent">
-          <expression>
-            <expression-string>Flowcharts("MainFlowchart").Loop.EndEvent</expression-string>
-          </expression>
-        </input>
-        <input name="StartEvent">
-          <expression>
-            <expression-string>Flowcharts("MainFlowchart").ImageActuelle.EndEvent</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </setting>
-    <setting name="RuntimeMonitoringSettings" type="Matrox.DesignAssistant.Core.Projects.RuntimeMonitoringSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="150cf4b4-3d8b-4a6b-a603-73f6e22bd8d8" Version="10.0.454.0">
-      <inputs>
-        <input name="EnableRuntimeMonitoring">
-          <expression>
-            <expression-string>True</expression-string>
-          </expression>
-        </input>
-        <input name="EnableRuntimeStatistics">
-          <expression>
-            <expression-string>True</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </setting>
-    <setting name="LabelSettings" type="Matrox.DesignAssistant.Core.Projects.LabelSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="159d4a70-372f-4727-bd6d-f9617ff4ba55" Version="10.0.454.0">
-      <inputs>
-        <objectCollection name="UserLabels" type="Matrox.DesignAssistant.Core.Projects.LabelCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="7ac926d0-74d7-4fa6-9a64-3c7d4612c3f0" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <collectionItems>
-            <subObject name="T" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="66115d4e-164b-49d0-98e2-45cb98418492" Version="10.0.454.0">
-              <inputs>
-                <input name="Background">
-                  <expression>
-                    <expression-string>-5658199</expression-string>
-                  </expression>
-                </input>
-                <input name="Condition">
-                  <expression>
-                    <expression-string>None</expression-string>
-                  </expression>
-                </input>
-                <input name="DesignTimeVisible">
-                  <expression>
-                    <expression-string>False</expression-string>
-                  </expression>
-                </input>
-                <input name="Foreground">
-                  <expression>
-                    <expression-string>-1</expression-string>
-                  </expression>
-                </input>
-                <input name="RuntimeVisible">
-                  <expression>
-                    <expression-string>True</expression-string>
-                  </expression>
-                </input>
-                <input name="Type">
-                  <expression available="False">
-                    <expression-string>Timestamp</expression-string>
-                  </expression>
-                </input>
-                <input name="Value">
-                  <expression>
-                    <expression-string>DATETIME(ImageActuelle.Time, "H:mm:ss.ff")</expression-string>
-                  </expression>
-                </input>
-              </inputs>
-              <userXML>
-                <AutomaticName />
-              </userXML>
-            </subObject>
-          </collectionItems>
-          <userXML />
-        </objectCollection>
-      </inputs>
-      <userXML>
-        <AutomaticLabelProviders>
-          <AutomaticLabelProvider>
-            <StepID>4bba7190-ddf4-499c-a3f7-a250c7b70a62</StepID>
-            <StepName>Status</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>79f1150c-020c-488a-9771-4951243df4d3</StepID>
-            <StepName>Status2</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>5043973b-525a-40e7-bd58-f5231b295e4b</StepID>
-            <StepName>BlobEngrM</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>ff31b252-2eb6-46b3-a573-78232bd46613</StepID>
-            <StepName>ModelFinder</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>6ea095e1-fb7a-400d-addd-cf84b5099ccc</StepID>
-            <StepName>BlobEngrP</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>3c69ee1c-0c75-46b4-9f41-8c4e3d016913</StepID>
-            <StepName>ModelFinder2</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>428133f0-811a-4dbb-8eff-9c8944df964e</StepID>
-            <StepName>BlobEngrG</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>89c044f3-f778-48f0-850d-f86d7006a4ad</StepID>
-            <StepName>ModelFinder3</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>0317d458-e048-4c6a-bb06-668113338503</StepID>
-            <StepName>LectureDM</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>d6a84cd6-9f62-46e2-85d1-b17c4bd25dd5</StepID>
-            <StepName>BlobGoupille</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>466d8ebf-5444-4f11-ab8c-23ded7042d4a</StepID>
-            <StepName>BlobRond</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>039c39f8-ee70-4d92-8b6e-40fa2f7d85cc</StepID>
-            <StepName>NombreEngr</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-        </AutomaticLabelProviders>
-      </userXML>
-    </setting>
     <setting name="AnnotationGroupContainer" type="Matrox.DesignAssistant.Core.Annotations.Groups.AnnotationGroupContainer, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="aa2dd1c3-671f-4421-893d-0da0fea36cb0" Version="10.0.454.0">
       <inputs>
         <objectCollection name="AnnotationGroups" type="Matrox.DesignAssistant.Core.Annotations.Groups.SharedAnnotationGroupCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="41ebd14d-2838-41be-81f1-c1455a8fa064" Version="10.0.454.0">
@@ -931,6 +771,36 @@
         <input name="Thickness3D">
           <expression>
             <expression-string>3</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </setting>
+    <setting name="RuntimeMonitoringSettings" type="Matrox.DesignAssistant.Core.Projects.RuntimeMonitoringSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="150cf4b4-3d8b-4a6b-a603-73f6e22bd8d8" Version="10.0.454.0">
+      <inputs>
+        <input name="EnableRuntimeMonitoring">
+          <expression>
+            <expression-string>True</expression-string>
+          </expression>
+        </input>
+        <input name="EnableRuntimeStatistics">
+          <expression>
+            <expression-string>True</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </setting>
+    <setting name="InspectionSettings" type="Matrox.DesignAssistant.Core.Events.InspectionEventsSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="272275e1-7ea9-4827-991c-f1fd3b746766" Version="10.0.454.0">
+      <inputs>
+        <input name="EndEvent">
+          <expression>
+            <expression-string>Flowcharts("MainFlowchart").Loop.EndEvent</expression-string>
+          </expression>
+        </input>
+        <input name="StartEvent">
+          <expression>
+            <expression-string>Flowcharts("MainFlowchart").ImageActuelle.EndEvent</expression-string>
           </expression>
         </input>
       </inputs>
@@ -983,6 +853,51 @@
             <expression-string>False</expression-string>
           </expression>
         </input>
+      </inputs>
+      <userXML />
+    </setting>
+    <setting name="ActionsContainer" type="Matrox.DesignAssistant.Core.Events.ActionsContainer, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a40db9d5-3710-4920-ba6c-6f2cbce5ca80" Version="10.0.454.0">
+      <inputs>
+        <objectCollection name="Actions" type="Matrox.DesignAssistant.Core.Events.ActionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="54cf2d1d-424c-4493-848e-89925da57432" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems>
+            <subObject name="PublishGroupAction" type="Matrox.DesignAssistant.Core.Events.PublishGroupAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="e65dbc52-de94-45b3-84ed-749ef65ab3c4" Version="10.0.454.0">
+              <inputs>
+                <input name="CanRun">
+                  <expression>
+                    <expression-string>None</expression-string>
+                  </expression>
+                </input>
+                <input name="Enabled">
+                  <expression>
+                    <expression-string>True</expression-string>
+                  </expression>
+                </input>
+                <input name="TriggerEvent">
+                  <expression>
+                    <expression-string>Inspection.EndEvent</expression-string>
+                  </expression>
+                </input>
+                <input name="WaitInspectionEnd">
+                  <expression>
+                    <expression-string>False</expression-string>
+                  </expression>
+                </input>
+              </inputs>
+              <userXML OWNNm="OperatorView" OWNType="OperatorView" Group="PublishingGroup" OperatorView="OperatorView" />
+            </subObject>
+          </collectionItems>
+          <userXML />
+        </objectCollection>
+        <objectCollection name="IPCommActions" type="Matrox.DesignAssistant.Core.Events.IPCommActionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0ce4aa67-504b-4600-91b1-5f47aef584b3" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems />
+          <userXML />
+        </objectCollection>
       </inputs>
       <userXML />
     </setting>
@@ -1107,50 +1022,147 @@
       </inputs>
       <userXML />
     </setting>
-    <setting name="ActionsContainer" type="Matrox.DesignAssistant.Core.Events.ActionsContainer, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a40db9d5-3710-4920-ba6c-6f2cbce5ca80" Version="10.0.454.0">
+    <setting name="LabelSettings" type="Matrox.DesignAssistant.Core.Projects.LabelSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="159d4a70-372f-4727-bd6d-f9617ff4ba55" Version="10.0.454.0">
       <inputs>
-        <objectCollection name="Actions" type="Matrox.DesignAssistant.Core.Events.ActionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="54cf2d1d-424c-4493-848e-89925da57432" Version="10.0.454.0">
+        <objectCollection name="UserLabels" type="Matrox.DesignAssistant.Core.Projects.LabelCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="7ac926d0-74d7-4fa6-9a64-3c7d4612c3f0" Version="10.0.454.0">
           <expression>
             <expression-string></expression-string>
           </expression>
           <collectionItems>
-            <subObject name="PublishGroupAction" type="Matrox.DesignAssistant.Core.Events.PublishGroupAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="e65dbc52-de94-45b3-84ed-749ef65ab3c4" Version="10.0.454.0">
+            <subObject name="T" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="66115d4e-164b-49d0-98e2-45cb98418492" Version="10.0.454.0">
               <inputs>
-                <input name="CanRun">
+                <input name="Background">
+                  <expression>
+                    <expression-string>-5658199</expression-string>
+                  </expression>
+                </input>
+                <input name="Condition">
                   <expression>
                     <expression-string>None</expression-string>
                   </expression>
                 </input>
-                <input name="Enabled">
-                  <expression>
-                    <expression-string>True</expression-string>
-                  </expression>
-                </input>
-                <input name="TriggerEvent">
-                  <expression>
-                    <expression-string>Inspection.EndEvent</expression-string>
-                  </expression>
-                </input>
-                <input name="WaitInspectionEnd">
+                <input name="DesignTimeVisible">
                   <expression>
                     <expression-string>False</expression-string>
                   </expression>
                 </input>
+                <input name="Foreground">
+                  <expression>
+                    <expression-string>-1</expression-string>
+                  </expression>
+                </input>
+                <input name="RuntimeVisible">
+                  <expression>
+                    <expression-string>True</expression-string>
+                  </expression>
+                </input>
+                <input name="Type">
+                  <expression available="False">
+                    <expression-string>Timestamp</expression-string>
+                  </expression>
+                </input>
+                <input name="Value">
+                  <expression>
+                    <expression-string>DATETIME(ImageActuelle.Time, "H:mm:ss.ff")</expression-string>
+                  </expression>
+                </input>
               </inputs>
-              <userXML OWNNm="OperatorView" OWNType="OperatorView" Group="PublishingGroup" OperatorView="OperatorView" />
+              <userXML>
+                <AutomaticName />
+              </userXML>
             </subObject>
           </collectionItems>
           <userXML />
         </objectCollection>
-        <objectCollection name="IPCommActions" type="Matrox.DesignAssistant.Core.Events.IPCommActionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0ce4aa67-504b-4600-91b1-5f47aef584b3" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <collectionItems />
-          <userXML />
-        </objectCollection>
       </inputs>
-      <userXML />
+      <userXML>
+        <AutomaticLabelProviders>
+          <AutomaticLabelProvider>
+            <StepID>4bba7190-ddf4-499c-a3f7-a250c7b70a62</StepID>
+            <StepName>Status</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>79f1150c-020c-488a-9771-4951243df4d3</StepID>
+            <StepName>Status2</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>5043973b-525a-40e7-bd58-f5231b295e4b</StepID>
+            <StepName>BlobEngr18</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>ff31b252-2eb6-46b3-a573-78232bd46613</StepID>
+            <StepName>ModelFinderEngr15</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>6ea095e1-fb7a-400d-addd-cf84b5099ccc</StepID>
+            <StepName>BlobEngr25</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>3c69ee1c-0c75-46b4-9f41-8c4e3d016913</StepID>
+            <StepName>ModelFinderEngr18</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>428133f0-811a-4dbb-8eff-9c8944df964e</StepID>
+            <StepName>BlobEngr15</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>89c044f3-f778-48f0-850d-f86d7006a4ad</StepID>
+            <StepName>ModelFinderEngr25</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>0317d458-e048-4c6a-bb06-668113338503</StepID>
+            <StepName>LectureDM</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>d6a84cd6-9f62-46e2-85d1-b17c4bd25dd5</StepID>
+            <StepName>BlobGoupille</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>466d8ebf-5444-4f11-ab8c-23ded7042d4a</StepID>
+            <StepName>BlobRond</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>039c39f8-ee70-4d92-8b6e-40fa2f7d85cc</StepID>
+            <StepName>NombreEngr</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>d9f92c0c-c4d9-4df8-9360-01d977a2542d</StepID>
+            <StepName>BlobEngr30</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>8ae31201-10cc-46b2-88b0-ef56540b1e29</StepID>
+            <StepName>ModelFinderEngr30</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+        </AutomaticLabelProviders>
+      </userXML>
     </setting>
   </project-settings>
 </project>
