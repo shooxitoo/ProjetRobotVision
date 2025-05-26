@@ -632,7 +632,7 @@
         </subObject>
         <input name="CameraSource">
           <expression>
-            <expression-string>PhysicalCamera1</expression-string>
+            <expression-string>ImageCalib1</expression-string>
           </expression>
         </input>
         <input name="Comment">
@@ -662,7 +662,7 @@
             </input>
             <input name="StartValue">
               <expression available="False">
-                <expression-string>0</expression-string>
+                <expression-string>1</expression-string>
               </expression>
             </input>
             <input name="StdDevStartValue">
@@ -677,7 +677,7 @@
             </input>
             <input name="EndValue">
               <expression available="False">
-                <expression-string>255</expression-string>
+                <expression-string>121</expression-string>
               </expression>
             </input>
             <input name="StdDevEndValue">
@@ -743,16 +743,16 @@
       <inputs>
         <input name="CalibrationName">
           <expression>
-            <expression-string>Calibration2</expression-string>
+            <expression-string>CalibrationPaletteEngr1</expression-string>
           </expression>
         </input>
         <input name="Method">
           <expression>
-            <expression-string>Scale</expression-string>
+            <expression-string>Grid</expression-string>
           </expression>
         </input>
         <input name="Mode">
-          <expression available="False">
+          <expression>
             <expression-string>Perspective</expression-string>
           </expression>
         </input>
@@ -767,32 +767,32 @@
           </expression>
         </input>
         <input name="Image">
-          <expression available="False">
-            <expression-string>ImageActuelle.Image</expression-string>
+          <expression>
+            <expression-string need-link-container="True">CameraCalib.Image</expression-string>
           </expression>
         </input>
         <input name="GridType">
-          <expression available="False">
+          <expression>
             <expression-string>CircleGrid</expression-string>
           </expression>
         </input>
         <input name="ForegroundColor">
-          <expression available="False">
+          <expression>
             <expression-string>Black</expression-string>
           </expression>
         </input>
         <input name="NumberOfRows">
-          <expression available="False">
-            <expression-string>2</expression-string>
+          <expression>
+            <expression-string>10</expression-string>
           </expression>
         </input>
         <input name="NumberOfColumns">
-          <expression available="False">
-            <expression-string>2</expression-string>
+          <expression>
+            <expression-string>10</expression-string>
           </expression>
         </input>
         <input name="GridCornerHintX">
-          <expression available="False">
+          <expression>
             <expression-string>Default</expression-string>
           </expression>
         </input>
@@ -807,7 +807,7 @@
           </expression>
         </input>
         <input name="GridCornerHintY">
-          <expression available="False">
+          <expression>
             <expression-string>Default</expression-string>
           </expression>
         </input>
@@ -817,27 +817,27 @@
           </expression>
         </input>
         <input name="OffsetX">
-          <expression available="False">
+          <expression>
             <expression-string>0</expression-string>
           </expression>
         </input>
         <input name="OffsetY">
-          <expression available="False">
+          <expression>
             <expression-string>0</expression-string>
           </expression>
         </input>
         <input name="RowSpacing">
-          <expression available="False">
-            <expression-string>1</expression-string>
+          <expression>
+            <expression-string>10</expression-string>
           </expression>
         </input>
         <input name="ColumnSpacing">
-          <expression available="False">
-            <expression-string>1</expression-string>
+          <expression>
+            <expression-string>10</expression-string>
           </expression>
         </input>
         <input name="YAxisOrientation">
-          <expression available="False">
+          <expression>
             <expression-string>Down</expression-string>
           </expression>
         </input>
@@ -864,12 +864,12 @@
           </expression>
         </input>
         <input name="PixelLength">
-          <expression>
+          <expression available="False">
             <expression-string>1</expression-string>
           </expression>
         </input>
         <input name="WorldLength">
-          <expression>
+          <expression available="False">
             <expression-string>1</expression-string>
           </expression>
         </input>
@@ -1534,11 +1534,11 @@
           <inputs>
             <input name="CalibrationName">
               <expression>
-                <expression-string>None</expression-string>
+                <expression-string>CalibrationPaletteEngr1</expression-string>
               </expression>
             </input>
             <input name="CorrectImage">
-              <expression available="False">
+              <expression>
                 <expression-string>False</expression-string>
               </expression>
             </input>
@@ -1988,7 +1988,7 @@
             </subObject>
             <input name="CameraSource">
               <expression>
-                <expression-string>roue</expression-string>
+                <expression-string>PhysicalCamera1</expression-string>
               </expression>
             </input>
             <input name="Comment">
@@ -2018,7 +2018,7 @@
                 </input>
                 <input name="StartValue">
                   <expression available="False">
-                    <expression-string>31</expression-string>
+                    <expression-string>6</expression-string>
                   </expression>
                 </input>
                 <input name="StdDevStartValue">
@@ -2092,6 +2092,1020 @@
               </inputs>
               <userXML />
             </subObject>
+          </inputs>
+          <userXML />
+        </step>
+        <step name="Metrology" enabled="True" resettable="True" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Metrology, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f879458d-3218-4f88-bc72-d4e57a6a3b4d" Version="10.0.454.0">
+          <inputs>
+            <objectCollection name="Features" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Metrology+TheFeatures, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="5f0f127f-23ed-4d71-9740-459038b81611" Version="10.0.454.0">
+              <expression>
+                <expression-string></expression-string>
+              </expression>
+              <collectionItems>
+                <subObject name="GlobalFrame" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ParametricLocalFrame, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="bcdae9bf-1f85-477b-9581-7d85806fa682" Version="10.0.454.0">
+                  <inputs>
+                    <subObject name="Parameters" type="Matrox.DesignAssistant.Core.Shapes.ConfigurableFrame, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="3f100e15-18bd-43cb-89a4-0ce91656a0fd" Version="10.0.454.0">
+                      <expression>
+                        <expression-string>Frame</expression-string>
+                      </expression>
+                      <inputs>
+                        <input name="CoordinateSystem">
+                          <expression>
+                            <expression-string>Absolute</expression-string>
+                          </expression>
+                        </input>
+                        <input name="X">
+                          <expression>
+                            <expression-string>129.826</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Y">
+                          <expression>
+                            <expression-string>-13.4418</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Angle">
+                          <expression>
+                            <expression-string>-131.277</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML />
+                    </subObject>
+                    <input name="Region">
+                      <expression available="False">
+                        <expression-string>WholeImage</expression-string>
+                      </expression>
+                    </input>
+                  </inputs>
+                  <userXML ID="268435456" />
+                </subObject>
+                <subObject name="MeasuredCircle" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Circle, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="1b230f16-9bab-42f0-b388-09704206895a" Version="10.0.454.0">
+                  <inputs>
+                    <input name="BuildOperation">
+                      <expression>
+                        <expression-string>Fit</expression-string>
+                      </expression>
+                    </input>
+                    <input name="DataAngleTolerance">
+                      <expression>
+                        <expression-string>30</expression-string>
+                      </expression>
+                    </input>
+                    <subObject name="EdgeAdvanced" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeature+EdgeAdvancedGroup, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="952d891c-243a-4213-8403-acfe0b1700a8" Version="10.0.454.0">
+                      <expression>
+                        <expression-string></expression-string>
+                      </expression>
+                      <inputs>
+                        <input name="ExtractionScale">
+                          <expression>
+                            <expression-string>1</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FilterMode">
+                          <expression>
+                            <expression-string>Default</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FilterType">
+                          <expression>
+                            <expression-string>Shen</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FloatMode">
+                          <expression>
+                            <expression-string>Disable</expression-string>
+                          </expression>
+                        </input>
+                        <input name="KernelDepth">
+                          <expression>
+                            <expression-string>Eight</expression-string>
+                          </expression>
+                        </input>
+                        <input name="KernelWidth">
+                          <expression>
+                            <expression-string>Automatic</expression-string>
+                          </expression>
+                        </input>
+                        <input name="MagnitudeType">
+                          <expression>
+                            <expression-string>SquaredMagnitude</expression-string>
+                          </expression>
+                        </input>
+                        <input name="ThresholdHigh">
+                          <expression available="False">
+                            <expression-string>0</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Thresholding">
+                          <expression>
+                            <expression-string>Automatic</expression-string>
+                          </expression>
+                        </input>
+                        <input name="ThresholdLow">
+                          <expression available="False">
+                            <expression-string>0</expression-string>
+                          </expression>
+                        </input>
+                        <input name="ThresholdType">
+                          <expression>
+                            <expression-string>Hysteresis</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML>
+                        <automaticthresholdmode>3</automaticthresholdmode>
+                      </userXML>
+                    </subObject>
+                    <input name="EdgelDenoisingMode">
+                      <expression>
+                        <expression-string>None</expression-string>
+                      </expression>
+                    </input>
+                    <input name="EdgelDenoisingRadius">
+                      <expression available="False">
+                        <expression-string>10</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FilterSmoothness">
+                      <expression>
+                        <expression-string>50</expression-string>
+                      </expression>
+                    </input>
+                    <subObject name="FitAdvanced" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeatureWithFit+FitAdvancedGroup, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="086f9d4d-0a38-44ad-85ce-95e0fec740a5" Version="10.0.454.0">
+                      <expression>
+                        <expression-string></expression-string>
+                      </expression>
+                      <inputs>
+                        <input name="FitCoverageMin">
+                          <expression>
+                            <expression-string>0</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FitIterationsMax">
+                          <expression>
+                            <expression-string>Auto</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FitVariationMax">
+                          <expression>
+                            <expression-string>Auto</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML />
+                    </subObject>
+                    <input name="FitDistanceMax">
+                      <expression>
+                        <expression-string>Infinite</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FitDistanceOutliers">
+                      <expression available="False">
+                        <expression-string>Auto</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FitDistanceOutliersValue">
+                      <expression available="False">
+                        <expression-string>4</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FitType">
+                      <expression>
+                        <expression-string>StandardFit</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Polarity">
+                      <expression>
+                        <expression-string>DarkToBright</expression-string>
+                      </expression>
+                    </input>
+                    <subObject name="Region" type="Matrox.DesignAssistant.Core.Shapes.ConfigurableRing, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="26cdd330-6002-40b3-9ce6-3647b54af30a" Version="10.0.454.0">
+                      <expression>
+                        <expression-string>Ring</expression-string>
+                      </expression>
+                      <inputs>
+                        <input name="CoordinateSystem">
+                          <expression>
+                            <expression-string>GlobalFrame</expression-string>
+                          </expression>
+                        </input>
+                        <input name="EndRadius">
+                          <expression>
+                            <expression-string>3.12156</expression-string>
+                          </expression>
+                        </input>
+                        <input name="StartRadius">
+                          <expression>
+                            <expression-string>0.81319</expression-string>
+                          </expression>
+                        </input>
+                        <input name="X">
+                          <expression>
+                            <expression-string>-24.9512</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Y">
+                          <expression>
+                            <expression-string>3.66265</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML />
+                    </subObject>
+                    <input name="ThresholdMode">
+                      <expression>
+                        <expression-string>High</expression-string>
+                      </expression>
+                    </input>
+                  </inputs>
+                  <userXML ID="2" />
+                </subObject>
+                <subObject name="CenterPoint" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ConstructedPoint, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="cd8ebb04-9e33-4f6c-8366-b438bfc08e20" Version="10.0.454.0">
+                  <inputs>
+                    <input name="Angle">
+                      <expression available="False">
+                        <expression-string>0</expression-string>
+                      </expression>
+                    </input>
+                    <objectCollection name="BaseFeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.BaseFeatureCollection, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="63ab372c-b48e-4f27-b88d-42d0d2a5c5f3" Version="10.0.454.0">
+                      <expression>
+                        <expression-string></expression-string>
+                      </expression>
+                      <collectionItems>
+                        <subObject name="BaseFeature" type="Matrox.DesignAssistant.Steps.MetrologyPackage.StepBaseFeature, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="9908d04a-81e2-403f-838f-c648bfbe1feb" Version="10.0.454.0">
+                          <inputs>
+                            <input name="Region">
+                              <expression available="False">
+                                <expression-string>WholeImage</expression-string>
+                              </expression>
+                            </input>
+                          </inputs>
+                          <userXML ID="2" subFeatureIndex="0" />
+                        </subObject>
+                      </collectionItems>
+                      <userXML />
+                    </objectCollection>
+                    <input name="Distance">
+                      <expression available="False">
+                        <expression-string>Default</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Index">
+                      <expression available="False">
+                        <expression-string>0</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Position">
+                      <expression available="False">
+                        <expression-string>0</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Region">
+                      <expression available="False">
+                        <expression-string>WholeImage</expression-string>
+                      </expression>
+                    </input>
+                  </inputs>
+                  <userXML ID="3" />
+                </subObject>
+                <subObject name="MeasuredCircle2" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Circle, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b126bd87-2fde-40ed-915f-12101f1128d0" Version="10.0.454.0">
+                  <inputs>
+                    <input name="BuildOperation">
+                      <expression>
+                        <expression-string>Fit</expression-string>
+                      </expression>
+                    </input>
+                    <input name="DataAngleTolerance">
+                      <expression>
+                        <expression-string>30</expression-string>
+                      </expression>
+                    </input>
+                    <subObject name="EdgeAdvanced" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeature+EdgeAdvancedGroup, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f9ad0636-99d3-47ff-b584-6c7778989bb3" Version="10.0.454.0">
+                      <expression>
+                        <expression-string></expression-string>
+                      </expression>
+                      <inputs>
+                        <input name="ExtractionScale">
+                          <expression>
+                            <expression-string>1</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FilterMode">
+                          <expression>
+                            <expression-string>Default</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FilterType">
+                          <expression>
+                            <expression-string>Shen</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FloatMode">
+                          <expression>
+                            <expression-string>Disable</expression-string>
+                          </expression>
+                        </input>
+                        <input name="KernelDepth">
+                          <expression>
+                            <expression-string>Eight</expression-string>
+                          </expression>
+                        </input>
+                        <input name="KernelWidth">
+                          <expression>
+                            <expression-string>Automatic</expression-string>
+                          </expression>
+                        </input>
+                        <input name="MagnitudeType">
+                          <expression>
+                            <expression-string>SquaredMagnitude</expression-string>
+                          </expression>
+                        </input>
+                        <input name="ThresholdHigh">
+                          <expression available="False">
+                            <expression-string>0</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Thresholding">
+                          <expression>
+                            <expression-string>Automatic</expression-string>
+                          </expression>
+                        </input>
+                        <input name="ThresholdLow">
+                          <expression available="False">
+                            <expression-string>0</expression-string>
+                          </expression>
+                        </input>
+                        <input name="ThresholdType">
+                          <expression>
+                            <expression-string>Hysteresis</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML>
+                        <automaticthresholdmode>3</automaticthresholdmode>
+                      </userXML>
+                    </subObject>
+                    <input name="EdgelDenoisingMode">
+                      <expression>
+                        <expression-string>None</expression-string>
+                      </expression>
+                    </input>
+                    <input name="EdgelDenoisingRadius">
+                      <expression available="False">
+                        <expression-string>10</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FilterSmoothness">
+                      <expression>
+                        <expression-string>50</expression-string>
+                      </expression>
+                    </input>
+                    <subObject name="FitAdvanced" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeatureWithFit+FitAdvancedGroup, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="84ff4360-1e78-4a4b-8cc3-ccc0cb6f141d" Version="10.0.454.0">
+                      <expression>
+                        <expression-string></expression-string>
+                      </expression>
+                      <inputs>
+                        <input name="FitCoverageMin">
+                          <expression>
+                            <expression-string>0</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FitIterationsMax">
+                          <expression>
+                            <expression-string>Auto</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FitVariationMax">
+                          <expression>
+                            <expression-string>Auto</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML />
+                    </subObject>
+                    <input name="FitDistanceMax">
+                      <expression>
+                        <expression-string>Infinite</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FitDistanceOutliers">
+                      <expression available="False">
+                        <expression-string>Auto</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FitDistanceOutliersValue">
+                      <expression available="False">
+                        <expression-string>4</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FitType">
+                      <expression>
+                        <expression-string>StandardFit</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Polarity">
+                      <expression>
+                        <expression-string>DarkToBright</expression-string>
+                      </expression>
+                    </input>
+                    <subObject name="Region" type="Matrox.DesignAssistant.Core.Shapes.ConfigurableRing, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f5177691-b43d-469b-ae67-0bd5bfb2c42e" Version="10.0.454.0">
+                      <expression>
+                        <expression-string>Ring</expression-string>
+                      </expression>
+                      <inputs>
+                        <input name="CoordinateSystem">
+                          <expression>
+                            <expression-string>GlobalFrame</expression-string>
+                          </expression>
+                        </input>
+                        <input name="EndRadius">
+                          <expression>
+                            <expression-string>3.21825</expression-string>
+                          </expression>
+                        </input>
+                        <input name="StartRadius">
+                          <expression>
+                            <expression-string>1.07275</expression-string>
+                          </expression>
+                        </input>
+                        <input name="X">
+                          <expression>
+                            <expression-string>76.4712</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Y">
+                          <expression>
+                            <expression-string>-76.1536</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML />
+                    </subObject>
+                    <input name="ThresholdMode">
+                      <expression>
+                        <expression-string>High</expression-string>
+                      </expression>
+                    </input>
+                  </inputs>
+                  <userXML ID="4" />
+                </subObject>
+                <subObject name="CenterPoint2" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ConstructedPoint, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="38a04535-afa6-443e-b310-d58a0cbcfd9d" Version="10.0.454.0">
+                  <inputs>
+                    <input name="Angle">
+                      <expression available="False">
+                        <expression-string>0</expression-string>
+                      </expression>
+                    </input>
+                    <objectCollection name="BaseFeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.BaseFeatureCollection, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="319c8432-8d0a-4fb7-beaa-c72985b27c9b" Version="10.0.454.0">
+                      <expression>
+                        <expression-string></expression-string>
+                      </expression>
+                      <collectionItems>
+                        <subObject name="BaseFeature" type="Matrox.DesignAssistant.Steps.MetrologyPackage.StepBaseFeature, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="720e8c46-5d9d-485c-b764-5a0eec47b4fb" Version="10.0.454.0">
+                          <inputs>
+                            <input name="Region">
+                              <expression available="False">
+                                <expression-string>WholeImage</expression-string>
+                              </expression>
+                            </input>
+                          </inputs>
+                          <userXML ID="4" subFeatureIndex="0" />
+                        </subObject>
+                      </collectionItems>
+                      <userXML />
+                    </objectCollection>
+                    <input name="Distance">
+                      <expression available="False">
+                        <expression-string>Default</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Index">
+                      <expression available="False">
+                        <expression-string>0</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Position">
+                      <expression available="False">
+                        <expression-string>0</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Region">
+                      <expression available="False">
+                        <expression-string>WholeImage</expression-string>
+                      </expression>
+                    </input>
+                  </inputs>
+                  <userXML ID="5" />
+                </subObject>
+                <subObject name="MeasuredCircle3" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Circle, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="d6847e11-a1e7-45c3-90af-2778fa8f7766" Version="10.0.454.0">
+                  <inputs>
+                    <input name="BuildOperation">
+                      <expression>
+                        <expression-string>Fit</expression-string>
+                      </expression>
+                    </input>
+                    <input name="DataAngleTolerance">
+                      <expression>
+                        <expression-string>30</expression-string>
+                      </expression>
+                    </input>
+                    <subObject name="EdgeAdvanced" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeature+EdgeAdvancedGroup, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="02925d63-11a8-48ec-a386-f19292cbc191" Version="10.0.454.0">
+                      <expression>
+                        <expression-string></expression-string>
+                      </expression>
+                      <inputs>
+                        <input name="ExtractionScale">
+                          <expression>
+                            <expression-string>1</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FilterMode">
+                          <expression>
+                            <expression-string>Default</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FilterType">
+                          <expression>
+                            <expression-string>Shen</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FloatMode">
+                          <expression>
+                            <expression-string>Disable</expression-string>
+                          </expression>
+                        </input>
+                        <input name="KernelDepth">
+                          <expression>
+                            <expression-string>Eight</expression-string>
+                          </expression>
+                        </input>
+                        <input name="KernelWidth">
+                          <expression>
+                            <expression-string>Automatic</expression-string>
+                          </expression>
+                        </input>
+                        <input name="MagnitudeType">
+                          <expression>
+                            <expression-string>SquaredMagnitude</expression-string>
+                          </expression>
+                        </input>
+                        <input name="ThresholdHigh">
+                          <expression available="False">
+                            <expression-string>0</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Thresholding">
+                          <expression>
+                            <expression-string>Automatic</expression-string>
+                          </expression>
+                        </input>
+                        <input name="ThresholdLow">
+                          <expression available="False">
+                            <expression-string>0</expression-string>
+                          </expression>
+                        </input>
+                        <input name="ThresholdType">
+                          <expression>
+                            <expression-string>Hysteresis</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML>
+                        <automaticthresholdmode>3</automaticthresholdmode>
+                      </userXML>
+                    </subObject>
+                    <input name="EdgelDenoisingMode">
+                      <expression>
+                        <expression-string>None</expression-string>
+                      </expression>
+                    </input>
+                    <input name="EdgelDenoisingRadius">
+                      <expression available="False">
+                        <expression-string>10</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FilterSmoothness">
+                      <expression>
+                        <expression-string>50</expression-string>
+                      </expression>
+                    </input>
+                    <subObject name="FitAdvanced" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeatureWithFit+FitAdvancedGroup, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="e8bcfe99-0a48-4fc9-befe-91b9d512aea3" Version="10.0.454.0">
+                      <expression>
+                        <expression-string></expression-string>
+                      </expression>
+                      <inputs>
+                        <input name="FitCoverageMin">
+                          <expression>
+                            <expression-string>0</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FitIterationsMax">
+                          <expression>
+                            <expression-string>Auto</expression-string>
+                          </expression>
+                        </input>
+                        <input name="FitVariationMax">
+                          <expression>
+                            <expression-string>Auto</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML />
+                    </subObject>
+                    <input name="FitDistanceMax">
+                      <expression>
+                        <expression-string>Infinite</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FitDistanceOutliers">
+                      <expression available="False">
+                        <expression-string>Auto</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FitDistanceOutliersValue">
+                      <expression available="False">
+                        <expression-string>4</expression-string>
+                      </expression>
+                    </input>
+                    <input name="FitType">
+                      <expression>
+                        <expression-string>StandardFit</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Polarity">
+                      <expression>
+                        <expression-string>DarkToBright</expression-string>
+                      </expression>
+                    </input>
+                    <subObject name="Region" type="Matrox.DesignAssistant.Core.Shapes.ConfigurableRing, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="2a2b28e5-543a-4c68-add9-48e6dba0dc2e" Version="10.0.454.0">
+                      <expression>
+                        <expression-string>Ring</expression-string>
+                      </expression>
+                      <inputs>
+                        <input name="CoordinateSystem">
+                          <expression>
+                            <expression-string>GlobalFrame</expression-string>
+                          </expression>
+                        </input>
+                        <input name="EndRadius">
+                          <expression>
+                            <expression-string>3.40167</expression-string>
+                          </expression>
+                        </input>
+                        <input name="StartRadius">
+                          <expression>
+                            <expression-string>1.13388</expression-string>
+                          </expression>
+                        </input>
+                        <input name="X">
+                          <expression>
+                            <expression-string>86.0064</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Y">
+                          <expression>
+                            <expression-string>137.277</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML />
+                    </subObject>
+                    <input name="ThresholdMode">
+                      <expression>
+                        <expression-string>High</expression-string>
+                      </expression>
+                    </input>
+                  </inputs>
+                  <userXML ID="6" />
+                </subObject>
+                <subObject name="CenterPoint3" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ConstructedPoint, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="377b2716-72b9-40e8-a14d-89f772e9ff54" Version="10.0.454.0">
+                  <inputs>
+                    <input name="Angle">
+                      <expression available="False">
+                        <expression-string>0</expression-string>
+                      </expression>
+                    </input>
+                    <objectCollection name="BaseFeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.BaseFeatureCollection, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="1a1bcbbd-5485-4194-8735-3a43be338d59" Version="10.0.454.0">
+                      <expression>
+                        <expression-string></expression-string>
+                      </expression>
+                      <collectionItems>
+                        <subObject name="BaseFeature" type="Matrox.DesignAssistant.Steps.MetrologyPackage.StepBaseFeature, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="9edb9a4b-20bf-4b58-bee4-cf93944863e4" Version="10.0.454.0">
+                          <inputs>
+                            <input name="Region">
+                              <expression available="False">
+                                <expression-string>WholeImage</expression-string>
+                              </expression>
+                            </input>
+                          </inputs>
+                          <userXML ID="6" subFeatureIndex="0" />
+                        </subObject>
+                      </collectionItems>
+                      <userXML />
+                    </objectCollection>
+                    <input name="Distance">
+                      <expression available="False">
+                        <expression-string>Default</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Index">
+                      <expression available="False">
+                        <expression-string>0</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Position">
+                      <expression available="False">
+                        <expression-string>0</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Region">
+                      <expression available="False">
+                        <expression-string>WholeImage</expression-string>
+                      </expression>
+                    </input>
+                  </inputs>
+                  <userXML ID="7" />
+                </subObject>
+              </collectionItems>
+              <userXML />
+            </objectCollection>
+            <input name="Image">
+              <expression>
+                <expression-string need-link-container="True">ImageActuelle.Image</expression-string>
+              </expression>
+            </input>
+            <input name="OutputCoordinateSystem">
+              <expression>
+                <expression-string>Absolute</expression-string>
+              </expression>
+            </input>
+            <objectCollection name="Tolerances" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Metrology+TheTolerances, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="5275cc70-8d49-43f9-9177-b0ee664735ae" Version="10.0.454.0">
+              <expression>
+                <expression-string></expression-string>
+              </expression>
+              <collectionItems />
+              <userXML />
+            </objectCollection>
+            <input name="Comment">
+              <expression>
+                <expression-string></expression-string>
+              </expression>
+            </input>
+            <input name="ResetPoint">
+              <expression>
+                <expression-string>InspectionStart</expression-string>
+              </expression>
+            </input>
+            <input name="Timeout">
+              <expression>
+                <expression-string>Infinite</expression-string>
+              </expression>
+            </input>
+            <objectCollection name="StatusConditions" type="Matrox.DesignAssistant.Core.Steps.StatusInStepConditionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a3df10a4-a3a4-449a-ba22-e068efe5c082" Version="10.0.454.0">
+              <expression>
+                <expression-string></expression-string>
+              </expression>
+              <collectionItems>
+                <subObject name="FeaturesAndTolerancesOK" type="Matrox.DesignAssistant.Core.Steps.ConfigurableStatusCondition, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="10230a33-d23c-4993-a532-305623685e44" Version="10.0.454.0">
+                  <inputs>
+                    <input name="Enabled">
+                      <expression>
+                        <expression-string>True</expression-string>
+                      </expression>
+                    </input>
+                    <input name="AdvancedMode">
+                      <expression>
+                        <expression-string>False</expression-string>
+                      </expression>
+                    </input>
+                    <input name="AdvancedCondition">
+                      <expression available="False">
+                        <expression-string>False</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Link">
+                      <expression>
+                        <expression-string need-link-container="True">Metrology.FeaturesAndTolerancesStatus</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Operator">
+                      <expression>
+                        <expression-string>=</expression-string>
+                      </expression>
+                    </input>
+                    <subObject name="InspectionLabel" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="e0b1803e-8e8a-467a-a562-dda761601321" Version="10.0.454.0">
+                      <expression>
+                        <expression-string></expression-string>
+                      </expression>
+                      <inputs>
+                        <input name="Background">
+                          <expression>
+                            <expression-string>-65536</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Condition">
+                          <expression available="False">
+                            <expression-string need-link-container="True">Metrology.StatusConditions("FeaturesAndTolerancesOK").Result=Fail</expression-string>
+                          </expression>
+                        </input>
+                        <input name="DesignTimeVisible">
+                          <expression>
+                            <expression-string>True</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Foreground">
+                          <expression>
+                            <expression-string>-1</expression-string>
+                          </expression>
+                        </input>
+                        <input name="RuntimeVisible">
+                          <expression>
+                            <expression-string>True</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Type">
+                          <expression available="False">
+                            <expression-string>StatusCondition</expression-string>
+                          </expression>
+                        </input>
+                        <input name="Value">
+                          <expression>
+                            <expression-string>None</expression-string>
+                          </expression>
+                        </input>
+                      </inputs>
+                      <userXML>
+                        <AutomaticName>Metrology_FeaturesAndTolerancesOK</AutomaticName>
+                      </userXML>
+                    </subObject>
+                    <input name="Value1">
+                      <expression expression-type="Matrox.DesignAssistant.Core.CommonTypes.StatusWithWarning, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" expression-type-linkedAssemblies="Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7">
+                        <expression-string>Pass</expression-string>
+                      </expression>
+                    </input>
+                    <input name="Value2">
+                      <expression available="False" expression-type="Matrox.DesignAssistant.Core.CommonTypes.StatusWithWarning, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" expression-type-linkedAssemblies="Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7">
+                        <expression-string>2</expression-string>
+                      </expression>
+                    </input>
+                  </inputs>
+                  <userXML />
+                </subObject>
+              </collectionItems>
+              <userXML />
+            </objectCollection>
+            <input name="AssociatedStatusStep">
+              <expression>
+                <expression-string>Flowcharts("MainFlowchart").Status</expression-string>
+              </expression>
+            </input>
+            <input name="CreateAutomaticLabels">
+              <expression>
+                <expression-string>True</expression-string>
+              </expression>
+            </input>
+          </inputs>
+          <userXML OutputFrameId="1" />
+        </step>
+        <step name="Fixture2" enabled="True" resettable="True" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.FixturePackage.Fixture, Matrox.DesignAssistant.Steps.FixturePackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="6bcaeb41-6135-43fc-869d-727876e1ebdb" Version="10.0.454.0">
+          <inputs>
+            <input name="DefinitionMode">
+              <expression>
+                <expression-string>TwoLines</expression-string>
+              </expression>
+            </input>
+            <input name="Image">
+              <expression>
+                <expression-string need-link-container="True">ImageActuelle.Image</expression-string>
+              </expression>
+            </input>
+            <input name="SourceFixture">
+              <expression>
+                <expression-string>Absolute</expression-string>
+              </expression>
+            </input>
+            <input name="X">
+              <expression available="False">
+                <expression-string need-link-container="True">Metrology.Features("CenterPoint").X</expression-string>
+              </expression>
+            </input>
+            <input name="Y">
+              <expression available="False">
+                <expression-string need-link-container="True">Metrology.Features("CenterPoint3").X</expression-string>
+              </expression>
+            </input>
+            <input name="AngleMode">
+              <expression>
+                <expression-string>UseFirstLineAngle</expression-string>
+              </expression>
+            </input>
+            <input name="Angle">
+              <expression available="False">
+                <expression-string>0</expression-string>
+              </expression>
+            </input>
+            <input name="X2">
+              <expression available="False">
+                <expression-string>1</expression-string>
+              </expression>
+            </input>
+            <input name="Y2">
+              <expression available="False">
+                <expression-string>0</expression-string>
+              </expression>
+            </input>
+            <subObject name="FirstLine" type="Matrox.DesignAssistant.Core.CommonTypes.ConfigurableLine, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="dcfcbfe9-eaad-4d4c-85da-5756af396422" Version="10.0.454.0">
+              <expression>
+                <expression-string></expression-string>
+              </expression>
+              <inputs>
+                <input name="DefinitionMode">
+                  <expression>
+                    <expression-string>TwoPoints</expression-string>
+                  </expression>
+                </input>
+                <input name="X">
+                  <expression>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint").X</expression-string>
+                  </expression>
+                </input>
+                <input name="Y">
+                  <expression>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint").Y</expression-string>
+                  </expression>
+                </input>
+                <input name="Angle">
+                  <expression available="False">
+                    <expression-string>270</expression-string>
+                  </expression>
+                </input>
+                <input name="X2">
+                  <expression>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint2").X</expression-string>
+                  </expression>
+                </input>
+                <input name="Y2">
+                  <expression>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint2").Y</expression-string>
+                  </expression>
+                </input>
+              </inputs>
+              <userXML />
+            </subObject>
+            <subObject name="SecondLine" type="Matrox.DesignAssistant.Core.CommonTypes.ConfigurableLine, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="305818d4-9675-47fe-be79-6f5bfc657b95" Version="10.0.454.0">
+              <expression>
+                <expression-string></expression-string>
+              </expression>
+              <inputs>
+                <input name="DefinitionMode">
+                  <expression>
+                    <expression-string>TwoPoints</expression-string>
+                  </expression>
+                </input>
+                <input name="X">
+                  <expression>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint").X</expression-string>
+                  </expression>
+                </input>
+                <input name="Y">
+                  <expression>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint").Y</expression-string>
+                  </expression>
+                </input>
+                <input name="Angle">
+                  <expression available="False">
+                    <expression-string>0</expression-string>
+                  </expression>
+                </input>
+                <input name="X2">
+                  <expression>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint3").X</expression-string>
+                  </expression>
+                </input>
+                <input name="Y2">
+                  <expression>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint3").Y</expression-string>
+                  </expression>
+                </input>
+              </inputs>
+              <userXML />
+            </subObject>
+            <input name="Offset">
+              <expression>
+                <expression-string>Disabled</expression-string>
+              </expression>
+            </input>
+            <input name="Comment">
+              <expression>
+                <expression-string></expression-string>
+              </expression>
+            </input>
+            <input name="ResetPoint">
+              <expression>
+                <expression-string>InspectionStart</expression-string>
+              </expression>
+            </input>
           </inputs>
           <userXML />
         </step>
@@ -3065,7 +4079,7 @@
                           </input>
                           <input name="Low">
                             <expression>
-                              <expression-string>5000</expression-string>
+                              <expression-string>100</expression-string>
                             </expression>
                           </input>
                           <input name="High">
@@ -3077,56 +4091,6 @@
                         <userXML />
                       </subObject>
                       <subObject name="Filter2" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="d0aefb10-52b1-44e5-9f7e-cc1eab5858c1" Version="10.0.454.0">
-                        <inputs>
-                          <input name="Enabled">
-                            <expression>
-                              <expression-string>False</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Operation">
-                            <expression>
-                              <expression-string>Exclude</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Criteria">
-                            <expression>
-                              <expression-string>Feature</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Edge">
-                            <expression available="False">
-                              <expression-string>AnyEdge</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Feature">
-                            <expression>
-                              <expression-string>Area</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Status">
-                            <expression available="False">
-                              <expression-string>AllBlobs</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Condition">
-                            <expression>
-                              <expression-string>Greater</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Low">
-                            <expression>
-                              <expression-string>7000</expression-string>
-                            </expression>
-                          </input>
-                          <input name="High">
-                            <expression available="False">
-                              <expression-string>0</expression-string>
-                            </expression>
-                          </input>
-                        </inputs>
-                        <userXML />
-                      </subObject>
-                      <subObject name="Filter3" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="6de87e09-0eee-4297-a487-43794d636c03" Version="10.0.454.0">
                         <inputs>
                           <input name="Enabled">
                             <expression>
@@ -3165,7 +4129,7 @@
                           </input>
                           <input name="Low">
                             <expression>
-                              <expression-string>50000</expression-string>
+                              <expression-string>200</expression-string>
                             </expression>
                           </input>
                           <input name="High">
@@ -3244,7 +4208,7 @@
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
                   <input name="SearchRegion">
@@ -3274,7 +4238,7 @@
                       </input>
                       <input name="ThresholdLow">
                         <expression>
-                          <expression-string>166</expression-string>
+                          <expression-string>175</expression-string>
                         </expression>
                       </input>
                       <input name="ThresholdHigh">
@@ -3312,7 +4276,7 @@
                   </input>
                   <input name="RemoveBorderBlobs">
                     <expression>
-                      <expression-string>False</expression-string>
+                      <expression-string>True</expression-string>
                     </expression>
                   </input>
                   <input name="GrayImage">
@@ -3482,7 +4446,7 @@
                             <inputs>
                               <input name="CoordinateSystem">
                                 <expression>
-                                  <expression-string>Absolute</expression-string>
+                                  <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                                 </expression>
                               </input>
                               <input name="X">
@@ -3595,7 +4559,7 @@
                           </input>
                           <input name="EdgelDenoisingRadius">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>10</expression-string>
                             </expression>
                           </input>
                           <input name="FilterSmoothness">
@@ -3638,7 +4602,7 @@
                           </input>
                           <input name="FitDistanceOutliersValue">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>4</expression-string>
                             </expression>
                           </input>
                           <input name="FitType">
@@ -3663,22 +4627,22 @@
                               </input>
                               <input name="EndRadius">
                                 <expression>
-                                  <expression-string>118.171</expression-string>
+                                  <expression-string>7.29303</expression-string>
                                 </expression>
                               </input>
                               <input name="StartRadius">
                                 <expression>
-                                  <expression-string>81.7408</expression-string>
+                                  <expression-string>3.64651</expression-string>
                                 </expression>
                               </input>
                               <input name="X">
                                 <expression>
-                                  <expression-string>0.138236</expression-string>
+                                  <expression-string>-0.179615</expression-string>
                                 </expression>
                               </input>
                               <input name="Y">
                                 <expression>
-                                  <expression-string>-0.364295</expression-string>
+                                  <expression-string>0.133557</expression-string>
                                 </expression>
                               </input>
                             </inputs>
@@ -3702,7 +4666,7 @@
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
                   <objectCollection name="Tolerances" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Metrology+TheTolerances, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="15306788-1d61-435e-b373-c016a0f942f2" Version="10.0.454.0">
@@ -5036,7 +6000,7 @@
                           </input>
                           <input name="EdgelDenoisingRadius">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>10</expression-string>
                             </expression>
                           </input>
                           <input name="FilterSmoothness">
@@ -5079,7 +6043,7 @@
                           </input>
                           <input name="FitDistanceOutliersValue">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>4</expression-string>
                             </expression>
                           </input>
                           <input name="FitType">
@@ -6527,7 +7491,7 @@
                           </input>
                           <input name="EdgelDenoisingRadius">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>10</expression-string>
                             </expression>
                           </input>
                           <input name="FilterSmoothness">
@@ -6570,7 +7534,7 @@
                           </input>
                           <input name="FitDistanceOutliersValue">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>4</expression-string>
                             </expression>
                           </input>
                           <input name="FitType">
@@ -8018,7 +8982,7 @@
                           </input>
                           <input name="EdgelDenoisingRadius">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>10</expression-string>
                             </expression>
                           </input>
                           <input name="FilterSmoothness">
@@ -8061,7 +9025,7 @@
                           </input>
                           <input name="FitDistanceOutliersValue">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>4</expression-string>
                             </expression>
                           </input>
                           <input name="FitType">
@@ -8518,11 +9482,69 @@
                     </inputs>
                     <userXML />
                   </subObject>
-                  <input name="SearchRegion">
+                  <subObject name="SearchRegion" type="Matrox.DesignAssistant.Core.Shapes.ConfigurableRectangle, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="3f123465-1546-4355-bfd0-f2449b62dd4d" Version="10.0.454.0">
                     <expression>
-                      <expression-string>WholeImage</expression-string>
+                      <expression-string>Rectangle</expression-string>
                     </expression>
-                  </input>
+                    <inputs>
+                      <input name="CoordinateSystem">
+                        <expression>
+                          <expression-string>Absolute</expression-string>
+                        </expression>
+                      </input>
+                      <input name="DefinitionMode">
+                        <expression>
+                          <expression-string>TopLeftWidthHeight</expression-string>
+                        </expression>
+                      </input>
+                      <input name="TopLeftX">
+                        <expression>
+                          <expression-string>607.912</expression-string>
+                        </expression>
+                      </input>
+                      <input name="TopLeftY">
+                        <expression>
+                          <expression-string>317.372</expression-string>
+                        </expression>
+                      </input>
+                      <input name="CenterX">
+                        <expression available="False">
+                          <expression-string>250</expression-string>
+                        </expression>
+                      </input>
+                      <input name="CenterY">
+                        <expression available="False">
+                          <expression-string>250</expression-string>
+                        </expression>
+                      </input>
+                      <input name="BottomRightX">
+                        <expression available="False">
+                          <expression-string>400</expression-string>
+                        </expression>
+                      </input>
+                      <input name="BottomRightY">
+                        <expression available="False">
+                          <expression-string>400</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Width">
+                        <expression>
+                          <expression-string>101.562</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Height">
+                        <expression>
+                          <expression-string>58.7164</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Angle">
+                        <expression>
+                          <expression-string>249.302</expression-string>
+                        </expression>
+                      </input>
+                    </inputs>
+                    <userXML />
+                  </subObject>
                   <input name="StringFormat">
                     <expression>
                       <expression-string>Default</expression-string>
@@ -9895,7 +10917,7 @@
                           </input>
                           <input name="EdgelDenoisingRadius">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>10</expression-string>
                             </expression>
                           </input>
                           <input name="FilterSmoothness">
@@ -9938,7 +10960,7 @@
                           </input>
                           <input name="FitDistanceOutliersValue">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>4</expression-string>
                             </expression>
                           </input>
                           <input name="FitType">
@@ -11336,7 +12358,7 @@
                           </input>
                           <input name="EdgelDenoisingRadius">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>10</expression-string>
                             </expression>
                           </input>
                           <input name="FilterSmoothness">
@@ -11379,7 +12401,7 @@
                           </input>
                           <input name="FitDistanceOutliersValue">
                             <expression available="False">
-                              <expression-string>Default</expression-string>
+                              <expression-string>4</expression-string>
                             </expression>
                           </input>
                           <input name="FitType">
