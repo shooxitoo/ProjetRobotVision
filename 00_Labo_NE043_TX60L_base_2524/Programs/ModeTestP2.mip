@@ -189,9 +189,7 @@ INDEX.UNITE=0
 
 print(" ")
 print(" ")
-InitRob()
-InitCom()
-//ComputeOrigins()
+
 //Remplir le tableau
 DBReadOF()
 //Boucle OFs
@@ -206,6 +204,7 @@ while (INDEX.OF<arraySize(gcQueryResultOF.ROWS))
         //Boucle Gamme
         while(INDEX.GAMME<arraySize(gcQueryResultGamme.ROWS)) //Boucle sur le nombre de Gammes (Etapes à réaliser)
             ExecuteAssembly(gcQueryResultGamme.ROWS[INDEX.GAMME])
+            DBWriteJournal(StrToInt(gcQueryResultOF.ROWS[INDEX.OF].Id),StrToInt(gcQueryResultOF.ROWS[INDEX.OF].Gamme),StrToInt(gcQueryResultGamme.ROWS[INDEX.GAMME].Phase))
             INDEX.GAMME+=1
         end
         INDEX.UNITE += 1
@@ -253,7 +252,6 @@ return
 // Module:
 // Description:
 // * * * * * * * * * * * * * * *
-
 print("Connexion Matrox")
 if (tcpConnect(gsMatrox))
     print("Client connected", gsMatrox)
@@ -269,6 +267,36 @@ if (!dbcConnect(gsSqlServer, l_sErrorMessage))
     print("Erreur connexion", l_sErrorMessage)
     Erreur()
 end
+
+return
+.END
+
+.PROGRAM InitRob
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    int j
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+print("Init ROB")
+
+UtilInitRobotMan("Tool_MOD_P2Cam", 10) //Question prof: Préhenseur disparait
+print("Robo pret")
+ioWrite("brasValve1", FALSE)
+ioWrite("brasValve2", FALSE)
+print("Move pos secu")
+//move(OriginePalettePrise1)
+move(gcPosScanPalette1)
 
 return
 .END
@@ -292,38 +320,10 @@ print("Init")
 ComputeOrigins()
 InitCom()
 InitRob()
+
 gStatusRobot = CTE.STATUS.INITIALIZED
 
-delay(1)
 print("Init done.")
-return
-.END
-
-.PROGRAM InitRob
-
-.DESCRIPTION
-
-.INPUTS
-
-.VARIABLES
-
-    int j
-
-.RETURN_TYPE none
-
-.BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
-
-UtilInitRobotMan("Tool_MOD_Teach", 10) //Question prof: Préhenseur disparait
-ioWrite("brasValve1", FALSE)
-ioWrite("brasValve2", FALSE)
-ComputeOrigins()
-movej (gjPosTable)
-//move(OriginePalettePrise,10)
-//moves(OriginePalettePrise)
 return
 .END
 
@@ -523,6 +523,8 @@ return
 
 .INPUTS
 
+    int OFID, GAMMEID, PHASE
+
 .VARIABLES
 
     string ls_WriteQuery
@@ -534,7 +536,8 @@ return
 // Module:
 // Description:
 // * * * * * * * * * * * * * * *
-ls_WriteQuery="INSERT INTO Journal"
+
+ls_WriteQuery="INSERT INTO Journal VALUES (1,"+OFID","+GAMMEID","+PHASE");"//+"DateFinHeure");"
 
 DBExecute(ls_WriteQuery)
 
@@ -572,6 +575,7 @@ if (tcpSendAndWait(gsMatrox,Request,l_sDataReceived,10))
     return RsReadReplyResult() == "ACK"
 else
     print("Erreur d'envoie")
+    Erreur()
     return false
 end
 .END
@@ -598,31 +602,34 @@ end
 
 RsClear()
 Request=RsCreateRequest("INSPECT_GOUP")
-//ToolChange("Tool_MOD_P2Cam")
+ToolChange("Tool_MOD_P2Cam")
+
+if (SendMatrox(Request))
+    print("Lecture position goupille")
+    gcPositionPickGoup = OriginePalettePrise1+trans(RsReadDouble("PosGoupX"),RsReadDouble("PosGoupY"),-10,0,0,180)
+else
+    Erreur()
+    return
+end
+
+//move(PosScanPalette1)
+//print("Scan palette 1")
 
 //if (SendMatrox(Request))
-//  print("Lecture position goupille")
+//  print("ACK reçu de la palette 1")
+//  gcPositionPickGoup = trans(RsReadInt("PosGoupX"),RsReadInt("PosGoupY"))
+//end
+//print("NACK palette 1 Essai palette 2")
+
+//move(PosScanPalette2)
+//print("Scan palette 2")
+//if (SendMatrox(Request))
+//  print("ACK reçu de la palette 2")
 //  gcPositionPickGoup = trans(RsReadInt("PosGoupX"),RsReadInt("PosGoupY"))
 //end
 
-move(PosScanPalette1)
-print("Scan palette 1")
-
-if (SendMatrox(Request))
-    print("ACK reçu de la palette 1")
-    gcPositionPickGoup = trans(RsReadInt("PosGoupX"),RsReadInt("PosGoupY"))
-end
-print("NACK palette 1 Essai palette 2")
-
-move(PosScanPalette2)
-print("Scan palette 2")
-if (SendMatrox(Request))
-    print("ACK reçu de la palette 2")
-    gcPositionPickGoup = trans(RsReadInt("PosGoupX"),RsReadInt("PosGoupY"))
-end
-
-print("NACK palette 2 également : engrenage non trouvé")
-Erreur()
+//print("NACK palette 2 également : engrenage non trouvé")
+//Erreur()
 return
 .END
 
@@ -648,11 +655,11 @@ return
 
 RsClear()
 Request=RsCreateRequest("INSPECT_ROND")
-//ToolChange("Tool_MOD_P2Cam)
+ToolChange("Tool_MOD_P2Cam")
 
 if (SendMatrox(Request))
     print("Lecture position rondelle")
-    gcPositionPickRond = trans(RsReadInt("PosRondX"),RsReadInt("PosRondY"))
+    gcPositionPickRond = OriginePalettePrise1+trans(RsReadDouble("PosRondX"),RsReadDouble("PosRondY"))
 end
 
 return
@@ -716,60 +723,9 @@ Request=RsCreateRequest("INSPECT_ENGR15")
 
 if (SendMatrox(Request))
     print("Lecture position Engr15")
-    gcPositionEngr15 = trans(RsReadDouble("PosEngr15X"),RsReadDouble("PosEngr15Y"))
+    gcPositionEngr15 = OriginePalettePrise1+trans(RsReadDouble("PosEngr15X"),RsReadDouble("PosEngr15Y"))
 end
 
-return
-.END
-
-.PROGRAM InspectionENGR15QUESTIONPROF
-
-.DESCRIPTION
-
-.INPUTS
-
-.VARIABLES
-
-    string Request, l_sDataReceived
-    int Input
-    real DiamCercle2
-
-.RETURN_TYPE none
-
-.BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
-RsClear()
-Request = RsCreateRequest("INSPECT_ENGR15")
-
-//Tentative sur palette 1
-//move(PosScanPalette1)
-print("Inspection Engrenage 15 - palette 1")
-
-if (SendMatrox(Request))
-    print("ACK reçu palette 1 - lecture position")
-    gcPositionEngr15 = trans(RsReadDouble("PosEngr15X"), RsReadDouble("PosEngr15Y"))
-    //OriginePaletteActuelle = frameCompose(gcOriginPalettePrise, PosPriseX, PosPriseY)
-    return
-end
-
-//Tentative sur palette 2
-print("NACK palette 1 ? inspection sur palette 2")
-//moves(PosScanPalette2)
-print("Inspection Engrenage 15 - palette 2")
-
-if (SendMatrox(Request))
-    print("ACK reçu palette 2 - lecture position")
-    gcPositionEngr15 = trans(RsReadDouble("PosEngr15X"), RsReadDouble("PosEngr15Y"))
-    //OriginePaletteActuelle = frameCompose(gcOriginPalettePrise2, PosPriseX2, PosPriseY2)
-    return
-end
-
-// Échec complet
-print("Inspection engrenage 15 échouée sur les deux palettes")
-Erreur()
 return
 .END
 
@@ -799,7 +755,7 @@ Request=RsCreateRequest("INSPECT_ENGR18")
 
 if (SendMatrox(Request))
     print("Lecture position Engr18")
-    gcPositionEngr18 = trans(RsReadDouble("PosEngr18X"),RsReadDouble("PosEngr18Y"))
+    gcPositionEngr18 = OriginePalettePrise1+trans(RsReadDouble("PosEngr18X"),-RsReadDouble("PosEngr18Y"))
 end
 
 return
@@ -831,7 +787,7 @@ Request=RsCreateRequest("INSPECT_ENGR25")
 
 if (SendMatrox(Request))
     print("Lecture position Engr25")
-    gcPositionEngr25 = trans(RsReadDouble("PosEngr25X"),RsReadDouble("PosEngr25Y"))
+    gcPositionEngr25 = OriginePalettePrise1+trans(RsReadDouble("PosEngr25X"),-RsReadDouble("PosEngr25Y"))
 end
 
 return
@@ -863,7 +819,7 @@ Request=RsCreateRequest("INSPECT_ENGR30")
 
 if (SendMatrox(Request))
     print("Lecture position Engr30")
-    gcPositionEngr30 = trans(RsReadDouble("PosEngr30X"),RsReadDouble("PosEngr30Y"))
+    gcPositionEngr30 = OriginePalettePrise1+trans(RsReadDouble("PosEngr30X"),-RsReadDouble("PosEngr30Y"))
 end
 
 return
@@ -890,7 +846,7 @@ return
 
 //RsClear()
 Request=RsCreateRequest("INSPECT_NBENGR")
-//ToolChange("Tool_MOD_P2Cam")
+ToolChange("Tool_MOD_P2Cam")
 
 if (SendMatrox(Request))
     print(RsReadInt("NombreEngr"))
@@ -1228,7 +1184,7 @@ return resultat
 
 .VARIABLES
 
-    real DecalageZ2 = 60
+    real DecalageZ2 = 100
 
 .RETURN_TYPE none
 
@@ -1237,6 +1193,7 @@ return resultat
 // Module:
 // Description:
 // * * * * * * * * * * * * * * *
+ToolChange("Tool_MOD_P2Vacuum")
 move(Position,DecalageZ2)
 moves(Position)
 waitEndMove()
@@ -1251,7 +1208,7 @@ moves(Position,DecalageZ2)
 return
 .END
 
-.PROGRAM PriseDeposeGoupRond
+.PROGRAM PriseDeposeGoup
 
 .DESCRIPTION
 
@@ -1262,7 +1219,7 @@ return
 
 .VARIABLES
 
-    real DecalageZ2 = 60
+    real DecalageZ2 = 100
 
 .RETURN_TYPE none
 
@@ -1271,6 +1228,42 @@ return
 // Module:
 // Description:
 // * * * * * * * * * * * * * * *
+ToolChange("Tool_MOD_P2Pince")
+move(Position,DecalageZ2)
+moves(Position)
+waitEndMove()
+ioWrite("brasValve1", Prise)
+
+//if (PartName!="")
+//  M3D_AsmObjectToggle(PartName,Index,Prise)
+//end
+
+moves(Position,DecalageZ2)
+
+return
+.END
+
+.PROGRAM PriseDeposeRond
+
+.DESCRIPTION
+
+.INPUTS
+
+    locc Position
+    bool Prise
+
+.VARIABLES
+
+    real DecalageZ2 = 100
+
+.RETURN_TYPE none
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module:
+// Description:
+// * * * * * * * * * * * * * * *
+ToolChange("Tool_MOD_P2Vacuum")
 move(Position,DecalageZ2)
 moves(Position)
 waitEndMove()
@@ -1357,8 +1350,14 @@ return
 print("Execute Assembly",Operation.Gamme)
 
 CycleEngrenage(Operation)
+ToolChange("Tool_MOD_P2Cam")
+move(gcPosScanPalette1)
 CycleGoupille(Operation)
+ToolChange("Tool_MOD_P2Cam")
+move(gcPosScanPalette1)
 CycleRondelle(Operation)
+ToolChange("Tool_MOD_P2Cam")
+move(gcPosScanPalette1)
 
 return
 .END
@@ -1383,35 +1382,39 @@ return
 // Description:
 // * * * * * * * * * * * * * * *
 print("Cycle d'engrenage")
-//PositionDepose=trans(Operation.PosX,Operation.PosY)
 ToolChange("Tool_MOD_P2Vacuum")
-
-FrameOrigineOK = SelectionPalette()
-
+PositionDepose=OriginePaletteDepose+trans(StrToInt(Operation.PosY),StrToInt(Operation.PosX))
+//FrameOrigineOK = SelectionPalette()
+WaitEndMove()
+delay(2)
 switch (StrToInt(Operation.Dents))
 case 15
     InspectionENGR15()
+    delay(2)
     print("Prise Engrenage 15",Operation.Dents)
-    PriseDeposeEngr(OriginePaletteActuelle+gcPosCoinTableBReel,TRUE)//gcPositionEngr15
+    PriseDeposeEngr(gcPositionEngr15,TRUE)//gcPositionEngr15
 
 case 18
     InspectionENGR18()
+    delay(2)
     print("Prise Engrenage 18",Operation.Dents)
-    //PriseDeposeEngr(OriginePaletteOK+gcPositionEngr18,TRUE)
+    PriseDeposeEngr(gcPositionEngr18,TRUE)
 
 case 25
     InspectionENGR25()
+    delay(2)
     print("Prise Engrenage 25",Operation.Dents)
-    //PriseDeposeEngr(OriginePaletteActuelle+gcPositionEngr25,TRUE)
+    PriseDeposeEngr(gcPositionEngr25,TRUE)
 
 case 30
     InspectionENGR30()
+    delay(2)
     print("Prise Engrenage 30",Operation.Dents)
-    //PriseDeposeEngr(OriginePaletteActuelle+gcPositionEngr30,TRUE)
+    PriseDeposeEngr(gcPositionEngr30,TRUE)
 end
 
 print("Dépose Engrenage "+Operation.Dents,Operation.Dents)
-PriseDeposeEngr(gcOriginPaletteDepose+gcPosCoinTableAReel,FALSE)//gcPositionDepose
+PriseDeposeEngr(PositionDepose,FALSE) //gcPositionDepose
 
 return
 .END
@@ -1436,14 +1439,18 @@ return
 // Description:
 // * * * * * * * * * * * * * * *
 print("Cycle goupille")
-//PositionDepose=trans(Operation.PosX,Operation.PosY)
 ToolChange("Tool_MOD_P2Pince")
+PositionDepose=OriginePaletteDepose+trans(StrToInt(Operation.PosY),StrToInt(Operation.PosX),-10)
+
+delay(2)
+InspectionGoup()
+delay(2)
 
 print("Prise goupille")
-//PriseDeposeGoupRond(gcPositionPickGoup,TRUE)
+PriseDeposeGoup(gcPositionPickGoup,TRUE)
 
 print("Depose goupille")
-//PriseDeposeGoupRond(PositionDepose,FALSE)
+PriseDeposeGoup(PositionDepose,FALSE)
 
 return
 .END
@@ -1468,14 +1475,18 @@ return
 // Description:
 // * * * * * * * * * * * * * * *
 print("Cycle rondelle")
-//PositionDepose=trans(Operation.PosX,Operation.PosY)
 ToolChange("Tool_MOD_P2Vacuum")
+PositionDepose=OriginePaletteDepose+trans(StrToInt(Operation.PosY),StrToInt(Operation.PosX),-10)
+
+delay(2)
+InspectionRond()
+delay(2)
 
 print("Prise rondelle")
-//PriseDeposeGoupRond(gcPositionPickRond,TRUE)
+PriseDeposeRond(gcPositionPickRond,TRUE)
 
 print("Depose rondelle")
-//PriseDeposeGoupRond(PositionDepose,FALSE)
+PriseDeposeRond(PositionDepose,FALSE)
 
 return
 .END
@@ -1497,6 +1508,7 @@ return
 // Module:
 // Description:
 // * * * * * * * * * * * * * * *
+
 //Position dégagée
 //move(gcPosToolChange)
 print("Changement d'outil ",Outil)
@@ -1521,9 +1533,9 @@ return
 // Description:
 // * * * * * * * * * * * * * * *
 
-OriginePalettePrise1=frameCompose(gcOriginPalettePrise,PosPriseX,PosPriseY)
-OriginePalettePrise2=frameCompose(gcOriginPalettePrise,PosPriseX,PosPriseY)
-OriginePaletteDepose=frameCompose(gcOriginPaletteDepose,X,Y)+trans(10,15,0)
+OriginePalettePrise1=frameCompose(gcOriginPalettePrise,gcPosPriseX,gcPosPriseY)+trans(-17.5,0,0)
+//OriginePalettePrise2=frameCompose(gcOriginPalettePrise2,PosPriseX2,PosPriseY2)
+OriginePaletteDepose=frameCompose(gcOriginPaletteDepose,gcPosDeposeX,gcPosDeposeY)+trans(15,-10,0)
 
 return
 .END
@@ -1578,6 +1590,6 @@ return
 .MODULE_GLOBAL_CONSTANTS
 
     string gsMatrox = "Matrox", COL_NAME = "Nom", gTaskRobotName = "Robot", gTaskMainName = "Main"
-    locc PosReglette = {707.298, -69.267, -328.118, -178.558, 4.82e-01, 179.7360000}, gcPositionEngr15 = {1009.006, 1723.043, 0, -0, 0, -0}, gcPositionEngr18, gcPositionEngr25, gcPositionEngr30, gcPositionPickGoup, gcPositionPickRond, gcOriginPalettePrise = {622.809, 530.959, -259.176, -141.82, 1.597, -173.96}, gcOriginPaletteDepose, PosPriseX = {697.866, 530.849, -259.132, -141.82, 1.598, -173.959}, PosPriseY = {622.905, 409.29, -328.631, -141.821, 1.597, -173.959}, OriginePalettePrise1 = {605.3090218, 530.9846471, -259.1862589, -150.2799769, 7.0798887e-02, 5.6272718e-02}, OriginePaletteDepose, OriginePalettePrise2, FrameOrigineOK
+    locc PosReglette = {707.298, -69.267, -328.118, -178.558, 4.82e-01, 179.7360000}, gcPositionEngr15 = {622.1552584, 476.1833892, -289.3856101, -150.5288917, 1.9252068e-01, 8.1199396e-01}, gcPositionEngr18, gcPositionEngr25, gcPositionEngr30, gcPositionPickGoup = {709.384213, 510.6385588, -258.0917335, -150.5288917, 1.9252068e-01, -179.1880060}, gcPositionPickRond = {622.8101919, 498.5361906, -276.751351, -150.5288917, 1.9252068e-01, 8.1199396e-01}, OriginePaletteDepose = {602.4331277, 124.3360491, -364.9041819, 179.9038708, 3.2031177e-01, 18.9992490}, gcOriginPaletteDepose = {584.995, 119.764, -364.994, -179.178, -6.2e-02, 179.2730000}, gcPosDeposeX = {656.004, 95.315, -364.556, -179.178, -6.1e-02, 179.2740000}, gcPosDeposeY = {539.854, -12.771, -365.024, -179.178, -6.2e-02, 179.2730000}, OriginePalettePrise1 = {605.2628561, 530.4078375, -258.8081754, -150.5288917, 1.9252068e-01, 8.1199396e-01}, gcOriginPalettePrise = {622.761, 530.163, -258.879, -149.39, -4.28e-01, 179.0870000}, gcPosPriseX = {697.374, 529.119, -259.181, -149.389, -4.27e-01, 179.0870000}, gcPosPriseY = {621.547, 408.221, -327.794, -149.39, -4.28e-01, 179.0870000}, OriginePalettePrise2, FrameOrigineOK, gcPosScanPalette1 = {667.521, 451.43, -270.152, -150, 0, 90}, PosCalib = {568.995, -142.493, -344.492, -179.988, -1e-03, 90.0010000}
 
 .MODULE_END
