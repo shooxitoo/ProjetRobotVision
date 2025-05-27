@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="yes"?>
 <UIConfiguration version="10.0.454.0">
-  <Flowchart name="MainFlowchart" id="9b77b042-dee4-46d2-80cc-f950f19e6e80" scale="1">
+  <Flowchart name="MainFlowchart" id="9b77b042-dee4-46d2-80cc-f950f19e6e80" scale="1.13377">
     <imageInfos />
-    <Step name="FlowchartStart" id="725b4ba6-862f-4a97-b985-435ff720a088" multiDisplayViewMode="Single" quickRunEnabled="True">
+    <Step name="FlowchartStart" id="c4fde6ff-a1bb-4bcb-ace7-9f8c0954a4b3" multiDisplayViewMode="Single" quickRunEnabled="True">
       <annotations-manager visible="True">
         <annotations-Display1>
           <annotations>
@@ -2500,7 +2500,7 @@
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display4>
     </Step>
-    <Step name="CameraCalib" id="9a746d5f-d97a-469e-81c4-5522c668da31" multiDisplayViewMode="Single" quickRunEnabled="True" UIMode="Image2D">
+    <Step name="CameraCalib" id="9a746d5f-d97a-469e-81c4-5522c668da31" multiDisplayViewMode="Single" quickRunEnabled="False" UIMode="Image2D">
       <annotations-manager visible="True">
         <annotations-Display1>
           <annotations>
@@ -8176,7 +8176,7 @@
         </annotations-Display4>
       </annotations-manager>
       <imageInfos>
-        <imageInfo linkPath="CameraCalib.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
+        <imageInfo linkPath="CameraCalib.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="174" panOffsetY="30" />
         <imageInfo linkPath="CameraCalib.CorrectedImage" colorMap="Default" viewMode="Default" viewBitShift="0" />
         <imageInfo linkPath="CameraCalib.DepthMap" colorMap="Default" viewMode="Default" viewBitShift="0" />
         <imageInfo linkPath="CameraCalib.PointCloud" colorMap="Default" viewMode="Default" viewBitShift="0" />
@@ -8184,7 +8184,7 @@
         <imageInfo linkPath="CameraCalib.CameraLive" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
       </imageInfos>
       <displayInfo-Display1 linkPath="CameraCalib.Image" isShowingDisplay3D="False">
-        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
+        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="174" panOffsetY="30" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="CameraCalib.Image" isShowingDisplay3D="False">
@@ -8200,7 +8200,7 @@
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display4>
     </Step>
-    <Step name="CalibrationPalette" id="1181e5cd-67f5-4257-b565-b0715c3ace3c" multiDisplayViewMode="Single" quickRunEnabled="True">
+    <Step name="CalibrationPalette" id="1181e5cd-67f5-4257-b565-b0715c3ace3c" multiDisplayViewMode="Single" quickRunEnabled="False">
       <annotations-manager visible="True">
         <annotations-Display1>
           <annotations>
@@ -11992,10 +11992,10 @@
         </annotations-Display4>
       </annotations-manager>
       <imageInfos>
-        <imageInfo linkPath="CalibrationPalette.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
+        <imageInfo linkPath="CalibrationPalette.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="170" panOffsetY="30" />
       </imageInfos>
       <displayInfo-Display1 linkPath="CalibrationPalette.Image" isShowingDisplay3D="False">
-        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
+        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="170" panOffsetY="30" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="CalibrationPalette.Image" isShowingDisplay3D="False">
@@ -31454,7 +31454,7 @@
         </annotations-Display4>
       </annotations-manager>
       <imageInfos>
-        <imageInfo linkPath="ImageActuelle.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
+        <imageInfo linkPath="ImageActuelle.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="0" panOffsetY="0" />
         <imageInfo linkPath="ImageActuelle.CorrectedImage" colorMap="Default" viewMode="Default" viewBitShift="0" />
         <imageInfo linkPath="ImageActuelle.DepthMap" colorMap="Default" viewMode="Default" viewBitShift="0" />
         <imageInfo linkPath="ImageActuelle.PointCloud" colorMap="Default" viewMode="Default" viewBitShift="0" />
@@ -35954,10 +35954,10 @@
         </annotations-Display4>
       </annotations-manager>
       <imageInfos>
-        <imageInfo linkPath="Metrology.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="98" panOffsetY="266" />
+        <imageInfo linkPath="Metrology.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
       </imageInfos>
       <displayInfo-Display1 linkPath="Metrology.Image" isShowingDisplay3D="False">
-        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="98" panOffsetY="266" />
+        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="Metrology.Image" isShowingDisplay3D="False">
@@ -38890,10 +38890,10 @@
       </annotations-manager>
       <imageInfos>
         <imageInfo linkPath="Fixture2.Image" colorMap="Default" viewMode="Default" viewBitShift="0" />
-        <imageInfo linkPath="Source Fixture Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="98" panOffsetY="168" />
+        <imageInfo linkPath="Source Fixture Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
       </imageInfos>
       <displayInfo-Display1 linkPath="Source Fixture Image" isShowingDisplay3D="False">
-        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="98" panOffsetY="168" />
+        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="Fixture2.Image" isShowingDisplay3D="False">
@@ -40142,7 +40142,7 @@
       </annotations-manager>
       <imageInfos />
       <displayInfo-Display1 linkPath="ImageActuelle.Image" isShowingDisplay3D="False">
-        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.125" panOffsetX="0" panOffsetY="1249.1663551401869" />
+        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="114" panOffsetY="30" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="ImageActuelle.Image" isShowingDisplay3D="False">
@@ -48890,11 +48890,11 @@
       <imageInfos>
         <imageInfo linkPath="BlobEngr15.Image" colorMap="Default" viewMode="Default" viewBitShift="0" />
         <imageInfo linkPath="BlobEngr15.OutputImage" colorMap="Default" viewMode="Default" viewBitShift="0" />
-        <imageInfo linkPath="Blob Identifier Image" colorMap="None" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
+        <imageInfo linkPath="Blob Identifier Image" colorMap="None" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="78" panOffsetY="30" />
         <imageInfo linkPath="BlobEngr15.GrayImage" colorMap="Default" viewMode="Default" viewBitShift="0" />
       </imageInfos>
       <displayInfo-Display1 linkPath="Blob Identifier Image" isShowingDisplay3D="False">
-        <display2D colorMap="None" viewMode="Default" viewBitShift="0" zoomFactor="0.25" panOffsetX="0" panOffsetY="0" />
+        <display2D colorMap="None" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="78" panOffsetY="30" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="Blob Identifier Image" isShowingDisplay3D="False">
@@ -48911,12 +48911,30 @@
       </displayInfo-Display4>
       <resultcolumns>
         <column name="IndexColumn" />
+        <column name="FeatureLabel" />
+        <column name="FeatureArea" />
+        <column name="FeatureBoxMaximumX" />
+        <column name="FeatureBoxMaximumY" />
+        <column name="FeatureBoxMinimumX" />
+        <column name="FeatureBoxMinimumY" />
+        <column name="FeatureCenterOfGravityXBinary" />
+        <column name="FeatureCenterOfGravityYBinary" />
+        <column name="FeaturePrincipalAxisAngleBinary" />
         <column name="ExecutionTimeColumn" />
       </resultcolumns>
       <resultgrid>
         <resultcolumns>
           <column header="Index" index="0" />
-          <column header="Execution Time" index="1" />
+          <column header="Label" index="1" />
+          <column header="Area" index="2" />
+          <column header="Box Maximum X" index="3" />
+          <column header="Box Maximum Y" index="4" />
+          <column header="Box Minimum X" index="5" />
+          <column header="Box Minimum Y" index="6" />
+          <column header="Center of Gravity X (Binary)" index="7" />
+          <column header="Center of Gravity Y (Binary)" index="8" />
+          <column header="Principal Axis Angle (Binary)" index="9" />
+          <column header="Execution Time" index="10" />
         </resultcolumns>
       </resultgrid>
     </Step>
@@ -48928,7 +48946,7 @@
               <annotation name="Search regions" visible="True" expanded="False" isordered="False" drawingorder="1">
                 <input name="Visible">
                   <expression>
-                    <expression-string>True</expression-string>
+                    <expression-string>False</expression-string>
                   </expression>
                 </input>
                 <input name="Editable">
@@ -49644,7 +49662,7 @@
               <annotation name="Output coordinates" visible="True" expanded="False" isordered="False" drawingorder="1">
                 <input name="Visible">
                   <expression>
-                    <expression-string>True</expression-string>
+                    <expression-string>False</expression-string>
                   </expression>
                 </input>
                 <input name="Editable">
@@ -50046,7 +50064,7 @@
               <annotation name="Search regions" visible="True" expanded="False" isordered="False" drawingorder="1">
                 <input name="Visible">
                   <expression>
-                    <expression-string>True</expression-string>
+                    <expression-string>False</expression-string>
                   </expression>
                 </input>
                 <input name="Editable">
@@ -50762,7 +50780,7 @@
               <annotation name="Output coordinates" visible="True" expanded="False" isordered="False" drawingorder="1">
                 <input name="Visible">
                   <expression>
-                    <expression-string>True</expression-string>
+                    <expression-string>False</expression-string>
                   </expression>
                 </input>
                 <input name="Editable">
@@ -51164,7 +51182,7 @@
               <annotation name="Search regions" visible="True" expanded="False" isordered="False" drawingorder="1">
                 <input name="Visible">
                   <expression>
-                    <expression-string>True</expression-string>
+                    <expression-string>False</expression-string>
                   </expression>
                 </input>
                 <input name="Editable">
@@ -51880,7 +51898,7 @@
               <annotation name="Output coordinates" visible="True" expanded="False" isordered="False" drawingorder="1">
                 <input name="Visible">
                   <expression>
-                    <expression-string>True</expression-string>
+                    <expression-string>False</expression-string>
                   </expression>
                 </input>
                 <input name="Editable">
@@ -52282,7 +52300,7 @@
               <annotation name="Search regions" visible="True" expanded="False" isordered="False" drawingorder="1">
                 <input name="Visible">
                   <expression>
-                    <expression-string>True</expression-string>
+                    <expression-string>False</expression-string>
                   </expression>
                 </input>
                 <input name="Editable">
@@ -52998,7 +53016,7 @@
               <annotation name="Output coordinates" visible="True" expanded="False" isordered="False" drawingorder="1">
                 <input name="Visible">
                   <expression>
-                    <expression-string>True</expression-string>
+                    <expression-string>False</expression-string>
                   </expression>
                 </input>
                 <input name="Editable">
@@ -53396,10 +53414,10 @@
         </annotations-Display4>
       </annotations-manager>
       <imageInfos>
-        <imageInfo linkPath="MetrologyEngr15.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="98" panOffsetY="222" />
+        <imageInfo linkPath="MetrologyEngr15.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="4" panOffsetX="660.25" panOffsetY="393.5" />
       </imageInfos>
       <displayInfo-Display1 linkPath="MetrologyEngr15.Image" isShowingDisplay3D="False">
-        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="98" panOffsetY="222" />
+        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="4" panOffsetX="660.25" panOffsetY="393.5" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="MetrologyEngr15.Image" isShowingDisplay3D="False">
@@ -54668,7 +54686,7 @@
       </annotations-manager>
       <imageInfos />
       <displayInfo-Display1 linkPath="ImageActuelle.Image" isShowingDisplay3D="False">
-        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="0" panOffsetY="0" />
+        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="1" panOffsetX="516" panOffsetY="313" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="ImageActuelle.Image" isShowingDisplay3D="False">
@@ -116760,11 +116778,11 @@
       <imageInfos>
         <imageInfo linkPath="BlobGoupille.Image" colorMap="Default" viewMode="Default" viewBitShift="0" />
         <imageInfo linkPath="BlobGoupille.OutputImage" colorMap="Default" viewMode="Default" viewBitShift="0" />
-        <imageInfo linkPath="Blob Identifier Image" colorMap="None" viewMode="Default" viewBitShift="0" />
+        <imageInfo linkPath="Blob Identifier Image" colorMap="None" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="178" panOffsetY="30" />
         <imageInfo linkPath="BlobGoupille.GrayImage" colorMap="Default" viewMode="Default" viewBitShift="0" />
       </imageInfos>
       <displayInfo-Display1 linkPath="Blob Identifier Image" isShowingDisplay3D="False">
-        <display2D colorMap="None" viewMode="Default" viewBitShift="0" />
+        <display2D colorMap="None" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="178" panOffsetY="30" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="Blob Identifier Image" isShowingDisplay3D="False">
@@ -117817,7 +117835,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobGoupille" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobGoupille" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -118935,7 +118953,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobGoupille" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobGoupille" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -120053,7 +120071,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobGoupille" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobGoupille" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -121171,7 +121189,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobGoupille" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobGoupille" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -121266,10 +121284,10 @@
         </annotations-Display4>
       </annotations-manager>
       <imageInfos>
-        <imageInfo linkPath="MetrologyGoup.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="18" panOffsetY="192" />
+        <imageInfo linkPath="MetrologyGoup.Image" colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="178" panOffsetY="30" />
       </imageInfos>
       <displayInfo-Display1 linkPath="MetrologyGoup.Image" isShowingDisplay3D="False">
-        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="18" panOffsetY="192" />
+        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="178" panOffsetY="30" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="MetrologyGoup.Image" isShowingDisplay3D="False">
@@ -122538,7 +122556,7 @@
       </annotations-manager>
       <imageInfos />
       <displayInfo-Display1 linkPath="ImageActuelle.Image" isShowingDisplay3D="False">
-        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="0" panOffsetY="0" />
+        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="114" panOffsetY="30" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="ImageActuelle.Image" isShowingDisplay3D="False">
@@ -123787,7 +123805,7 @@
       </annotations-manager>
       <imageInfos />
       <displayInfo-Display1 linkPath="ImageActuelle.Image" isShowingDisplay3D="False">
-        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" />
+        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="0" panOffsetY="0" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="ImageActuelle.Image" isShowingDisplay3D="False">
@@ -165304,7 +165322,7 @@
               <annotation name="Absolute coordinates (PointCloud)" visible="False" expanded="False" />
               <annotation name="Relative coordinates (PointCloud)" visible="True" expanded="False" />
             </step>
-            <step name="CalibrationPalette" isSameStep="False" visible="True" expanded="False" callout="None" filter="Basic">
+            <step name="CalibrationPalette" isSameStep="False" visible="False" expanded="False" callout="None" filter="Basic">
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Relative coordinates" visible="False" expanded="False" />
               <annotation name="Absolute coordinates (Calibration)" visible="False" expanded="False" />
@@ -165447,7 +165465,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobEngr30" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobEngr30" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -165491,7 +165509,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobGoupille" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobGoupille" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -165611,7 +165629,7 @@
               <annotation name="Absolute coordinates (PointCloud)" visible="False" expanded="False" />
               <annotation name="Relative coordinates (PointCloud)" visible="True" expanded="False" />
             </step>
-            <step name="CalibrationPalette" isSameStep="False" visible="True" expanded="False" callout="None" filter="Basic">
+            <step name="CalibrationPalette" isSameStep="False" visible="False" expanded="False" callout="None" filter="Basic">
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Relative coordinates" visible="False" expanded="False" />
               <annotation name="Absolute coordinates (Calibration)" visible="False" expanded="False" />
@@ -165754,7 +165772,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobEngr30" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobEngr30" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -165798,7 +165816,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobGoupille" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobGoupille" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -165918,7 +165936,7 @@
               <annotation name="Absolute coordinates (PointCloud)" visible="False" expanded="False" />
               <annotation name="Relative coordinates (PointCloud)" visible="True" expanded="False" />
             </step>
-            <step name="CalibrationPalette" isSameStep="False" visible="True" expanded="False" callout="None" filter="Basic">
+            <step name="CalibrationPalette" isSameStep="False" visible="False" expanded="False" callout="None" filter="Basic">
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Relative coordinates" visible="False" expanded="False" />
               <annotation name="Absolute coordinates (Calibration)" visible="False" expanded="False" />
@@ -166061,7 +166079,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobEngr30" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobEngr30" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -166105,7 +166123,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobGoupille" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobGoupille" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -166225,7 +166243,7 @@
               <annotation name="Absolute coordinates (PointCloud)" visible="False" expanded="False" />
               <annotation name="Relative coordinates (PointCloud)" visible="True" expanded="False" />
             </step>
-            <step name="CalibrationPalette" isSameStep="False" visible="True" expanded="False" callout="None" filter="Basic">
+            <step name="CalibrationPalette" isSameStep="False" visible="False" expanded="False" callout="None" filter="Basic">
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Relative coordinates" visible="False" expanded="False" />
               <annotation name="Absolute coordinates (Calibration)" visible="False" expanded="False" />
@@ -166368,7 +166386,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobEngr30" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobEngr30" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -166412,7 +166430,7 @@
               <annotation name="Absolute coordinates" visible="False" expanded="False" />
               <annotation name="Output coordinates" visible="False" expanded="False" />
             </step>
-            <step name="BlobGoupille" isSameStep="False" visible="False" expanded="False" callout="MouseOver" filter="Basic">
+            <step name="BlobGoupille" isSameStep="False" visible="True" expanded="False" callout="MouseOver" filter="Basic">
               <annotation name="Search region" visible="True" expanded="False" />
               <annotation name="Convex hulls" visible="False" expanded="False" />
               <annotation name="Convex hull contours" visible="False" expanded="False" />
@@ -166520,7 +166538,7 @@
       </annotations-manager>
       <imageInfos />
       <displayInfo-Display1 linkPath="ImageActuelle.Image" isShowingDisplay3D="False">
-        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" />
+        <display2D colorMap="Default" viewMode="Default" viewBitShift="0" zoomFactor="0.5" panOffsetX="0" panOffsetY="0" />
         <display3D isViewInitialized="False" azimuth="0" elevation="0" roll="0" distance="0" interestPoint="Infinity;Infinity;Infinity" colorComponent="Range" colorMap="Jet" rangeColorMap="Jet" intensityColorMap="None" meshAppearance="Solid" showAxes="False" pointSize="1" backgroundMode="Gradient" />
       </displayInfo-Display1>
       <displayInfo-Display2 linkPath="ImageActuelle.Image" isShowingDisplay3D="False">

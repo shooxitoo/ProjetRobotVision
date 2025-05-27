@@ -2116,12 +2116,12 @@
                         </input>
                         <input name="X">
                           <expression>
-                            <expression-string>129.826</expression-string>
+                            <expression-string>130.63</expression-string>
                           </expression>
                         </input>
                         <input name="Y">
                           <expression>
-                            <expression-string>-13.4418</expression-string>
+                            <expression-string>-60.4569</expression-string>
                           </expression>
                         </input>
                         <input name="Angle">
@@ -2144,7 +2144,7 @@
                   <inputs>
                     <input name="BuildOperation">
                       <expression>
-                        <expression-string>Fit</expression-string>
+                        <expression-string>Inner</expression-string>
                       </expression>
                     </input>
                     <input name="DataAngleTolerance">
@@ -2271,7 +2271,7 @@
                       </expression>
                     </input>
                     <input name="FitType">
-                      <expression>
+                      <expression available="False">
                         <expression-string>StandardFit</expression-string>
                       </expression>
                     </input>
@@ -2287,27 +2287,27 @@
                       <inputs>
                         <input name="CoordinateSystem">
                           <expression>
-                            <expression-string>GlobalFrame</expression-string>
+                            <expression-string>Absolute</expression-string>
                           </expression>
                         </input>
                         <input name="EndRadius">
                           <expression>
-                            <expression-string>3.12156</expression-string>
+                            <expression-string>2.45351</expression-string>
                           </expression>
                         </input>
                         <input name="StartRadius">
                           <expression>
-                            <expression-string>0.81319</expression-string>
+                            <expression-string>1.22675</expression-string>
                           </expression>
                         </input>
                         <input name="X">
                           <expression>
-                            <expression-string>-24.9512</expression-string>
+                            <expression-string>139.757</expression-string>
                           </expression>
                         </input>
                         <input name="Y">
                           <expression>
-                            <expression-string>3.66265</expression-string>
+                            <expression-string>-60.0993</expression-string>
                           </expression>
                         </input>
                       </inputs>
@@ -2315,7 +2315,7 @@
                     </subObject>
                     <input name="ThresholdMode">
                       <expression>
-                        <expression-string>High</expression-string>
+                        <expression-string>VeryHigh</expression-string>
                       </expression>
                     </input>
                   </inputs>
@@ -2373,7 +2373,7 @@
                   <inputs>
                     <input name="BuildOperation">
                       <expression>
-                        <expression-string>Fit</expression-string>
+                        <expression-string>Inner</expression-string>
                       </expression>
                     </input>
                     <input name="DataAngleTolerance">
@@ -2500,7 +2500,7 @@
                       </expression>
                     </input>
                     <input name="FitType">
-                      <expression>
+                      <expression available="False">
                         <expression-string>StandardFit</expression-string>
                       </expression>
                     </input>
@@ -2521,22 +2521,22 @@
                         </input>
                         <input name="EndRadius">
                           <expression>
-                            <expression-string>3.21825</expression-string>
+                            <expression-string>3.42737</expression-string>
                           </expression>
                         </input>
                         <input name="StartRadius">
                           <expression>
-                            <expression-string>1.07275</expression-string>
+                            <expression-string>1.26903</expression-string>
                           </expression>
                         </input>
                         <input name="X">
                           <expression>
-                            <expression-string>76.4712</expression-string>
+                            <expression-string>109.443</expression-string>
                           </expression>
                         </input>
                         <input name="Y">
                           <expression>
-                            <expression-string>-76.1536</expression-string>
+                            <expression-string>133.608</expression-string>
                           </expression>
                         </input>
                       </inputs>
@@ -2544,7 +2544,7 @@
                     </subObject>
                     <input name="ThresholdMode">
                       <expression>
-                        <expression-string>High</expression-string>
+                        <expression-string>VeryHigh</expression-string>
                       </expression>
                     </input>
                   </inputs>
@@ -2602,7 +2602,7 @@
                   <inputs>
                     <input name="BuildOperation">
                       <expression>
-                        <expression-string>Fit</expression-string>
+                        <expression-string>Inner</expression-string>
                       </expression>
                     </input>
                     <input name="DataAngleTolerance">
@@ -2729,7 +2729,7 @@
                       </expression>
                     </input>
                     <input name="FitType">
-                      <expression>
+                      <expression available="False">
                         <expression-string>StandardFit</expression-string>
                       </expression>
                     </input>
@@ -2745,27 +2745,27 @@
                       <inputs>
                         <input name="CoordinateSystem">
                           <expression>
-                            <expression-string>GlobalFrame</expression-string>
+                            <expression-string>Absolute</expression-string>
                           </expression>
                         </input>
                         <input name="EndRadius">
                           <expression>
-                            <expression-string>3.40167</expression-string>
+                            <expression-string>3.83475</expression-string>
                           </expression>
                         </input>
                         <input name="StartRadius">
                           <expression>
-                            <expression-string>1.13388</expression-string>
+                            <expression-string>1.94204</expression-string>
                           </expression>
                         </input>
                         <input name="X">
                           <expression>
-                            <expression-string>86.0064</expression-string>
+                            <expression-string>131.687</expression-string>
                           </expression>
                         </input>
                         <input name="Y">
                           <expression>
-                            <expression-string>137.277</expression-string>
+                            <expression-string>84.1972</expression-string>
                           </expression>
                         </input>
                       </inputs>
@@ -2773,7 +2773,7 @@
                     </subObject>
                     <input name="ThresholdMode">
                       <expression>
-                        <expression-string>High</expression-string>
+                        <expression-string>VeryHigh</expression-string>
                       </expression>
                     </input>
                   </inputs>
@@ -3037,17 +3037,17 @@
                 </input>
                 <input name="Angle">
                   <expression available="False">
-                    <expression-string>270</expression-string>
+                    <expression-string>0</expression-string>
                   </expression>
                 </input>
                 <input name="X2">
                   <expression>
-                    <expression-string need-link-container="True">Metrology.Features("CenterPoint2").X</expression-string>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint3").X</expression-string>
                   </expression>
                 </input>
                 <input name="Y2">
                   <expression>
-                    <expression-string need-link-container="True">Metrology.Features("CenterPoint2").Y</expression-string>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint3").Y</expression-string>
                   </expression>
                 </input>
               </inputs>
@@ -3075,17 +3075,17 @@
                 </input>
                 <input name="Angle">
                   <expression available="False">
-                    <expression-string>0</expression-string>
+                    <expression-string>270</expression-string>
                   </expression>
                 </input>
                 <input name="X2">
                   <expression>
-                    <expression-string need-link-container="True">Metrology.Features("CenterPoint3").X</expression-string>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint2").X</expression-string>
                   </expression>
                 </input>
                 <input name="Y2">
                   <expression>
-                    <expression-string need-link-container="True">Metrology.Features("CenterPoint3").Y</expression-string>
+                    <expression-string need-link-container="True">Metrology.Features("CenterPoint2").Y</expression-string>
                   </expression>
                 </input>
               </inputs>
@@ -9832,7 +9832,7 @@
                 <inputs>
                   <input name="ForegroundValue">
                     <expression>
-                      <expression-string>White</expression-string>
+                      <expression-string>Black</expression-string>
                     </expression>
                   </input>
                   <input name="Connectivity">
@@ -10487,7 +10487,7 @@
                           </input>
                           <input name="Low">
                             <expression>
-                              <expression-string>20</expression-string>
+                              <expression-string>8</expression-string>
                             </expression>
                           </input>
                           <input name="High">
@@ -10561,7 +10561,7 @@
                   </input>
                   <input name="Image">
                     <expression>
-                      <expression-string>ImageEngr.Image</expression-string>
+                      <expression-string need-link-container="True">ImageActuelle.Image</expression-string>
                     </expression>
                   </input>
                   <input name="OutputCoordinateSystem">
@@ -10569,11 +10569,69 @@
                       <expression-string>Absolute</expression-string>
                     </expression>
                   </input>
-                  <input name="SearchRegion">
+                  <subObject name="SearchRegion" type="Matrox.DesignAssistant.Core.Shapes.ConfigurableRectangle, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c24c3e4c-14e8-40f6-8e1a-3c65743f6af8" Version="10.0.454.0">
                     <expression>
-                      <expression-string>WholeImage</expression-string>
+                      <expression-string>Rectangle</expression-string>
                     </expression>
-                  </input>
+                    <inputs>
+                      <input name="CoordinateSystem">
+                        <expression>
+                          <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
+                        </expression>
+                      </input>
+                      <input name="DefinitionMode">
+                        <expression>
+                          <expression-string>TopLeftWidthHeight</expression-string>
+                        </expression>
+                      </input>
+                      <input name="TopLeftX">
+                        <expression>
+                          <expression-string>151.011</expression-string>
+                        </expression>
+                      </input>
+                      <input name="TopLeftY">
+                        <expression>
+                          <expression-string>169.736</expression-string>
+                        </expression>
+                      </input>
+                      <input name="CenterX">
+                        <expression available="False">
+                          <expression-string>-22.2382</expression-string>
+                        </expression>
+                      </input>
+                      <input name="CenterY">
+                        <expression available="False">
+                          <expression-string>-35.8395</expression-string>
+                        </expression>
+                      </input>
+                      <input name="BottomRightX">
+                        <expression available="False">
+                          <expression-string>2.31332</expression-string>
+                        </expression>
+                      </input>
+                      <input name="BottomRightY">
+                        <expression available="False">
+                          <expression-string>-9.30752</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Width">
+                        <expression>
+                          <expression-string>15.8098</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Height">
+                        <expression>
+                          <expression-string>171.064</expression-string>
+                        </expression>
+                      </input>
+                      <input name="Angle">
+                        <expression>
+                          <expression-string>184.324</expression-string>
+                        </expression>
+                      </input>
+                    </inputs>
+                    <userXML />
+                  </subObject>
                   <subObject name="Threshold" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.ThresholdInfo, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f4a4397b-823b-4169-b2fc-5c73e415a18a" Version="10.0.454.0">
                     <expression>
                       <expression-string></expression-string>
@@ -10596,7 +10654,7 @@
                       </input>
                       <input name="ThresholdLow">
                         <expression>
-                          <expression-string>85</expression-string>
+                          <expression-string>74</expression-string>
                         </expression>
                       </input>
                       <input name="ThresholdHigh">
@@ -10634,7 +10692,7 @@
                   </input>
                   <input name="RemoveBorderBlobs">
                     <expression>
-                      <expression-string>False</expression-string>
+                      <expression-string>True</expression-string>
                     </expression>
                   </input>
                   <input name="GrayImage">
@@ -10777,7 +10835,7 @@
                   </objectCollection>
                   <input name="AssociatedStatusStep">
                     <expression>
-                      <expression-string>Flowcharts("MainFlowchart").Status3</expression-string>
+                      <expression-string>Flowcharts("MainFlowchart").Status</expression-string>
                     </expression>
                   </input>
                   <input name="CreateAutomaticLabels">
@@ -10837,7 +10895,7 @@
                         <inputs>
                           <input name="BuildOperation">
                             <expression>
-                              <expression-string>Fit</expression-string>
+                              <expression-string>Inner</expression-string>
                             </expression>
                           </input>
                           <input name="DataAngleTolerance">
@@ -10964,7 +11022,7 @@
                             </expression>
                           </input>
                           <input name="FitType">
-                            <expression>
+                            <expression available="False">
                               <expression-string>StandardFit</expression-string>
                             </expression>
                           </input>
@@ -10980,27 +11038,27 @@
                             <inputs>
                               <input name="CoordinateSystem">
                                 <expression>
-                                  <expression-string need-link-container="True">BlobGoupille.BlobFound(1).Fixture</expression-string>
+                                  <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                                 </expression>
                               </input>
                               <input name="EndRadius">
                                 <expression>
-                                  <expression-string>118.171</expression-string>
+                                  <expression-string>2.96943</expression-string>
                                 </expression>
                               </input>
                               <input name="StartRadius">
                                 <expression>
-                                  <expression-string>81.7408</expression-string>
+                                  <expression-string>1.48472</expression-string>
                                 </expression>
                               </input>
                               <input name="X">
                                 <expression>
-                                  <expression-string>0.138236</expression-string>
+                                  <expression-string>134.274</expression-string>
                                 </expression>
                               </input>
                               <input name="Y">
                                 <expression>
-                                  <expression-string>-0.364295</expression-string>
+                                  <expression-string>12.0837</expression-string>
                                 </expression>
                               </input>
                             </inputs>
@@ -11008,7 +11066,7 @@
                           </subObject>
                           <input name="ThresholdMode">
                             <expression>
-                              <expression-string>High</expression-string>
+                              <expression-string>VeryHigh</expression-string>
                             </expression>
                           </input>
                         </inputs>
@@ -11024,7 +11082,7 @@
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
                   <objectCollection name="Tolerances" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Metrology+TheTolerances, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="5ea1e326-3f37-451b-8f7a-cfc64d6e6a61" Version="10.0.454.0">
