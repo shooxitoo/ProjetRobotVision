@@ -662,7 +662,7 @@
             </input>
             <input name="StartValue">
               <expression available="False">
-                <expression-string>1</expression-string>
+                <expression-string>16</expression-string>
               </expression>
             </input>
             <input name="StdDevStartValue">
@@ -677,7 +677,7 @@
             </input>
             <input name="EndValue">
               <expression available="False">
-                <expression-string>121</expression-string>
+                <expression-string>125</expression-string>
               </expression>
             </input>
             <input name="StdDevEndValue">
@@ -2292,22 +2292,38 @@
                         </input>
                         <input name="EndRadius">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>2.45351</expression-string>
+=======
+                            <expression-string>2.89486</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                         <input name="StartRadius">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>1.22675</expression-string>
+=======
+                            <expression-string>0.770938</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                         <input name="X">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>139.757</expression-string>
+=======
+                            <expression-string>8.55416</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                         <input name="Y">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>-60.0993</expression-string>
+=======
+                            <expression-string>10.7827</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                       </inputs>
@@ -2521,22 +2537,38 @@
                         </input>
                         <input name="EndRadius">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>3.42737</expression-string>
+=======
+                            <expression-string>2.02878</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                         <input name="StartRadius">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>1.26903</expression-string>
+=======
+                            <expression-string>0.676261</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                         <input name="X">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>109.443</expression-string>
+=======
+                            <expression-string>93.8043</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                         <input name="Y">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>133.608</expression-string>
+=======
+                            <expression-string>-63.4369</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                       </inputs>
@@ -2750,22 +2782,38 @@
                         </input>
                         <input name="EndRadius">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>3.83475</expression-string>
+=======
+                            <expression-string>2.28626</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                         <input name="StartRadius">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>1.94204</expression-string>
+=======
+                            <expression-string>1.14313</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                         <input name="X">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>131.687</expression-string>
+=======
+                            <expression-string>102.691</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                         <input name="Y">
                           <expression>
+<<<<<<< HEAD
                             <expression-string>84.1972</expression-string>
+=======
+                            <expression-string>118.613</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                           </expression>
                         </input>
                       </inputs>
@@ -3223,7 +3271,7 @@
                       </inputs>
                       <userXML />
                     </subObject>
-                    <subObject name="InspectEngr30" type="Matrox.DesignAssistant.Core.Flowcharts.ConfigurableCase, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="77b2d679-8125-4c50-92f4-2029c72ecb41" Version="10.0.454.0">
+                    <subObject name="Inspect30" type="Matrox.DesignAssistant.Core.Flowcharts.ConfigurableCase, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="77b2d679-8125-4c50-92f4-2029c72ecb41" Version="10.0.454.0">
                       <inputs>
                         <input name="AdvancedMode">
                           <expression>
@@ -4040,7 +4088,7 @@
                       <expression-string></expression-string>
                     </expression>
                     <collectionItems>
-                      <subObject name="Filter" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="47d121fc-abd1-49bf-8e9a-96743c304135" Version="10.0.454.0">
+                      <subObject name="Less100" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="47d121fc-abd1-49bf-8e9a-96743c304135" Version="10.0.454.0">
                         <inputs>
                           <input name="Enabled">
                             <expression>
@@ -4090,7 +4138,7 @@
                         </inputs>
                         <userXML />
                       </subObject>
-                      <subObject name="Filter2" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="d0aefb10-52b1-44e5-9f7e-cc1eab5858c1" Version="10.0.454.0">
+                      <subObject name="Greater200" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="d0aefb10-52b1-44e5-9f7e-cc1eab5858c1" Version="10.0.454.0">
                         <inputs>
                           <input name="Enabled">
                             <expression>
@@ -5180,77 +5228,77 @@
                       </input>
                       <input name="FeretElongation">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretMaximumAngle">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretMaximumDiameter">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretMaximumDiameterElongation">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretMinimumDiameterElongation">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretPerpendicularToMaxDiameter">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretPerpendicularToMinDiameter">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretMeanDiameter">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretMinimumAngle">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretMinimumDiameter">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretX">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretPrincipalAxis">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretPrincipalAxisElongation">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretSecondaryAxis">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FeretY">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
                       </input>
                       <input name="FirstPointX">
@@ -5518,11 +5566,19 @@
                           <expression-string>Disabled</expression-string>
                         </expression>
                       </input>
-                      <input name="GeneralFeret">
+                      <subObject name="GeneralFeret" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.GeneralFeretInfo, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="4c4e056b-5167-44a2-87ba-d3166ed5a192" Version="10.0.454.0">
                         <expression>
-                          <expression-string>Disabled</expression-string>
+                          <expression-string>Enabled</expression-string>
                         </expression>
-                      </input>
+                        <inputs>
+                          <input name="GeneralFeretAngle">
+                            <expression>
+                              <expression-string>0</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                      </subObject>
                     </inputs>
                     <userXML />
                   </subObject>
@@ -5531,7 +5587,7 @@
                       <expression-string></expression-string>
                     </expression>
                     <collectionItems>
-                      <subObject name="Filter" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0dbb1889-7913-41e1-aa60-6cf51497ad9a" Version="10.0.454.0">
+                      <subObject name="Less130" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0dbb1889-7913-41e1-aa60-6cf51497ad9a" Version="10.0.454.0">
                         <inputs>
                           <input name="Enabled">
                             <expression>
@@ -5570,7 +5626,57 @@
                           </input>
                           <input name="Low">
                             <expression>
-                              <expression-string>20000</expression-string>
+                              <expression-string>130</expression-string>
+                            </expression>
+                          </input>
+                          <input name="High">
+                            <expression available="False">
+                              <expression-string>0</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                      </subObject>
+                      <subObject name="Greater200" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="7172df8e-2e4c-49df-880a-5d9926f03dbf" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Enabled">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Operation">
+                            <expression>
+                              <expression-string>Exclude</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Criteria">
+                            <expression>
+                              <expression-string>Feature</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Edge">
+                            <expression available="False">
+                              <expression-string>AnyEdge</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Feature">
+                            <expression>
+                              <expression-string>Area</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Status">
+                            <expression available="False">
+                              <expression-string>AllBlobs</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Condition">
+                            <expression>
+                              <expression-string>Greater</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Low">
+                            <expression>
+                              <expression-string>200</expression-string>
                             </expression>
                           </input>
                           <input name="High">
@@ -5649,7 +5755,7 @@
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
                   <input name="SearchRegion">
@@ -5717,7 +5823,7 @@
                   </input>
                   <input name="RemoveBorderBlobs">
                     <expression>
-                      <expression-string>False</expression-string>
+                      <expression-string>True</expression-string>
                     </expression>
                   </input>
                   <input name="GrayImage">
@@ -6068,22 +6174,22 @@
                               </input>
                               <input name="EndRadius">
                                 <expression>
-                                  <expression-string>118.171</expression-string>
+                                  <expression-string>6.96647</expression-string>
                                 </expression>
                               </input>
                               <input name="StartRadius">
                                 <expression>
-                                  <expression-string>81.7408</expression-string>
+                                  <expression-string>4.81879</expression-string>
                                 </expression>
                               </input>
                               <input name="X">
                                 <expression>
-                                  <expression-string>0.138236</expression-string>
+                                  <expression-string>0</expression-string>
                                 </expression>
                               </input>
                               <input name="Y">
                                 <expression>
-                                  <expression-string>-0.364295</expression-string>
+                                  <expression-string>0</expression-string>
                                 </expression>
                               </input>
                             </inputs>
@@ -6107,7 +6213,7 @@
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
                   <objectCollection name="Tolerances" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Metrology+TheTolerances, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="323966f8-0ec1-4c68-a17e-babffdfb7420" Version="10.0.454.0">
@@ -6972,7 +7078,7 @@
                       <expression-string></expression-string>
                     </expression>
                     <collectionItems>
-                      <subObject name="Filter" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ac908628-ea19-4ecc-80c4-3c4f48f10a63" Version="10.0.454.0">
+                      <subObject name="Less300" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ac908628-ea19-4ecc-80c4-3c4f48f10a63" Version="10.0.454.0">
                         <inputs>
                           <input name="Enabled">
                             <expression>
@@ -7011,7 +7117,7 @@
                           </input>
                           <input name="Low">
                             <expression>
-                              <expression-string>10000</expression-string>
+                              <expression-string>300</expression-string>
                             </expression>
                           </input>
                           <input name="High">
@@ -7061,7 +7167,7 @@
                           </input>
                           <input name="Low">
                             <expression>
-                              <expression-string>15000</expression-string>
+                              <expression-string>400</expression-string>
                             </expression>
                           </input>
                           <input name="High">
@@ -7140,7 +7246,7 @@
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
                   <input name="SearchRegion">
@@ -7170,7 +7276,7 @@
                       </input>
                       <input name="ThresholdLow">
                         <expression>
-                          <expression-string>163</expression-string>
+                          <expression-string>170</expression-string>
                         </expression>
                       </input>
                       <input name="ThresholdHigh">
@@ -7208,7 +7314,7 @@
                   </input>
                   <input name="RemoveBorderBlobs">
                     <expression>
-                      <expression-string>False</expression-string>
+                      <expression-string>True</expression-string>
                     </expression>
                   </input>
                   <input name="GrayImage">
@@ -7559,22 +7665,22 @@
                               </input>
                               <input name="EndRadius">
                                 <expression>
-                                  <expression-string>118.171</expression-string>
+                                  <expression-string>10.8184</expression-string>
                                 </expression>
                               </input>
                               <input name="StartRadius">
                                 <expression>
-                                  <expression-string>81.7408</expression-string>
+                                  <expression-string>7.48324</expression-string>
                                 </expression>
                               </input>
                               <input name="X">
                                 <expression>
-                                  <expression-string>0.138236</expression-string>
+                                  <expression-string>0</expression-string>
                                 </expression>
                               </input>
                               <input name="Y">
                                 <expression>
-                                  <expression-string>-0.364295</expression-string>
+                                  <expression-string>0</expression-string>
                                 </expression>
                               </input>
                             </inputs>
@@ -7598,7 +7704,7 @@
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
                   <objectCollection name="Tolerances" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Metrology+TheTolerances, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="9f6b1ca1-c845-491d-8e2e-872d7559e81d" Version="10.0.454.0">
@@ -8502,57 +8608,7 @@
                           </input>
                           <input name="Low">
                             <expression>
-                              <expression-string>10000</expression-string>
-                            </expression>
-                          </input>
-                          <input name="High">
-                            <expression available="False">
-                              <expression-string>0</expression-string>
-                            </expression>
-                          </input>
-                        </inputs>
-                        <userXML />
-                      </subObject>
-                      <subObject name="Filter2" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="aaa0f466-e7ae-4fbe-a405-4ec283e40164" Version="10.0.454.0">
-                        <inputs>
-                          <input name="Enabled">
-                            <expression>
-                              <expression-string>True</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Operation">
-                            <expression>
-                              <expression-string>Exclude</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Criteria">
-                            <expression>
-                              <expression-string>Feature</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Edge">
-                            <expression available="False">
-                              <expression-string>AnyEdge</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Feature">
-                            <expression>
-                              <expression-string>Area</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Status">
-                            <expression available="False">
-                              <expression-string>AllBlobs</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Condition">
-                            <expression>
-                              <expression-string>Greater</expression-string>
-                            </expression>
-                          </input>
-                          <input name="Low">
-                            <expression>
-                              <expression-string>15000</expression-string>
+                              <expression-string>400</expression-string>
                             </expression>
                           </input>
                           <input name="High">
@@ -8631,7 +8687,7 @@
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
                   <input name="SearchRegion">
@@ -8661,7 +8717,7 @@
                       </input>
                       <input name="ThresholdLow">
                         <expression>
-                          <expression-string>163</expression-string>
+                          <expression-string>170</expression-string>
                         </expression>
                       </input>
                       <input name="ThresholdHigh">
@@ -8699,7 +8755,7 @@
                   </input>
                   <input name="RemoveBorderBlobs">
                     <expression>
-                      <expression-string>False</expression-string>
+                      <expression-string>True</expression-string>
                     </expression>
                   </input>
                   <input name="GrayImage">
@@ -9050,22 +9106,22 @@
                               </input>
                               <input name="EndRadius">
                                 <expression>
-                                  <expression-string>118.171</expression-string>
+                                  <expression-string>12.8287</expression-string>
                                 </expression>
                               </input>
                               <input name="StartRadius">
                                 <expression>
-                                  <expression-string>81.7408</expression-string>
+                                  <expression-string>8.87386</expression-string>
                                 </expression>
                               </input>
                               <input name="X">
                                 <expression>
-                                  <expression-string>0.138236</expression-string>
+                                  <expression-string>0</expression-string>
                                 </expression>
                               </input>
                               <input name="Y">
                                 <expression>
-                                  <expression-string>-0.364295</expression-string>
+                                  <expression-string>0</expression-string>
                                 </expression>
                               </input>
                             </inputs>
@@ -9089,7 +9145,7 @@
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
                   <objectCollection name="Tolerances" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Metrology+TheTolerances, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f9959717-d82f-40da-891b-e0c665a4180b" Version="10.0.454.0">
@@ -10487,7 +10543,61 @@
                           </input>
                           <input name="Low">
                             <expression>
+<<<<<<< HEAD
                               <expression-string>8</expression-string>
+=======
+                              <expression-string>5</expression-string>
+                            </expression>
+                          </input>
+                          <input name="High">
+                            <expression available="False">
+                              <expression-string>0</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                      </subObject>
+                      <subObject name="Filter" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="3d71226d-0b40-4aaf-b6ce-31adcba6c498" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Enabled">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Operation">
+                            <expression>
+                              <expression-string>Exclude</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Criteria">
+                            <expression>
+                              <expression-string>Feature</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Edge">
+                            <expression available="False">
+                              <expression-string>AnyEdge</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Feature">
+                            <expression>
+                              <expression-string>Area</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Status">
+                            <expression available="False">
+                              <expression-string>AllBlobs</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Condition">
+                            <expression>
+                              <expression-string>Greater</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Low">
+                            <expression>
+                              <expression-string>10</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                             </expression>
                           </input>
                           <input name="High">
@@ -10566,17 +10676,25 @@
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
+<<<<<<< HEAD
                   <subObject name="SearchRegion" type="Matrox.DesignAssistant.Core.Shapes.ConfigurableRectangle, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c24c3e4c-14e8-40f6-8e1a-3c65743f6af8" Version="10.0.454.0">
+=======
+                  <subObject name="SearchRegion" type="Matrox.DesignAssistant.Core.Shapes.ConfigurableRectangle, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ba9a61de-e4e2-4598-8abd-c706c32fb6d0" Version="10.0.454.0">
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                     <expression>
                       <expression-string>Rectangle</expression-string>
                     </expression>
                     <inputs>
                       <input name="CoordinateSystem">
                         <expression>
+<<<<<<< HEAD
                           <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
+=======
+                          <expression-string>Absolute</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                         </expression>
                       </input>
                       <input name="DefinitionMode">
@@ -10586,47 +10704,83 @@
                       </input>
                       <input name="TopLeftX">
                         <expression>
+<<<<<<< HEAD
                           <expression-string>151.011</expression-string>
+=======
+                          <expression-string>-20.1882</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                         </expression>
                       </input>
                       <input name="TopLeftY">
                         <expression>
+<<<<<<< HEAD
                           <expression-string>169.736</expression-string>
+=======
+                          <expression-string>101.122</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                         </expression>
                       </input>
                       <input name="CenterX">
                         <expression available="False">
+<<<<<<< HEAD
                           <expression-string>-22.2382</expression-string>
+=======
+                          <expression-string>26.5943</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                         </expression>
                       </input>
                       <input name="CenterY">
                         <expression available="False">
+<<<<<<< HEAD
                           <expression-string>-35.8395</expression-string>
+=======
+                          <expression-string>121.577</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                         </expression>
                       </input>
                       <input name="BottomRightX">
                         <expression available="False">
+<<<<<<< HEAD
                           <expression-string>2.31332</expression-string>
+=======
+                          <expression-string>45.8191</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                         </expression>
                       </input>
                       <input name="BottomRightY">
                         <expression available="False">
+<<<<<<< HEAD
                           <expression-string>-9.30752</expression-string>
+=======
+                          <expression-string>102.003</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                         </expression>
                       </input>
                       <input name="Width">
                         <expression>
+<<<<<<< HEAD
                           <expression-string>15.8098</expression-string>
+=======
+                          <expression-string>26.3666</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                         </expression>
                       </input>
                       <input name="Height">
                         <expression>
+<<<<<<< HEAD
                           <expression-string>171.064</expression-string>
+=======
+                          <expression-string>149.13</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                         </expression>
                       </input>
                       <input name="Angle">
                         <expression>
+<<<<<<< HEAD
                           <expression-string>184.324</expression-string>
+=======
+                          <expression-string>90.5481</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                         </expression>
                       </input>
                     </inputs>
@@ -10654,7 +10808,11 @@
                       </input>
                       <input name="ThresholdLow">
                         <expression>
+<<<<<<< HEAD
                           <expression-string>74</expression-string>
+=======
+                          <expression-string>82</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                         </expression>
                       </input>
                       <input name="ThresholdHigh">
@@ -10835,7 +10993,11 @@
                   </objectCollection>
                   <input name="AssociatedStatusStep">
                     <expression>
+<<<<<<< HEAD
                       <expression-string>Flowcharts("MainFlowchart").Status</expression-string>
+=======
+                      <expression-string>Flowcharts("MainFlowchart").Status2</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                     </expression>
                   </input>
                   <input name="CreateAutomaticLabels">
@@ -11043,22 +11205,38 @@
                               </input>
                               <input name="EndRadius">
                                 <expression>
+<<<<<<< HEAD
                                   <expression-string>2.96943</expression-string>
+=======
+                                  <expression-string>1.89268</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                                 </expression>
                               </input>
                               <input name="StartRadius">
                                 <expression>
+<<<<<<< HEAD
                                   <expression-string>1.48472</expression-string>
+=======
+                                  <expression-string>1.30919</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                                 </expression>
                               </input>
                               <input name="X">
                                 <expression>
+<<<<<<< HEAD
                                   <expression-string>134.274</expression-string>
+=======
+                                  <expression-string>0</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                                 </expression>
                               </input>
                               <input name="Y">
                                 <expression>
+<<<<<<< HEAD
                                   <expression-string>12.0837</expression-string>
+=======
+                                  <expression-string>0</expression-string>
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
                                 </expression>
                               </input>
                             </inputs>
@@ -11331,7 +11509,7 @@
                 <inputs>
                   <input name="ForegroundValue">
                     <expression>
-                      <expression-string>White</expression-string>
+                      <expression-string>Black</expression-string>
                     </expression>
                   </input>
                   <input name="Connectivity">
@@ -11997,6 +12175,56 @@
                         </inputs>
                         <userXML />
                       </subObject>
+                      <subObject name="Greater50" type="Matrox.DesignAssistant.Steps.BlobAnalysisPackage.Filter, Matrox.DesignAssistant.Steps.BlobAnalysisPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="9990b0e9-966b-41fe-983e-ae56e1f7ea21" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Enabled">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Operation">
+                            <expression>
+                              <expression-string>Exclude</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Criteria">
+                            <expression>
+                              <expression-string>Feature</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Edge">
+                            <expression available="False">
+                              <expression-string>AnyEdge</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Feature">
+                            <expression>
+                              <expression-string>Area</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Status">
+                            <expression available="False">
+                              <expression-string>AllBlobs</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Condition">
+                            <expression>
+                              <expression-string>Greater</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Low">
+                            <expression>
+                              <expression-string>50</expression-string>
+                            </expression>
+                          </input>
+                          <input name="High">
+                            <expression available="False">
+                              <expression-string>0</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                      </subObject>
                     </collectionItems>
                     <userXML />
                   </objectCollection>
@@ -12060,12 +12288,12 @@
                   </input>
                   <input name="Image">
                     <expression>
-                      <expression-string>ImageEngr.Image</expression-string>
+                      <expression-string need-link-container="True">ImageActuelle.Image</expression-string>
                     </expression>
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
                   <input name="SearchRegion">
@@ -12095,7 +12323,7 @@
                       </input>
                       <input name="ThresholdLow">
                         <expression>
-                          <expression-string>85</expression-string>
+                          <expression-string>170</expression-string>
                         </expression>
                       </input>
                       <input name="ThresholdHigh">
@@ -12133,7 +12361,7 @@
                   </input>
                   <input name="RemoveBorderBlobs">
                     <expression>
-                      <expression-string>False</expression-string>
+                      <expression-string>True</expression-string>
                     </expression>
                   </input>
                   <input name="GrayImage">
@@ -12276,7 +12504,7 @@
                   </objectCollection>
                   <input name="AssociatedStatusStep">
                     <expression>
-                      <expression-string>Flowcharts("MainFlowchart").Status3</expression-string>
+                      <expression-string>Flowcharts("MainFlowchart").Status2</expression-string>
                     </expression>
                   </input>
                   <input name="CreateAutomaticLabels">
@@ -12484,22 +12712,22 @@
                               </input>
                               <input name="EndRadius">
                                 <expression>
-                                  <expression-string>118.171</expression-string>
+                                  <expression-string>10.1955</expression-string>
                                 </expression>
                               </input>
                               <input name="StartRadius">
                                 <expression>
-                                  <expression-string>81.7408</expression-string>
+                                  <expression-string>1.89781</expression-string>
                                 </expression>
                               </input>
                               <input name="X">
                                 <expression>
-                                  <expression-string>0.138236</expression-string>
+                                  <expression-string>0</expression-string>
                                 </expression>
                               </input>
                               <input name="Y">
                                 <expression>
-                                  <expression-string>-0.364295</expression-string>
+                                  <expression-string>0</expression-string>
                                 </expression>
                               </input>
                             </inputs>
@@ -12523,7 +12751,7 @@
                   </input>
                   <input name="OutputCoordinateSystem">
                     <expression>
-                      <expression-string>Absolute</expression-string>
+                      <expression-string need-link-container="True">Fixture2.OutputFixture</expression-string>
                     </expression>
                   </input>
                   <objectCollection name="Tolerances" type="Matrox.DesignAssistant.Steps.MetrologyPackage.Metrology+TheTolerances, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="261082ee-0bdc-4f50-94b9-b9dba78cb5bb" Version="10.0.454.0">
@@ -14391,7 +14619,7 @@
                   </input>
                   <input name="Variable">
                     <expression>
-                      <expression-string>ONCAT("Unknown command :", RSVP_Parse.CommandTag)</expression-string>
+                      <expression-string need-link-container="True">CONCAT("Unknown command :", RSVP_Parse.CommandTag)</expression-string>
                     </expression>
                   </input>
                   <input name="VariableName">

@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <componentSettingsCache>
   <inspectionSites>
+<<<<<<< HEAD
     <inspectionSite name="DefaultSite" id="648ade83-d8e0-4389-a531-1fc9b2cd9f9b">
+=======
+    <inspectionSite name="DefaultSite" id="81046700-4d1f-4673-bf4f-139f31d11341">
+>>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
       <ioCollection />
       <systemCollection>
         <system name="SystemHost" id="b99f8fa8-93e0-4128-96de-9d9a545af1b2">
