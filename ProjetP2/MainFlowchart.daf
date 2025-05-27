@@ -177,7 +177,7 @@
     <step name="CameraCalib" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.CameraPackage.Camera, Matrox.DesignAssistant.Steps.CameraPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="9a746d5f-d97a-469e-81c4-5522c668da31" Version="10.0.454.0">
       <inputs>
         <input name="CalibrationName">
-          <expression>
+          <expression available="False">
             <expression-string>None</expression-string>
           </expression>
         </input>
@@ -1533,12 +1533,12 @@
         <step name="ImageActuelle" enabled="True" resettable="False" persistentState="NotPersistent" type="Matrox.DesignAssistant.Steps.CameraPackage.Camera, Matrox.DesignAssistant.Steps.CameraPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="32494344-beb2-41cb-a728-5cf592e58afe" Version="10.0.454.0">
           <inputs>
             <input name="CalibrationName">
-              <expression>
+              <expression available="False">
                 <expression-string>CalibrationPaletteEngr1</expression-string>
               </expression>
             </input>
             <input name="CorrectImage">
-              <expression>
+              <expression available="False">
                 <expression-string>False</expression-string>
               </expression>
             </input>
