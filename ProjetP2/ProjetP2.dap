@@ -374,7 +374,7 @@
           <value-string></value-string>
         </setting>
         <setting name="RuntimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="441b4d74-a7c4-421e-9e97-27634c709b4d">
-          <value>C:\Users\shoox\Documents\Matrox Design Assistant\\Images</value>
+          <value>C:\Users\natha\OneDrive\Documents\Matrox Design Assistant\\Images</value>
           <value-string compiler-error="False">{PATH("DA Documents")}\\Images</value-string>
         </setting>
         <setting name="DesignTimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="31d474c6-3c5a-412a-b1aa-fb550d1093fc">
@@ -398,7 +398,7 @@
           <value-string>Biggest</value-string>
         </setting>
         <setting name="RuntimeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="c3f9646c-a2ac-4d18-9288-b008b5dce626">
-          <value>C:\Users\shoox\Documents\Matrox Design Assistant\\Images</value>
+          <value>C:\Users\natha\OneDrive\Documents\Matrox Design Assistant\\Images</value>
           <value-string compiler-error="False">{PATH("DA Documents")}\\Images</value-string>
         </setting>
         <setting name="DesignTimeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="24bf87c6-6ae5-4dcc-9802-20d31d143a7c">
@@ -474,7 +474,7 @@
           <value-string></value-string>
         </setting>
         <setting name="RuntimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="ed31b3a8-9489-485a-8e36-a8b233b42ca0">
-          <value>C:\Users\shoox\Documents\Matrox Design Assistant\\Images</value>
+          <value>C:\Users\natha\OneDrive\Documents\Matrox Design Assistant\\Images</value>
           <value-string compiler-error="False">{PATH("DA Documents")}\\Images</value-string>
         </setting>
         <setting name="DesignTimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="20b035a5-1106-41c2-b0ad-5c24a2bef459">
@@ -574,7 +574,7 @@
           <value-string></value-string>
         </setting>
         <setting name="RuntimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="25bbb121-f57d-4ba5-a8d4-3bfca7e8815b">
-          <value>C:\Users\shoox\Documents\Matrox Design Assistant\\Images</value>
+          <value>C:\Users\natha\OneDrive\Documents\Matrox Design Assistant\\Images</value>
           <value-string compiler-error="False">{PATH("DA Documents")}\\Images</value-string>
         </setting>
         <setting name="DesignTimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="2eb6d7cc-093c-4e30-bd8e-797b6c187930">
@@ -674,7 +674,7 @@
           <value-string></value-string>
         </setting>
         <setting name="RuntimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="6605a6c9-5a17-4744-9d20-246df2e6b77a">
-          <value>C:\Users\shoox\Documents\Matrox Design Assistant\\Images</value>
+          <value>C:\Users\natha\OneDrive\Documents\Matrox Design Assistant\\Images</value>
           <value-string compiler-error="False">{PATH("DA Documents")}\\Images</value-string>
         </setting>
         <setting name="DesignTimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="ad99d43d-9e20-4993-a675-c76774cb913e">
@@ -702,8 +702,8 @@
           <value-string>(Same as Design-time folder)</value-string>
         </setting>
         <setting name="DesignTimeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="1f587ab2-8c8c-4062-990e-6dac97978f96">
-          <value>C:\Users\shoox\Desktop\ProjetRobotVision\ProjetP2\Images\ImageCalib1</value>
-          <value-string>C:\Users\shoox\Desktop\ProjetRobotVision\ProjetP2\Images\ImageCalib1</value-string>
+          <value>C:\Users\natha\OneDrive\Documents\1_HeArc\4_Semestre 4\Vision\Dossier Matrox\ProjetP2\Images\ImageCalib1</value>
+          <value-string>C:\Users\natha\OneDrive\Documents\1_HeArc\4_Semestre 4\Vision\Dossier Matrox\ProjetP2\Images\ImageCalib1</value-string>
         </setting>
         <setting name="FolderFileTypes" persistentState="NotPersistent" is-using-default="False" is-set="True" id="8bba916c-2374-4a10-a3d0-27a0ef7664fb">
           <value>All supported types</value>
@@ -901,8 +901,8 @@
     <opcua name="OpcUaComponent" id="ab10709b-8f88-459d-9d4e-2170e4ba33a4">
       <setting name="IsEnabled" persistentState="NotPersistent" is-using-default="False" is-set="False" id="42cd2b82-7947-423b-9887-06de26d8a404" />
     </opcua>
-    <CommsPlatformDisabledModes>None</CommsPlatformDisabledModes>
-    <last-used-platform type="PC" default-system="M_SYSTEM_GIGE_VISION" name="LUCAS" />
+    <CommsPlatformDisabledModes>IPNetwork</CommsPlatformDisabledModes>
+    <last-used-platform type="PC" default-system="M_SYSTEM_GIGE_VISION" name="PC_DE_NATHAN" />
   </platform-configuration>
   <opcua-container id="c5b9a41b-5c0f-4191-bd37-79a1b229c64a" name="OpcUaContainer">
     <opcua-project-collection name="OpcUaProjectCollections" type="Matrox.DesignAssistant.Core.Projects.PlatformConfigurationPackage.OpcUaComponent.OpcUaProjectCollections, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b1e9c2b2-4c4d-4a23-be16-87715d9b9808" Version="10.0.454.0">
@@ -949,201 +949,6 @@
     </opcua-project-collection>
   </opcua-container>
   <project-settings id="7068dffe-361b-4823-bc25-8d97e0c053eb" name="ProjectSettings">
-<<<<<<< HEAD
-    <setting name="ActionsContainer" type="Matrox.DesignAssistant.Core.Events.ActionsContainer, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a40db9d5-3710-4920-ba6c-6f2cbce5ca80" Version="10.0.454.0">
-      <inputs>
-        <objectCollection name="Actions" type="Matrox.DesignAssistant.Core.Events.ActionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="54cf2d1d-424c-4493-848e-89925da57432" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <collectionItems>
-            <subObject name="PublishGroupAction" type="Matrox.DesignAssistant.Core.Events.PublishGroupAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="e65dbc52-de94-45b3-84ed-749ef65ab3c4" Version="10.0.454.0">
-              <inputs>
-                <input name="CanRun">
-                  <expression>
-                    <expression-string>None</expression-string>
-                  </expression>
-                </input>
-                <input name="Enabled">
-                  <expression>
-                    <expression-string>True</expression-string>
-                  </expression>
-                </input>
-                <input name="TriggerEvent">
-                  <expression>
-                    <expression-string>Inspection.EndEvent</expression-string>
-                  </expression>
-                </input>
-                <input name="WaitInspectionEnd">
-                  <expression>
-                    <expression-string>False</expression-string>
-                  </expression>
-                </input>
-              </inputs>
-              <userXML OWNNm="OperatorView" OWNType="OperatorView" Group="PublishingGroup" OperatorView="OperatorView" />
-            </subObject>
-          </collectionItems>
-          <userXML />
-        </objectCollection>
-        <objectCollection name="IPCommActions" type="Matrox.DesignAssistant.Core.Events.IPCommActionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0ce4aa67-504b-4600-91b1-5f47aef584b3" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <collectionItems />
-          <userXML />
-        </objectCollection>
-      </inputs>
-      <userXML />
-    </setting>
-=======
->>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
-    <setting name="InspectionSettings" type="Matrox.DesignAssistant.Core.Events.InspectionEventsSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="272275e1-7ea9-4827-991c-f1fd3b746766" Version="10.0.454.0">
-      <inputs>
-        <input name="EndEvent">
-          <expression>
-            <expression-string>Flowcharts("MainFlowchart").Loop.EndEvent</expression-string>
-          </expression>
-        </input>
-        <input name="StartEvent">
-          <expression>
-            <expression-string>Flowcharts("MainFlowchart").ImageActuelle.EndEvent</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </setting>
-<<<<<<< HEAD
-    <setting name="PerformanceSettings" type="Matrox.DesignAssistant.Core.Projects.PerformanceSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b0b362e3-1300-4584-9e00-d442c000ef5f" Version="10.0.454.0">
-      <inputs>
-        <input name="GarbageCollectMode">
-          <expression>
-            <expression-string>EachInspection</expression-string>
-          </expression>
-        </input>
-        <input name="OverheadObjects">
-          <expression>
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="UseLowLatency">
-=======
-    <setting name="RuntimeMonitoringSettings" type="Matrox.DesignAssistant.Core.Projects.RuntimeMonitoringSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="150cf4b4-3d8b-4a6b-a603-73f6e22bd8d8" Version="10.0.454.0">
-      <inputs>
-        <input name="EnableRuntimeMonitoring">
->>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
-          <expression>
-            <expression-string>True</expression-string>
-          </expression>
-        </input>
-<<<<<<< HEAD
-        <subObject name="GarbageCollectSettings" type="Matrox.DesignAssistant.Core.Projects.GarbageCollectSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="68ceba20-b3f9-43af-9d0b-9376adb145a7" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <inputs>
-            <input name="FullCollection">
-              <expression>
-                <expression-string>False</expression-string>
-              </expression>
-            </input>
-            <input name="Generation">
-              <expression>
-                <expression-string>0</expression-string>
-              </expression>
-            </input>
-            <input name="Mode">
-              <expression>
-                <expression-string>Optimized</expression-string>
-              </expression>
-            </input>
-          </inputs>
-          <userXML />
-        </subObject>
-        <input name="EnableFullGCNotification">
-          <expression>
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="GarbageCollectionWatcher">
-          <expression>
-            <expression-string>Disable</expression-string>
-          </expression>
-        </input>
-        <input name="MaxCollectionTime">
-          <expression available="False">
-            <expression-string>0.006</expression-string>
-          </expression>
-        </input>
-        <input name="JITWatcher">
-          <expression>
-            <expression-string>Disable</expression-string>
-          </expression>
-        </input>
-        <input name="InspectionTimeLogs">
-          <expression>
-            <expression-string>Disable</expression-string>
-          </expression>
-        </input>
-        <input name="MaxInspectionTime">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="StopOnMaxInspection">
-          <expression available="False">
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="MaxRunTime">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <subObject name="LogSettings" type="Matrox.DesignAssistant.Core.Projects.LogSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="65247cbe-8a6c-4d57-aaf4-b14140a4cb0a" Version="10.0.454.0">
-          <expression available="False">
-            <expression-string></expression-string>
-          </expression>
-          <inputs>
-            <input name="LogFilePath">
-              <expression available="False">
-                <expression-string></expression-string>
-              </expression>
-            </input>
-            <input name="Mode">
-              <expression available="False">
-                <expression-string>MaxOnly</expression-string>
-              </expression>
-            </input>
-            <input name="WriteFrequency">
-              <expression available="False">
-                <expression-string>1000</expression-string>
-              </expression>
-            </input>
-          </inputs>
-          <userXML />
-        </subObject>
-        <input name="InspectionIntervalHeapLog">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="InspectionIntervalProcLog">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="CollectPeriod">
-          <expression>
-            <expression-string>1</expression-string>
-=======
-        <input name="EnableRuntimeStatistics">
-          <expression>
-            <expression-string>True</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </setting>
     <setting name="OperatorViewToolbarSettings" type="Matrox.DesignAssistant.Core.Projects.OperatorViewToolbarSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ea04e72b-6314-4ff2-b1d7-715ed2deb870" Version="10.0.454.0">
       <inputs>
         <input name="AutoHide">
@@ -1189,208 +994,11 @@
         <input name="StartMinimized">
           <expression>
             <expression-string>False</expression-string>
->>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
           </expression>
         </input>
       </inputs>
       <userXML />
     </setting>
-    <setting name="AnnotationGroupContainer" type="Matrox.DesignAssistant.Core.Annotations.Groups.AnnotationGroupContainer, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="aa2dd1c3-671f-4421-893d-0da0fea36cb0" Version="10.0.454.0">
-      <inputs>
-        <objectCollection name="AnnotationGroups" type="Matrox.DesignAssistant.Core.Annotations.Groups.SharedAnnotationGroupCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="41ebd14d-2838-41be-81f1-c1455a8fa064" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <collectionItems />
-          <userXML />
-        </objectCollection>
-        <input name="Axis3DLength">
-          <expression>
-            <expression-string>50</expression-string>
-          </expression>
-        </input>
-        <input name="Thickness">
-          <expression>
-            <expression-string>3</expression-string>
-          </expression>
-        </input>
-        <input name="Thickness3D">
-          <expression>
-            <expression-string>3</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </setting>
-<<<<<<< HEAD
-=======
-    <setting name="PerformanceSettings" type="Matrox.DesignAssistant.Core.Projects.PerformanceSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b0b362e3-1300-4584-9e00-d442c000ef5f" Version="10.0.454.0">
-      <inputs>
-        <input name="GarbageCollectMode">
-          <expression>
-            <expression-string>EachInspection</expression-string>
-          </expression>
-        </input>
-        <input name="OverheadObjects">
-          <expression>
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="UseLowLatency">
-          <expression>
-            <expression-string>True</expression-string>
-          </expression>
-        </input>
-        <subObject name="GarbageCollectSettings" type="Matrox.DesignAssistant.Core.Projects.GarbageCollectSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="68ceba20-b3f9-43af-9d0b-9376adb145a7" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <inputs>
-            <input name="FullCollection">
-              <expression>
-                <expression-string>False</expression-string>
-              </expression>
-            </input>
-            <input name="Generation">
-              <expression>
-                <expression-string>0</expression-string>
-              </expression>
-            </input>
-            <input name="Mode">
-              <expression>
-                <expression-string>Optimized</expression-string>
-              </expression>
-            </input>
-          </inputs>
-          <userXML />
-        </subObject>
-        <input name="EnableFullGCNotification">
-          <expression>
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="GarbageCollectionWatcher">
-          <expression>
-            <expression-string>Disable</expression-string>
-          </expression>
-        </input>
-        <input name="MaxCollectionTime">
-          <expression available="False">
-            <expression-string>0.006</expression-string>
-          </expression>
-        </input>
-        <input name="JITWatcher">
-          <expression>
-            <expression-string>Disable</expression-string>
-          </expression>
-        </input>
-        <input name="InspectionTimeLogs">
-          <expression>
-            <expression-string>Disable</expression-string>
-          </expression>
-        </input>
-        <input name="MaxInspectionTime">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="StopOnMaxInspection">
-          <expression available="False">
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="MaxRunTime">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <subObject name="LogSettings" type="Matrox.DesignAssistant.Core.Projects.LogSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="65247cbe-8a6c-4d57-aaf4-b14140a4cb0a" Version="10.0.454.0">
-          <expression available="False">
-            <expression-string></expression-string>
-          </expression>
-          <inputs>
-            <input name="LogFilePath">
-              <expression available="False">
-                <expression-string></expression-string>
-              </expression>
-            </input>
-            <input name="Mode">
-              <expression available="False">
-                <expression-string>MaxOnly</expression-string>
-              </expression>
-            </input>
-            <input name="WriteFrequency">
-              <expression available="False">
-                <expression-string>1000</expression-string>
-              </expression>
-            </input>
-          </inputs>
-          <userXML />
-        </subObject>
-        <input name="InspectionIntervalHeapLog">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="InspectionIntervalProcLog">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="CollectPeriod">
-          <expression>
-            <expression-string>1</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </setting>
-    <setting name="ActionsContainer" type="Matrox.DesignAssistant.Core.Events.ActionsContainer, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a40db9d5-3710-4920-ba6c-6f2cbce5ca80" Version="10.0.454.0">
-      <inputs>
-        <objectCollection name="Actions" type="Matrox.DesignAssistant.Core.Events.ActionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="54cf2d1d-424c-4493-848e-89925da57432" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <collectionItems>
-            <subObject name="PublishGroupAction" type="Matrox.DesignAssistant.Core.Events.PublishGroupAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="e65dbc52-de94-45b3-84ed-749ef65ab3c4" Version="10.0.454.0">
-              <inputs>
-                <input name="CanRun">
-                  <expression>
-                    <expression-string>None</expression-string>
-                  </expression>
-                </input>
-                <input name="Enabled">
-                  <expression>
-                    <expression-string>True</expression-string>
-                  </expression>
-                </input>
-                <input name="TriggerEvent">
-                  <expression>
-                    <expression-string>Inspection.EndEvent</expression-string>
-                  </expression>
-                </input>
-                <input name="WaitInspectionEnd">
-                  <expression>
-                    <expression-string>False</expression-string>
-                  </expression>
-                </input>
-              </inputs>
-              <userXML OWNNm="OperatorView" OWNType="OperatorView" Group="PublishingGroup" OperatorView="OperatorView" />
-            </subObject>
-          </collectionItems>
-          <userXML />
-        </objectCollection>
-        <objectCollection name="IPCommActions" type="Matrox.DesignAssistant.Core.Events.IPCommActionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0ce4aa67-504b-4600-91b1-5f47aef584b3" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <collectionItems />
-          <userXML />
-        </objectCollection>
-      </inputs>
-      <userXML />
-    </setting>
->>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
     <setting name="LabelSettings" type="Matrox.DesignAssistant.Core.Projects.LabelSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="159d4a70-372f-4727-bd6d-f9617ff4ba55" Version="10.0.454.0">
       <inputs>
         <objectCollection name="UserLabels" type="Matrox.DesignAssistant.Core.Projects.LabelCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="7ac926d0-74d7-4fa6-9a64-3c7d4612c3f0" Version="10.0.454.0">
@@ -1471,18 +1079,6 @@
             <FlowchartName>MainFlowchart</FlowchartName>
           </AutomaticLabelProvider>
           <AutomaticLabelProvider>
-            <StepID>428133f0-811a-4dbb-8eff-9c8944df964e</StepID>
-            <StepName>BlobEngr15</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>0317d458-e048-4c6a-bb06-668113338503</StepID>
-            <StepName>LectureDM</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
             <StepID>d6a84cd6-9f62-46e2-85d1-b17c4bd25dd5</StepID>
             <StepName>BlobGoupille</StepName>
             <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
@@ -1554,10 +1150,117 @@
             <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
             <FlowchartName>MainFlowchart</FlowchartName>
           </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>ef72a8d7-e4ef-477b-8bc7-25ffd36e4a0a</StepID>
+            <StepName>CircleFinder</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>7ce29cf3-a0c8-4fa5-a785-1b92209a29b2</StepID>
+            <StepName>LectureDM15</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>428133f0-811a-4dbb-8eff-9c8944df964e</StepID>
+            <StepName>BlobEngr15Copy</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>35f91e4c-db88-4e6b-912b-fae82b857e4b</StepID>
+            <StepName>LectureDM18</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>5b2e7d09-1929-4016-98f1-f6279e475584</StepID>
+            <StepName>LectureDM25</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>50254988-5950-46c7-b000-afffc6715677</StepID>
+            <StepName>LectureDM30</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
         </AutomaticLabelProviders>
       </userXML>
     </setting>
-<<<<<<< HEAD
+    <setting name="ActionsContainer" type="Matrox.DesignAssistant.Core.Events.ActionsContainer, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a40db9d5-3710-4920-ba6c-6f2cbce5ca80" Version="10.0.454.0">
+      <inputs>
+        <objectCollection name="Actions" type="Matrox.DesignAssistant.Core.Events.ActionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="54cf2d1d-424c-4493-848e-89925da57432" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems>
+            <subObject name="PublishGroupAction" type="Matrox.DesignAssistant.Core.Events.PublishGroupAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="e65dbc52-de94-45b3-84ed-749ef65ab3c4" Version="10.0.454.0">
+              <inputs>
+                <input name="CanRun">
+                  <expression>
+                    <expression-string>None</expression-string>
+                  </expression>
+                </input>
+                <input name="Enabled">
+                  <expression>
+                    <expression-string>True</expression-string>
+                  </expression>
+                </input>
+                <input name="TriggerEvent">
+                  <expression>
+                    <expression-string>Inspection.EndEvent</expression-string>
+                  </expression>
+                </input>
+                <input name="WaitInspectionEnd">
+                  <expression>
+                    <expression-string>False</expression-string>
+                  </expression>
+                </input>
+              </inputs>
+              <userXML OWNNm="OperatorView" OWNType="OperatorView" Group="PublishingGroup" OperatorView="OperatorView" />
+            </subObject>
+          </collectionItems>
+          <userXML />
+        </objectCollection>
+        <objectCollection name="IPCommActions" type="Matrox.DesignAssistant.Core.Events.IPCommActionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0ce4aa67-504b-4600-91b1-5f47aef584b3" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems />
+          <userXML />
+        </objectCollection>
+      </inputs>
+      <userXML />
+    </setting>
+    <setting name="AnnotationGroupContainer" type="Matrox.DesignAssistant.Core.Annotations.Groups.AnnotationGroupContainer, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="aa2dd1c3-671f-4421-893d-0da0fea36cb0" Version="10.0.454.0">
+      <inputs>
+        <objectCollection name="AnnotationGroups" type="Matrox.DesignAssistant.Core.Annotations.Groups.SharedAnnotationGroupCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="41ebd14d-2838-41be-81f1-c1455a8fa064" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems />
+          <userXML />
+        </objectCollection>
+        <input name="Axis3DLength">
+          <expression>
+            <expression-string>50</expression-string>
+          </expression>
+        </input>
+        <input name="Thickness">
+          <expression>
+            <expression-string>3</expression-string>
+          </expression>
+        </input>
+        <input name="Thickness3D">
+          <expression>
+            <expression-string>3</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </setting>
     <setting name="RuntimeMonitoringSettings" type="Matrox.DesignAssistant.Core.Projects.RuntimeMonitoringSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="150cf4b4-3d8b-4a6b-a603-73f6e22bd8d8" Version="10.0.454.0">
       <inputs>
         <input name="EnableRuntimeMonitoring">
@@ -1573,57 +1276,141 @@
       </inputs>
       <userXML />
     </setting>
-    <setting name="OperatorViewToolbarSettings" type="Matrox.DesignAssistant.Core.Projects.OperatorViewToolbarSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ea04e72b-6314-4ff2-b1d7-715ed2deb870" Version="10.0.454.0">
+    <setting name="InspectionSettings" type="Matrox.DesignAssistant.Core.Events.InspectionEventsSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="272275e1-7ea9-4827-991c-f1fd3b746766" Version="10.0.454.0">
       <inputs>
-        <input name="AutoHide">
+        <input name="EndEvent">
           <expression>
-            <expression-string>False</expression-string>
+            <expression-string>Flowcharts("MainFlowchart").Loop.EndEvent</expression-string>
           </expression>
         </input>
-        <input name="AutoStartRunTool">
+        <input name="StartEvent">
           <expression>
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="AutoStartRunToolMode">
-          <expression>
-            <expression-string>ImageSet</expression-string>
-          </expression>
-        </input>
-        <input name="RecordingTabEnabled">
-          <expression>
-            <expression-string>True</expression-string>
-          </expression>
-        </input>
-        <input name="RunTabEnabled">
-          <expression>
-            <expression-string>True</expression-string>
-          </expression>
-        </input>
-        <input name="RuntimeMessageNotification">
-          <expression>
-            <expression-string>OnError</expression-string>
-          </expression>
-        </input>
-        <input name="RuntimeWaitBannerTime">
-          <expression>
-            <expression-string>1</expression-string>
-          </expression>
-        </input>
-        <input name="ShowRuntimeWaitBanner">
-          <expression>
-            <expression-string>True</expression-string>
-          </expression>
-        </input>
-        <input name="StartMinimized">
-          <expression>
-            <expression-string>False</expression-string>
+            <expression-string>Flowcharts("MainFlowchart").ImageActuelle.EndEvent</expression-string>
           </expression>
         </input>
       </inputs>
       <userXML />
     </setting>
-=======
->>>>>>> bd8b3ee5bf0e548f717f005ea7d4be38024a0ec2
+    <setting name="PerformanceSettings" type="Matrox.DesignAssistant.Core.Projects.PerformanceSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b0b362e3-1300-4584-9e00-d442c000ef5f" Version="10.0.454.0">
+      <inputs>
+        <input name="GarbageCollectMode">
+          <expression>
+            <expression-string>EachInspection</expression-string>
+          </expression>
+        </input>
+        <input name="OverheadObjects">
+          <expression>
+            <expression-string>0</expression-string>
+          </expression>
+        </input>
+        <input name="UseLowLatency">
+          <expression>
+            <expression-string>True</expression-string>
+          </expression>
+        </input>
+        <subObject name="GarbageCollectSettings" type="Matrox.DesignAssistant.Core.Projects.GarbageCollectSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="68ceba20-b3f9-43af-9d0b-9376adb145a7" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <inputs>
+            <input name="FullCollection">
+              <expression>
+                <expression-string>False</expression-string>
+              </expression>
+            </input>
+            <input name="Generation">
+              <expression>
+                <expression-string>0</expression-string>
+              </expression>
+            </input>
+            <input name="Mode">
+              <expression>
+                <expression-string>Optimized</expression-string>
+              </expression>
+            </input>
+          </inputs>
+          <userXML />
+        </subObject>
+        <input name="EnableFullGCNotification">
+          <expression>
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+        <input name="GarbageCollectionWatcher">
+          <expression>
+            <expression-string>Disable</expression-string>
+          </expression>
+        </input>
+        <input name="MaxCollectionTime">
+          <expression available="False">
+            <expression-string>0.006</expression-string>
+          </expression>
+        </input>
+        <input name="JITWatcher">
+          <expression>
+            <expression-string>Disable</expression-string>
+          </expression>
+        </input>
+        <input name="InspectionTimeLogs">
+          <expression>
+            <expression-string>Disable</expression-string>
+          </expression>
+        </input>
+        <input name="MaxInspectionTime">
+          <expression available="False">
+            <expression-string>0</expression-string>
+          </expression>
+        </input>
+        <input name="StopOnMaxInspection">
+          <expression available="False">
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+        <input name="MaxRunTime">
+          <expression available="False">
+            <expression-string>0</expression-string>
+          </expression>
+        </input>
+        <subObject name="LogSettings" type="Matrox.DesignAssistant.Core.Projects.LogSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="65247cbe-8a6c-4d57-aaf4-b14140a4cb0a" Version="10.0.454.0">
+          <expression available="False">
+            <expression-string></expression-string>
+          </expression>
+          <inputs>
+            <input name="LogFilePath">
+              <expression available="False">
+                <expression-string></expression-string>
+              </expression>
+            </input>
+            <input name="Mode">
+              <expression available="False">
+                <expression-string>MaxOnly</expression-string>
+              </expression>
+            </input>
+            <input name="WriteFrequency">
+              <expression available="False">
+                <expression-string>1000</expression-string>
+              </expression>
+            </input>
+          </inputs>
+          <userXML />
+        </subObject>
+        <input name="InspectionIntervalHeapLog">
+          <expression available="False">
+            <expression-string>0</expression-string>
+          </expression>
+        </input>
+        <input name="InspectionIntervalProcLog">
+          <expression available="False">
+            <expression-string>0</expression-string>
+          </expression>
+        </input>
+        <input name="CollectPeriod">
+          <expression>
+            <expression-string>1</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </setting>
   </project-settings>
 </project>
