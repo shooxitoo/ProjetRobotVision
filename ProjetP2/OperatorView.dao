@@ -1,153 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <operatorView id="8a9a4a30-ef7a-41fd-aea4-da5eeeef4588" name="OperatorView" version="10.0.454.0" auth-enabled="False" type="normal">
   <htmlAnnotators>
-    <HTMLAnnotator name="Display" type="Matrox.DesignAssistant.Core.OperatorViews.Display, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a9b2cd29-3045-4763-824c-6331f4ceeb14" Version="10.0.454.0">
-      <inputs>
-        <objectCollection name="AnnotationGroups" type="Matrox.DesignAssistant.Core.Annotations.Groups.AnnotationGroupCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f87dbecc-5a22-4b4b-8ab3-6a4f11053163" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <collectionItems />
-          <userXML />
-        </objectCollection>
-        <input name="Image">
-          <expression>
-            <expression-string need-link-container="True">ImageActuelle.Image</expression-string>
-          </expression>
-        </input>
-        <input name="Width">
-          <expression>
-            <expression-string>640</expression-string>
-          </expression>
-        </input>
-        <input name="Height">
-          <expression>
-            <expression-string>480</expression-string>
-          </expression>
-        </input>
-        <input name="Region">
-          <expression>
-            <expression-string>WholeImage</expression-string>
-          </expression>
-        </input>
-        <input name="SelectionRadius">
-          <expression>
-            <expression-string>5</expression-string>
-          </expression>
-        </input>
-        <input name="ColorMode">
-          <expression>
-            <expression-string>Default</expression-string>
-          </expression>
-        </input>
-        <input name="ColorMap">
-          <expression>
-            <expression-string>Default</expression-string>
-          </expression>
-        </input>
-        <input name="ScaleImage">
-          <expression>
-            <expression-string>Enabled</expression-string>
-          </expression>
-        </input>
-        <input name="ImageAlignment">
-          <expression>
-            <expression-string>Center</expression-string>
-          </expression>
-        </input>
-        <input name="Zoom">
-          <expression available="False">
-            <expression-string>1</expression-string>
-          </expression>
-        </input>
-        <input name="MouseZoomAndPan">
-          <expression>
-            <expression-string>Enabled</expression-string>
-          </expression>
-        </input>
-        <input name="KeyboardZoomAndPan">
-          <expression>
-            <expression-string>Enabled</expression-string>
-          </expression>
-        </input>
-        <input name="BackgroundColor">
-          <expression>
-            <expression-string>Default</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </HTMLAnnotator>
-    <HTMLAnnotator name="TotalPassValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="940e0aad-94b3-40f2-8b6a-c395b5a48cd4" Version="10.0.454.0">
-      <inputs>
-        <input name="BackgroundColor">
-          <expression>
-            <expression-string>COLOR("DarkGreen")</expression-string>
-          </expression>
-        </input>
-        <input name="TextColor">
-          <expression>
-            <expression-string>COLOR("White")</expression-string>
-          </expression>
-        </input>
-        <input name="LineHeight">
-          <expression>
-            <expression-string>1</expression-string>
-          </expression>
-        </input>
-        <input name="MultiLine">
-          <expression>
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="Overflow">
-          <expression>
-            <expression-string>Auto</expression-string>
-          </expression>
-        </input>
-        <input name="Text">
-          <expression>
-            <expression-string need-link-container="True">{Status.PassCount}</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </HTMLAnnotator>
-    <HTMLAnnotator name="AnalysisTimeValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="35b6db5d-2713-417e-8331-1d1ee74d9c7d" Version="10.0.454.0">
-      <inputs>
-        <input name="BackgroundColor">
-          <expression>
-            <expression-string>COLOR(211,211,211)</expression-string>
-          </expression>
-        </input>
-        <input name="TextColor">
-          <expression>
-            <expression-string>COLOR("Black")</expression-string>
-          </expression>
-        </input>
-        <input name="LineHeight">
-          <expression>
-            <expression-string>1</expression-string>
-          </expression>
-        </input>
-        <input name="MultiLine">
-          <expression>
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="Overflow">
-          <expression>
-            <expression-string>Auto</expression-string>
-          </expression>
-        </input>
-        <input name="Text">
-          <expression>
-            <expression-string need-link-container="True">{(Status.Time - ImageActuelle.Time)*1000:F0}</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </HTMLAnnotator>
     <HTMLAnnotator name="PassFail" type="Matrox.DesignAssistant.Core.OperatorViews.PassFail, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="20a43451-c088-4972-ad7a-e4c36b984bd1" Version="10.0.454.0">
       <inputs>
         <input name="PassTextColor">
@@ -330,6 +183,2846 @@
       </inputs>
       <userXML />
     </HTMLAnnotator>
+    <HTMLAnnotator name="Display" type="Matrox.DesignAssistant.Core.OperatorViews.Display, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a9b2cd29-3045-4763-824c-6331f4ceeb14" Version="10.0.454.0">
+      <inputs>
+        <objectCollection name="AnnotationGroups" type="Matrox.DesignAssistant.Core.Annotations.Groups.AnnotationGroupCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f87dbecc-5a22-4b4b-8ab3-6a4f11053163" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems>
+            <subObject name="Group3" type="Matrox.DesignAssistant.Core.Annotations.Groups.AnnotationGroup, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="2dd40164-6b32-4f9f-a252-cdfeaa7dc681" Version="10.0.454.0">
+              <inputs>
+                <input name="Visible">
+                  <expression>
+                    <expression-string>True</expression-string>
+                  </expression>
+                </input>
+              </inputs>
+              <userXML />
+              <sharedInputProvider name="Group3" type="Matrox.DesignAssistant.Core.Annotations.Groups.SharedAnnotationGroup, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="9e106c47-7ae8-4b7c-a514-e6792faf422e" Version="10.0.454.0">
+                <inputs>
+                  <objectCollection name="Annotations" type="Matrox.DesignAssistant.Core.Annotations.AnnotationCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="5a5d9357-b3b8-43f6-a2af-bfab3f6f7a63" Version="10.0.454.0">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                    <collectionItems>
+                      <subObject name="SearchRegions" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="1f649b40-dcfb-4140-ab6c-ade2321817cc" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="afaf9df4-ba26-44df-a112-d55744c8fd3d" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Passedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.PassedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="d27df037-3035-4183-94dd-876dca30f176" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Green")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Passed features" operation="16" />
+                              </subObject>
+                              <subObject name="Failedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FailedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="d65bf26c-b182-4455-b4c7-422d95fa5fc5" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Red")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Failed features" operation="16" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyEngr15</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="45f28d91-a168-424f-b1bf-6bbf786f0bee" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="4c5703d3-a6c8-409c-ac5a-53189e00b192" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Search regions" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                      <subObject name="Features" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="8dc25ca3-42f8-4c30-aa92-75b9c2fd5e54" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="41a2b215-741c-4566-950d-24327d06c897" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Measuredfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a1f0e543-cc87-4499-8e12-e58e73c9ab0b" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Blue")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Measured features" operation="6" />
+                              </subObject>
+                              <subObject name="Parametricfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ParametricFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="39aa192a-280c-40c0-90fd-dc55ae3fcf6b" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Yellow")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Parametric features" operation="16" />
+                              </subObject>
+                              <subObject name="Constructedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ConstructedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="e1ff35d0-7ec1-4370-87bb-da14a3116081" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Orange")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Constructed features" operation="6" />
+                              </subObject>
+                              <subObject name="Clonedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ClonedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="8d8c184f-27d8-45b9-b587-a7868413cec5" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Cyan")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Cloned features" operation="6" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyEngr15</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="6d03489c-c3f5-4301-8ae2-27d6e49469a3" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="fcb345ba-12ca-457a-aae3-0bd23091ac24" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Features" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                      <subObject name="SearchRegions2" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="6d534a0f-0656-46c3-a890-04ba59f26926" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="34edf8fa-3df0-4ca8-9a9e-e05e5cc2562f" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Passedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.PassedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c35e6f16-7c8b-4898-a553-b7355a6c1fba" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Green")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Passed features" operation="16" />
+                              </subObject>
+                              <subObject name="Failedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FailedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0a008543-9281-4352-bc03-b41149477c60" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Red")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Failed features" operation="16" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyEngr18</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="3e79a813-fd02-4056-8743-71517647a3f5" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="9cf843a9-2acc-47aa-84cf-7d33cfd5c4dc" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Search regions" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                      <subObject name="Features2" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="583940af-2ee0-46a5-a395-51c66d88ad27" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0ca89bca-e1e3-40fd-a973-fe41a8a47a4d" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Measuredfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0993de5f-5b26-4672-820c-718cd1f22147" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Blue")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Measured features" operation="6" />
+                              </subObject>
+                              <subObject name="Parametricfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ParametricFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="08745acd-8910-456e-9f1f-92bfaebf2247" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Yellow")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Parametric features" operation="16" />
+                              </subObject>
+                              <subObject name="Constructedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ConstructedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c3e51d0d-6984-4f77-b64c-3e9db12e8a66" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Orange")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Constructed features" operation="6" />
+                              </subObject>
+                              <subObject name="Clonedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ClonedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="9b236b24-f6da-4ae5-ae5f-a599ea99639b" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Cyan")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Cloned features" operation="6" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyEngr18</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="6bbe232f-27a4-45fe-a5a9-cb71ac808c7a" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="3e873b1c-9cc3-43d3-aa8b-e573bd39027e" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Features" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                      <subObject name="SearchRegions3" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a89297d1-e60f-4054-a97e-6f92fe5d270c" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="89ac1b9e-3283-4223-b112-4a80a20c0df4" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Passedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.PassedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="fc691d31-db68-4053-b4f1-7c347b941867" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Green")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Passed features" operation="16" />
+                              </subObject>
+                              <subObject name="Failedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FailedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="94a6a498-5461-4c3b-b266-998e805d6f78" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Red")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Failed features" operation="16" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyEngr25</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="9c2ba177-2dd9-425c-bdb2-5274163d0c95" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="e104b71b-1fe5-4a28-af18-02fcc17336a0" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Search regions" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                      <subObject name="Features3" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="5d26a936-2de8-46f9-809d-e9464dd4a4ee" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="189a7bbb-762d-4ff6-83ec-21a91c11de44" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Measuredfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="47f425bd-df58-4297-9f0c-8ae6b5197db9" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Blue")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Measured features" operation="6" />
+                              </subObject>
+                              <subObject name="Parametricfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ParametricFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c8819f5f-190d-46ce-9918-d6ec067a203b" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Yellow")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Parametric features" operation="16" />
+                              </subObject>
+                              <subObject name="Constructedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ConstructedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="8d012891-5412-4b28-bd64-b4af988ae83d" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Orange")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Constructed features" operation="6" />
+                              </subObject>
+                              <subObject name="Clonedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ClonedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="df4e413b-88ee-4572-a9ae-27d300c48159" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Cyan")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Cloned features" operation="6" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyEngr25</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b92893d4-835b-48c5-af6c-71b9c97cfb0b" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ecbad46a-282a-4e45-b9f1-31ddc0445b94" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Features" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                      <subObject name="SearchRegions4" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ca5ff66e-56ab-40a8-af76-f7f114090a97" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="40aaffb3-cc11-44b9-bc95-e60105c28738" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Passedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.PassedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="feba0e87-5ff2-4b4a-9ff0-656f8bd7a261" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Green")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Passed features" operation="16" />
+                              </subObject>
+                              <subObject name="Failedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FailedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="1a6ad360-848f-40c6-93bd-b8c196ee02b2" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Red")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Failed features" operation="16" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyEngr30</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c997b98e-5c55-41b2-afef-a3f9aeeec058" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="6238693a-4426-4087-8320-eb102affb91d" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Search regions" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                      <subObject name="Features4" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="cfc63d47-ffbb-4941-8dbc-91213298cd94" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b184e9e0-2ced-4069-8b5b-26da32da1ef3" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Measuredfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ed75d7d7-562a-4c14-94e2-cc2db42a8edf" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Blue")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Measured features" operation="6" />
+                              </subObject>
+                              <subObject name="Parametricfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ParametricFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="042e9154-78e5-4493-89a9-a3ea9da4f212" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Yellow")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Parametric features" operation="16" />
+                              </subObject>
+                              <subObject name="Constructedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ConstructedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="a4516b1a-0930-48b7-8610-53a906cf6884" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Orange")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Constructed features" operation="6" />
+                              </subObject>
+                              <subObject name="Clonedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ClonedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="2b82f348-c175-40d6-ac55-afe60b3b7d90" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Cyan")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Cloned features" operation="6" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyEngr30</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="36a6836f-ffdf-454f-99b3-dbc6b2c61895" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0b463fe1-952c-4efe-a6a1-be8024b1efc2" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Features" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                      <subObject name="SearchRegions5" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="dcaace75-2979-4f55-8c45-4e5a124fd8fc" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="04fdfedc-cdaf-40f9-9298-e76944a30129" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Passedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.PassedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="5c4bdcb9-82f6-4003-966b-a7c49d6f9be4" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Green")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Passed features" operation="16" />
+                              </subObject>
+                              <subObject name="Failedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FailedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="3f266301-5850-4fbd-ae8f-71401ed592d4" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Red")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Failed features" operation="16" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyGoup</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="fee86eb6-cd70-45cc-8171-27d83cc391a6" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="bfaa64d1-c8a0-4867-b5bf-32eab02fb0c4" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Search regions" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                      <subObject name="Features5" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="d4c58a29-c3dd-4d62-89d7-54c39cd7db65" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ee579e52-8ad6-44ce-9588-fe20f3a87a8b" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Measuredfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="fddd54a2-3310-44a3-9ba7-da61ba274b9a" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Blue")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Measured features" operation="6" />
+                              </subObject>
+                              <subObject name="Parametricfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ParametricFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="0ee91d87-db35-4872-a081-e134b2230efc" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Yellow")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Parametric features" operation="16" />
+                              </subObject>
+                              <subObject name="Constructedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ConstructedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="123c7fd1-7ef0-4268-b4f4-9e0202676107" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Orange")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Constructed features" operation="6" />
+                              </subObject>
+                              <subObject name="Clonedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ClonedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="cbd25795-687e-40b4-8ded-162686a8c1f4" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Cyan")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Cloned features" operation="6" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyGoup</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="da05ffa7-f614-47e8-ab0a-4f3b4151685f" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ea1f5e3b-a599-46b9-81ea-7cf9579cd32f" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Features" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                      <subObject name="SearchRegions6" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="f85f155d-2eba-4be4-8ea8-5f0ab7bfbf53" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="6dd8e2f9-24ee-4f60-b531-b12ee0bafb0b" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Passedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.PassedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="27d8987b-c42c-4379-b5bc-07bd6a02f6fa" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Green")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Passed features" operation="16" />
+                              </subObject>
+                              <subObject name="Failedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FailedRegionOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="834ec07c-7661-48ca-9779-7a012c61a408" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Red")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Failed features" operation="16" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyRond</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="91a3a571-f92e-4f55-aebd-7a203a8de6fc" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="179f5206-0d46-4d69-8c92-3a0df476639e" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Search regions" type="Matrox.DesignAssistant.Steps.MetrologyPackage.RegionAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                      <subObject name="Features6" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="60b091d1-fa32-434a-930a-d02d341c010a" Version="10.0.454.0">
+                        <inputs>
+                          <input name="Visible">
+                            <expression>
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Editable">
+                            <expression>
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                          <objectCollection name="Options" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationOptionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="14b91b5a-76b7-4306-a42b-f4343987c17b" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <collectionItems>
+                              <subObject name="Measuredfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.MeasuredFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="894d198e-8d76-45c4-b7f8-8f80beca0a9d" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Blue")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Measured features" operation="6" />
+                              </subObject>
+                              <subObject name="Parametricfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ParametricFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b08cbb01-31b2-434d-a32e-2903d43a5a91" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Yellow")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="DrawCoordinateSystem">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Parametric features" operation="16" />
+                              </subObject>
+                              <subObject name="Constructedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ConstructedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="763c46c6-e7e8-4e9e-8d03-f12c89ed635a" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Orange")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Constructed features" operation="6" />
+                              </subObject>
+                              <subObject name="Clonedfeatures" type="Matrox.DesignAssistant.Steps.MetrologyPackage.ClonedFeatureOption, Matrox.DesignAssistant.Steps.MetrologyPackage, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="77ce21bc-bc0a-4bdd-b1af-69e7e4f465e0" Version="10.0.454.0">
+                                <inputs>
+                                  <input name="Visible">
+                                    <expression>
+                                      <expression-string>True</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="Color">
+                                    <expression>
+                                      <expression-string>COLOR("Cyan")</expression-string>
+                                    </expression>
+                                  </input>
+                                  <input name="ShowLabel">
+                                    <expression>
+                                      <expression-string>False</expression-string>
+                                    </expression>
+                                  </input>
+                                </inputs>
+                                <userXML />
+                                <option name="Cloned features" operation="6" />
+                              </subObject>
+                            </collectionItems>
+                            <userXML />
+                          </objectCollection>
+                          <input name="Step">
+                            <expression>
+                              <expression-string>Flowcharts("MainFlowchart").MetrologyRond</expression-string>
+                            </expression>
+                          </input>
+                          <subObject name="Label" type="Matrox.DesignAssistant.Core.Steps.Annotations.AnnotationLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="3c82242e-3dd1-4cec-a22d-f96e2f23a264" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="Visible">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Text">
+                                <expression available="False">
+                                  <expression-string></expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextColor">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundColor">
+                                <expression available="False">
+                                  <expression-string>COLOR("LightGray")</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BackgroundMode">
+                                <expression>
+                                  <expression-string>Transparent</expression-string>
+                                </expression>
+                              </input>
+                              <input name="AutoselectFont">
+                                <expression>
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Font">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontType">
+                                <expression>
+                                  <expression-string>TrueType</expression-string>
+                                </expression>
+                              </input>
+                              <input name="BitmapFontSize">
+                                <expression available="False">
+                                  <expression-string>Small</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TrueTypeFontSize">
+                                <expression>
+                                  <expression-string>12</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleX">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsBold">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="FontScaleY">
+                                <expression available="False">
+                                  <expression-string>1</expression-string>
+                                </expression>
+                              </input>
+                              <input name="IsItalic">
+                                <expression>
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TextDirection">
+                                <expression>
+                                  <expression-string>LeftToRight</expression-string>
+                                </expression>
+                              </input>
+                              <input name="HorizontalAlignment">
+                                <expression>
+                                  <expression-string>Left</expression-string>
+                                </expression>
+                              </input>
+                              <input name="VerticalAlignment">
+                                <expression>
+                                  <expression-string>Top</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <subObject name="DrawAction" type="Matrox.DesignAssistant.Core.Annotations.DrawAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="204549d2-52bd-49a4-b767-e91254bdc869" Version="10.0.454.0">
+                            <expression>
+                              <expression-string></expression-string>
+                            </expression>
+                            <inputs>
+                              <input name="CanRun">
+                                <expression>
+                                  <expression-string>None</expression-string>
+                                </expression>
+                              </input>
+                              <input name="Enabled">
+                                <expression available="False">
+                                  <expression-string>True</expression-string>
+                                </expression>
+                              </input>
+                              <input name="TriggerEvent">
+                                <expression>
+                                  <expression-string>Default</expression-string>
+                                </expression>
+                              </input>
+                              <input name="WaitInspectionEnd">
+                                <expression available="False">
+                                  <expression-string>False</expression-string>
+                                </expression>
+                              </input>
+                            </inputs>
+                            <userXML />
+                          </subObject>
+                          <input name="MaximumAccumulations">
+                            <expression>
+                              <expression-string>2000</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Thickness">
+                            <expression>
+                              <expression-string>Default</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                        <annotation name="Features" type="Matrox.DesignAssistant.Steps.MetrologyPackage.FeatureAnnotation" isordered="False" drawingorder="1" />
+                      </subObject>
+                    </collectionItems>
+                    <userXML />
+                  </objectCollection>
+                  <objectCollection name="ClearActions" type="Matrox.DesignAssistant.Core.Annotations.Groups.ClearGroupActionCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="dfeb91b7-bc8e-465c-a1fe-c6c22a8b5dc5" Version="10.0.454.0">
+                    <expression>
+                      <expression-string></expression-string>
+                    </expression>
+                    <collectionItems>
+                      <subObject name="ClearAction" type="Matrox.DesignAssistant.Core.Annotations.Groups.ClearGroupAction, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="170d723c-40f7-461c-9771-1397538097b0" Version="10.0.454.0">
+                        <inputs>
+                          <input name="CanRun">
+                            <expression>
+                              <expression-string>None</expression-string>
+                            </expression>
+                          </input>
+                          <input name="Enabled">
+                            <expression available="False">
+                              <expression-string>True</expression-string>
+                            </expression>
+                          </input>
+                          <input name="TriggerEvent">
+                            <expression>
+                              <expression-string>Inspection.StartEvent</expression-string>
+                            </expression>
+                          </input>
+                          <input name="WaitInspectionEnd">
+                            <expression available="False">
+                              <expression-string>False</expression-string>
+                            </expression>
+                          </input>
+                        </inputs>
+                        <userXML />
+                      </subObject>
+                    </collectionItems>
+                    <userXML />
+                  </objectCollection>
+                </inputs>
+                <userXML />
+              </sharedInputProvider>
+            </subObject>
+          </collectionItems>
+          <userXML />
+        </objectCollection>
+        <input name="Image">
+          <expression>
+            <expression-string need-link-container="True">ImageActuelle.Image</expression-string>
+          </expression>
+        </input>
+        <input name="Width">
+          <expression>
+            <expression-string>640</expression-string>
+          </expression>
+        </input>
+        <input name="Height">
+          <expression>
+            <expression-string>480</expression-string>
+          </expression>
+        </input>
+        <input name="Region">
+          <expression>
+            <expression-string>WholeImage</expression-string>
+          </expression>
+        </input>
+        <input name="SelectionRadius">
+          <expression>
+            <expression-string>5</expression-string>
+          </expression>
+        </input>
+        <input name="ColorMode">
+          <expression>
+            <expression-string>Default</expression-string>
+          </expression>
+        </input>
+        <input name="ColorMap">
+          <expression>
+            <expression-string>Default</expression-string>
+          </expression>
+        </input>
+        <input name="ScaleImage">
+          <expression>
+            <expression-string>Enabled</expression-string>
+          </expression>
+        </input>
+        <input name="ImageAlignment">
+          <expression>
+            <expression-string>Center</expression-string>
+          </expression>
+        </input>
+        <input name="Zoom">
+          <expression available="False">
+            <expression-string>1</expression-string>
+          </expression>
+        </input>
+        <input name="MouseZoomAndPan">
+          <expression>
+            <expression-string>Enabled</expression-string>
+          </expression>
+        </input>
+        <input name="KeyboardZoomAndPan">
+          <expression>
+            <expression-string>Enabled</expression-string>
+          </expression>
+        </input>
+        <input name="BackgroundColor">
+          <expression>
+            <expression-string>Default</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </HTMLAnnotator>
     <HTMLAnnotator name="TotalFailValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="1b1c469c-1afd-44a7-877c-d081ff3ddedf" Version="10.0.454.0">
       <inputs>
         <input name="BackgroundColor">
@@ -365,6 +3058,41 @@
       </inputs>
       <userXML />
     </HTMLAnnotator>
+    <HTMLAnnotator name="TotalPassValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="940e0aad-94b3-40f2-8b6a-c395b5a48cd4" Version="10.0.454.0">
+      <inputs>
+        <input name="BackgroundColor">
+          <expression>
+            <expression-string>COLOR("DarkGreen")</expression-string>
+          </expression>
+        </input>
+        <input name="TextColor">
+          <expression>
+            <expression-string>COLOR("White")</expression-string>
+          </expression>
+        </input>
+        <input name="LineHeight">
+          <expression>
+            <expression-string>1</expression-string>
+          </expression>
+        </input>
+        <input name="MultiLine">
+          <expression>
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+        <input name="Overflow">
+          <expression>
+            <expression-string>Auto</expression-string>
+          </expression>
+        </input>
+        <input name="Text">
+          <expression>
+            <expression-string need-link-container="True">{Status.PassCount}</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </HTMLAnnotator>
     <HTMLAnnotator name="FrameRateValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="c270ed8d-3177-4955-8a74-84065df15e59" Version="10.0.454.0">
       <inputs>
         <input name="BackgroundColor">
@@ -395,6 +3123,41 @@
         <input name="Text">
           <expression>
             <expression-string need-link-container="True">{ImageActuelle.FrameRate:F1}</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </HTMLAnnotator>
+    <HTMLAnnotator name="AnalysisTimeValue" type="Matrox.DesignAssistant.Core.OperatorViews.Value, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="35b6db5d-2713-417e-8331-1d1ee74d9c7d" Version="10.0.454.0">
+      <inputs>
+        <input name="BackgroundColor">
+          <expression>
+            <expression-string>COLOR(211,211,211)</expression-string>
+          </expression>
+        </input>
+        <input name="TextColor">
+          <expression>
+            <expression-string>COLOR("Black")</expression-string>
+          </expression>
+        </input>
+        <input name="LineHeight">
+          <expression>
+            <expression-string>1</expression-string>
+          </expression>
+        </input>
+        <input name="MultiLine">
+          <expression>
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+        <input name="Overflow">
+          <expression>
+            <expression-string>Auto</expression-string>
+          </expression>
+        </input>
+        <input name="Text">
+          <expression>
+            <expression-string need-link-container="True">{(Status.Time - ImageActuelle.Time)*1000:F0}</expression-string>
           </expression>
         </input>
       </inputs>
