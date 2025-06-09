@@ -16,16 +16,16 @@
   </step>
   <step name="Status" id="4bba7190-ddf4-499c-a3f7-a250c7b70a62">
     <data name="CurrentPassCount">
-      <value>1305</value>
+      <value>1307</value>
     </data>
     <data name="CurrentFailCount">
-      <value>2538</value>
+      <value>2541</value>
     </data>
     <data name="CurrentTotalCount">
-      <value>3843</value>
+      <value>3848</value>
     </data>
     <data name="CurrentErrorCount">
-      <value>2519</value>
+      <value>2522</value>
     </data>
   </step>
 </counterdata>

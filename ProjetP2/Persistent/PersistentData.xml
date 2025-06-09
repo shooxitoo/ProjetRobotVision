@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <persistence>
+  <persistentitem id="648ba173-a818-4511-96b4-5e783603306e">
+    <Variable name="Sql_DB_User" persistentState="Global" type="Matrox.DesignAssistant.Core.Flowcharts.Variable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" linkedAssemblies="Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" description="" typeName="String" id="648ba173-a818-4511-96b4-5e783603306e" Version="10.0.454.0">
+      <inputs>
+        <input name="InitialValue">
+          <expression>
+            <expression-string>StoredValue</expression-string>
+          </expression>
+        </input>
+        <input name="ResetPoint">
+          <expression available="False">
+            <expression-string>NeverReset</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </Variable>
+    <CurrentValue valueHasNotBeenSet="False" currentValue="DA10_runtime" />
+  </persistentitem>
   <persistentitem id="79f1150c-020c-488a-9771-4951243df4d3" milstreamsdirname="MILStreams\MainFlowchart" milstreamfilenameprefix="Status2">
     <step name="Status2" persistentState="Global" type="Matrox.DesignAssistant.Core.Flowcharts.StatusStep.Status, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="79f1150c-020c-488a-9771-4951243df4d3" Version="10.0.454.0">
       <inputs>
@@ -347,23 +365,5 @@
       </inputs>
       <userXML />
     </step>
-  </persistentitem>
-  <persistentitem id="648ba173-a818-4511-96b4-5e783603306e">
-    <Variable name="Sql_DB_User" persistentState="Global" type="Matrox.DesignAssistant.Core.Flowcharts.Variable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" linkedAssemblies="Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" description="" typeName="String" id="648ba173-a818-4511-96b4-5e783603306e" Version="10.0.454.0">
-      <inputs>
-        <input name="InitialValue">
-          <expression>
-            <expression-string>StoredValue</expression-string>
-          </expression>
-        </input>
-        <input name="ResetPoint">
-          <expression available="False">
-            <expression-string>NeverReset</expression-string>
-          </expression>
-        </input>
-      </inputs>
-      <userXML />
-    </Variable>
-    <CurrentValue valueHasNotBeenSet="False" currentValue="DA10_runtime" />
   </persistentitem>
 </persistence>
