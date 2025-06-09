@@ -1,4 +1,4 @@
-.MODULE_BEGIN ModeTestP2
+.MODULE_BEGIN ProgP2
 
 .MODULE_VERSION 1.0
 
@@ -6,7 +6,7 @@
 
 .MODULE_PROGRAMS
 
-.PROGRAM ComMatrox
+.PROGRAM ReadMe
 
 .DESCRIPTION
 
@@ -14,107 +14,148 @@
 
 .VARIABLES
 
-    bool x = true
-    string l_sDataReceived, Request
-    int Input
-
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
-tcpDisconnect(gsMatrox)
-
-if (tcpConnect(gsMatrox))
-    print("Client connected", gsMatrox)
-else
-    print("Erreur connexion", gsMatrox)
-    taskStop()
-end
-
-while (x)
-    RsClear()
-    Request=RsCreateRequest("INSPECT")
-    print("Envoie",Request)
-
-    if (tcpSendAndWait(gsMatrox,Request,l_sDataReceived,10))
-        print("Réponse",l_sDataReceived)
-        Input=RsParse(l_sDataReceived)
-        print(RsReadReplyResult())
-        print(RsReadDouble("DiametreCercle2"))
-    else
-        print("Erreur d'envoie")
-        taskStop()
-    end
-end
-
-if (!tcpDisconnect(gsMatrox))
-    print("Erreur déconnexion", gsMatrox)
-    taskStop()
-end
+// ******************************************************
+// README – PROJET P2
+// Cellule Robotisée – Vision + SQL
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+//
+// ******************************************************
+// SECTION 0 - MODULES DU PROJET
+// ******************************************************
+// ProgP2: Contient toute la programmation du projet.
+// P2Data: Contient de la Data lié au projet notamment un class d'états
+//         pour la machine d'états
+//
+// ******************************************************
+// SECTION 1 – OBJECTIF DU PROJET
+// ******************************************************
+// Ce projet contrôle une cellule robotisée capable d’assembler
+// des pièces mécaniques (goupilles, engrenages, rondelles) à
+// partir d'ordres de fabrication stockés dans une base SQL,
+// en s’appuyant sur la vision Matrox pour détecter les positions réelles.
+// tout en inscrivant chaque étape dans un journal SQL.
+//
+// ******************************************************
+// SECTION 2 – ARCHITECTURE
+// ******************************************************
+// TÂCHES PRINCIPALES :
+//  - MainP2()          : surveille et redémarre la tache Robot.
+//  - MachineDEtat()    : Machine d'etat qui gère l'init, le stop et le run.
+//  - CMDInit / CMDRobotRun / CMDStop : contrôles via fenetre floating
+//
+// PROGRAMMES MAJEURS :
+//  - Mouvements()            : boucle complète OF -> lot -> gamme
+//  - ExecuteAssembly()       : execute le cycle d'assemblage via
+//                              les sous-programmes suivants:
+//  - CycleGoupille(), CycleEngrenage(), CycleRondelle()
+//  - DBReadOF(), DBReadGamme(), DBWriteJournal()
+//  - Communication vision : SendMatrox()
+//  - Communication SQL : DBQuery(), DBExecute()
+//
+// ******************************************************
+// SECTION 3 – POSITIONS ET REPÈRES À RENSEIGNER MANUELLEMENT
+// ******************************************************
+// Pour que le projet fonctionne correctement et que les coordonnées vision (Matrox)
+// soient correctement interprétées par le robot, l'utilisateur doit renseigner ou
+// recalibrer manuellement les points suivants dans l’environnement robot :
+//
+//  REPÈRES À APPRENDRE (dans l’environnement robot, avec axe Z vers le bas) :
+//   - OriginePalettePrise1  : position d'origine de prise sur la palette 1
+//   - OriginePaletteDepose  : position d'origine de dépose sur la palette de sortie
+//    Ces repères doivent être appris avec les coordonnées PosX et PosY définies,
+//    et un axe Z orienté vers le bas pour que les prises soient correctes.
+//
+//  DÉCALAGES DÉFINIS (utilisés dans ComputeOrigins) :
+//   - gcPosPriseX, gcPosPriseY   -> coordonnées XY relatives à la palette prise
+//   - gcPosDeposeX, gcPosDeposeY -> coordonnées XY relatives à la palette dépose
+//
+//  RÔLE DES OFFSETS :
+//   - OffsetPrise1, OffsetDeposeX, OffsetDeposeY permettent d’ajuster la position
+//     calculée pour qu’elle corresponde précisément au référentiel de la vision (Matrox).
+//   - Ils compensent les écarts entre le repère robot et le repère utilisé par la caméra,
+//     afin de récupérer et interpréter correctement les coordonnées transmises par Matrox.
+//
+// ******************************************************
+// SECTION 4 – DÉMARRAGE DU SYSTÈME
+// ******************************************************
+// 1. Lancer la tâche principal via "STARTUP" ou floating: "STARTUP"
+// 2. Exécuter "CMDInit()" ou floating: "Run" pour :
+//      - Initialiser le robot
+//      - Calculer les origines via "ComputeOrigins()"
+//      - Vérifier les connexions SQL et Matrox
+// 3. Démarrer le traitement automatique avec "CMDRun()" ou floating: "Run"
+// 4. Arrêter proprement avec "CMDStop()" ou floating: "Stop"
+// 5. Puis mettre fin au taches via "SHUTDOWN" ou floating: "SHUTDOWN"
+//
+// ******************************************************
+// SECTION 5 – CYCLE DE PRODUCTION
+// ******************************************************
+//  Mouvements()
+//    - Lit tous les OFs (DBReadOF)
+//    - Pour chaque OF : lit la gamme (DBReadGamme)
+//    - Pour chaque unité du lot :
+//        - Pour chaque phase :
+//            - ExecuteAssembly(Operation)
+//            - DBWriteJournal(Temps) renseigne dans table SQL "JournalDeTest"
+//              l'étape réalisée.
+//
+//  ExecuteAssembly()
+//    - Enchaîne : CycleGoupille() -> CycleEngrenage() -> CycleRondelle()
+//    - À chaque étape : changement d’outil, inspection Matrox, prise, dépose
+//
+// ******************************************************
+// SECTION 6 – STRUCTURE SQL ATTENDUE
+// ******************************************************
+// Tables requises sur le serveur SQL :
+//  - OFs              : contient les ordres de fabrication (Id, LotSize, Gamme)
+//  - Gammes           : contient les gammes (Id, Nom)
+//  - Operations       : contient les étapes (Gamme, Phase, PosX, PosY, Part)
+//  - Engrenages       : données techniques associées à Part
+//  - Journal          : journalisation des étapes exécutées
+//
+// Communication SQL via :
+//  - dbcQuery()
+//  - dbcExecute()
+//
+// ******************************************************
+// SECTION 7 – PROTOCOLE DE VISION (MATROX/RSVP)
+// ******************************************************
+// Toutes les lectures Matrox utilisent le protocole RSVP :
+// - RsClear()         : vide les buffers
+// - RsCreateRequest() : crée une commande (ex : "INSPECT_ENGR15")
+// - SendMatrox(...)   : envoie la requête et attend "ACK"
+// - RsReadDouble()    : lecture X / Y d’objet
+// - RsReadInt()       : lecture DataMatrix ou nombre d'engrenages
+//
+// Requêtes Matrox typiques :
+// - INSPECT_ENGR15 -> engrenage taille 15
+// - INSPECT_ROND   -> rondelle
+// - INSPECT_GOUP   -> goupille
+// - INSPECT_NBENGR -> nombre d’engrenages sur la réglette
+//
+// ******************************************************
+// SECTION 8 – COMPÉTENCES REQUISES POUR MAINTENANCE
+// ******************************************************
+//  Maîtrise de :
+//  - Structures de données : tableaux, index, enchaînement d’étapes
+//  - Fonctionnement des tâches robotisées (TaskExists, TaskExecute, etc.)
+//  - Lecture / écriture en base SQL via le code
+//  - Interfaçage RSVP avec Matrox (décodage des requêtes)
+//  - Calibration des outils et des repères dans l’espace robotisé
+//
+//  Savoir reprogrammer / ajuster :
+//  - Les frames de prise/dépose et leurs offsets
+//  - Les cycles spécifiques (CycleRondelle, CycleEngrenage...)
+//
+// ******************************************************
+// FIN DU README
+// ******************************************************
 return
-
-.END
-
-.PROGRAM TestDB
-
-.DESCRIPTION
-
-.INPUTS
-
-.VARIABLES
-
-    string l_sErrorMessage, l_sQuery
-
-.RETURN_TYPE none
-
-.BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
-//print("  ")
-//dbcDisconnect(gsSqlServer)
-
-//if (!dbcConnect(gsSqlServer, l_sErrorMessage))
-//  print("Erreur connexion", l_sErrorMessage)
-//  taskStop()
-//end
-
-//print("Connexion OK!")
-
-//l_sQuery= "SELECT * FROM Groupe1DBTest;"
-
-//if (dbcQuery(gsSqlServer, l_sQuery, QueryResult, l_sErrorMessage))
-//  print("Query Success")
-
-//  if (arraySize(QueryResult.ROWS[0]>0))
-//      print(QueryResult.ROWS[0].PosX)
-//  else
-//      print("Aucune entrée, table vide")
-//  end
-
-//else
-//  print("Query error",l_sErrorMessage)
-//end
-
-
-//if (!dbcDisconnect(gsSqlServer, l_sErrorMessage))
-//  print("Erreur déconnexion", l_sErrorMessage)
-//  taskStop()
-//end
-
-//print("Déconnecté OK")
-
-//return
-
-
-//POSITION=trans(RsReadDoulbe("x"), RsRealDouble("y"), RsRealDouble ("z"))
-
-
-DBReadGamme(5)
 .END
 
 .PROGRAM MainP2
@@ -131,14 +172,18 @@ DBReadGamme(5)
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Boucle principale qui surveille la tâche
+//                du robot et la redémarre automatiquement
+//                si elle s’arrête plus de 2 secondes.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
 print("Task Main Start")
 
-
-//init var
+//initialisation variable
 gState=0
 Timer = -1.0
 
@@ -148,14 +193,14 @@ TaskRobotSTART()
 while (true)
     TaskRobotRun[0]=TaskExists(gTaskRobotName)
 
-//Test si tâche arrêtée
+//Test si la tâche est arrêtée
     if (TaskRobotRun[0]==false and TaskRobotRun[0]!=TaskRobotRun[1])
         Timer = Clock()
     end
 
 
     if (Timer > 0 and Clock()-Timer>2.0)
-    //Redemarrage tache robot
+    //Redemarrage de la tache robot
         Timer = -1.0
         TaskRobotSTART()
     end
@@ -175,44 +220,65 @@ end
 .VARIABLES
 
     int Index, ii, NombreEngr, NbCycle, LotSize, Gamme
+    real TimeStart, TimeEnd, CycleTime
 
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Gère la séquence complète d’assemblage de tous les OFs.
+//                Pour chaque OF, lit la gamme correspondante et exécute
+//                les étapes de fabrication pour chaque unité du lot.
+//                Les opérations sont définies dans gcQueryResultGamme,
+//                et exécutées via ExecuteAssembly().
+//                Chaque étape est logger dans la DB (dbo.Journal) après exécution.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
 INDEX.OF=0
 INDEX.GAMME=0
 INDEX.UNITE=0
-
+//Print pour se repérer dans la fenêtre de log.
 print(" ")
 print(" ")
-
-//Remplir le tableau
+TimeStart=dateTimeCurrent()
+// Remplir le tableau des ordres de fabrication
 DBReadOF()
-//Boucle OFs
+// Boucle OFs
 while (INDEX.OF<arraySize(gcQueryResultOF.ROWS))
     LotSize=strToint(gcQueryResultOF.ROWS[INDEX.OF].LotSize)
     Gamme=strToint(gcQueryResultOF.ROWS[INDEX.OF].Gamme)
-    DBReadGamme(Gamme)
+    DBReadGamme(Gamme) // Lecture de la table Gamme
     INDEX.UNITE = 0
-    //Boucle taille de lot
+    // Boucle taille de lot
     while (INDEX.UNITE < LotSize)
         INDEX.GAMME=0
         //Boucle Gamme
-        while(INDEX.GAMME<arraySize(gcQueryResultGamme.ROWS)) //Boucle sur le nombre de Gammes (Etapes à réaliser)
-            //DBWriteJournal(StrToInt(gcQueryResultOF.ROWS[INDEX.OF].Id),StrToInt(gcQueryResultOF.ROWS[INDEX.OF].Gamme),StrToInt(gcQueryResultGamme.ROWS[INDEX.GAMME].Phase))
-            ExecuteAssembly(gcQueryResultGamme.ROWS[INDEX.GAMME])
-            //DBWriteJournal(StrToInt(gcQueryResultOF.ROWS[INDEX.OF].Id),StrToInt(gcQueryResultOF.ROWS[INDEX.OF].Gamme),StrToInt(gcQueryResultGamme.ROWS[INDEX.GAMME].Phase))
+        while(INDEX.GAMME<arraySize(gcQueryResultGamme.ROWS)) // Boucle sur le nombre de Gammes (Etapes à réaliser)
+            ExecuteAssembly(gcQueryResultGamme.ROWS[INDEX.GAMME]) // Execution de l'assemblage
+            // DBWriteJournal(StrToInt(gcQueryResultOF.ROWS[INDEX.OF].Id),StrToInt(gcQueryResultOF.ROWS[INDEX.OF].Gamme),StrToInt(gcQueryResultGamme.ROWS[INDEX.GAMME].Phase))
             INDEX.GAMME+=1
         end
         INDEX.UNITE += 1
     end
     INDEX.OF+=1
 end
+// Renseigne le temps de cycle
+TimeEnd=dateTimeCurrent()
+CycleTime=TimeStart-TimeEnd
+// Envoi des informations pour mettre a jour la table KPI de la DB.
+DBWriteKPI(CycleTime)
 print("Fin d'assemblage")
+gStopFin = TRUE
+return
+
+
+
+//---------------------EN COURS--------------------
+//-----Gestion de pieces deja sur la reglette-----
+//
 //move(PosReglette)
 //InspectionReglette()
 
@@ -231,8 +297,6 @@ print("Fin d'assemblage")
 
 //  end
 //end
-
-return
 .END
 
 .PROGRAM InitCom
@@ -248,10 +312,16 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Gère la connexion réseau au serveur Matrox
+//                et à la base de données SQL Server.
+//                Appelle Erreur() si l’un échoue.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Execution de la connexion avec le serveur Matrox.
 print("Connexion Matrox")
 if (tcpConnect(gsMatrox))
     print("Client connected", gsMatrox)
@@ -260,6 +330,7 @@ else
     Erreur()
 end
 
+// Execution de la connexion avec le serveur SQL.
 print("Connexion base de donnee")
 dbcDisconnect(gsSqlServer)
 
@@ -284,16 +355,25 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
-print("Init ROB")
-UtilInitRobotMan("Tool_MOD_P2Cam", 10) //Question prof: Préhenseur disparait
-print("Robo pret")
+// ******************************************************
+// Module       : ProgP2
+// Description  : Initialise le robot avec l'outil P2Cam,
+//                affecte la vitesse désirée,désactive
+//                les valves, et déplace le robot en
+//                position de scan avant démarrage.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Mise en oeuvre du robot pour qu'il puisse commencer à travailler
+print("Initialisation du robot")
+UtilInitRobotMan("Tool_MOD_P2Cam", VitesseDefaut) // Affectation du préhenseur Caméra au robot ainsi que la vitesse.
+// S'assure que les préhenseurs sont ouvert / ne souffle pas
 ioWrite("brasValve1", FALSE)
 ioWrite("brasValve2", FALSE)
-print("Move pos secu")
+
+// Déplacement du robot en position de prise d'image de la palette 1
+print("Move position de scan")
 move(gcPosScanPalette1)
 
 return
@@ -310,17 +390,23 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Point d’entrée de l’initialisation générale du système.
+//                Ce module orchestre l’appel des sous-programmes de
+//                calcul d’origine, initialisation de communication,
+//                et de robotique.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Initialisation global du système.
 print("Init")
-ComputeOrigins()
-InitCom()
-InitRob()
+ComputeOrigins() // Définie les repères des palettes
+InitCom() // Initialise la communication Matrox/SQL
+InitRob() // Initialise le robot.
 
 gStatusRobot = CTE.STATUS.INITIALIZED
-
 print("Init done.")
 return
 .END
@@ -338,15 +424,22 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Ferme proprement les connexions réseau utilisées
+//                par le système robotisé:
+//                - Déconnexion de la communication avec le serveur Matrox
+//                - Déconnexion de la communication avec la base de données SQL
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Déconnexion de la communication avec Matrox
 if (!tcpDisconnect(gsMatrox))
     print("Erreur déconnexion", gsMatrox)
 end
 
+// Déconnexion de la communication avec serveur SQL
 if (!dbcDisconnect(gsSqlServer, l_sErrorMessage))
     print("Erreur déconnexion",gsSqlServer, l_sErrorMessage)
 end
@@ -365,14 +458,24 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : Erreur
+// Description  : Gère les erreurs du système.
+//                - Réinitialise l’état du robot (gStateRobot = 0)
+//                - Définit le statut du robot comme étant en erreur
+//                  (gStatusRobot = CTE.STATUS.ERROR)
+//                - Ferme toutes les connexions via Deinit()
+//                - Arrête toutes les tâches avec taskstop()
+//                Ce module permet un arrêt propre.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Change et met le robot en erreur
 gStateRobot = 0
 gStatusRobot = CTE.STATUS.ERROR
-Deinit()
-taskstop()
+Deinit() // Execute les déconnexion des serveurs
+taskstop() // Met fin a la tache
 
 return
 .END
@@ -394,23 +497,31 @@ return
 .RETURN_TYPE bool
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Exécute une requête SQL (SELECT...) sur le serveur défini,
+//                vérifie si des résultats sont présents,
+//                et retourne TRUE si la table contient au moins une ligne.
+//                Gère les erreurs de requête avec un appel de Erreur().
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Execute la requete contenue dans "Query" et renseigne le résultat dans QueryResult
 if (dbcQuery(gsSqlServer, Query, QueryResult, l_sErrorMessage))
     print("Query Success")
-
+    // Si le tableau de résultat n'est pas vide alors xResult = TRUE
     if (arraySize(QueryResult.ROWS)>0)
         print(QueryResult.ROWS[0][COL_NAME])
         xResult = TRUE
     else
+    // Si le tableau de résultat est vide alors xResult = FALSE
         print("Aucune entrée, table vide")
         xResult = FALSE
     end
 
 else
+    // En cas d'erreur sur la requête on arrête le système
     print("Query error",l_sErrorMessage)
     Erreur()
 end
@@ -433,14 +544,20 @@ return xResult
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Exécute une commande SQL (INSERT, UPDATE)
+//                sur le serveur SQL défini. Affiche un message en
+//                cas de succès ou d’erreur sur le Query.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Execute la requête "Query" mais n'enregistre aucun résultat.
 if (dbcExecute(gsSqlServer, Query, l_sErrorMessage))
     print("Execute Success")
 else
+// Si erreur de Query on print l'erreur
     print("Query error",l_sErrorMessage)
 end
 
@@ -462,18 +579,25 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Récupère les données associées à une gamme,
+//                ou à toutes les gammes si GammeID = -1.
+//                Exécute la requête SQL ls_Query concatenée,
+//                puis log les résultats via LogGamme().
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Récuperation des données associés a la gamme
 if(GammeID>=0)
+    // Réalisation de la requete pour la lecture de la vue "GammeDetaillee" en prenant uniquement les données de la gamme "GammeID"
     ls_Query="SELECT Gamme,Gammes.Nom AS NomGamme,Phase,PosX,PosY,Alpha,Part,Engrenages.Nom AS NomPiece,"
     ls_Query+="Engrenages.Dents,Engrenages.DiamInt,Engrenages.Marquage "
     ls_Query+="FROM dbo.Gammes,dbo.Operations,dbo.Engrenages "
     ls_Query+="WHERE Operations.Gamme=Gammes.Id AND Operations.Part=Engrenages.NumPiece AND Gammes.Id="+GammeID+" "
 else
-//Si GammeID=-1 on prend tout!
+// Si "GammeID"=-1 on prend toutes les données
     ls_Query="SELECT Gamme,Gammes.Nom AS NomGamme,Phase,PosX,PosY,Alpha,Part,Engrenages.Nom AS NomPiece,"
     ls_Query+="Engrenages.Dents,Engrenages.DiamInt,Engrenages.Marquage "
     ls_Query+="FROM dbo.Gammes,dbo.Operations,dbo.Engrenages "
@@ -481,7 +605,9 @@ else
 end
 ls_Query+="ORDER BY Gamme,Phase;"
 
+// On execute la requete "ls_Query" vers notre serveur SQL
 DBQuery(ls_Query,gcQueryResultGamme)
+// Log de la vue "GammeDetaillee" sur la fenetre de log
 LogGamme(gcQueryResultGamme)
 return
 .END
@@ -499,17 +625,25 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Lit toutes les entrées de la table OFs via une la requête SQL ls_Query,
+//                stocke le résultat dans gcQueryResultOF,log les données,
+//                et appel de Erreur() si la requête échoue.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Réalisation de la requete pour la lecture de la table "OFs"
 ls_Query="SELECT * FROM OFs"
 
+// Si erreur lors de l'execution de la requête
 if(!DBQuery(ls_Query,gcQueryResultOF))
     print("Erreur lecture OF")
     Erreur()
 end
 
+// Log de la table "OFs" sur la fenetre de log
 LogOF(gcQueryResultOF)
 
 return
@@ -526,17 +660,94 @@ return
 .VARIABLES
 
     string ls_WriteQuery
+    real Temps
+    string aaaa, mm, dd, hh, mmm, ss, DATETIME
 
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Génère un horodatage actuel au format SQL,
+//                génère une requête d’insertion via ls_WriteQuery,
+//                dans la table Journal avec OFID, GAMMEID et PHASE,
+//                puis exécute cette requête via DBExecute().
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
-ls_WriteQuery="INSERT INTO Journal VALUES (1,"+OFID+","+GAMMEID+",0,"+PHASE+",00:00:00);"//+"DateFinHeure");"
+// Récupère le temps actuel
+Temps=DateTimeCurrent()
+// Extraction de l'horodatage de "Temps"
+UtilTimeExtractArg_(Temps,dd,mm,aaaa,hh,mmm,ss)
+// Gènère un horodatage désiré grace à l'extraction via passage par référence
+DATETIME=""+aaaa+"-"+mm+"-"+dd+" "+hh+":"+mmm+":"+ss+""
+print("Temps:",DATETIME)
 
+// Réalisation de la requete pour l'écriture dans la table "JournalDeTest"
+ls_WriteQuery="INSERT INTO JournalDeTest VALUES (1,"+OFID+","+GAMMEID+",1,"+PHASE+",'"+DATETIME+"');"
+// Execute la requête
+DBExecute(ls_WriteQuery)
+
+return
+.END
+
+.PROGRAM DBWriteKPI
+
+.DESCRIPTION
+
+.INPUTS
+
+    real Temps
+
+.VARIABLES
+
+    string ls_WriteQuery, aaaa, mm, dd, hh, mmm, ss, TempsCycle
+    class QueryResult
+    string ls_CheckQuery, ls_InsertQuery
+
+.RETURN_TYPE none
+
+.BODY
+// ******************************************************
+// Module       : ProgP2
+// Description  : Met à jour la table SQL Groupe1KPI contenant les
+//                indicateurs de production (KPI) de la cellule robotisée.
+//                Si aucune ligne n’existe pour IdStation = 1, une ligne est
+//                insérée avec des compteurs à zéro.
+//                Puis les compteurs sont incrémentés selon les pièces produites
+//                (goupilles, rondelles, engrenages), et l’heure du cycle
+//                (Temps1Reglette) est mise à jour au format HH:mm:ss.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Extraction de l'horodatage de "Temps"
+UtilTimeExtractArg_(Temps,dd,mm,aaaa,hh,mmm,ss)
+// Gènère un horodatage désiré grace à l'extraction via passage par référence
+TempsCycle=""+hh+":"+mmm+":"+ss+""
+
+// Vérifie si une ligne existe
+ls_CheckQuery = "SELECT * FROM Groupe1KPI WHERE IdStation = 1;"
+// Execute la requête et récupère le résulat
+DBQuery(ls_CheckQuery, QueryResult)
+
+// Si aucune ligne trouvée, on initialise
+if (arraySize(QueryResult.ROWS) == 0)
+    ls_InsertQuery = "INSERT INTO Groupe1KPI VALUES (1,0,0,0,0,0,0,'00:00:00');"
+    DBExecute(ls_InsertQuery)
+end
+
+// Création de la requette de mise à jour
+ls_WriteQuery = "UPDATE Groupe1KPI SET "
+ls_WriteQuery += "NombreGoupilles = NombreGoupilles + "+NombreGoupilles+", "
+ls_WriteQuery += "NombreRondelles = NombreRondelles + "+NombreRondelles+", "
+ls_WriteQuery += "NombreEngrenanges15 = NombreEngrenanges15 + "+NombreEngrenage15+", "
+ls_WriteQuery += "NombreEngrenanges18 = NombreEngrenanges18 + "+NombreEngrenage18+", "
+ls_WriteQuery += "NombreEngrenanges25 = NombreEngrenanges25 + "+NombreEngrenage25+", "
+ls_WriteQuery += "Temps1Reglette = '"+TempsCycle+"' "
+ls_WriteQuery += "WHERE IdStation = 1;"
+// Execute la requête
 DBExecute(ls_WriteQuery)
 
 return
@@ -559,19 +770,27 @@ return
 .RETURN_TYPE bool
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Envoie une requête au serveur Matrox via TCP,
+//                attend une réponse avec un timeout de 10 secondes,
+//                interprète cette réponse à l’aide du RsParse (RSVPLib),
+//                et vérifie si le résultat de la réponse est "ACK".
+//                Gère les erreurs de communication via la fonction Erreur()
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
 print("Envoie",Request)
-
+// Envoi la requete "Request" au serveur "gsMatrox" et écris la réponse dans "l_sDataReceived"
 if (tcpSendAndWait(gsMatrox,Request,l_sDataReceived,10))
     print("Réponse",l_sDataReceived)
+    // Découpe du message recu "l_sDataReceived" pour interpretation
     RsParse(l_sDataReceived)
     print(RsReadReplyResult())
-    return RsReadReplyResult() == "ACK"
+    return RsReadReplyResult() == "ACK" // Si la réponse est "ACK" alors retour
 else
+    // Mise en erreur si erreur d'envoi de la requete
     print("Erreur d'envoie")
     Erreur()
     return false
@@ -593,41 +812,26 @@ end
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Envoie une requête via RsCreateRequest (RSVPLib) à Matrox
+//                pour lire la position X/Y de la goupille à partir du système vision.
+//                RsClear() vide le buffer RSVP avant la requête.
+//                La position est corrigée et stockée dans gcPositionPickGoup.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Clear le buffer
 RsClear()
-Request=RsCreateRequest("INSPECT_GOUP")
-ToolChange("Tool_MOD_P2Cam")
+Request=RsCreateRequest("INSPECT_GOUP") // Creation de la requete
 
-if (SendMatrox(Request))
+if (SendMatrox(Request)) // Appel de "SendMatrox()" pour l'envoi de la requete
     print("Lecture position goupille")
-    gcPositionPickGoup = OriginePalettePrise1+trans(RsReadDouble("PosGoupX"),RsReadDouble("PosGoupY"),-3,0,0,180)
+    gcPositionPickGoup = OriginePalettePrise1+trans(RsReadDouble("PosGoupX"),RsReadDouble("PosGoupY"),-3,0,0,180) // Défini la position de prise en fonction des coordonnées recues via Matrox
 else
-    Erreur()
-    return
+    Erreur() // Appel du programme "Erreur()" si "!SendMatrox()"
 end
-
-//move(PosScanPalette1)
-//print("Scan palette 1")
-
-//if (SendMatrox(Request))
-//  print("ACK reçu de la palette 1")
-//  gcPositionPickGoup = trans(RsReadInt("PosGoupX"),RsReadInt("PosGoupY"))
-//end
-//print("NACK palette 1 Essai palette 2")
-
-//move(PosScanPalette2)
-//print("Scan palette 2")
-//if (SendMatrox(Request))
-//  print("ACK reçu de la palette 2")
-//  gcPositionPickGoup = trans(RsReadInt("PosGoupX"),RsReadInt("PosGoupY"))
-//end
-
-//print("NACK palette 2 également : engrenage non trouvé")
-//Erreur()
 return
 .END
 
@@ -646,52 +850,26 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Envoie une requête via RsCreateRequest (RSVPLib) à Matrox
+//                pour récupérer la position X/Y de la rondellev via le système de vision.
+//                RsClear() vide le buffer RSVP avant l'envoi de la requête.
+//                La position est enregistrée dans gcPositionPickRond.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Clear le buffer
 RsClear()
-Request=RsCreateRequest("INSPECT_ROND")
-ToolChange("Tool_MOD_P2Cam")
+Request=RsCreateRequest("INSPECT_ROND") // Creation de la requete
 
 if (SendMatrox(Request))
     print("Lecture position rondelle")
-    gcPositionPickRond = OriginePalettePrise1+trans(RsReadDouble("PosRondX"),RsReadDouble("PosRondY"),1)
+    gcPositionPickRond = OriginePalettePrise1+trans(RsReadDouble("PosRondX"),RsReadDouble("PosRondY"),1) // Défini la position de prise en fonction des coordonnées recues via Matrox
+else
+    Erreur() // Appel du programme "Erreur()" si "!SendMatrox()"
 end
-
-return
-.END
-
-.PROGRAM InspectionDM
-
-.DESCRIPTION
-
-.INPUTS
-
-.VARIABLES
-
-    string Request, l_sDataReceived
-    int Input
-    real DiamCercle2
-
-.RETURN_TYPE none
-
-.BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
-
-RsClear()
-Request=RsCreateRequest("INSPECT_DM")
-ToolChange("Tool_MOD_P2Cam")
-
-if (SendMatrox(Request))
-    print(RsReadDouble("DiametreCercle2"))
-    DiamCercle2 = RsReadDouble("DiametreCercle2")
-end
-
 return
 .END
 
@@ -710,22 +888,27 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Envoie une requête via RsCreateRequest (RSVPLib) à Matrox pour récupérer
+//                la position X/Y et le DataMatrix de l'engrenage 15 via le système de vision
+//                RsClear() vide le buffer RSVP avant l'envoi de la requête.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Clear le buffer
 RsClear()
-Request=RsCreateRequest("INSPECT_ENGR15")
-//ToolChange("Tool_MOD_P2Cam")
+Request=RsCreateRequest("INSPECT_ENGR15") // Creation de la requete
 
-if (SendMatrox(Request))
+if (SendMatrox(Request)) // Appel de "SendMatrox()" pour l'envoi de la requete
     print("Lecture position Engr15")
-    gcPositionEngr15 = OriginePalettePrise1+trans(RsReadDouble("PosEngr15X"),RsReadDouble("PosEngr15Y"))
+    gcPositionEngr15 = OriginePalettePrise1+trans(RsReadDouble("PosEngr15X"),RsReadDouble("PosEngr15Y")) // Défini la position de prise en fonction des coordonnées recues via Matrox
     //DataMatrix15 = RsReadInt("DM15")
     //print("Lecture DataMatrix",RsReadInt("DM15"))
+else
+    Erreur() // Appel du programme "Erreur()" si "!SendMatrox()"
 end
-
 return
 .END
 
@@ -744,22 +927,27 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Envoie une requête via RsCreateRequest (RSVPLib) à Matrox pour récupérer
+//                la position X/Y et le DataMatrix de l'engrenage 18 via le système de vision.
+//                RsClear() vide le buffer RSVP avant l'envoi de la requête.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Clear le buffer
 RsClear()
-Request=RsCreateRequest("INSPECT_ENGR18")
-//ToolChange("Tool_MOD_P2Cam")
+Request=RsCreateRequest("INSPECT_ENGR18") // Creation de la requete
 
-if (SendMatrox(Request))
+if (SendMatrox(Request)) // Appel de "SendMatrox()" pour l'envoi de la requete
     print("Lecture position Engr18")
-    gcPositionEngr18 = OriginePalettePrise1+trans(RsReadDouble("PosEngr18X"),RsReadDouble("PosEngr18Y"))
+    gcPositionEngr18 = OriginePalettePrise1+trans(RsReadDouble("PosEngr18X"),RsReadDouble("PosEngr18Y")) // Défini la position de prise en fonction des coordonnées recues via Matrox
     //DataMatrix18 = RsReadInt("DM18")
     //print("Lecture DataMatrix",RsReadInt("DM18"))
+else
+    Erreur() // Appel du programme "Erreur()" si "!SendMatrox()"
 end
-
 return
 .END
 
@@ -778,24 +966,27 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Envoie une requête via RsCreateRequest (RSVPLib) à Matrox pour récupérer
+//                la position X/Y et le DataMatrix de l'engrenage 25 via le système de vision
+//                RsClear() vide le buffer RSVP avant l'envoi de la requête.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Clear le buffer
 RsClear()
-Request=RsCreateRequest("INSPECT_ENGR25")
-//ToolChange("Tool_MOD_P2Cam")
+Request=RsCreateRequest("INSPECT_ENGR25") // Creation de la requete
 
-if (SendMatrox(Request))
+if (SendMatrox(Request)) // Appel de "SendMatrox()" pour l'envoi de la requete
     print("Lecture position Engr25")
-    gcPositionEngr25 = OriginePalettePrise1+trans(RsReadDouble("PosEngr25X"),RsReadDouble("PosEngr25Y"))
+    gcPositionEngr25 = OriginePalettePrise1+trans(RsReadDouble("PosEngr25X"),RsReadDouble("PosEngr25Y")) // Défini la position de prise en fonction des coordonnées recues via Matrox
     //DataMatrix25 = RsReadInt("DM25")
     //print("Lecture DataMatrix",RsReadInt("DM25"))
 else
-    Erreur()
-    end
-
+    Erreur() // Appel du programme "Erreur()" si "!SendMatrox()"
+end
 return
 .END
 
@@ -814,24 +1005,27 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Envoie une requête via RsCreateRequest (RSVPLib) à Matrox pour récupérer
+//                la position X/Y et le DataMatrix de l'engrenage 30 via le système de vision
+//                RsClear() vide le buffer RSVP avant l'envoi de la requête.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Clear le buffer
 RsClear()
-Request=RsCreateRequest("INSPECT_ENGR30")
-//ToolChange("Tool_MOD_P2Cam")
+Request=RsCreateRequest("INSPECT_ENGR30") // Creation de la requete
 
-if (SendMatrox(Request))
+if (SendMatrox(Request)) // Appel de "SendMatrox()" pour l'envoi de la requete
     print("Lecture position Engr30")
-    gcPositionEngr30 = OriginePalettePrise1+trans(RsReadDouble("PosEngr30X"),RsReadDouble("PosEngr30Y"))
+    gcPositionEngr30 = OriginePalettePrise1+trans(RsReadDouble("PosEngr30X"),RsReadDouble("PosEngr30Y")) // Défini la position de prise en fonction des coordonnées recues via Matrox
     //DataMatrix30 = RsReadString("DM30")
     //print("Lecture DataMatrix",DataMatrix30)
 else
-    Erreur()
+    Erreur() // Appel du programme "Erreur()" si "!SendMatrox()"
 end
-
 return
 .END
 
@@ -849,20 +1043,53 @@ return
 .RETURN_TYPE int
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Envoie une requête via RsCreateRequest (RSVPLib) à Matrox pour récupérer
+//                le nombre d'engrenages détectés sur une réglette.
+//                La réponse est lue via RsReadInt("NombreEngr") et stockée
+//                dans gNombreEngr.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
-//RsClear()
-Request=RsCreateRequest("INSPECT_NBENGR")
-ToolChange("Tool_MOD_P2Cam")
+// Clear le buffer
+RsClear()
+Request=RsCreateRequest("INSPECT_NBENGR") // Creation de la requete
 
-if (SendMatrox(Request))
+if (SendMatrox(Request)) // Appel de "SendMatrox()" pour l'envoi de la requete
     print(RsReadInt("NombreEngr"))
-    gNombreEngr = RsReadInt("NombreEngr")
+    gNombreEngr = RsReadInt("NombreEngr") // Entre le nombre d'engr présent dans la reglette inspectée
+else
+    Erreur() // Appel du programme "Erreur()" si "!SendMatrox()"
 end
 return gNombreEngr
+.END
+
+.PROGRAM ReadDistance
+
+.DESCRIPTION
+
+.INPUTS
+
+.VARIABLES
+
+    real resultat
+
+.RETURN_TYPE real
+
+.BODY
+// * * * * * * * * * * * * * * *
+// Module       : ProgP2
+// Description  : Lit la valeur d’un capteur analogique branché sur l’entrée "Distance"
+//                via la fonction ioRead(), et retourne la valeur lue.
+// Auteur       : Moser Sacha
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Insère la valeur du capteur dans la variable "resultat"
+resultat = ioRead("Distance")
+return resultat
 .END
 
 .PROGRAM MachineDEtat
@@ -876,32 +1103,37 @@ return gNombreEngr
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Boucle principale de la tâche robot.
+//                Gère les états INIT et RUN du robot via gState,
+//                exécute les sous-programmes Init() et Mouvements(),
+//                et réagit à l’arrêt demandé via gStopFin.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
 print("Task Robot Start")
 
-//Tache mouvements
-gStatusRobot = 0
-gStopFin = FALSE
-gStateRobot=0
+gStatusRobot = 0 // Réinitialise le statut global du robot
+gStopFin = FALSE // Passe la demande d'arret a FALSE
+gStateRobot=0 // Réinitialise l'etat du robot
 
+// Boucle principale de la tâche robot
 while(true)
     switch (gState)
 
-        case CTE.STATE.INIT
-            gStateRobot=CTE.STATE.INIT
-            Init()
+        case CTE.STATE.INIT // Passe l’état local robot à INIT
+            gStateRobot=CTE.STATE.INIT // Passe l’état robot à INIT
+            Init() // Lance l'initialisation
             gStateRobot=0 //Reset
 
         case CTE.STATE.RUN
-            gStateRobot=CTE.STATE.RUN
-            Mouvements()
-            if (gStopFin)
-                gStateRobot=0
-                gState=0
+            gStateRobot=CTE.STATE.RUN // Passe l’état robot à RUN
+            Mouvements() // Lance l'exécution des mouvements
+            if (gStopFin) //Si l'arrêt est demandé
+                gStateRobot=0 // Réinitialise l’état robot
+                gState=0 // Réinitialise l’état général
                 print("Stop")
             end
         //default
@@ -924,23 +1156,29 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Envoie un ordre d’initialisation au robot
+//                en vérifiant que la tâche robot existe et
+//                que le robot est bien à l’état IDLE.
+//                Attend que la tâche robot prenne en charge l’ordre.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
-
+// Vérifie si la tâche robot existe
 if (!taskExists(gTaskRobotName))
     print("Erreur la tache robot n'existe pas")
     return
 end
 
+// Vérifie que le robot est dans l'état IDLE
 if (gStateRobot != 0)
     print("Erreur le robot n'est pas en IDLE")
     return
 end
 
-//Envoi de l'ordre
+//Envoi de l'ordre d'initialisation
 gState=CTE.STATE.INIT
 
 
@@ -964,28 +1202,35 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Envoie un ordre de démarrage (RUN) au robot.
+//                Vérifie que la tâche robot est active, que le robot
+//                est en IDLE et bien initialisé avant d'envoyer l'ordre.
+//                Attend ensuite que la tâche robot prenne en compte l’ordre.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
-
+// Vérifie si la tâche robot existe
 if (!taskExists(gTaskRobotName))
     print("Erreur la tache robot n'existe pas")
     return
 end
 
+// Vérifie que le robot est dans l'état IDLE
 if (gStateRobot != 0)
     print("Erreur le robot n'est pas en IDLE")
     return
 end
 
+// Vérifie que le robot a bien été initialisé
 if (gStatusRobot != CTE.STATUS.INITIALIZED)
     print("Le robot n'est pas initialisé ou en erreur")
     return
 end
 
-//Envoi de l'ordre
+//Envoi de l'ordre de run
 gState=CTE.STATE.RUN
 
 
@@ -1009,22 +1254,29 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Envoie un ordre d'arrêt au robot en activant le flag gStopFin.
+//                Vérifie que la tâche robot est active et que le robot
+//                est actuellement en mode RUN avant de lancer l'arrêt.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Vérifie si la tâche robot existe
 if (!taskExists(gTaskRobotName))
     print("Erreur la tache robot n'existe pas")
     return
 end
 
+
+// Vérifie que le robot est en exécution
 if (gStateRobot != CTE.STATE.RUN)
     print("Erreur le robot n'est pas en RUN")
     return
 end
 
-//Envoi de l'ordre
+//Envoi de l'ordre d'arret
 gStopFin = TRUE
 
 return
@@ -1041,10 +1293,13 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Lance la tâche principale du système via TaskMainSTART().
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
 TaskMainSTART()
 
 return
@@ -1062,10 +1317,15 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Arrête proprement les tâches principales du système.
+//                - Tâche robot via TaskRobotSTOP()
+//                - Tâche principale via TaskMainSTOP()
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
 TaskRobotSTOP()
 TaskMainSTOP()
 
@@ -1083,11 +1343,17 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Vérifie si la tâche robot (MachineDEtat) est déjà active.
+//                Si ce n’est pas le cas, elle est lancée.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Vérifie si la tâche robot n’existe pas déjà
 if (!taskExists(gTaskRobotName))
+    // Démarre la tâche MachineDEtat() lié à "gTaskRobotName"
     taskExecute MachineDEtat(), gTaskRobotName
 end
 
@@ -1105,11 +1371,16 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Arrête la tâche robot si elle est en cours d'exécution.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Vérifie si la tâche robot est en cours d’exécution
 if (taskExists(gTaskRobotName))
+    // Arrête proprement la tâche "gTaskRobotName"
     taskStop(gTaskRobotName)
 end
 
@@ -1127,11 +1398,17 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Vérifie si la tâche principale (MainP2) est déjà active.
+//                Si ce n'est pas le cas, elle est lancée.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Vérifie si la tâche principale existe
 if (!taskExists(gTaskMainName))
+    // Démarre la tâche principale MainP2() lié à "gTaskMainName"
     taskExecute MainP2(), gTaskMainName
 end
 
@@ -1150,37 +1427,20 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Arrête la tâche principale si elle est en cours d'exécution.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
+// Vérifie si la tâche principale est en exécution
 if (taskExists(gTaskMainName))
+    // Arrête proprement la tâche principale
     taskStop(gTaskMainName)
 end
 
 return
-.END
-
-.PROGRAM ReadDistance
-
-.DESCRIPTION
-
-.INPUTS
-
-.VARIABLES
-
-    real resultat
-
-.RETURN_TYPE real
-
-.BODY
-// * * * * * * * * * * * * * * *
-// Module: Module prise mesure
-// Description: Il sufit d'appeler une fois le programme et il retourne la mesure
-// * * * * * * * * * * * * * * *
-resultat = ioRead("Distance")
-return resultat
 .END
 
 .PROGRAM PriseDeposeEngr
@@ -1199,23 +1459,31 @@ return resultat
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Réalise une prise ou une dépose de rondelle à l'aide
+//                du vacuum. Descend à la position cible,
+//                active ou désactive le vacuum selon l'action (Prise),
+//                puis remonte à des vitesses adaptées.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
-ToolChange("Tool_MOD_P2Vacuum")
-move(Position,DecalageZ2)
-setSpeed(1)
-moves(Position)
-waitEndMove()
-ioWrite("brasValve2", Prise)
+ToolChange("Tool_MOD_P2Vacuum") // Selection de l'outil "Tool_MOD_P2Vacuum"
+move(Position,DecalageZ2) // Déplacement avec approche
+setSpeed(VitesseApproche) // Vitesse d'approche
+moves(Position) // Déplacement rectiligne
+waitEndMove() // Attends la fin du mouvement
+ioWrite("brasValve2", Prise) // Ouvre/ferme préhenseur
 delay(1)
+
+// -------3D-------
 //if (PartName!="")
 //  M3D_AsmObjectToggle(PartName,Index,Prise)
 //end
-moves(Position,DecalageZ2)
-setSpeed(10)
+
+moves(Position,DecalageZ2)// Déplacement rectiligne au dessus de la position
+setSpeed(VitesseDefaut)// Vitesse par défaut rétablie
 return
 .END
 
@@ -1235,22 +1503,31 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Réalise une prise ou une dépose de goupille à l'aide
+//                de la pince. Descend à la position cible,
+//                ouvre ou ferme la pince selon l'action (Prise),
+//                puis remonte à des vitesses adaptées.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
-ToolChange("Tool_MOD_P2Pince")
-move(Position,DecalageZ2)
-moves(Position)
-waitEndMove()
-ioWrite("brasValve1", Prise)
+ToolChange("Tool_MOD_P2Pince") // Selection de l'outil "Tool_MOD_P2Pince"
+move(Position,DecalageZ2) // Déplacement avec approche
+setSpeed(VitesseApproche) // Vitesse d'approche
+moves(Position) // Déplacement rectiligne
+waitEndMove() // Attends la fin du mouvement
+ioWrite("brasValve1", Prise) // Ouvre/ferme préhenseur
 delay(1)
+
+// -------3D-------
 //if (PartName!="")
 //  M3D_AsmObjectToggle(PartName,Index,Prise)
 //end
-moves(Position,DecalageZ2)
 
+moves(Position,DecalageZ2)// Déplacement rectiligne au dessus de la position
+setSpeed(VitesseDefaut)// Vitesse par défaut rétablie
 return
 .END
 
@@ -1270,22 +1547,31 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
-ToolChange("Tool_MOD_P2Vacuum")
-move(Position,DecalageZ2)
-setSpeed(1)
-moves(Position)
-waitEndMove()
-ioWrite("brasValve2", Prise)
+// ******************************************************
+// Module       : ProgP2
+// Description  : Réalise une prise ou une dépose de rondelle à l’aide
+//                du vacuum. Descend à la position cible,
+//                active ou désactive le vacuum selon l’action (Prise),
+//                puis remonte à des vitesses adaptées.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+ToolChange("Tool_MOD_P2Vacuum") // Selection de l'outil "Tool_MOD_P2Vacuum"
+move(Position,DecalageZ2) // Déplacement avec approche
+setSpeed(VitesseApproche) // Vitesse d'approche
+moves(Position) // Déplacement rectiligne
+waitEndMove() // Attends la fin du mouvement
+ioWrite("brasValve2", Prise) // Ouvre/ferme préhenseur
 delay(1)
+
+// -------3D-------
 //if (PartName!="")
 //  M3D_AsmObjectToggle(PartName,Index,Prise)
 //end
-moves(Position,DecalageZ2)
-setSpeed(10)
+
+moves(Position,DecalageZ2) // Déplacement rectiligne au dessus de la position
+setSpeed(VitesseDefaut) // Vitesse par défaut rétablie
 return
 .END
 
@@ -1302,12 +1588,17 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Affiche dans la console le contenu de la table OFs,
+//                Donne un aperçu complet de la gamme et taille de lot.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
 print("Nombre d'OFs",arraySize(OF.ROWS))
 
+// Boucle pour log chaque ligne de la table "OFs"
 for (i = 0  ; i < arraySize(OF.ROWS) ; i+=1)
     print("ID",OF.ROWS[i].Id,"Gamme",OF.ROWS[i].Gamme,"LotSize",OF.ROWS[i].LotSize)
 end
@@ -1328,12 +1619,18 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Affiche dans la console le contenu de la vue gamme,
+//                Donne un aperçu complet des phases, positions,
+//                pièces et caractéristiques.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
 print("Nombre de lignes dans Gamme",arraySize(Gamme.ROWS))
 
+// Boucle pour log chaque ligne de la table "OFs"
 for (i = 0  ; i < arraySize(Gamme.ROWS) ; i+=1)
     print("Gamme",Gamme.ROWS[i].Gamme,"Nom gamme",Gamme.ROWS[i].NomGamme,"Phase",Gamme.ROWS[i].Phase,"Pos X",Gamme.ROWS[i].PosX,"Pos Y",Gamme.ROWS[i].PosY,"Alpha",Gamme.ROWS[i].Alpha,"Part",Gamme.ROWS[i].Part,"Nom Piece",Gamme.ROWS[i].NomPiece,"Dents",Gamme.ROWS[i].Dents,"Diam Int",Gamme.ROWS[i].DiamInt,"Marquage",Gamme.ROWS[i].Marquage)
 end
@@ -1354,22 +1651,33 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
-print("Execute Assembly",Operation.Gamme)
+// ******************************************************
+// Module       : ProgP2
+// Description  : Exécute la séquence complète d'assemblage.
+//                enchaînant les cycles de goupille, engrenage, contrôle via capteur,
+//                rondelle, avec les changements d'outil (P2Cam) pour retour en position de scan.
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
-CycleGoupille(Operation)
+// Execution des différents cycle pour la réalisation complète du montage
+print("Execute Assembly",Operation.Gamme) // Print de l'assemblage de la gamme: "Operation.Gamme"
+
+CycleGoupille(Operation) // Cycle goupille
+ToolChange("Tool_MOD_P2Cam") // Changement d'outil vers "Tool_Mod_P2Cam"
+move(gcPosScanPalette1) // Déplacement en position de scan de la palette
+
+CycleEngrenage(Operation) // Cycle rondelle
 ToolChange("Tool_MOD_P2Cam")
 move(gcPosScanPalette1)
-CycleEngrenage(Operation)
+
+//CycleScanCapteur() // Cycle capteur
+//ToolChange("Tool_MOD_P2Capteur")
+//move(gcPosScanPalette1)
+
+CycleRondelle(Operation) // Cycle rondelle
 ToolChange("Tool_MOD_P2Cam")
 move(gcPosScanPalette1)
-CycleRondelle(Operation)
-ToolChange("Tool_MOD_P2Cam")
-move(gcPosScanPalette1)
-//CycleScanCapteur
 
 return
 .END
@@ -1389,44 +1697,57 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Exécute le cycle de manipulation des engrenages.
+//                - Changement d'outil (Vacuum)
+//                - Détermination de la position de dépose
+//                - Inspection de l'engrenage nécessaire défini par la DB
+//                - Prise et dépose via PriseDeposeEngr()
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Prépare le tool et la position de depose en fonction des coordonnées X-Y
+// reçues de la DB
 print("Cycle d'engrenage")
 ToolChange("Tool_MOD_P2Vacuum")
 PositionDepose=OriginePaletteDepose+trans(StrToInt(Operation.PosY),StrToInt(Operation.PosX),-3.5)
-//FrameOrigineOK = SelectionPalette()
 WaitEndMove()
 delay(2)
+
+// Switch pour executer l'inspection de l'engrenage nécessaire (en fonction de la DB)
 switch (StrToInt(Operation.Dents))
 case 15
     InspectionENGR15()
     delay(2)
     print("Prise Engrenage 15",Operation.Dents)
-    PriseDeposeEngr(gcPositionEngr15,TRUE)//gcPositionEngr15
-
+    PriseDeposeEngr(gcPositionEngr15,TRUE) // Pick de l'engrenage 15
+    NombreEngrenage15+=1 // Incrémente pour KPI
 case 18
     InspectionENGR18()
     delay(2)
     print("Prise Engrenage 18",Operation.Dents)
-    PriseDeposeEngr(gcPositionEngr18,TRUE)
+    PriseDeposeEngr(gcPositionEngr18,TRUE) // Pick de l'engrenage 18
+    NombreEngrenage18+=1 // Incrémente pour KPI
 
 case 25
     InspectionENGR25()
     delay(2)
     print("Prise Engrenage 25",Operation.Dents)
-    PriseDeposeEngr(gcPositionEngr25,TRUE)
+    PriseDeposeEngr(gcPositionEngr25,TRUE) // Pick de l'engrenage 25
+    NombreEngrenage25+=1 // Incrémente pour KPI
 
 case 30
     InspectionENGR30()
     delay(2)
     print("Prise Engrenage 30",Operation.Dents)
-    PriseDeposeEngr(gcPositionEngr30,TRUE)
+    PriseDeposeEngr(gcPositionEngr30,TRUE) // Pick de l'engrenage 30
+    NombreEngrenage30+=1 // Incrémente pour KPI
 end
 
 print("Dépose Engrenage "+Operation.Dents,Operation.Dents)
-PriseDeposeEngr(PositionDepose,FALSE) //gcPositionDepose
+PriseDeposeEngr(PositionDepose,FALSE) // Place des engrenages
 
 return
 .END
@@ -1446,20 +1767,32 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Exécute le cycle de manipulation d'une goupille.
+//                - Changement d'outil (Pince)
+//                - Détermination de la position de dépose
+//                - Inspection de la goupille via InspectionGoup()
+//                - Prise et dépose via PriseDeposeGoup()
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Prépare le tool et la position de depose en fonction des coordonnées X-Y
+// reçues de la DB
 print("Cycle goupille")
 ToolChange("Tool_MOD_P2Pince")
-PositionDepose=OriginePaletteDepose+trans(StrToInt(Operation.PosY),StrToInt(Operation.PosX),-1)
+PositionDepose=OriginePaletteDepose+trans(StrToInt(Operation.PosY),StrToInt(Operation.PosX),-1) //-1 Correspont à la hauteur en Z pour la dépose
 
+// Execute l'inspection avec des delay avant et après la prise d'image
 delay(2)
 InspectionGoup()
 delay(2)
 
+// Execute le pick and place de la rondelle
 print("Prise goupille")
 PriseDeposeGoup(gcPositionPickGoup,TRUE)
+NombreGoupilles+=1 // Incrémente le nombre de rondelles pour KPI
 
 print("Depose goupille")
 PriseDeposeGoup(PositionDepose,FALSE)
@@ -1482,20 +1815,32 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Exécute le cycle de manipulation d’une rondelle.
+//                - Changement d’outil (Vacuum)
+//                - Détermination de la position de dépose
+//                - Inspection de la rondelle via InspectionRond()
+//                - Prise et dépose via PriseDeposeRond()
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
+
+// Prépare le tool et la position de depose en fonction des coordonnées X-Y
+// reçues de la DB
 print("Cycle rondelle")
 ToolChange("Tool_MOD_P2Vacuum")
-PositionDepose=OriginePaletteDepose+trans(StrToInt(Operation.PosY),StrToInt(Operation.PosX),-3.8)
-
+PositionDepose=OriginePaletteDepose+trans(StrToInt(Operation.PosY),StrToInt(Operation.PosX),-3.8) // -3.8 Correspont à la hauteur en Z pour la dépose
+//                                                                                                   prenant en compte l'hauteur d'un engrenage
+// Execute l'inspection avec des delay avant et après la prise d'image
 delay(1)
 InspectionRond()
 delay(1)
 
+// Execute le pick and place de la rondelle
 print("Prise rondelle")
 PriseDeposeRond(gcPositionPickRond,TRUE)
+NombreRondelles+=1 // Incrémente le nombre de rondelles pour KPI
 
 print("Depose rondelle")
 PriseDeposeRond(PositionDepose,FALSE)
@@ -1516,13 +1861,15 @@ return
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Change l'outil actif du robot selon la variable Outil
+//                en utilisant setTool() avec machineTool(Outil).
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
-//Position dégagée
-//move(gcPosToolChange)
+// Permet le changement d'outil du robot
 print("Changement d'outil ",Outil)
 setTool(machineTool(Outil))
 
@@ -1537,17 +1884,25 @@ return
 
 .VARIABLES
 
+    real OffsetPrise1 = -17.5, OffsetDeposeX = -15, OffsetDeposeY = 10
+
 .RETURN_TYPE none
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Calcule les positions d’origine pour les palettes
+//                de prise et de dépose, applique un offset de
+//                translation pour aligner les repères du robot
+//                avec ceux utilisés par Matrox (vision).
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
-OriginePalettePrise1=frameCompose(gcOriginPalettePrise,gcPosPriseX,gcPosPriseY)+trans(-17.5,0,0)
+// Création des frames pour "PalettePrise1", "PalettePrise2", "PaletteDepose"
+OriginePalettePrise1=frameCompose(gcOriginPalettePrise,gcPosPriseX,gcPosPriseY)+trans(OffsetPrise1,0,0)
 //OriginePalettePrise2=frameCompose(gcOriginPalettePrise2,PosPriseX2,PosPriseY2)
-OriginePaletteDepose=frameCompose(gcOriginPaletteDepose,gcPosDeposeX,gcPosDeposeY)+trans(-15,10,0)
+OriginePaletteDepose=frameCompose(gcOriginPaletteDepose,gcPosDeposeX,gcPosDeposeY)+trans(OffsetDeposeX,OffsetDeposeY,0)
 return
 .END
 
@@ -1562,33 +1917,43 @@ return
 
 .VARIABLES
 
-.RETURN_TYPE none
+.RETURN_TYPE locc
 
 .BODY
-// * * * * * * * * * * * * * * *
-// Module:
-// Description:
-// * * * * * * * * * * * * * * *
+// ******************************************************
+// Module       : ProgP2
+// Description  : Déplace le robot pour scanner la palette 1.
+//                Si la réponse Matrox est négative (NACK), tente palette 2.
+//                Retourne l'origine de prise associée si un ACK est reçu.
+//                Appelle Erreur() si aucun engrenage n'est détecté. (Pas utilisé pour l'instant)
+// Auteur       : Da Silva Lucas
+// Date         : 11 Juin 2025
+// ******************************************************
 
-move(PosScanPalette1)
+// Déplacement vers la position de scan de la palette 1
+move(gcPosScanPalette1)
 print("Scan palette 1")
 
+// Envoi de la requête Matrox pour détection sur palette 1
 if (SendMatrox(Request))
     print("ACK reçu de la palette 1")
     return OriginePalettePrise1
-end
-print("NACK palette 1 Essai palette 2")
-
-move(PosScanPalette2)
-print("Scan palette 2")
-if (SendMatrox(Request))
-    print("ACK reçu de la palette 2")
-    return OriginePalettePrise2
+else
+    print("NACK palette 1 Essai palette 2") // NACK, on tente sur la palette 2
 end
 
-print("NACK palette 2 également : engrenage non trouvé")
-Erreur()
-return
+// Déplacement vers la position de scan de la palette 2
+//moves(PosScanPalette2)
+//print("Scan palette 2")
+//if (SendMatrox(Request))
+//  print("ACK reçu de la palette 2")
+//  return OriginePalettePrise2
+//else
+//  // Aucune pièce détectée sur aucune des palettes
+//  print("NACK palette 2 également : engrenage non trouvé")
+//  Erreur()
+//end
+
 .END
 
 .MODULE_GLOBAL_VARIABLES
@@ -1597,11 +1962,13 @@ return
     bool gStopFin
     int gNombreEngr
     class gcQueryResultOF, gcQueryResultGamme, INDEX
+    locj gjTest
 
 .MODULE_GLOBAL_CONSTANTS
 
     string gsMatrox = "Matrox", COL_NAME = "Nom", gTaskRobotName = "Robot", gTaskMainName = "Main"
-    locc PosReglette = {707.298, -69.267, -328.118, -178.558, 4.82e-01, 179.7360000}, gcPositionEngr15 = {685.774423, 475.9636494, -289.2642458, -150.5288917, 1.9252068e-01, 8.1199396e-01}, gcPositionEngr18, gcPositionEngr25, gcPositionEngr30 = {685.0849616, 429.3738967, -315.5951162, -150.5288917, 1.9252068e-01, 8.1199396e-01}, gcPositionPickGoup = {705.301794, 427.4956474, -313.1325974, -150.5288917, 1.9252068e-01, -179.1880060}, gcPositionPickRond = {624.1890986, 500.2801349, -276.9091479, -150.5288917, 1.9252068e-01, 8.1199396e-01}, OriginePaletteDepose = {567.5568723, 115.1919509, -365.0838181, 179.9038708, 3.2031177e-01, 18.9992490}, gcOriginPaletteDepose = {584.995, 119.764, -364.994, -179.178, -6.2e-02, 179.2730000}, gcPosDeposeX = {656.004, 95.315, -364.556, -179.178, -6.1e-02, 179.2740000}, gcPosDeposeY = {539.854, -12.771, -365.024, -179.178, -6.2e-02, 179.2730000}, OriginePalettePrise1 = {605.2628561, 530.4078375, -258.8081754, -150.5288917, 1.9252068e-01, 8.1199396e-01}, gcOriginPalettePrise = {622.761, 530.163, -258.879, -149.39, -4.28e-01, 179.0870000}, gcPosPriseX = {697.374, 529.119, -259.181, -149.389, -4.27e-01, 179.0870000}, gcPosPriseY = {621.547, 408.221, -327.794, -149.39, -4.28e-01, 179.0870000}, OriginePalettePrise2, FrameOrigineOK, gcPosScanPalette1 = {667.521, 451.43, -270.152, -150, 0, 90}, PosCalib = {568.995, -142.493, -344.492, -179.988, -1e-03, 90.0010000}
+    locc PosReglette = {707.298, -69.267, -328.118, -178.558, 4.82e-01, 179.7360000}, gcPositionEngr15 = {685.774423, 475.9636494, -289.2642458, -150.5288917, 1.9252068e-01, 8.1199396e-01}, gcPositionEngr18, gcPositionEngr25, gcPositionEngr30 = {685.0849616, 429.3738967, -315.5951162, -150.5288917, 1.9252068e-01, 8.1199396e-01}, gcPositionPickGoup = {705.301794, 427.4956474, -313.1325974, -150.5288917, 1.9252068e-01, -179.1880060}, gcPositionPickRond = {624.1890986, 500.2801349, -276.9091479, -150.5288917, 1.9252068e-01, 8.1199396e-01}, OriginePaletteDepose = {567.5568723, 115.1919509, -365.0838181, 179.9038708, 3.2031177e-01, 18.9992490}, gcOriginPaletteDepose = {527.877, 76.227, -365.804, 178.951, -2.274, 177.956}, gcPosDeposeX = {595.173, 109.238, -365.385, 178.952, -2.272, 177.956}, gcPosDeposeY = {589.229, -49.438, -364.562, 178.95, -2.274, 177.957}, OriginePalettePrise1 = {605.2628561, 530.4078375, -258.8081754, -150.5288917, 1.9252068e-01, 8.1199396e-01}, gcOriginPalettePrise = {622.25, 529.921, -258.488, -149.405, -3.007, 179.452}, gcPosPriseX = {697.374, 529.119, -259.181, -149.389, -4.27e-01, 179.0870000}, gcPosPriseY = {621.45, 408.218, -327.917, -149.405, -3.007, 179.452}, OriginePalettePrise2, FrameOrigineOK, gcPosScanPalette1 = {667.521, 451.43, -270.152, -150, 0, 90}, PosCalib = {568.995, -142.493, -344.492, -179.988, -1e-03, 90.0010000}
     string DataMatrix15, DataMatrix18, DataMatrix25, DataMatrix30
+    int NombreEngrenage15, NombreEngrenage18, NombreEngrenage25, NombreEngrenage30, NombreGoupilles, NombreRondelles, VitesseApproche = 1, VitesseDefaut = 10
 
 .MODULE_END
