@@ -351,106 +351,6 @@
       </project-camera>
     </cameras>
     <image-file-providers>
-      <project-imagefileprovider name="Set1" id="a48eddec-c7f9-4ab9-8bb3-2beb30cfb85f">
-        <setting name="Type" persistentState="NotPersistent" is-using-default="False" is-set="True" id="249f519d-b00c-41b5-8972-0c8d52c445ac">
-          <value>Folder</value>
-          <value-string>Folder</value-string>
-        </setting>
-        <setting name="Direction" persistentState="NotPersistent" is-using-default="False" is-set="True" id="7a1cd47b-784b-46c0-a9ca-30ade1eeba02">
-          <value>Forward</value>
-          <value-string>Forward</value-string>
-        </setting>
-        <setting name="RuntimeSingleFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="e8de52db-e57a-4160-887c-0c6b0d7505cb">
-          <value></value>
-          <value-string></value-string>
-        </setting>
-        <setting name="DesignTimeSingleFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="9f946ff2-30d4-4d86-9101-6afb6245c44e">
-          <value></value>
-          <value-string></value-string>
-        </setting>
-        <setting name="RuntimeSequenceFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="0d3cad91-652c-4d73-a445-0824554e710a">
-          <value></value>
-          <value-string></value-string>
-        </setting>
-        <setting name="DesignTimeSequenceFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="f6cb0b92-6b61-4209-bf8c-f1f2aba5a1e5">
-          <value></value>
-          <value-string></value-string>
-        </setting>
-        <setting name="RuntimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="441b4d74-a7c4-421e-9e97-27634c709b4d">
-          <value>C:\Users\natha\OneDrive\Documents\Matrox Design Assistant\\Images</value>
-          <value-string compiler-error="False">{PATH("DA Documents")}\\Images</value-string>
-        </setting>
-        <setting name="DesignTimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="31d474c6-3c5a-412a-b1aa-fb550d1093fc">
-          <value>C:\Program Files\Matrox Imaging\DA 10.0\Images</value>
-          <value-string compiler-error="False">{PATH("DA Install")}\\Images</value-string>
-        </setting>
-        <setting name="RootName" persistentState="NotPersistent" is-using-default="False" is-set="True" id="bb27f50e-36d6-4afe-8c6b-d979a6655c34">
-          <value>Image</value>
-          <value-string>Image</value-string>
-        </setting>
-        <setting name="Extension" persistentState="NotPersistent" is-using-default="False" is-set="True" id="a5da9595-7f2d-4e4e-b48e-355be313124c">
-          <value>.mim</value>
-          <value-string>.mim</value-string>
-        </setting>
-        <setting name="FirstNumber" persistentState="NotPersistent" is-using-default="False" is-set="True" id="3c80060f-4074-4091-a195-7417c314b0dc">
-          <value>-1</value>
-          <value-string>Smallest</value-string>
-        </setting>
-        <setting name="LastNumber" persistentState="NotPersistent" is-using-default="False" is-set="True" id="3486e11a-cbef-4235-b757-99bc3cdd1adf">
-          <value>9223372036854775807</value>
-          <value-string>Biggest</value-string>
-        </setting>
-        <setting name="RuntimeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="c3f9646c-a2ac-4d18-9288-b008b5dce626">
-          <value>C:\Users\natha\OneDrive\Documents\Matrox Design Assistant\\Images</value>
-          <value-string compiler-error="False">{PATH("DA Documents")}\\Images</value-string>
-        </setting>
-        <setting name="DesignTimeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="24bf87c6-6ae5-4dcc-9802-20d31d143a7c">
-          <value>C:\Program Files\Matrox Imaging\DA 10.0\Images</value>
-          <value-string compiler-error="False">{PATH("DA Install")}\\Images</value-string>
-        </setting>
-        <setting name="FolderFileTypes" persistentState="NotPersistent" is-using-default="False" is-set="True" id="46ef7900-37e7-49be-9d61-e24c35205c77">
-          <value>All supported types</value>
-          <value-string>All supported types</value-string>
-        </setting>
-        <setting name="UpdateFileList" persistentState="NotPersistent" is-using-default="False" is-set="True" id="d4716db8-ab0b-400a-9111-511c12e70c1b">
-          <value>False</value>
-          <value-string>False</value-string>
-        </setting>
-        <setting name="SkipFileOnError" persistentState="NotPersistent" is-using-default="False" is-set="True" id="2e0911bb-c199-4d71-83ab-e90088f6f5a0">
-          <value>False</value>
-          <value-string>False</value-string>
-        </setting>
-        <setting name="ConvertToGrayscale" persistentState="NotPersistent" is-using-default="False" is-set="True" id="a67ba2f5-10e2-421c-88ef-8a54068f9903">
-          <value>True</value>
-          <value-string>True</value-string>
-        </setting>
-        <setting name="ColorSpace" persistentState="NotPersistent" is-using-default="False" is-set="True" id="62146d2e-2191-4d6a-bdab-171178fc8dfb">
-          <value>RGB</value>
-          <value-string>RGB</value-string>
-        </setting>
-        <setting name="IncludeSubDirectories" persistentState="NotPersistent" is-using-default="False" is-set="True" id="21224cb2-c8cd-4556-a35e-24c86e81811e">
-          <value>False</value>
-          <value-string>False</value-string>
-        </setting>
-        <setting name="AppendCurrentRecipe" persistentState="NotPersistent" is-using-default="False" is-set="True" id="0aceef11-15c5-4563-b472-610e5700ec86">
-          <value>False</value>
-          <value-string>False</value-string>
-        </setting>
-        <setting name="DeleteRecipeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="39e7f1ec-4036-4366-9c09-bfc97113938f">
-          <value>False</value>
-          <value-string>False</value-string>
-        </setting>
-        <setting name="RunMode" persistentState="NotPersistent" is-using-default="False" is-set="True" id="57ca0d88-484a-422f-a4d6-47dfdee5aece">
-          <value>Continuous</value>
-          <value-string>Continuous</value-string>
-        </setting>
-        <setting name="AutoStart" persistentState="NotPersistent" is-using-default="False" is-set="True" id="2359edc2-1aae-40ea-bd6a-b6d2897558ec">
-          <value>False</value>
-          <value-string>False</value-string>
-        </setting>
-        <setting name="CameraId" persistentState="NotPersistent" is-using-default="True" is-set="True" id="826886e6-1bf3-4213-8b94-938b9efb9bd8" />
-        <setting name="LoadReferenceSource" persistentState="NotPersistent" is-using-default="True" is-set="True" id="61e0be71-ff2d-4b79-b290-9ad4ecb39857" />
-      </project-imagefileprovider>
       <project-imagefileprovider name="roue" id="89789aa3-ab03-47db-87b9-1397ec0d80cc">
         <setting name="Type" persistentState="NotPersistent" is-using-default="False" is-set="True" id="6ed00076-e4e5-4e2a-8459-0cf4a44dd4e4">
           <value>Folder</value>
@@ -851,6 +751,206 @@
         <setting name="CameraId" persistentState="NotPersistent" is-using-default="True" is-set="True" id="ef8c9190-2279-4fa5-af16-15aa6f0b5e83" />
         <setting name="LoadReferenceSource" persistentState="NotPersistent" is-using-default="True" is-set="True" id="977285c9-ec40-4fc0-9e8c-8ba410b8c39e" />
       </project-imagefileprovider>
+      <project-imagefileprovider name="ImageBonne" id="298d5379-108d-4d62-90d8-e9dcaa471033">
+        <setting name="Type" persistentState="NotPersistent" is-using-default="False" is-set="True" id="5d5ba841-151b-4829-a182-f1144083938f">
+          <value>Folder</value>
+          <value-string>Folder</value-string>
+        </setting>
+        <setting name="Direction" persistentState="NotPersistent" is-using-default="False" is-set="True" id="23a83ea1-5fb6-408a-8cf8-05082431ef32">
+          <value>Forward</value>
+          <value-string>Forward</value-string>
+        </setting>
+        <setting name="RuntimeSingleFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="d3ff8373-cae1-433a-820d-135544ec42d7">
+          <value></value>
+          <value-string></value-string>
+        </setting>
+        <setting name="DesignTimeSingleFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="4f1a3282-12de-4084-a532-5606553f8dc0">
+          <value></value>
+          <value-string></value-string>
+        </setting>
+        <setting name="RuntimeSequenceFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="f0d71132-80ad-471a-8cb4-8c08993893cc">
+          <value></value>
+          <value-string></value-string>
+        </setting>
+        <setting name="DesignTimeSequenceFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="71fedbb3-e00f-4def-a6d0-91fbd860ccbe">
+          <value></value>
+          <value-string></value-string>
+        </setting>
+        <setting name="RuntimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="1bca064d-b7b8-4a52-9d18-838da799b928">
+          <value>C:\Users\natha\OneDrive\Documents\Matrox Design Assistant\\Images</value>
+          <value-string compiler-error="False">{PATH("DA Documents")}\\Images</value-string>
+        </setting>
+        <setting name="DesignTimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="2dadb4ae-b455-48dc-8a49-2db40c83cbb0">
+          <value>C:\Program Files\Matrox Imaging\DA 10.0\Images</value>
+          <value-string compiler-error="False">{PATH("DA Install")}\\Images</value-string>
+        </setting>
+        <setting name="RootName" persistentState="NotPersistent" is-using-default="False" is-set="True" id="5b7b0c7b-3811-4327-ad6f-44cff5d16244">
+          <value>Image</value>
+          <value-string>Image</value-string>
+        </setting>
+        <setting name="Extension" persistentState="NotPersistent" is-using-default="False" is-set="True" id="87b12da8-1e8e-47c8-847a-f54567123caa">
+          <value>.mim</value>
+          <value-string>.mim</value-string>
+        </setting>
+        <setting name="FirstNumber" persistentState="NotPersistent" is-using-default="False" is-set="True" id="26d63d06-ce95-462a-880c-aa598940cf7b">
+          <value>-1</value>
+          <value-string>Smallest</value-string>
+        </setting>
+        <setting name="LastNumber" persistentState="NotPersistent" is-using-default="False" is-set="True" id="8e142c11-3f52-48a4-8000-38fc62a8b0fd">
+          <value>9223372036854775807</value>
+          <value-string>Biggest</value-string>
+        </setting>
+        <setting name="RuntimeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="aebb1471-63e1-41aa-b721-03d1374173f6">
+          <value>C:\Users\natha\OneDrive\Documents\Matrox Design Assistant\\Images</value>
+          <value-string compiler-error="False">{PATH("DA Documents")}\\Images</value-string>
+        </setting>
+        <setting name="DesignTimeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="88ad72b6-7ae1-4b90-af87-8e5e4862a761">
+          <value>C:\Users\natha\OneDrive\Documents\1_HeArc\4_Semestre 4\Vision\Dossier Matrox\ProjetP2\Images\ImageBonne</value>
+          <value-string>C:\Users\natha\OneDrive\Documents\1_HeArc\4_Semestre 4\Vision\Dossier Matrox\ProjetP2\Images\ImageBonne</value-string>
+        </setting>
+        <setting name="FolderFileTypes" persistentState="NotPersistent" is-using-default="False" is-set="True" id="4406f36b-919e-48f6-8f3e-9f6dc63d237c">
+          <value>All supported types</value>
+          <value-string>All supported types</value-string>
+        </setting>
+        <setting name="UpdateFileList" persistentState="NotPersistent" is-using-default="False" is-set="True" id="0af40ed9-d866-4161-accf-1ffd0f39e607">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="SkipFileOnError" persistentState="NotPersistent" is-using-default="False" is-set="True" id="e96fea15-1d3a-4d8a-9b43-b51eaee28e36">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="ConvertToGrayscale" persistentState="NotPersistent" is-using-default="False" is-set="True" id="aa0ece45-7ea5-459c-9d19-9f00c8b56756">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="ColorSpace" persistentState="NotPersistent" is-using-default="False" is-set="True" id="4d11b98c-3982-48fc-bc43-1bc0fb9bdf29">
+          <value>RGB</value>
+          <value-string>RGB</value-string>
+        </setting>
+        <setting name="IncludeSubDirectories" persistentState="NotPersistent" is-using-default="False" is-set="True" id="f7bf50f1-3b8f-44e9-95bd-3fa3b54d5ff8">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="AppendCurrentRecipe" persistentState="NotPersistent" is-using-default="False" is-set="True" id="05648d37-94e5-4603-b6a1-8dec50824884">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="DeleteRecipeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="d588abad-7962-4c6f-a71e-21c7cede3f7f">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="RunMode" persistentState="NotPersistent" is-using-default="False" is-set="True" id="435bb60b-9df5-45e7-9f08-d053bbe36bde">
+          <value>Continuous</value>
+          <value-string>Continuous</value-string>
+        </setting>
+        <setting name="AutoStart" persistentState="NotPersistent" is-using-default="False" is-set="True" id="d8913366-5ef8-451e-8aa9-577dabad26f3">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="CameraId" persistentState="NotPersistent" is-using-default="True" is-set="True" id="fad2241c-b3d3-4bad-97c5-e96560cd9593" />
+        <setting name="LoadReferenceSource" persistentState="NotPersistent" is-using-default="True" is-set="True" id="c2777dda-bedc-4e01-a3a6-e9dea46107a8" />
+      </project-imagefileprovider>
+      <project-imagefileprovider name="Calib3" id="d826d418-d8e5-4790-8de8-a7370ff2c366">
+        <setting name="Type" persistentState="NotPersistent" is-using-default="False" is-set="True" id="aca2f452-af6a-4ef4-b928-a3ecd9442f56">
+          <value>Folder</value>
+          <value-string>Folder</value-string>
+        </setting>
+        <setting name="Direction" persistentState="NotPersistent" is-using-default="False" is-set="True" id="e9b02526-9d5c-4a85-82ba-1c6cc4031263">
+          <value>Forward</value>
+          <value-string>Forward</value-string>
+        </setting>
+        <setting name="RuntimeSingleFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="8dc62e74-cc5d-4e4d-81dd-29134f66369c">
+          <value></value>
+          <value-string></value-string>
+        </setting>
+        <setting name="DesignTimeSingleFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="6f640730-6e0b-48e1-8bf7-13b331366acd">
+          <value></value>
+          <value-string></value-string>
+        </setting>
+        <setting name="RuntimeSequenceFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="89165afd-fd90-4aa6-bfa0-a9167d28d094">
+          <value></value>
+          <value-string></value-string>
+        </setting>
+        <setting name="DesignTimeSequenceFile" persistentState="NotPersistent" is-using-default="False" is-set="True" id="b967ff43-f4dd-46ee-bdb5-914fa927e01f">
+          <value></value>
+          <value-string></value-string>
+        </setting>
+        <setting name="RuntimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="65c46ab1-925a-407c-8137-bea7198c93aa">
+          <value>C:\Users\natha\OneDrive\Documents\Matrox Design Assistant\\Images</value>
+          <value-string compiler-error="False">{PATH("DA Documents")}\\Images</value-string>
+        </setting>
+        <setting name="DesignTimeNumberedFilesFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="e9b0328e-e99f-4e3e-9c0f-a0a29b62a78b">
+          <value>C:\Program Files\Matrox Imaging\DA 10.0\Images</value>
+          <value-string compiler-error="False">{PATH("DA Install")}\\Images</value-string>
+        </setting>
+        <setting name="RootName" persistentState="NotPersistent" is-using-default="False" is-set="True" id="673265e3-c7bd-44ea-a9d4-84c86db35c9a">
+          <value>Image</value>
+          <value-string>Image</value-string>
+        </setting>
+        <setting name="Extension" persistentState="NotPersistent" is-using-default="False" is-set="True" id="38021ab2-dce6-4cd3-a0d7-70c9a9f2b68a">
+          <value>.mim</value>
+          <value-string>.mim</value-string>
+        </setting>
+        <setting name="FirstNumber" persistentState="NotPersistent" is-using-default="False" is-set="True" id="e380b1a8-c086-4734-9cb6-cb2c0507074a">
+          <value>-1</value>
+          <value-string>Smallest</value-string>
+        </setting>
+        <setting name="LastNumber" persistentState="NotPersistent" is-using-default="False" is-set="True" id="cae2fe64-70b7-4266-ae8d-eeae2ebe4eb5">
+          <value>9223372036854775807</value>
+          <value-string>Biggest</value-string>
+        </setting>
+        <setting name="RuntimeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="7625fd73-232c-4b8b-94e8-c0ec64415a85">
+          <value>(Same as Design-time folder)</value>
+          <value-string>(Same as Design-time folder)</value-string>
+        </setting>
+        <setting name="DesignTimeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="9d4601ce-e139-41f9-80e8-4e6c46b3be15">
+          <value>C:\Users\natha\OneDrive\Documents\1_HeArc\4_Semestre 4\Vision\Dossier Matrox\ProjetP2\Images\IMageCalib3</value>
+          <value-string>C:\Users\natha\OneDrive\Documents\1_HeArc\4_Semestre 4\Vision\Dossier Matrox\ProjetP2\Images\IMageCalib3</value-string>
+        </setting>
+        <setting name="FolderFileTypes" persistentState="NotPersistent" is-using-default="False" is-set="True" id="356d395a-dd9d-4819-a70f-abab1694f33b">
+          <value>All supported types</value>
+          <value-string>All supported types</value-string>
+        </setting>
+        <setting name="UpdateFileList" persistentState="NotPersistent" is-using-default="False" is-set="True" id="988e7444-b363-4199-a76c-dbb839bf169c">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="SkipFileOnError" persistentState="NotPersistent" is-using-default="False" is-set="True" id="a5f64aa8-84fd-46fd-869a-4aff2ff1091b">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="ConvertToGrayscale" persistentState="NotPersistent" is-using-default="False" is-set="True" id="de42afc4-1dbb-4365-abe4-17bd574db660">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="ColorSpace" persistentState="NotPersistent" is-using-default="False" is-set="True" id="1b2c76de-12a9-4cde-aa47-c7998e9d53f3">
+          <value>RGB</value>
+          <value-string>RGB</value-string>
+        </setting>
+        <setting name="IncludeSubDirectories" persistentState="NotPersistent" is-using-default="False" is-set="True" id="bdaeac50-4057-4ea8-a876-f0daab11dc28">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="AppendCurrentRecipe" persistentState="NotPersistent" is-using-default="False" is-set="True" id="dff9d3b5-8a84-4f86-bbd7-e4357ca06734">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="DeleteRecipeFolder" persistentState="NotPersistent" is-using-default="False" is-set="True" id="654717f7-6875-480a-8c44-0efaa791b61e">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="RunMode" persistentState="NotPersistent" is-using-default="False" is-set="True" id="8631e336-4ec7-4dd3-86bf-5496d2b25c51">
+          <value>Continuous</value>
+          <value-string>Continuous</value-string>
+        </setting>
+        <setting name="AutoStart" persistentState="NotPersistent" is-using-default="False" is-set="True" id="9dc93624-43cf-420e-a10d-808daeb31dcd">
+          <value>False</value>
+          <value-string>False</value-string>
+        </setting>
+        <setting name="CameraId" persistentState="NotPersistent" is-using-default="True" is-set="True" id="87b37fd1-471c-4abb-b427-898757977317" />
+        <setting name="LoadReferenceSource" persistentState="NotPersistent" is-using-default="True" is-set="True" id="901ce794-a42a-4091-aea1-3c7d806d0e22" />
+      </project-imagefileprovider>
     </image-file-providers>
     <communication isusingquickcomm="True">
       <communication-node name="Profinet" id="00992a27-5121-45a0-b01d-75cbc34d8fb3">
@@ -1004,7 +1104,7 @@
     <opcua name="OpcUaComponent" id="ab10709b-8f88-459d-9d4e-2170e4ba33a4">
       <setting name="IsEnabled" persistentState="NotPersistent" is-using-default="False" is-set="False" id="42cd2b82-7947-423b-9887-06de26d8a404" />
     </opcua>
-    <CommsPlatformDisabledModes>IPNetwork</CommsPlatformDisabledModes>
+    <CommsPlatformDisabledModes>None</CommsPlatformDisabledModes>
     <last-used-platform type="PC" default-system="M_SYSTEM_GIGE_VISION" name="PC_DE_NATHAN" />
   </platform-configuration>
   <opcua-container id="c5b9a41b-5c0f-4191-bd37-79a1b229c64a" name="OpcUaContainer">
@@ -1052,358 +1152,55 @@
     </opcua-project-collection>
   </opcua-container>
   <project-settings id="7068dffe-361b-4823-bc25-8d97e0c053eb" name="ProjectSettings">
-    <setting name="InspectionSettings" type="Matrox.DesignAssistant.Core.Events.InspectionEventsSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="272275e1-7ea9-4827-991c-f1fd3b746766" Version="10.0.454.0">
+    <setting name="OperatorViewToolbarSettings" type="Matrox.DesignAssistant.Core.Projects.OperatorViewToolbarSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ea04e72b-6314-4ff2-b1d7-715ed2deb870" Version="10.0.454.0">
       <inputs>
-        <input name="EndEvent">
+        <input name="AutoHide">
           <expression>
-            <expression-string>Flowcharts("MainFlowchart").Loop.EndEvent</expression-string>
+            <expression-string>False</expression-string>
           </expression>
         </input>
-        <input name="StartEvent">
+        <input name="AutoStartRunTool">
           <expression>
-            <expression-string>Flowcharts("MainFlowchart").ImageActuelle.EndEvent</expression-string>
+            <expression-string>False</expression-string>
           </expression>
         </input>
-      </inputs>
-      <userXML />
-    </setting>
-    <setting name="PerformanceSettings" type="Matrox.DesignAssistant.Core.Projects.PerformanceSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b0b362e3-1300-4584-9e00-d442c000ef5f" Version="10.0.454.0">
-      <inputs>
-        <input name="GarbageCollectMode">
+        <input name="AutoStartRunToolMode">
           <expression>
-            <expression-string>EachInspection</expression-string>
+            <expression-string>ImageSet</expression-string>
           </expression>
         </input>
-        <input name="OverheadObjects">
-          <expression>
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="UseLowLatency">
+        <input name="RecordingTabEnabled">
           <expression>
             <expression-string>True</expression-string>
           </expression>
         </input>
-        <subObject name="GarbageCollectSettings" type="Matrox.DesignAssistant.Core.Projects.GarbageCollectSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="68ceba20-b3f9-43af-9d0b-9376adb145a7" Version="10.0.454.0">
+        <input name="RunTabEnabled">
           <expression>
-            <expression-string></expression-string>
+            <expression-string>True</expression-string>
           </expression>
-          <inputs>
-            <input name="FullCollection">
-              <expression>
-                <expression-string>False</expression-string>
-              </expression>
-            </input>
-            <input name="Generation">
-              <expression>
-                <expression-string>0</expression-string>
-              </expression>
-            </input>
-            <input name="Mode">
-              <expression>
-                <expression-string>Optimized</expression-string>
-              </expression>
-            </input>
-          </inputs>
-          <userXML />
-        </subObject>
-        <input name="EnableFullGCNotification">
+        </input>
+        <input name="RuntimeMessageNotification">
           <expression>
-            <expression-string>False</expression-string>
+            <expression-string>OnError</expression-string>
           </expression>
         </input>
-        <input name="GarbageCollectionWatcher">
-          <expression>
-            <expression-string>Disable</expression-string>
-          </expression>
-        </input>
-        <input name="MaxCollectionTime">
-          <expression available="False">
-            <expression-string>0.006</expression-string>
-          </expression>
-        </input>
-        <input name="JITWatcher">
-          <expression>
-            <expression-string>Disable</expression-string>
-          </expression>
-        </input>
-        <input name="InspectionTimeLogs">
-          <expression>
-            <expression-string>Disable</expression-string>
-          </expression>
-        </input>
-        <input name="MaxInspectionTime">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="StopOnMaxInspection">
-          <expression available="False">
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="MaxRunTime">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <subObject name="LogSettings" type="Matrox.DesignAssistant.Core.Projects.LogSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="65247cbe-8a6c-4d57-aaf4-b14140a4cb0a" Version="10.0.454.0">
-          <expression available="False">
-            <expression-string></expression-string>
-          </expression>
-          <inputs>
-            <input name="LogFilePath">
-              <expression available="False">
-                <expression-string></expression-string>
-              </expression>
-            </input>
-            <input name="Mode">
-              <expression available="False">
-                <expression-string>MaxOnly</expression-string>
-              </expression>
-            </input>
-            <input name="WriteFrequency">
-              <expression available="False">
-                <expression-string>1000</expression-string>
-              </expression>
-            </input>
-          </inputs>
-          <userXML />
-        </subObject>
-        <input name="InspectionIntervalHeapLog">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="InspectionIntervalProcLog">
-          <expression available="False">
-            <expression-string>0</expression-string>
-          </expression>
-        </input>
-        <input name="CollectPeriod">
+        <input name="RuntimeWaitBannerTime">
           <expression>
             <expression-string>1</expression-string>
           </expression>
         </input>
-      </inputs>
-      <userXML />
-    </setting>
-    <setting name="RuntimeMonitoringSettings" type="Matrox.DesignAssistant.Core.Projects.RuntimeMonitoringSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="150cf4b4-3d8b-4a6b-a603-73f6e22bd8d8" Version="10.0.454.0">
-      <inputs>
-        <input name="EnableRuntimeMonitoring">
+        <input name="ShowRuntimeWaitBanner">
           <expression>
             <expression-string>True</expression-string>
           </expression>
         </input>
-        <input name="EnableRuntimeStatistics">
+        <input name="StartMinimized">
           <expression>
-            <expression-string>True</expression-string>
+            <expression-string>False</expression-string>
           </expression>
         </input>
       </inputs>
       <userXML />
-    </setting>
-    <setting name="LabelSettings" type="Matrox.DesignAssistant.Core.Projects.LabelSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="159d4a70-372f-4727-bd6d-f9617ff4ba55" Version="10.0.454.0">
-      <inputs>
-        <objectCollection name="UserLabels" type="Matrox.DesignAssistant.Core.Projects.LabelCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="7ac926d0-74d7-4fa6-9a64-3c7d4612c3f0" Version="10.0.454.0">
-          <expression>
-            <expression-string></expression-string>
-          </expression>
-          <collectionItems>
-            <subObject name="T" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="66115d4e-164b-49d0-98e2-45cb98418492" Version="10.0.454.0">
-              <inputs>
-                <input name="Background">
-                  <expression>
-                    <expression-string>-5658199</expression-string>
-                  </expression>
-                </input>
-                <input name="Condition">
-                  <expression>
-                    <expression-string>None</expression-string>
-                  </expression>
-                </input>
-                <input name="DesignTimeVisible">
-                  <expression>
-                    <expression-string>False</expression-string>
-                  </expression>
-                </input>
-                <input name="Foreground">
-                  <expression>
-                    <expression-string>-1</expression-string>
-                  </expression>
-                </input>
-                <input name="RuntimeVisible">
-                  <expression>
-                    <expression-string>True</expression-string>
-                  </expression>
-                </input>
-                <input name="Type">
-                  <expression available="False">
-                    <expression-string>Timestamp</expression-string>
-                  </expression>
-                </input>
-                <input name="Value">
-                  <expression>
-                    <expression-string need-link-container="True">DATETIME(ImageActuelle.Time, "H:mm:ss.ff")</expression-string>
-                  </expression>
-                </input>
-              </inputs>
-              <userXML>
-                <AutomaticName />
-              </userXML>
-            </subObject>
-          </collectionItems>
-          <userXML />
-        </objectCollection>
-      </inputs>
-      <userXML>
-        <AutomaticLabelProviders>
-          <AutomaticLabelProvider>
-            <StepID>4bba7190-ddf4-499c-a3f7-a250c7b70a62</StepID>
-            <StepName>Status</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>79f1150c-020c-488a-9771-4951243df4d3</StepID>
-            <StepName>Status2</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>5043973b-525a-40e7-bd58-f5231b295e4b</StepID>
-            <StepName>BlobEngr18</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>6ea095e1-fb7a-400d-addd-cf84b5099ccc</StepID>
-            <StepName>BlobEngr25</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>d6a84cd6-9f62-46e2-85d1-b17c4bd25dd5</StepID>
-            <StepName>BlobGoupille</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>466d8ebf-5444-4f11-ab8c-23ded7042d4a</StepID>
-            <StepName>BlobRond</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>039c39f8-ee70-4d92-8b6e-40fa2f7d85cc</StepID>
-            <StepName>NombreEngr</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>d9f92c0c-c4d9-4df8-9360-01d977a2542d</StepID>
-            <StepName>BlobEngr30</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>1181e5cd-67f5-4257-b565-b0715c3ace3c</StepID>
-            <StepName>CalibrationPalette</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>19002a76-9265-4a3b-a223-3d4b350ab276</StepID>
-            <StepName>MetrologyEngr15</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>1dae76a7-229d-4af3-bb9f-fa990a19060f</StepID>
-            <StepName>MetrologyEngr18</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>4f97a4ae-86bf-4a6a-bcd0-ebd3c07f26ad</StepID>
-            <StepName>MetrologyEngr25</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>f4809218-a681-4729-a3ca-81c0c8d6b2b9</StepID>
-            <StepName>MetrologyEngr30</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>6adb6ed8-cf75-4cb1-8ec8-02f70844af88</StepID>
-            <StepName>MetrologyGoup</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>24170cf0-8d7a-4535-831d-50acc102ebdc</StepID>
-            <StepName>MetrologyRond</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>f879458d-3218-4f88-bc72-d4e57a6a3b4d</StepID>
-            <StepName>Metrology</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>7ce29cf3-a0c8-4fa5-a785-1b92209a29b2</StepID>
-            <StepName>LectureDM15</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>428133f0-811a-4dbb-8eff-9c8944df964e</StepID>
-            <StepName>BlobEngr15Copy</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>35f91e4c-db88-4e6b-912b-fae82b857e4b</StepID>
-            <StepName>LectureDM18</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>5b2e7d09-1929-4016-98f1-f6279e475584</StepID>
-            <StepName>LectureDM25</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>50254988-5950-46c7-b000-afffc6715677</StepID>
-            <StepName>LectureDM30</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>b19ec995-da66-4ade-92fb-dfc7ca69572f</StepID>
-            <StepName>CalibrationPaletteCopy</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>a97b36e6-55ff-437f-93b3-617dfbb12435</StepID>
-            <StepName>Metrology2</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-          <AutomaticLabelProvider>
-            <StepID>cd020017-893e-49d6-a764-ddd64e40605e</StepID>
-            <StepName>CircleFinder</StepName>
-            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
-            <FlowchartName>MainFlowchart</FlowchartName>
-          </AutomaticLabelProvider>
-        </AutomaticLabelProviders>
-      </userXML>
     </setting>
     <setting name="AnnotationGroupContainer" type="Matrox.DesignAssistant.Core.Annotations.Groups.AnnotationGroupContainer, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="aa2dd1c3-671f-4421-893d-0da0fea36cb0" Version="10.0.454.0">
       <inputs>
@@ -6438,51 +6235,16 @@
       </inputs>
       <userXML />
     </setting>
-    <setting name="OperatorViewToolbarSettings" type="Matrox.DesignAssistant.Core.Projects.OperatorViewToolbarSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="ea04e72b-6314-4ff2-b1d7-715ed2deb870" Version="10.0.454.0">
+    <setting name="RuntimeMonitoringSettings" type="Matrox.DesignAssistant.Core.Projects.RuntimeMonitoringSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="150cf4b4-3d8b-4a6b-a603-73f6e22bd8d8" Version="10.0.454.0">
       <inputs>
-        <input name="AutoHide">
-          <expression>
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="AutoStartRunTool">
-          <expression>
-            <expression-string>False</expression-string>
-          </expression>
-        </input>
-        <input name="AutoStartRunToolMode">
-          <expression>
-            <expression-string>ImageSet</expression-string>
-          </expression>
-        </input>
-        <input name="RecordingTabEnabled">
+        <input name="EnableRuntimeMonitoring">
           <expression>
             <expression-string>True</expression-string>
           </expression>
         </input>
-        <input name="RunTabEnabled">
+        <input name="EnableRuntimeStatistics">
           <expression>
             <expression-string>True</expression-string>
-          </expression>
-        </input>
-        <input name="RuntimeMessageNotification">
-          <expression>
-            <expression-string>OnError</expression-string>
-          </expression>
-        </input>
-        <input name="RuntimeWaitBannerTime">
-          <expression>
-            <expression-string>1</expression-string>
-          </expression>
-        </input>
-        <input name="ShowRuntimeWaitBanner">
-          <expression>
-            <expression-string>True</expression-string>
-          </expression>
-        </input>
-        <input name="StartMinimized">
-          <expression>
-            <expression-string>False</expression-string>
           </expression>
         </input>
       </inputs>
@@ -6530,6 +6292,368 @@
           <collectionItems />
           <userXML />
         </objectCollection>
+      </inputs>
+      <userXML />
+    </setting>
+    <setting name="PerformanceSettings" type="Matrox.DesignAssistant.Core.Projects.PerformanceSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="b0b362e3-1300-4584-9e00-d442c000ef5f" Version="10.0.454.0">
+      <inputs>
+        <input name="GarbageCollectMode">
+          <expression>
+            <expression-string>EachInspection</expression-string>
+          </expression>
+        </input>
+        <input name="OverheadObjects">
+          <expression>
+            <expression-string>0</expression-string>
+          </expression>
+        </input>
+        <input name="UseLowLatency">
+          <expression>
+            <expression-string>True</expression-string>
+          </expression>
+        </input>
+        <subObject name="GarbageCollectSettings" type="Matrox.DesignAssistant.Core.Projects.GarbageCollectSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="68ceba20-b3f9-43af-9d0b-9376adb145a7" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <inputs>
+            <input name="FullCollection">
+              <expression>
+                <expression-string>False</expression-string>
+              </expression>
+            </input>
+            <input name="Generation">
+              <expression>
+                <expression-string>0</expression-string>
+              </expression>
+            </input>
+            <input name="Mode">
+              <expression>
+                <expression-string>Optimized</expression-string>
+              </expression>
+            </input>
+          </inputs>
+          <userXML />
+        </subObject>
+        <input name="EnableFullGCNotification">
+          <expression>
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+        <input name="GarbageCollectionWatcher">
+          <expression>
+            <expression-string>Disable</expression-string>
+          </expression>
+        </input>
+        <input name="MaxCollectionTime">
+          <expression available="False">
+            <expression-string>0.006</expression-string>
+          </expression>
+        </input>
+        <input name="JITWatcher">
+          <expression>
+            <expression-string>Disable</expression-string>
+          </expression>
+        </input>
+        <input name="InspectionTimeLogs">
+          <expression>
+            <expression-string>Disable</expression-string>
+          </expression>
+        </input>
+        <input name="MaxInspectionTime">
+          <expression available="False">
+            <expression-string>0</expression-string>
+          </expression>
+        </input>
+        <input name="StopOnMaxInspection">
+          <expression available="False">
+            <expression-string>False</expression-string>
+          </expression>
+        </input>
+        <input name="MaxRunTime">
+          <expression available="False">
+            <expression-string>0</expression-string>
+          </expression>
+        </input>
+        <subObject name="LogSettings" type="Matrox.DesignAssistant.Core.Projects.LogSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="65247cbe-8a6c-4d57-aaf4-b14140a4cb0a" Version="10.0.454.0">
+          <expression available="False">
+            <expression-string></expression-string>
+          </expression>
+          <inputs>
+            <input name="LogFilePath">
+              <expression available="False">
+                <expression-string></expression-string>
+              </expression>
+            </input>
+            <input name="Mode">
+              <expression available="False">
+                <expression-string>MaxOnly</expression-string>
+              </expression>
+            </input>
+            <input name="WriteFrequency">
+              <expression available="False">
+                <expression-string>1000</expression-string>
+              </expression>
+            </input>
+          </inputs>
+          <userXML />
+        </subObject>
+        <input name="InspectionIntervalHeapLog">
+          <expression available="False">
+            <expression-string>0</expression-string>
+          </expression>
+        </input>
+        <input name="InspectionIntervalProcLog">
+          <expression available="False">
+            <expression-string>0</expression-string>
+          </expression>
+        </input>
+        <input name="CollectPeriod">
+          <expression>
+            <expression-string>1</expression-string>
+          </expression>
+        </input>
+      </inputs>
+      <userXML />
+    </setting>
+    <setting name="LabelSettings" type="Matrox.DesignAssistant.Core.Projects.LabelSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="159d4a70-372f-4727-bd6d-f9617ff4ba55" Version="10.0.454.0">
+      <inputs>
+        <objectCollection name="UserLabels" type="Matrox.DesignAssistant.Core.Projects.LabelCollection, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="7ac926d0-74d7-4fa6-9a64-3c7d4612c3f0" Version="10.0.454.0">
+          <expression>
+            <expression-string></expression-string>
+          </expression>
+          <collectionItems>
+            <subObject name="T" type="Matrox.DesignAssistant.Core.Projects.BaseLabel, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="66115d4e-164b-49d0-98e2-45cb98418492" Version="10.0.454.0">
+              <inputs>
+                <input name="Background">
+                  <expression>
+                    <expression-string>-5658199</expression-string>
+                  </expression>
+                </input>
+                <input name="Condition">
+                  <expression>
+                    <expression-string>None</expression-string>
+                  </expression>
+                </input>
+                <input name="DesignTimeVisible">
+                  <expression>
+                    <expression-string>False</expression-string>
+                  </expression>
+                </input>
+                <input name="Foreground">
+                  <expression>
+                    <expression-string>-1</expression-string>
+                  </expression>
+                </input>
+                <input name="RuntimeVisible">
+                  <expression>
+                    <expression-string>True</expression-string>
+                  </expression>
+                </input>
+                <input name="Type">
+                  <expression available="False">
+                    <expression-string>Timestamp</expression-string>
+                  </expression>
+                </input>
+                <input name="Value">
+                  <expression>
+                    <expression-string need-link-container="True">DATETIME(ImageActuelle.Time, "H:mm:ss.ff")</expression-string>
+                  </expression>
+                </input>
+              </inputs>
+              <userXML>
+                <AutomaticName />
+              </userXML>
+            </subObject>
+          </collectionItems>
+          <userXML />
+        </objectCollection>
+      </inputs>
+      <userXML>
+        <AutomaticLabelProviders>
+          <AutomaticLabelProvider>
+            <StepID>4bba7190-ddf4-499c-a3f7-a250c7b70a62</StepID>
+            <StepName>Status</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>79f1150c-020c-488a-9771-4951243df4d3</StepID>
+            <StepName>Status2</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>5043973b-525a-40e7-bd58-f5231b295e4b</StepID>
+            <StepName>BlobEngr18</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>6ea095e1-fb7a-400d-addd-cf84b5099ccc</StepID>
+            <StepName>BlobEngr25</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>d6a84cd6-9f62-46e2-85d1-b17c4bd25dd5</StepID>
+            <StepName>BlobGoupille</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>466d8ebf-5444-4f11-ab8c-23ded7042d4a</StepID>
+            <StepName>BlobRond</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>039c39f8-ee70-4d92-8b6e-40fa2f7d85cc</StepID>
+            <StepName>NombreEngr</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>d9f92c0c-c4d9-4df8-9360-01d977a2542d</StepID>
+            <StepName>BlobEngr30</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>19002a76-9265-4a3b-a223-3d4b350ab276</StepID>
+            <StepName>MetrologyEngr15</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>1dae76a7-229d-4af3-bb9f-fa990a19060f</StepID>
+            <StepName>MetrologyEngr18</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>4f97a4ae-86bf-4a6a-bcd0-ebd3c07f26ad</StepID>
+            <StepName>MetrologyEngr25</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>f4809218-a681-4729-a3ca-81c0c8d6b2b9</StepID>
+            <StepName>MetrologyEngr30</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>6adb6ed8-cf75-4cb1-8ec8-02f70844af88</StepID>
+            <StepName>MetrologyGoup</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>24170cf0-8d7a-4535-831d-50acc102ebdc</StepID>
+            <StepName>MetrologyRond</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>7ce29cf3-a0c8-4fa5-a785-1b92209a29b2</StepID>
+            <StepName>LectureDM15</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>428133f0-811a-4dbb-8eff-9c8944df964e</StepID>
+            <StepName>BlobEngr15Copy</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>35f91e4c-db88-4e6b-912b-fae82b857e4b</StepID>
+            <StepName>LectureDM18</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>5b2e7d09-1929-4016-98f1-f6279e475584</StepID>
+            <StepName>LectureDM25</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>50254988-5950-46c7-b000-afffc6715677</StepID>
+            <StepName>LectureDM30</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>b19ec995-da66-4ade-92fb-dfc7ca69572f</StepID>
+            <StepName>CalibrationPaletteCopy</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>cd020017-893e-49d6-a764-ddd64e40605e</StepID>
+            <StepName>CircleFinder</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>52b3801f-a8a9-4d54-afe5-f165139a3850</StepID>
+            <StepName>IC15</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>aa30cf5a-15f9-48b2-82d4-ac33cd314bba</StepID>
+            <StepName>IC25</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>5718473a-8285-44ca-94c8-65f30d116709</StepID>
+            <StepName>IC30</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>52b3801f-a8a9-4d54-afe5-f165139a3850</StepID>
+            <StepName>IC18Copy</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>adb1a4c4-f5ea-41ba-81c1-d992b55eb0ee</StepID>
+            <StepName>IC18</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>eb192605-f097-424b-a180-f86de04ca03a</StepID>
+            <StepName>DM</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+          <AutomaticLabelProvider>
+            <StepID>ac28b601-dcc7-4a92-bd2a-396cb067e59b</StepID>
+            <StepName>AnalyseFrame</StepName>
+            <FlowchartID>9b77b042-dee4-46d2-80cc-f950f19e6e80</FlowchartID>
+            <FlowchartName>MainFlowchart</FlowchartName>
+          </AutomaticLabelProvider>
+        </AutomaticLabelProviders>
+      </userXML>
+    </setting>
+    <setting name="InspectionSettings" type="Matrox.DesignAssistant.Core.Events.InspectionEventsSettings, Matrox.DesignAssistant.Core, Version=10.0.454.0, Culture=neutral, PublicKeyToken=726f03a4652993c7" id="272275e1-7ea9-4827-991c-f1fd3b746766" Version="10.0.454.0">
+      <inputs>
+        <input name="EndEvent">
+          <expression>
+            <expression-string>Flowcharts("MainFlowchart").Loop.EndEvent</expression-string>
+          </expression>
+        </input>
+        <input name="StartEvent">
+          <expression>
+            <expression-string>Flowcharts("MainFlowchart").ImageActuelle.EndEvent</expression-string>
+          </expression>
+        </input>
       </inputs>
       <userXML />
     </setting>

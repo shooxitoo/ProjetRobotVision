@@ -5,9 +5,12 @@
       <Item text="LectureBD.Result" />
       <Item text="BlobEngr15.Positions(1).X" />
       <Item text="BlobEngr15.Positions(1).Y" />
+      <Item text="PasTrouve15.Result" />
+      <Item text="LoopEngr15.Count" />
+      <Item text="IfFound15.SelectedCase" />
     </Items>
   </QuickEvaluate>
-  <QuickRunMode isQuickRun="True" />
+  <QuickRunMode isQuickRun="False" />
   <Debugger version="10.0.454.0" stopAtInspectionEnd="True" />
   <OperatorViewUIControllers version="10.0.454.0">
     <OperatorView name="OperatorView" id="8a9a4a30-ef7a-41fd-aea4-da5eeeef4588">
