@@ -5,9 +5,16 @@
       <Item text="LectureBD.Result" />
       <Item text="BlobEngr15.Positions(1).X" />
       <Item text="BlobEngr15.Positions(1).Y" />
+<<<<<<< HEAD
       <Item text="PasTrouve15.Result" />
       <Item text="LoopEngr15.Count" />
       <Item text="IfFound15.SelectedCase" />
+=======
+      <Item text="LoopEngr15.Count" />
+      <Item text="IntensityChecker.StatusConditions(&quot;AverageOK&quot;).Result" />
+      <Item text="BlobEngr15.Status" />
+      <Item text="BreakLoopEngr15.Result" />
+>>>>>>> 9e16c40f700a2b712796eddfa690df5d20eeb8e1
     </Items>
   </QuickEvaluate>
   <QuickRunMode isQuickRun="False" />

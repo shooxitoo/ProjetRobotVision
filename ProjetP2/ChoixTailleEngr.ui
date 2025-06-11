@@ -2,7 +2,11 @@
 <UIConfiguration version="10.0.454.0">
   <Flowchart name="ChoixTailleEngr" id="acd84bbb-f4bb-4796-8545-af7035982bd9" scale="1">
     <imageInfos />
+<<<<<<< HEAD
     <Step name="FlowchartStart" id="93b3ec05-c5e5-467b-a8b9-d5baeec80d65" multiDisplayViewMode="Single" quickRunEnabled="True">
+=======
+    <Step name="FlowchartStart" id="48ad62e1-1ae9-4d3b-8d65-30ba5f9961b4" multiDisplayViewMode="Single" quickRunEnabled="True">
+>>>>>>> 9e16c40f700a2b712796eddfa690df5d20eeb8e1
       <annotations-manager visible="True">
         <annotations-Display1>
           <annotations />
